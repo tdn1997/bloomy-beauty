@@ -7,6 +7,7 @@
 - [Báo cáo kỹ thuật](docs/bao-cao/bao-cao-de-tai.md) · [Bản HTML để in](docs/bao-cao/bao-cao-de-tai.html)
 - [Sơ đồ SQLite và luồng nghiệp vụ](docs/bao-cao/so-do.md)
 - [Slide ngoại tuyến 10 trang](docs/trinh-dien/slides.html) · [Kịch bản và câu hỏi bảo vệ](docs/trinh-dien/kich-ban.md)
+- [Video demo 4 phút 10 giây, có phụ đề](docs/trinh-dien/bloomy-beauty-demo.mp4) — có trong ZIP bàn giao, không nằm trong ZIP mã nguồn.
 - [Nguồn sản phẩm/ảnh](docs/product-sources.md)
 
 ## Chạy nhanh bản trình diễn

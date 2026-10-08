@@ -1,0 +1,720 @@
+{
+  "application": "Bloomy Beauty",
+  "version": "1.0",
+  "schema": 5,
+  "prepared": "2026-10-08",
+  "git_commit": null,
+  "note": "No Git repository in this workspace; hashes identify the source snapshot.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 44,
+      "sha256": "8780225fd938d93bb6bc415e313a778f838b9a9d634d6faa53f0e7dbe32b7fca"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2774,
+      "sha256": "2fe132c583d7293afa84516afb276cb694e404de02aaa8913a0b2ecf2d6e3d37"
+    },
+    {
+      "path": "app/build.gradle.kts",
+      "bytes": 3436,
+      "sha256": "9cd6e225889da337f07df8b9ade972cb6dff97cd340986245305174bcc57785d"
+    },
+    {
+      "path": "app/proguard-rules.pro",
+      "bytes": 750,
+      "sha256": "56fd960cf225f6ca40f982b13a5dbb0d8bc3dfde13ff76422825c6070d0a1890"
+    },
+    {
+      "path": "app/src/androidTest/AndroidManifest.xml",
+      "bytes": 676,
+      "sha256": "cece9cedbeae2f6d433a6077b4e22639954e8d60c01ece20709dae583e405b34"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/ExampleInstrumentedTest.kt",
+      "bytes": 675,
+      "sha256": "804fff54456474579682b785f2a2ffd0ccf23eff9c8dbecb02cc571dc6da7fd1"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/admin/AdminRepositoryTest.kt",
+      "bytes": 9450,
+      "sha256": "abfc8bb9ea344d1274d3955b32b404c974881bbd8eaa49c69ab8266d8516254b"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/auth/AuthRepositoryTest.kt",
+      "bytes": 6006,
+      "sha256": "ab7b852c6590ab411c397967f761548c473347bc6f22f6109ad2be9dfd5ba4e1"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/cart/CartRepositoryTest.kt",
+      "bytes": 8689,
+      "sha256": "25731c3597d5fe4f176f33b9ef833ae28f9f9572d07cde2f62c11aa88300ba1b"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/catalog/CatalogRepositoryTest.kt",
+      "bytes": 4538,
+      "sha256": "c31e28b474f3638fbb299b56d6480f69ff553ec9f7ced9c3a9c6cb111421978e"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/order/OrderRepositoryTest.kt",
+      "bytes": 15417,
+      "sha256": "e5628f980dedc64de5112a0cc4bad515f172ceb078143242783cb498fb6dfd95"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/profile/ProfileRepositoryTest.kt",
+      "bytes": 5025,
+      "sha256": "36e225ad08138e28006ae08a840dc0f96a13bddc45a91e2322ed79bf3b2fca34"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/security/SessionIsolationTest.kt",
+      "bytes": 5554,
+      "sha256": "458efb4501cf11374da1a5e404d4b6e2fa5186dd4d3424ba1e536c81b03b8f4d"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/admin/AdminFlowTest.kt",
+      "bytes": 5504,
+      "sha256": "62daa2541e3ee23082394aae61a3a3fe214ff2af3db15c6d431990e91d41b957"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/app/ShopColdStartTest.kt",
+      "bytes": 5083,
+      "sha256": "875a540d7ada222d8aa08f91b2dc29dda263a01bd8041be943a3fed29e72b8ec"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/app/ShopIntegrationTest.kt",
+      "bytes": 12169,
+      "sha256": "6507e27053f5da859e5a79f0627d257e1030e713d0d9929ce93e52ed22338d7a"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/app/ShopRecreationTest.kt",
+      "bytes": 8990,
+      "sha256": "de1d1a6cce660b20fe87d448a8c03a40c0f4d34844ed2631eac89d9bcd8d21fc"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/auth/AuthFlowTest.kt",
+      "bytes": 3230,
+      "sha256": "6d2ec40459886db9e59e3ff3997b552320cc18284c75c7b22e18592efe98dc16"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/auth/RegressionInputMethodService.kt",
+      "bytes": 252,
+      "sha256": "770aaca8d85843fda61d9eba6e855cfad856252ef9863806ba5bffc5e371781e"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/auth/VietnameseInputTest.kt",
+      "bytes": 4517,
+      "sha256": "d9bccc6b9baef3d2bdc4d037f5a23aa909533cf164d4c212f153307f5674cee5"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/cart/CartFlowTest.kt",
+      "bytes": 16693,
+      "sha256": "cc61fb8be775d02b1e0af0ab1c75347a87f1857a6c69f484a25d04d2566a944e"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/cart/CartRefreshTest.kt",
+      "bytes": 4838,
+      "sha256": "c35153f40b1f01024ee843a77aa35bb5f6d7b33626609eae3cd928bd88467f18"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/home/HomeFlowTest.kt",
+      "bytes": 5789,
+      "sha256": "0672e0a32d3dc7853d5d653c0f68df38735c69dea594858f2670f6b49e7e1005"
+    },
+    {
+      "path": "app/src/androidTest/res/xml/regression_input_method.xml",
+      "bytes": 115,
+      "sha256": "4aafc899939ff4b8883a80c6e00f7ff7413a08a603d485a15f1035c07760b50c"
+    },
+    {
+      "path": "app/src/main/AndroidManifest.xml",
+      "bytes": 1084,
+      "sha256": "bc488a312598d94f1529ec27da893c81c30bbf23cff7563229c33e43d138efe0"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/BloomyBeautyApplication.kt",
+      "bytes": 1183,
+      "sha256": "d85a15524b0a510cce3fd64a2e9bb2723077fed9bfa56c151667a17b59d34598"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/MainActivity.kt",
+      "bytes": 1095,
+      "sha256": "5dd0cdcc48612100a3939852c5e1bb9bfc8db864c1b1c14e1a04249d4de577d3"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/admin/AdminRepository.kt",
+      "bytes": 7060,
+      "sha256": "7ef0752725794b019acec0f1fee439302332cf7f4dfadf0b73cbd4c2b19293cf"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/admin/AdminSchema.kt",
+      "bytes": 2505,
+      "sha256": "7eb815b7313e1d22c73f7afd6eb7b6748fcb583f01d4e7f5b07a087692247d70"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthContract.kt",
+      "bytes": 662,
+      "sha256": "6959888f4eb8085f103dfd519e46b2d8d87dbd599b0b41a3045330d9aa2a6e5f"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthDatabaseHelper.kt",
+      "bytes": 2693,
+      "sha256": "7ea45da2dd4cfd01887596287b5fba87a195bf23218ed2fbe8fd569952eed1e0"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthModels.kt",
+      "bytes": 1743,
+      "sha256": "35e0f521001db76af4e0016495e399f7ec1acb948b5b51fad158383be3af6b19"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthRepository.kt",
+      "bytes": 5157,
+      "sha256": "f98b4836820197f7ac4c757699ac08c9801c6ece40f61423950b179bb27630e6"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/auth/PasswordHasher.kt",
+      "bytes": 1175,
+      "sha256": "277515fcddde24271e33b0fdcba2ba8217b998ea13a9180935314aecdb481146"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/auth/SessionAccess.kt",
+      "bytes": 550,
+      "sha256": "477fbdaccf6d34b245f0afa2dac3c7f7f236327e0bcc21f1b88e6bb23f3d6332"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/cart/CartModels.kt",
+      "bytes": 2250,
+      "sha256": "daca7fd33dc46ec3cab59913a28ab3e511e33f017ab75a6e85d505f74ae4bc6c"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/cart/CartRepository.kt",
+      "bytes": 6919,
+      "sha256": "06fed7410aa06f8d552b9f4296ec753dfc00e25b022a7c9e3d16665ea6be29ee"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/cart/CartSchema.kt",
+      "bytes": 1103,
+      "sha256": "b48f69422e42968271b9b3151ae50cc82cd7493059d4c1e1eb51f98dcb9656dc"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogModels.kt",
+      "bytes": 1850,
+      "sha256": "6b5d0cb813b4b1cbd74a814d7ff0fcb8e5855a717a91ef489ea2a7ae458331b8"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogRepository.kt",
+      "bytes": 3417,
+      "sha256": "9a81be74b3827c1cc10f90bbbad667b2280066dfd9a3285b8a43b1e684f30cc8"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogSchema.kt",
+      "bytes": 2143,
+      "sha256": "c3425e8581205ddc95c63ec27e6869e0a98418a95efa8abadc22a87f62e94ff9"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogSeed.kt",
+      "bytes": 4560,
+      "sha256": "1a39a3d235bf8e31d331aeae9b91c34164c96802409a59c9091edcdc31d203d4"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/order/OrderModels.kt",
+      "bytes": 2111,
+      "sha256": "fd9fef48ab8f3d631befd3a9c6c797a819d32ee0fc5292218ebde35f3ecf301f"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/order/OrderRepository.kt",
+      "bytes": 11700,
+      "sha256": "123a1e69e1d8f57655eba7ed8c5baa3335663ce64087ee348e10c01703bb60d9"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/order/OrderSchema.kt",
+      "bytes": 1681,
+      "sha256": "b0a0dfc0bb03c9497d8f85865aea82464d574b7bd2413946a5775c3f75988387"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/profile/ProfileRepository.kt",
+      "bytes": 3789,
+      "sha256": "3786c8c9bfae6133472e7d0f0f55c195ed78d25501825f3babc68a0cb32b18a9"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/admin/AdminScreen.kt",
+      "bytes": 13955,
+      "sha256": "45d124b027f4e881a2c46e250a4e64c823c07549975d3aa9e7cd814dac97ef46"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/app/BloomyApp.kt",
+      "bytes": 5662,
+      "sha256": "79b3fc9360dcd2b1166dfb473c7791ad57336123fe545eea05de92262e7ee0a9"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/auth/AuthScreen.kt",
+      "bytes": 14387,
+      "sha256": "480ed719b62fa6914dc5f2d6c9c50dc318abc1bfb4ca5d6afdad1f5c0ec3b465"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/auth/AuthViewModel.kt",
+      "bytes": 4059,
+      "sha256": "ec653435a3bafb1b0026e195705878e257d414b5e90dfb6eed987da677e1f8f0"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/cart/CartScreen.kt",
+      "bytes": 15575,
+      "sha256": "24211efecd4e2b677b3241df460066ce1b7d0a35ca48d49abce56364033f8f17"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/cart/CartViewModel.kt",
+      "bytes": 8699,
+      "sha256": "be209b46cd554ce40db45f08e33fab2ffc014e61b75f7db96d1b3c66aebff919"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt",
+      "bytes": 25253,
+      "sha256": "eb372b2610a935e769ec473faf03cd90330be2bf2fb4b3e155b6c5327f3a9660"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeViewModel.kt",
+      "bytes": 3651,
+      "sha256": "825c74b44edef3fa650a9892129d0944575834f9ce82b91b3124cba4cb2ee58f"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/home/ProductPresentation.kt",
+      "bytes": 848,
+      "sha256": "4b2878ed16d3b4b233a2adab54fa2395636474af6a309e28fd94814b4a8a399f"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/order/OrderPresentation.kt",
+      "bytes": 300,
+      "sha256": "2925a827857cf4b28e9698efb0b040bd983de3bbd14bbc3e071c912d09d65dea"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/order/OrdersScreen.kt",
+      "bytes": 9946,
+      "sha256": "b9ba2d3779b46aef6ea7f2e44e62cd7d65a3f9d1f12adf5a196db54c10d4317a"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/profile/ProfileScreen.kt",
+      "bytes": 8889,
+      "sha256": "c552f455783399338afaed19b5ca0c1833b5472a449249c1edf5c3368bfef82f"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/ui/theme/Color.kt",
+      "bytes": 401,
+      "sha256": "1e77217921e1f44afb5f779fedbaf58f46361e10625f42840220f048494af50b"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/ui/theme/Theme.kt",
+      "bytes": 1750,
+      "sha256": "774beb13580571a1dd372053081eb836dfec922773b4fb68fca9c676e568d098"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/ui/theme/Type.kt",
+      "bytes": 993,
+      "sha256": "a79b1074639fea4f203db784d0d0256827d290a9ca08a595c89c48885b512a04"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_body_scrub.jpg",
+      "bytes": 125697,
+      "sha256": "9f67ffd22e833d9e8c0bfc22bd37510f36e4daf8856e4e431507d28d8fdff497"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_cleanser.jpg",
+      "bytes": 116803,
+      "sha256": "f96f79a70031335ff2625cb88bfd2d6ce8a59b68e53d29a17ca2ae42bc332344"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_lip_balm.jpg",
+      "bytes": 131915,
+      "sha256": "d36477619166db86162e249aab9bf55ddd2e7d9bfd7d9b3f15081bfcd0994f3e"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_lip_scrub.jpg",
+      "bytes": 121658,
+      "sha256": "0d87950360e15fd73f29e0ec291d921c53291a82f93122636e166e84dd7e30ef"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_micellar.jpg",
+      "bytes": 608334,
+      "sha256": "e60d0364c957ae3ed10d5d46601dc8455b514a46af83ac824c25679053a310c1"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_serum.jpg",
+      "bytes": 498021,
+      "sha256": "a8fe6c2d7661981d4a729f0d894fc9c672381e171ae829ad312f844e72aa98c0"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_shampoo.jpg",
+      "bytes": 98425,
+      "sha256": "95c84a2f7edccd9f9300b93e176c5990bec4ff1406504dfa3dceccf0b37b08c7"
+    },
+    {
+      "path": "app/src/main/res/drawable-nodpi/product_toner.jpg",
+      "bytes": 101970,
+      "sha256": "ddc812ca8a5bcd94ce76425952c3772d6867220eac42e4ad091c070589984a80"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_launcher_background.xml",
+      "bytes": 5606,
+      "sha256": "ed423c73a6f40a4d2909f0901e60527b3a807cd59e1b5593bcaae1808b1c6321"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_launcher_foreground.xml",
+      "bytes": 1702,
+      "sha256": "01d1a6a6c1234eb7fe270d097eb283d72b9c95ae5118886f1b6573aad280f1f7"
+    },
+    {
+      "path": "app/src/main/res/mipmap-anydpi/ic_launcher.xml",
+      "bytes": 343,
+      "sha256": "88f7653499ef524126ea5018a99baf9cc3269e7e584d6205dfdd76db39f39cc0"
+    },
+    {
+      "path": "app/src/main/res/mipmap-anydpi/ic_launcher_round.xml",
+      "bytes": 343,
+      "sha256": "88f7653499ef524126ea5018a99baf9cc3269e7e584d6205dfdd76db39f39cc0"
+    },
+    {
+      "path": "app/src/main/res/mipmap-hdpi/ic_launcher.webp",
+      "bytes": 1404,
+      "sha256": "dd00996198640ed28fbc09cdcd7a3807cf8707f3eb255b659634da3ca6a6ff01"
+    },
+    {
+      "path": "app/src/main/res/mipmap-hdpi/ic_launcher_round.webp",
+      "bytes": 2898,
+      "sha256": "1ed73f5341a69d3b41c7e02e126803f50cc8c3284adf4bbb737f0c93577aef07"
+    },
+    {
+      "path": "app/src/main/res/mipmap-mdpi/ic_launcher.webp",
+      "bytes": 982,
+      "sha256": "846219e6f72fe9a6c104ca8919cbee36a101e7d2ff8da9da67b689a5888f060d"
+    },
+    {
+      "path": "app/src/main/res/mipmap-mdpi/ic_launcher_round.webp",
+      "bytes": 1772,
+      "sha256": "4e2c58b91de01130e6479e00cbbaaf6e77cd961dd2c8e303cf13cd077fa92632"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xhdpi/ic_launcher.webp",
+      "bytes": 1900,
+      "sha256": "398340dad816fc9a6338cb151a8cf1e45b926f9bfb70628b24c4bd2523cc94d4"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp",
+      "bytes": 3918,
+      "sha256": "91b490aef86574901137f0a252272e1f1add99c1ad709e0696ed68929b88d261"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
+      "bytes": 2884,
+      "sha256": "58ae87fa0c5b5d1562d27fd648d2c061553fe20e3ed570bde588162d01ea7a27"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp",
+      "bytes": 5914,
+      "sha256": "3009fad079f5772f30ecd767f98924367fbe0f81c30048d672d4fda2d5ca7d12"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp",
+      "bytes": 3844,
+      "sha256": "f98fef5bc3bfe5b65692c40ad1cbae2bec4faf9f1b249c397626740db71b62d8"
+    },
+    {
+      "path": "app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp",
+      "bytes": 7778,
+      "sha256": "5faf033745c8c882c43bb1b372d4e4a5890caec63d9892a2e756c954108b85dc"
+    },
+    {
+      "path": "app/src/main/res/values/colors.xml",
+      "bytes": 378,
+      "sha256": "b5626527d503417f0d8e5b1e08f338de7b31173bf0e122815f03e64932adbd88"
+    },
+    {
+      "path": "app/src/main/res/values/strings.xml",
+      "bytes": 4756,
+      "sha256": "2163e57215dfebf59a4b3ba9907c24af9f5b4d5a62beca20db1282890b78acc9"
+    },
+    {
+      "path": "app/src/main/res/values/themes.xml",
+      "bytes": 154,
+      "sha256": "99d65cb1f14801914aee2bcc08eba5df982ea5bfa0510a9da68c7a2a8981e7a7"
+    },
+    {
+      "path": "app/src/main/res/xml/backup_rules.xml",
+      "bytes": 213,
+      "sha256": "a257aeef5edaf2d3e675e12b5b4666861d9af211fe82e0b705ba7594e585a6ce"
+    },
+    {
+      "path": "app/src/main/res/xml/data_extraction_rules.xml",
+      "bytes": 238,
+      "sha256": "3eb2a5022465931712830a4003ba71aaccf75460777056c4aa62b1ea1b890f6e"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/ExampleUnitTest.kt",
+      "bytes": 348,
+      "sha256": "917cbd5170fda49a14472996cfd4d3ad45f3fe0dc3ea07f128c2c6b0dcdc8d72"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/admin/AdminRulesTest.kt",
+      "bytes": 1335,
+      "sha256": "eaff95474140c83d6808852a803256ec6b88281a24f0937e15592ca14c0cad7f"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/auth/AuthValidationTest.kt",
+      "bytes": 1709,
+      "sha256": "ee9de061c8ffb1aa4527485255c8e688ccb1b285eec42d3e9ed340a13d437247"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/auth/PasswordHasherTest.kt",
+      "bytes": 1178,
+      "sha256": "4958a921d2a8c4b4029133619d592e6189f09740df59d08c5424960be2104c46"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/cart/CartRulesTest.kt",
+      "bytes": 2744,
+      "sha256": "0869789c272def52c37ad4293452204a428388b0f1d5b25a5fd7730ed162b728"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/catalog/ProductSearchTest.kt",
+      "bytes": 1680,
+      "sha256": "61f8c0feb0e4d2961279ed4c19dcd3c40a28f1e488ab7188fb2821664818d003"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/order/CheckoutRulesTest.kt",
+      "bytes": 1621,
+      "sha256": "fb813dc23a66110bc3639fdcb5bb2ca7d900904b9f88ce7d679dbf1b09f9bcf5"
+    },
+    {
+      "path": "build.gradle.kts",
+      "bytes": 269,
+      "sha256": "b001f81a8a22975c7a2b3af65cfdd80a7ba5b8cc524be259f9537f325fff8829"
+    },
+    {
+      "path": "docs/bao-cao/bao-cao-de-tai.html",
+      "bytes": 21807,
+      "sha256": "545a0e737b4951f4434b30a90ce39077b1c40a0bd4b21463baca659dc8327ff7"
+    },
+    {
+      "path": "docs/bao-cao/bao-cao-de-tai.md",
+      "bytes": 18245,
+      "sha256": "469d3d71ec701366038935990cd419827921c0d12a3de6090ef1e49646b4a0da"
+    },
+    {
+      "path": "docs/bao-cao/so-do.md",
+      "bytes": 5375,
+      "sha256": "5d6a7c23c12884a4b1b5658b94bd5f501eabcbcc3d6b58adab99f28547035a12"
+    },
+    {
+      "path": "docs/bao-cao/so-do/dat-cod.svg",
+      "bytes": 4099,
+      "sha256": "c990c2287628664c2a77a1b089dd3b93d2ca23c32a2a1588eadf9567fdf3bad6"
+    },
+    {
+      "path": "docs/bao-cao/so-do/du-lieu.svg",
+      "bytes": 6709,
+      "sha256": "8d9072f16f3149093166710d7424d823382f52b025efcc2af3c63a53fe11300a"
+    },
+    {
+      "path": "docs/bao-cao/so-do/kien-truc.svg",
+      "bytes": 2657,
+      "sha256": "785f40be87dc97e4e41d766da914f217fd1e5018344f9b30e064525a9f3ea1df"
+    },
+    {
+      "path": "docs/bao-cao/so-do/trang-thai.svg",
+      "bytes": 3358,
+      "sha256": "e0d65f7f117cd8cd9929197b9cc159febcea965b4f7dfa3c2d4a84f83f61c507"
+    },
+    {
+      "path": "docs/bao-cao/so-do/use-case.svg",
+      "bytes": 3393,
+      "sha256": "9a02ca32f2bba85e1d9274182e4258c65df71b9c743d351182d6e30ea14198b9"
+    },
+    {
+      "path": "docs/huong-dan-chay.md",
+      "bytes": 8361,
+      "sha256": "91dd58c35e5b2a4b9969c2c8267b1508a18ca51bb180dde1b0ee0d95d56d52c1"
+    },
+    {
+      "path": "docs/ke-hoach-de-tai.md",
+      "bytes": 127121,
+      "sha256": "1f56edae524b3bc51e605e1bfcb01af0bd7c440d768a5f8056f69b2a7fc228eb"
+    },
+    {
+      "path": "docs/product-sources.md",
+      "bytes": 3977,
+      "sha256": "9221e4e94cb16ca0dcd73eb78af2d4d5c275cb24ea8d1aab2a449a59e4465f70"
+    },
+    {
+      "path": "docs/screenshots/admin-order-detail.png",
+      "bytes": 157873,
+      "sha256": "86e0e6b220aefe8207a5b5007e037926f3f4c79834a1361860c9e75eebc0fa1f"
+    },
+    {
+      "path": "docs/screenshots/admin-products.png",
+      "bytes": 218170,
+      "sha256": "a265503ef953470387de785b06e487f1fbdfe55bdc211dc6ead1b88afd6b9a55"
+    },
+    {
+      "path": "docs/screenshots/cancelled-order.png",
+      "bytes": 133007,
+      "sha256": "f8a2cc8aaa88c1c42688dd5da3e36ea0d041ca3af28a244e57546361c19210d7"
+    },
+    {
+      "path": "docs/screenshots/cart-screen.png",
+      "bytes": 103968,
+      "sha256": "54d75aaf6192f3033e4a590692a49b9946f76b91870c38d4dfa9385fe9feee3c"
+    },
+    {
+      "path": "docs/screenshots/cod-confirmation.png",
+      "bytes": 124989,
+      "sha256": "f8390f60e31ccc1b6e3d061675fe85c4e4998ed452f8ada337ac9d9a2f7eec62"
+    },
+    {
+      "path": "docs/screenshots/customer-delivered-order.png",
+      "bytes": 118518,
+      "sha256": "31e1e921d07f48153b73381b6a77a8d716c251be4b4f6066d79a326baa51a195"
+    },
+    {
+      "path": "docs/screenshots/demo-admin-delivered.png",
+      "bytes": 183244,
+      "sha256": "e90a144afac5ce29471d0949714248ad15616a1422ae75e3ccb157d23b0f614d"
+    },
+    {
+      "path": "docs/screenshots/demo-customer-delivered.png",
+      "bytes": 123925,
+      "sha256": "6669a2f04f0218cf7be41a0eaab3d969b3f1e373252c7fff5eaa662a88fe48b2"
+    },
+    {
+      "path": "docs/screenshots/demo-order-created.png",
+      "bytes": 157719,
+      "sha256": "781766fc31986e874465c0b7662f185153ae14b1d562dc7702a90461f3be8f00"
+    },
+    {
+      "path": "docs/screenshots/home-screen.png",
+      "bytes": 370505,
+      "sha256": "ed971a00ff90715f3c5324c631de2ff0fd9571327d7ba3a73ef65036985832e5"
+    },
+    {
+      "path": "docs/screenshots/landscape-font150.png",
+      "bytes": 98568,
+      "sha256": "54e5d1dfe4523b86a056189b57fe3eb3750d0b66cb476e282082ec2b3cce1fe3"
+    },
+    {
+      "path": "docs/screenshots/order-detail.png",
+      "bytes": 126170,
+      "sha256": "d56df429aefe5af2ae4bb7f7b60f4c8722b5f247a2c9d6aba41679028062f778"
+    },
+    {
+      "path": "docs/screenshots/order-success.png",
+      "bytes": 148714,
+      "sha256": "6c5b4bcf23a37bbe767cd5c3724a0a391d697c63753f5249067bdf5533efb3f9"
+    },
+    {
+      "path": "docs/screenshots/product-detail.png",
+      "bytes": 290510,
+      "sha256": "09f00f024faca4c618b993da3201305aa16974a09b31443dec63887b62df75a1"
+    },
+    {
+      "path": "docs/screenshots/profile-screen.png",
+      "bytes": 119225,
+      "sha256": "8a42160570df214ee6a081d62f68192507f86e7324902c9bbef27427c9cfbcb8"
+    },
+    {
+      "path": "docs/screenshots/recreated-REVIEW.png",
+      "bytes": 124592,
+      "sha256": "57702029804108c9660a79a0e99e8a6de76df3a89dec11a0f31a34de1638b666"
+    },
+    {
+      "path": "docs/screenshots/recreated-SHIPPING.png",
+      "bytes": 121438,
+      "sha256": "8a5576102e9ce301c2f4a1292d1b94ac1db99915de492ea80c57718ab7c0fb44"
+    },
+    {
+      "path": "docs/screenshots/recreated-SUCCESS.png",
+      "bytes": 148036,
+      "sha256": "6139f0842b35c7820a0c1342b61a9eb746decb7b31f9ef2836888a8e163bff15"
+    },
+    {
+      "path": "docs/screenshots/release-qa-recovered-order.png",
+      "bytes": 158014,
+      "sha256": "24b6391f624cbad54d48e777111b34a926231dacda91a312d79211c90dc12d28"
+    },
+    {
+      "path": "docs/screenshots/release-qa-review.png",
+      "bytes": 132723,
+      "sha256": "1f73ebae2745c21f2c8618b2b9eec01407f6cc34db3461e0e662afc40853c3a4"
+    },
+    {
+      "path": "docs/screenshots/release-qa-stock29.png",
+      "bytes": 215376,
+      "sha256": "f743385b5d48f1d1e55673d8495a5b8c6490f149c80ebc305bb63e2530552a53"
+    },
+    {
+      "path": "docs/screenshots/shipping-review.png",
+      "bytes": 125851,
+      "sha256": "158b329ca665700c4d11aeb3099388df6237970e79f258d5abbd905805f7d3ec"
+    },
+    {
+      "path": "docs/trinh-dien/kich-ban.md",
+      "bytes": 6315,
+      "sha256": "73a1f11baf5a3181058473b33d5bd409ce7dd40b05ee8e087f21b63a718d84fa"
+    },
+    {
+      "path": "docs/trinh-dien/slides.html",
+      "bytes": 11642,
+      "sha256": "175154cd5c163c1762b93113f8ca5a32b55ed43273c25a4d45e2f867bdd2c67c"
+    },
+    {
+      "path": "gradle.properties",
+      "bytes": 1346,
+      "sha256": "51e4b5a131eb01b1cdeb2f6f26aaba69d367a4a9d4ccd10c6d6f6d12fd545b66"
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "bytes": 2202,
+      "sha256": "70dcf204987e466513151d3f416cda93b6814e4e7a9906ee1c8bacef7e8c7211"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 59203,
+      "sha256": "e996d452d2645e70c01c11143ca2d3742734a28da2bf61f25c82bdc288c9e637"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 233,
+      "sha256": "eaff95fd9b5e75f0a9f28fa62e2e67c39d392f0d5756b8d16ce9ef5e5eafe9d0"
+    },
+    {
+      "path": "gradlew",
+      "bytes": 5766,
+      "sha256": "63135287117a1e6d12c84580f1f49c61d1ba02218ecd28660605e97f976e7d65"
+    },
+    {
+      "path": "gradlew.bat",
+      "bytes": 2763,
+      "sha256": "af835f98787e9269af5a046edcb821a592fed372139df7b947b471a63cfc236b"
+    },
+    {
+      "path": "scripts/create-demo-admin.py",
+      "bytes": 1065,
+      "sha256": "e18a00a286cde5d664489bf1f449427ad52b84e28520f233523f5b8fec34dcfe"
+    },
+    {
+      "path": "scripts/package-submission.py",
+      "bytes": 4069,
+      "sha256": "31a40c40ff3d89b906def975befd23a1168136dc7427ea13167e9641e45072a7"
+    },
+    {
+      "path": "scripts/render-docs.py",
+      "bytes": 9737,
+      "sha256": "172683a3b072bb784179cbb971fd8305573740621a4abb0d3bf8321823317fd6"
+    },
+    {
+      "path": "scripts/render-video.py",
+      "bytes": 2018,
+      "sha256": "346ea566e341168fe767f1305773478e8093f706a3a90550749c9ad32f202a22"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "bytes": 537,
+      "sha256": "7c7e8c76cb2cb3933af58d370c09498ef7fe13a964915abd6df5649d58f65d7a"
+    }
+  ]
+}
