@@ -1,0 +1,242 @@
+[
+  {
+    "step": 1,
+    "file": "01-dang-nhap.png",
+    "title": "Đăng nhập",
+    "description": "Người dùng nhập email và mật khẩu để truy cập ứng dụng.",
+    "captured_at_local": "2026-10-14T20:20:37",
+    "sha256": "8ea97de6159706e6d7bbffb801f07878fa2dbda9a377f97cba8e8f8370bacee3"
+  },
+  {
+    "step": 2,
+    "file": "02-loi-dang-nhap.png",
+    "title": "Kiểm tra dữ liệu đăng nhập",
+    "description": "Gửi biểu mẫu trống: ứng dụng hiển thị thông báo yêu cầu dữ liệu hợp lệ.",
+    "captured_at_local": "2026-10-14T20:20:54",
+    "sha256": "b792781ad27146b1c83f0ac02e9f80802207d7e3a815f53335c705f7906f1393"
+  },
+  {
+    "step": 3,
+    "file": "03-dang-ky.png",
+    "title": "Đăng ký tài khoản",
+    "description": "Biểu mẫu gồm họ tên, email, mật khẩu và xác nhận mật khẩu.",
+    "captured_at_local": "2026-10-14T20:20:58",
+    "sha256": "e8548bbc99cc442a0c9aac7587a29d52baf5e62fa85ef2d5cfb7a0b9beef1193"
+  },
+  {
+    "step": 4,
+    "file": "04-trang-chu.png",
+    "title": "Trang chủ sau đăng ký",
+    "description": "Đăng ký tài khoản kiểm thử thành công; hiển thị lời chào, bộ sưu tập và sản phẩm.",
+    "captured_at_local": "2026-10-14T20:21:48",
+    "sha256": "9f334f3257ca392a575bc73bc8af8e15ebb369c2ee37d8fb74572ab08089f3bb"
+  },
+  {
+    "step": 5,
+    "file": "05-gio-hang-trong.png",
+    "title": "Giỏ hàng trống",
+    "description": "Tài khoản mới chưa có sản phẩm; tổng tiền bằng 0 và chưa thể tiếp tục đặt hàng.",
+    "captured_at_local": "2026-10-14T20:21:51",
+    "sha256": "0dfd2ed31b3ba0617f5f55e8692a2c2e2d1d0012cc8e0491592c4ac4cd54ab62"
+  },
+  {
+    "step": 6,
+    "file": "06-danh-muc.png",
+    "title": "Khám phá sản phẩm",
+    "description": "Duyệt danh mục, bộ lọc và lựa chọn sắp xếp sản phẩm.",
+    "captured_at_local": "2026-10-14T20:22:10",
+    "sha256": "fcb1bd130624c40d78dc26be7a648b57605928350e56bbb393fa075485272ad1"
+  },
+  {
+    "step": 7,
+    "file": "07-tim-kiem-rong.png",
+    "title": "Không có kết quả tìm kiếm",
+    "description": "Từ khóa không khớp: hiển thị 0 sản phẩm và cho phép xóa bộ lọc.",
+    "captured_at_local": "2026-10-14T20:22:16",
+    "sha256": "a9dfbf27992569af94be6b492b162d2bb4d641c107cb11742a3e1f44690298c5"
+  },
+  {
+    "step": 8,
+    "file": "08-yeu-thich.png",
+    "title": "Danh sách yêu thích",
+    "description": "Đánh dấu gel bí đao rửa mặt và xem lại ở thẻ Yêu thích.",
+    "captured_at_local": "2026-10-14T20:22:37",
+    "sha256": "9bca915d45e11b88945b41b5a95daa7e1bfbc4312a18aae4e0ddd2ec63924ea6"
+  },
+  {
+    "step": 9,
+    "file": "09-chi-tiet-san-pham.png",
+    "title": "Chi tiết sản phẩm",
+    "description": "Xem ảnh, thương hiệu, dung tích và giá của mặt hàng đã chọn.",
+    "captured_at_local": "2026-10-14T20:22:41",
+    "sha256": "62ec7b57d33b088455e05ae85e3ea82c813e85b7c91bf3b49cfc01fe8dd6f352"
+  },
+  {
+    "step": 10,
+    "file": "10-chi-tiet-noi-dung.png",
+    "title": "Thông tin và thao tác sản phẩm",
+    "description": "Xem tồn kho, mô tả, thành phần, cách dùng và nút Thêm vào giỏ.",
+    "captured_at_local": "2026-10-14T20:22:42",
+    "sha256": "a893b283ccc3c94991fb1e84aa18ae4bad0d4a86ed40c2789d6cedff6eb438c4"
+  },
+  {
+    "step": 11,
+    "file": "11-gio-hang.png",
+    "title": "Giỏ hàng có sản phẩm",
+    "description": "Một gel bí đao rửa mặt giá 192.000 ₫; có điều chỉnh số lượng và xóa.",
+    "captured_at_local": "2026-10-14T20:23:04",
+    "sha256": "96e798ae764599882f2833fe6d28027e8517e6a5cb15aa642008654b85da0264"
+  },
+  {
+    "step": 12,
+    "file": "12-giao-hang.png",
+    "title": "Nhập thông tin giao hàng",
+    "description": "Cung cấp người nhận, số điện thoại và địa chỉ trước khi đặt COD.",
+    "captured_at_local": "2026-10-14T20:26:12",
+    "sha256": "c5a781a617b5b52626bbc45c888d502174e66d15393fbd445202c802fcbe1eee"
+  },
+  {
+    "step": 13,
+    "file": "13-loi-giao-hang.png",
+    "title": "Kiểm tra thông tin giao hàng",
+    "description": "Bỏ trống thông tin liên hệ: ứng dụng giữ biểu mẫu và báo lỗi để bổ sung.",
+    "captured_at_local": "2026-10-14T20:23:10",
+    "sha256": "a57882ee6f80107d637a45cccc51ac6daca1e9d47b46c8b69bd378ce7598bd2f"
+  },
+  {
+    "step": 14,
+    "file": "14-xac-nhan-cod.png",
+    "title": "Kiểm tra trước khi đặt COD",
+    "description": "Đối chiếu thông tin người nhận, hàng hóa, phí giao hàng và tổng thanh toán.",
+    "captured_at_local": "2026-10-14T20:26:15",
+    "sha256": "caa0f6c043c0ca0b4e91101b52c655a25df69f7c51413c00ddfdbb15aa239fbf"
+  },
+  {
+    "step": 15,
+    "file": "15-dat-hang-thanh-cong.png",
+    "title": "Đặt hàng thành công",
+    "description": "Hệ thống tạo mã đơn, lưu đơn và hiển thị kết quả đặt COD.",
+    "captured_at_local": "2026-10-14T20:26:41",
+    "sha256": "4916e1da2f55c5d41b81bcca29042a9dd7dce553ed131f033bf37cf669cd88a1"
+  },
+  {
+    "step": 16,
+    "file": "16-danh-sach-don.png",
+    "title": "Đơn hàng của tôi",
+    "description": "Tài khoản kiểm thử xem đơn vừa tạo với trạng thái Chờ xác nhận.",
+    "captured_at_local": "2026-10-14T20:26:44",
+    "sha256": "a452dc1d42264e98604165eea16709cf55356f46ed02ddaef6f965bc3d5b48e2"
+  },
+  {
+    "step": 17,
+    "file": "17-chi-tiet-don.png",
+    "title": "Chi tiết đơn chờ xác nhận",
+    "description": "Xem hàng hóa, địa chỉ, tổng tiền và quyền hủy khi đơn còn chờ.",
+    "captured_at_local": "2026-10-14T20:26:48",
+    "sha256": "8eb03c7ec15c4ada6d99496df3d819db71ffe77cecb51deafb5562b8e8900270"
+  },
+  {
+    "step": 18,
+    "file": "18-tai-khoan.png",
+    "title": "Thông tin tài khoản",
+    "description": "Mở hồ sơ, lịch sử đơn hàng và chức năng đăng xuất.",
+    "captured_at_local": "2026-10-14T20:28:27",
+    "sha256": "becb7eb42f018a59b24a0fc59b7c2d3b6dfc8faf23e1d7edcfd22442bdb255e2"
+  },
+  {
+    "step": 19,
+    "file": "19-chinh-sua-ho-so.png",
+    "title": "Chỉnh sửa hồ sơ",
+    "description": "Biểu mẫu họ tên và địa chỉ mặc định; ảnh ghi nhận giao diện, chưa xác nhận lưu thay đổi.",
+    "captured_at_local": "2026-10-14T20:28:30",
+    "sha256": "a11abf40db4f389bcb3c9e8c3dc72fd5abb03967db4f9b44fa9391bca81e1f0f"
+  },
+  {
+    "step": 20,
+    "file": "20-quan-tri-san-pham.png",
+    "title": "Quản trị sản phẩm",
+    "description": "Quản trị viên xem danh sách hàng hóa, giá và tồn kho hiện tại.",
+    "captured_at_local": "2026-10-14T20:29:15",
+    "sha256": "3bc51c9f7ac0ad2e934677dc074f315d3757ef2ae269f94ec3817b9c5cbf69a8"
+  },
+  {
+    "step": 21,
+    "file": "21-them-san-pham.png",
+    "title": "Biểu mẫu thêm sản phẩm",
+    "description": "Giao diện khai báo mặt hàng mới; lượt chụp này không lưu sản phẩm mới.",
+    "captured_at_local": "2026-10-14T20:29:18",
+    "sha256": "84fe849c51550b2b8e5c5cb099b39a76439ffd947e64a8c16960b13fc9baf788"
+  },
+  {
+    "step": 22,
+    "file": "22-quan-tri-don.png",
+    "title": "Quản trị đơn hàng",
+    "description": "Quản trị viên mở danh sách đơn và lựa chọn đơn kiểm thử vừa tạo.",
+    "captured_at_local": "2026-10-14T20:29:21",
+    "sha256": "14ff2371a06887dc0fadcb220274989f4b7f15e4aa1316aa7d754e66707b9808"
+  },
+  {
+    "step": 23,
+    "file": "23-admin-cho-xac-nhan.png",
+    "title": "Đơn chờ xử lý",
+    "description": "Chi tiết đơn và các thao tác chuyển trạng thái dành cho quản trị viên.",
+    "captured_at_local": "2026-10-14T20:29:25",
+    "sha256": "1283724a975ad90a7de97f65532170cb0d5f2317f5a086ee4d2e4eac5c008859"
+  },
+  {
+    "step": 24,
+    "file": "24-xac-nhan-cap-nhat.png",
+    "title": "Xác nhận cập nhật trạng thái",
+    "description": "Hộp thoại yêu cầu xác nhận trước khi lưu chuyển trạng thái đơn.",
+    "captured_at_local": "2026-10-14T20:29:28",
+    "sha256": "92d461103df45495a47914ddeb7d7715f1320fa74466af736c2b3f51705dc504"
+  },
+  {
+    "step": 25,
+    "file": "25-da-xac-nhan.png",
+    "title": "Đã xác nhận",
+    "description": "Đơn chuyển từ Chờ xác nhận sang Đã xác nhận; lưu lịch sử xử lý.",
+    "captured_at_local": "2026-10-14T20:29:31",
+    "sha256": "edd4a8347ef74fd8428f9ffe7dea7dbbeee6230b8952e600f666459f3091b882"
+  },
+  {
+    "step": 26,
+    "file": "26-dang-giao.png",
+    "title": "Đang giao",
+    "description": "Quản trị viên chuyển đơn sang Đang giao theo luồng nghiệp vụ.",
+    "captured_at_local": "2026-10-14T20:29:37",
+    "sha256": "0486a60fa2573d073bd204ba1b4dcc20bc1116460da5d4e996df6aca25adf8ae"
+  },
+  {
+    "step": 27,
+    "file": "27-da-giao-admin.png",
+    "title": "Đã giao – phía quản trị",
+    "description": "Hoàn tất chuỗi xử lý đơn và hiển thị lịch sử chuyển trạng thái.",
+    "captured_at_local": "2026-10-14T20:29:43",
+    "sha256": "a96d269369af63eea06c3943d446c370ed13cad93acba49d16e792c0ae794dbc"
+  },
+  {
+    "step": 28,
+    "file": "28-da-giao-khach.png",
+    "title": "Đã giao – phía khách hàng",
+    "description": "Khách đăng nhập lại và thấy trạng thái Đã giao; không còn thao tác hủy.",
+    "captured_at_local": "2026-10-14T20:30:46",
+    "sha256": "0ca346dd0dd60b6e697cfb2a8c6ca6db64dc3491d11550a90bd6401001b65aaf"
+  },
+  {
+    "step": 29,
+    "file": "29-xac-nhan-huy.png",
+    "title": "Xác nhận hủy đơn khác",
+    "description": "Nhánh kiểm thử bổ sung: tạo một đơn khác rồi yêu cầu hủy khi còn chờ xác nhận.",
+    "captured_at_local": "2026-10-14T20:31:34",
+    "sha256": "c93641f40989b49279a451f80e6e0f764635bb584e2269d80bb5fb55db8f8f97"
+  },
+  {
+    "step": 30,
+    "file": "30-da-huy.png",
+    "title": "Đơn đã hủy",
+    "description": "Đơn thứ hai chuyển sang Đã hủy; đơn đã giao trước đó vẫn giữ nguyên trạng thái.",
+    "captured_at_local": "2026-10-14T20:31:37",
+    "sha256": "87e272e096fe7293747ac82161d278d958039b5e6332dcdd0868e7d5426bf2ef"
+  }
+]
