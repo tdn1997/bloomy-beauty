@@ -2,4 +2,6 @@
 <full-backup-content>
     <!-- The local database contains credentials, session and customer addresses. -->
     <exclude domain="database" path="." />
+    <exclude domain="sharedpref" path="push_registration.xml" />
+    <exclude domain="sharedpref" path="push_settings.xml" />
 </full-backup-content>

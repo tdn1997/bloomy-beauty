@@ -19,9 +19,13 @@ import com.example.bloomybeauty.feature.cart.*
 import com.example.bloomybeauty.feature.home.*
 import com.example.bloomybeauty.feature.order.*
 import com.example.bloomybeauty.feature.profile.*
+import com.example.bloomybeauty.data.promotions.PromotionsRepository
+import com.example.bloomybeauty.data.promotions.DisabledPromotionsRepository
+import com.example.bloomybeauty.feature.promotions.PromotionsViewModel
 
 class ShopRepositories(val catalog: CatalogRepository, val cart: CartRepository, val orders: OrderRepository,
-                       val profile: ProfileRepository, val admin: AdminRepository)
+                       val profile: ProfileRepository, val admin: AdminRepository,
+                       val promotions: PromotionsRepository = DisabledPromotionsRepository)
 private enum class ShopScreen { HOME, CART, ORDERS, PROFILE, ADMIN }
 
 @Composable
@@ -71,14 +75,20 @@ fun BloomyApp(auth: AuthViewModel, repositories: ShopRepositories) {
                     onAcceptPrices=cart::acceptPrices,onContinue=cart::continueToShipping,onDraftChange=cart::editDraft,
                     onSaveShipping=cart::saveShipping,onRetry=cart::reload,onPlaceOrder=cart::placeOrder,
                     onFinishOrder={cart.finishOrder {screenName=ShopScreen.ORDERS.name;orders.reload();home.reload()}})
-                ShopScreen.HOME -> HomeScreen(user,home.state.collectAsStateWithLifecycle().value,
+                ShopScreen.HOME -> {
+                    val promotions: PromotionsViewModel = viewModel(viewModelStoreOwner=auth,
+                        key="promotions-${user.id}",factory=PromotionsViewModel.Factory(repositories.promotions))
+                    HomeScreen(user,home.state.collectAsStateWithLifecycle().value,
                     home::setQuery,home::setCategory,home::setSort,home::toggleFavorite,home::reload,auth::logout,
                     logoutBusy=authState.busy,logoutError=authState.error!=null,cartCount=cartState.snapshot.quantity,cartBusy=cartState.busy,
                     cartNotice=cartState.error?.let(::cartErrorText) ?: if(cartState.notice) "Đã thêm sản phẩm vào giỏ hàng" else null,
                     onNoticeShown=cart::clearNotice,onOpenCart={screenName=ShopScreen.CART.name;cart.open()},onAddToCart=cart::add,
                     onOpenOrders={screenName=ShopScreen.ORDERS.name;orders.reload()},
                     onOpenAdmin={screenName=ShopScreen.ADMIN.name;admin.reload()},
-                    onEditProfile={screenName=ShopScreen.PROFILE.name;profile.reload()})
+                    onEditProfile={screenName=ShopScreen.PROFILE.name;profile.reload()},
+                    promotions=promotions.state.collectAsStateWithLifecycle().value,
+                    onRetryPromotions=promotions::retry)
+                }
             }
         }
     }

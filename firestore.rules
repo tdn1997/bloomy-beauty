@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public advertising only. Customer details and coupon redemptions never belong here.
+    match /flash_sales/{saleId} {
+      allow read: if resource.data.published == true;
+      allow write: if false;
+    }
+    match /coupon_campaigns/{campaignId} {
+      allow read: if resource.data.published == true;
+      allow write: if false;
+    }
+    // Local SQLite login/admin roles do not grant a Firebase identity or write access.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

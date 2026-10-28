@@ -22,6 +22,25 @@ Package `com.example.bloomybeauty.demo`, version `1.0-demo`, có dữ liệu ri�
 
 APK đã đóng gói: `deliverables/bloomy-beauty-demo.apk`; release QA khách/cold start: `deliverables/bloomy-beauty-release-qa.apk`. Zip bàn giao ở `deliverables/bloomy-beauty-ban-giao.zip`, checksum và source manifest trong cùng thư mục. Zip mã nguồn không chứa `.local`, SDK path hoặc Gradle cache.
 
+## Firebase
+
+Firebase is configured for the normal `com.example.bloomybeauty` debug/release builds.
+The config is in `app/google-services.json`; the Google Services plugin generates
+the resources used to initialize Firebase automatically at startup. Firebase
+Analytics, Cloud Messaging, and Firestore are included, with SDK versions managed by the Firebase BoM.
+See [Firestore realtime: flash sale và mã khuyến mãi](docs/firestore-realtime.md) for schema, rules, and setup.
+See [Thông báo đẩy và cách gửi thử](docs/thong-bao-day.md) for setup and tests.
+BoM `34.7.0` is pinned for compatibility with the project's Kotlin `2.0.21` compiler.
+
+Sync Gradle in Android Studio or run `./gradlew :app:assembleDebug` using JDK 17+.
+The `-Ppresentation=true` and `-PqaRelease=true` builds skip Google Services config
+processing and run without Firebase: their `.demo` and `.qa` package IDs are not
+registered in the supplied config. Register those Android apps in Firebase and
+add matching variant configs before enabling Firebase for those builds.
+
+Authentication and app data still use the existing local SQLite repositories;
+Firebase Authentication is not integrated. Firestore supplies public promotion campaigns; checkout discounts are not applied yet.
+
 ## Kiểm tra
 
 ```sh

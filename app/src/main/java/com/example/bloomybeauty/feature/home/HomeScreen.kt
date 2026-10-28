@@ -90,6 +90,8 @@ import com.example.bloomybeauty.data.auth.AuthUser
 import com.example.bloomybeauty.data.catalog.Product
 import com.example.bloomybeauty.data.catalog.ProductSearch
 import com.example.bloomybeauty.data.catalog.ProductSort
+import com.example.bloomybeauty.feature.promotions.PromotionsUiState
+import com.example.bloomybeauty.feature.promotions.PromotionsSection
 
 private enum class HomeTab(val label: Int) {
     HOME(R.string.nav_home), EXPLORE(R.string.nav_explore), FAVORITES(R.string.nav_favorites), ACCOUNT(R.string.nav_account),
@@ -116,6 +118,8 @@ fun HomeScreen(
     onOpenOrders: () -> Unit = {},
     onEditProfile: () -> Unit = {},
     onOpenAdmin: () -> Unit = {},
+    promotions: PromotionsUiState = PromotionsUiState(),
+    onRetryPromotions: () -> Unit = {},
 ) {
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(cartNotice) {
@@ -188,6 +192,11 @@ fun HomeScreen(
                     SearchField(state.query, onQueryChange)
                 }
                 if (tab == HomeTab.HOME && state.query.isBlank() && state.categoryId == null) {
+                    if (promotions.feed.enabled) {
+                        item(span = { GridItemSpan(maxLineSpan) }) {
+                            PromotionsSection(promotions, state.products, onRetryPromotions) { selectedProductId = it }
+                        }
+                    }
                     item(span = { GridItemSpan(maxLineSpan) }) {
                         CollectionBanner { onCategoryChange("skin"); tabName = HomeTab.EXPLORE.name }
                     }

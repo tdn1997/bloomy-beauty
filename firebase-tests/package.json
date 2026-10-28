@@ -1,0 +1,14 @@
+{
+  "name": "bloomy-firestore-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "firebase emulators:exec --config ../firebase.json --project demo-bloomy-beauty --only firestore 'node --test firestore.rules.test.mjs'",
+    "emulator": "firebase emulators:start --config ../firebase.json --project demo-bloomy-beauty --only firestore"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "4.0.1",
+    "firebase": "11.10.0",
+    "firebase-tools": "14.22.0"
+  }
+}

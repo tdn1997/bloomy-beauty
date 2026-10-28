@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "639961699159",
+    "project_id": "bloomy-beauty",
+    "storage_bucket": "bloomy-beauty.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639961699159:android:53a423a62785463924a412",
+        "android_client_info": {
+          "package_name": "com.example.bloomybeauty"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnHhawjGmxlx7iTfUe5kfpf9g7SfW0mVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

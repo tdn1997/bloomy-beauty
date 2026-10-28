@@ -7,6 +7,12 @@ plugins {
 }
 
 val presentationBuild = providers.gradleProperty("presentation").orNull == "true"
+val qaReleaseBuild = providers.gradleProperty("qaRelease").orNull == "true"
+// The supplied Firebase config only registers the normal application ID.
+// Keep the isolated presentation and QA builds offline.
+if (!presentationBuild && !qaReleaseBuild) {
+    apply(plugin = "com.google.gms.google-services")
+}
 val demoAdmin = Properties().apply {
     val config = rootProject.file(if (presentationBuild) ".local/presentation-admin.properties" else ".local/admin-demo.properties")
     if (config.exists()) config.inputStream().use { load(it) }
@@ -19,6 +25,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.bloomybeauty"
+        buildConfigField("boolean", "FIREBASE_ENABLED", "${!presentationBuild && !qaReleaseBuild}")
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -72,6 +79,13 @@ android {
 }
 
 dependencies {
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.firestore)
+    // Google Play services pulls Fragment 1.1; Activity Result requires 1.3+.
+    implementation(libs.androidx.fragment)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

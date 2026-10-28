@@ -1,0 +1,6 @@
+<network-security-config>
+    <!-- Local Firestore emulator fixtures only; production hosts still require TLS. -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+    </domain-config>
+</network-security-config>

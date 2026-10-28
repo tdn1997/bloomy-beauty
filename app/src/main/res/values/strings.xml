@@ -1,4 +1,6 @@
 <resources>
+    <string name="notification_channel_name">Thông báo Bloomy Beauty</string>
+    <string name="notification_channel_description">Tin tức và cập nhật từ Bloomy Beauty</string>
     <string name="app_name">BloomyBeauty</string>
     <string name="brand_name">Bloomy Beauty</string>
     <string name="brand_tagline">Chăm chút vẻ đẹp của bạn mỗi ngày</string>
