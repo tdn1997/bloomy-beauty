@@ -1,7 +1,10 @@
 # Firestore realtime: flash sale và phát mã khuyến mãi
 
 Ứng dụng kết nối project `bloomy-beauty`, database `(default)` bằng cấu hình
-`app/google-services.json`. Không dùng URL Firebase Console làm endpoint SDK.
+`app/google-services.json.template` và `FIREBASE_API_KEY` (biến môi trường hoặc
+file `.env.local` không đưa vào Git). Gradle tạo cấu hình trong `app/build/generated/firebase/`.
+Xem hướng dẫn thiết lập trong [README](../README.md#firebase).
+Không dùng URL Firebase Console làm endpoint SDK.
 Document có sẵn `bloomy-beauty/PDSC8GuM5xpfLOuQgw0s` được giữ nguyên.
 
 Phạm vi hiện tại là **công bố chương trình realtime trên trang chủ**: xem flash sale,

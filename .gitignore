@@ -9,3 +9,7 @@ node_modules/
 .idea/
 __pycache__/
 *.pyc
+.env
+.env.*
+!.env.example
+**/google-services.json

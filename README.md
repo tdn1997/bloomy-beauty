@@ -25,8 +25,19 @@ APK đã đóng gói: `deliverables/bloomy-beauty-demo.apk`; release QA khách/c
 ## Firebase
 
 Firebase is configured for the normal `com.example.bloomybeauty` debug/release builds.
-The config is in `app/google-services.json`; the Google Services plugin generates
-the resources used to initialize Firebase automatically at startup. Firebase
+The checked-in config template is `app/google-services.json.template`; the API key
+comes from the `FIREBASE_API_KEY` environment variable or the ignored root `.env.local`
+file. The environment variable takes precedence. For local Android Studio builds:
+
+```sh
+cp .env.example .env.local
+# Edit .env.local and set FIREBASE_API_KEY to your Firebase Android API key (no quotes).
+./gradlew :app:assembleDebug
+```
+
+For CI, set `FIREBASE_API_KEY` using the CI secret store. Gradle generates
+`app/build/generated/firebase/google-services.json`, then the Google Services plugin
+generates the resources used to initialize Firebase automatically at startup. Firebase
 Analytics, Cloud Messaging, and Firestore are included, with SDK versions managed by the Firebase BoM.
 See [Firestore realtime: flash sale và mã khuyến mãi](docs/firestore-realtime.md) for schema, rules, and setup.
 See [Thông báo đẩy và cách gửi thử](docs/thong-bao-day.md) for setup and tests.
@@ -37,6 +48,14 @@ The `-Ppresentation=true` and `-PqaRelease=true` builds skip Google Services con
 processing and run without Firebase: their `.demo` and `.qa` package IDs are not
 registered in the supplied config. Register those Android apps in Firebase and
 add matching variant configs before enabling Firebase for those builds.
+
+Do not commit `.env.local` or a downloaded `google-services.json`. The API key is
+still included in the APK, as required by Firebase's client SDKs. Restrict its API
+usage in Google Cloud and protect data with Firebase Security Rules; see
+[Firebase API key guidance](https://firebase.google.com/docs/projects/api-keys).
+The previously committed key remains in Git history. If Google flagged it,
+review its restrictions and replace it in Google Cloud and `.env.local` as needed;
+moving it to local configuration does not revoke it or resolve an existing alert.
 
 Authentication and app data still use the existing local SQLite repositories;
 Firebase Authentication is not integrated. Firestore supplies public promotion campaigns; checkout discounts are not applied yet.

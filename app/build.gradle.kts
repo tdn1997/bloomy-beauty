@@ -1,9 +1,37 @@
 import java.util.Properties
+import com.google.gms.googleservices.GoogleServicesTask
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+}
+
+abstract class GenerateFirebaseConfig : DefaultTask() {
+    @get:InputFile
+    @get:PathSensitive(PathSensitivity.RELATIVE)
+    abstract val templateFile: RegularFileProperty
+
+    @get:Input
+    abstract val apiKey: Property<String>
+
+    @get:OutputFile
+    abstract val outputFile: RegularFileProperty
+
+    @TaskAction
+    fun generate() {
+        val key = apiKey.get().trim()
+        require(key.isNotEmpty()) {
+            "Set FIREBASE_API_KEY in the environment or in the root .env.local file (see .env.example)."
+        }
+        require(key.matches(Regex("[A-Za-z0-9_-]+"))) {
+            "FIREBASE_API_KEY must contain only letters, digits, underscores, and hyphens; do not quote it."
+        }
+        outputFile.get().asFile.apply {
+            parentFile.mkdirs()
+            writeText(templateFile.get().asFile.readText().replace("__FIREBASE_API_KEY__", key))
+        }
+    }
 }
 
 val presentationBuild = providers.gradleProperty("presentation").orNull == "true"
@@ -12,6 +40,23 @@ val qaReleaseBuild = providers.gradleProperty("qaRelease").orNull == "true"
 // Keep the isolated presentation and QA builds offline.
 if (!presentationBuild && !qaReleaseBuild) {
     apply(plugin = "com.google.gms.google-services")
+    val localApiKey = providers.fileContents(rootProject.layout.projectDirectory.file(".env.local"))
+        .asText.map { text ->
+            Properties().apply { text.reader().use { load(it) } }
+                .getProperty("FIREBASE_API_KEY", "")
+        }
+    val generateFirebaseConfig = tasks.register<GenerateFirebaseConfig>("generateFirebaseConfig") {
+        templateFile.set(layout.projectDirectory.file("google-services.json.template"))
+        apiKey.set(providers.environmentVariable("FIREBASE_API_KEY").orElse(localApiKey).orElse(""))
+        outputFile.set(layout.buildDirectory.file("generated/firebase/google-services.json"))
+    }
+    androidComponents.onVariants { variant ->
+        val variantName = variant.name.replaceFirstChar { it.uppercaseChar() }
+        tasks.named<GoogleServicesTask>("process${variantName}GoogleServices") {
+            dependsOn(generateFirebaseConfig)
+            googleServicesJsonFiles.set(generateFirebaseConfig.flatMap { it.outputFile }.map { listOf(it.asFile) })
+        }
+    }
 }
 val demoAdmin = Properties().apply {
     val config = rootProject.file(if (presentationBuild) ".local/presentation-admin.properties" else ".local/admin-demo.properties")
