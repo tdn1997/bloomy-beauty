@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".BloomyBeautyApplication"
@@ -15,6 +16,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloomyBeauty"
         tools:targetApi="31">
+        <provider android:name=".data.care.CareRoutineProvider"
+            android:authorities="${applicationId}.care" android:exported="false" />
+        <receiver android:name=".reminders.CareReminderReceiver" android:exported="false" />
+        <receiver android:name=".reminders.CareScheduleRestoreReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
         <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id"
             android:value="bloomy_updates" />
         <meta-data android:name="com.google.firebase.messaging.default_notification_icon"

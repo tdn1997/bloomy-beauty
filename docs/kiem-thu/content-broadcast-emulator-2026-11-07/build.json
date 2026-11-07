@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-07",
+  "variant": "presentation debug (.demo)",
+  "assemble": "passed",
+  "lint": {
+    "errors": 0,
+    "warnings": 38,
+    "information": 1
+  },
+  "minSdk": 28,
+  "targetSdk": 35,
+  "apk": "app/build/outputs/apk/debug/app-debug.apk",
+  "changes_in_followup": "Test fixtures, emulator scenario test, QA script and documentation; application business logic unchanged."
+}

@@ -132,12 +132,35 @@ class AdminRepositoryTest {
         val o=createOrder()
         helper.close()
         SQLiteDatabase.openDatabase(context.getDatabasePath(DB).path,null,SQLiteDatabase.OPEN_READWRITE).use {db ->
-            db.execSQL("DROP TABLE order_events");db.execSQL("ALTER TABLE users DROP COLUMN role");db.execSQL("ALTER TABLE products DROP COLUMN revision");db.version=4
+            // API 28 SQLite does not support DROP COLUMN. Rebuild the two legacy
+            // tables while foreign keys are off on this isolated fixture connection.
+            db.execSQL("DROP TABLE care_routines")
+            db.execSQL("DROP TABLE order_events")
+            rebuildLegacyTable(db, "users", "role")
+            rebuildLegacyTable(db, "products", "revision")
+            db.version=4
         }
         helper=AuthDatabaseHelper(context,DB);auth=AuthRepository(helper);admin=AdminRepository(helper);orders=OrderRepository(helper)
-        assertEquals(5,helper.readableDatabase.version);assertEquals(UserRole.CUSTOMER,auth.restoreSession()!!.role)
+        assertEquals(AuthContract.DATABASE_VERSION,helper.readableDatabase.version);assertEquals(UserRole.CUSTOMER,auth.restoreSession()!!.role)
         assertEquals(o,readOrder(o.id));assertEquals(29,stock())
         expect(AdminError.PERMISSION){admin.load(adminId)}
+    }
+    private fun rebuildLegacyTable(db: SQLiteDatabase, table: String, removed: String) {
+        // These fixtures only remove columns appended by AdminSchema.upgrade.
+        val sql = db.rawQuery("SELECT sql FROM sqlite_master WHERE type='table' AND name=?", arrayOf(table)).use {
+            it.moveToFirst(); it.getString(0)
+        }
+        val appended = if (removed == "role")
+            ", role TEXT NOT NULL DEFAULT 'CUSTOMER' CHECK(role IN ('CUSTOMER','ADMIN'))"
+        else ", revision INTEGER NOT NULL DEFAULT 0 CHECK(revision >= 0)"
+        check(sql.contains(appended)) { "Legacy fixture schema changed" }
+        val columns = db.rawQuery("PRAGMA table_info($table)", null).use { cursor ->
+            buildList { while (cursor.moveToNext()) { val name = cursor.getString(1); if (name != removed) add(name) } }
+        }.joinToString(",")
+        db.execSQL(sql.replaceFirst(table, "${table}_v4").replace(appended, ""))
+        db.execSQL("INSERT INTO ${table}_v4 ($columns) SELECT $columns FROM $table")
+        db.execSQL("DROP TABLE $table")
+        db.execSQL("ALTER TABLE ${table}_v4 RENAME TO $table")
     }
     companion object {private const val DB="admin-repository-test.db"}
 }

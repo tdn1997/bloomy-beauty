@@ -1,0 +1,128 @@
+{
+  "avd": "BloomyCareAPI33",
+  "scenario": "environment",
+  "passed": true,
+  "details": {
+    "before": {
+      "sdk": 33,
+      "package": "com.example.bloomybeauty",
+      "now": 1794023511612,
+      "zone": "Asia/Ho_Chi_Minh",
+      "idle": false,
+      "userId": 16,
+      "routineId": 13,
+      "minute": 661,
+      "days": 127,
+      "lastOccurrence": null,
+      "expectedNext": 1794024060000,
+      "scheduled": [
+        "13:16:1:1794024060000"
+      ],
+      "notified": false
+    },
+    "timezone": [
+      {
+        "sdk": 33,
+        "package": "com.example.bloomybeauty",
+        "now": 1794023513654,
+        "zone": "UTC",
+        "idle": false,
+        "userId": 16,
+        "routineId": 13,
+        "minute": 661,
+        "days": 127,
+        "lastOccurrence": null,
+        "expectedNext": 1794049260000,
+        "scheduled": [
+          "13:16:1:1794049260000"
+        ],
+        "notified": false
+      },
+      {
+        "sdk": 33,
+        "package": "com.example.bloomybeauty",
+        "now": 1794023514977,
+        "zone": "America/New_York",
+        "idle": false,
+        "userId": 16,
+        "routineId": 13,
+        "minute": 661,
+        "days": 127,
+        "lastOccurrence": null,
+        "expectedNext": 1794067260000,
+        "scheduled": [
+          "13:16:1:1794067260000"
+        ],
+        "notified": false
+      },
+      {
+        "sdk": 33,
+        "package": "com.example.bloomybeauty",
+        "now": 1794023516220,
+        "zone": "Asia/Ho_Chi_Minh",
+        "idle": false,
+        "userId": 16,
+        "routineId": 13,
+        "minute": 661,
+        "days": 127,
+        "lastOccurrence": null,
+        "expectedNext": 1794024060000,
+        "scheduled": [
+          "13:16:1:1794024060000"
+        ],
+        "notified": false
+      }
+    ],
+    "clockForward": {
+      "sdk": 33,
+      "package": "com.example.bloomybeauty",
+      "now": 1794027116621,
+      "zone": "Asia/Ho_Chi_Minh",
+      "idle": false,
+      "userId": 16,
+      "routineId": 13,
+      "minute": 661,
+      "days": 127,
+      "lastOccurrence": null,
+      "expectedNext": 1794110460000,
+      "scheduled": [
+        "13:16:1:1794110460000"
+      ],
+      "notified": false
+    },
+    "clockRestored": {
+      "sdk": 33,
+      "package": "com.example.bloomybeauty",
+      "now": 1794023517912,
+      "zone": "Asia/Ho_Chi_Minh",
+      "idle": false,
+      "userId": 16,
+      "routineId": 13,
+      "minute": 661,
+      "days": 127,
+      "lastOccurrence": null,
+      "expectedNext": 1794024060000,
+      "scheduled": [
+        "13:16:1:1794024060000"
+      ],
+      "notified": false
+    },
+    "forceStopRecovery": {
+      "sdk": 33,
+      "package": "com.example.bloomybeauty",
+      "now": 1794023520632,
+      "zone": "Asia/Ho_Chi_Minh",
+      "idle": false,
+      "userId": 16,
+      "routineId": 13,
+      "minute": 661,
+      "days": 127,
+      "lastOccurrence": null,
+      "expectedNext": 1794024060000,
+      "scheduled": [
+        "13:16:1:1794024060000"
+      ],
+      "notified": false
+    }
+  }
+}

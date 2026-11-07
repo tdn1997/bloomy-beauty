@@ -28,16 +28,16 @@ def svg(name, title, nodes, edges, width=1200, height=800):
 svg('kien-truc.svg','Kiến trúc Android / SQLite',{
  'ui':(40,100,235,130,'Compose / BloomyApp',['Màn hình, điều hướng','Trạng thái theo phiên']),
  'vm':(330,100,230,130,'ViewModel',['StateFlow / lifecycle','Coroutines']),
- 'repo':(615,100,230,130,'Repository',['Phiên, role, nghiệp vụ','Transaction']),
- 'db':(900,100,255,130,'SQLiteOpenHelper',['Schema v5 / migration','Ảnh + seed cục bộ'])},[('ui','vm'),('vm','repo'),('repo','db')],height=290)
+ 'repo':(615,100,230,130,'Repository',['Phiên, role, nghiệp vụ','Transaction','Resolver / Provider']),
+ 'db':(900,100,255,130,'SQLiteOpenHelper',['Schema v6 / migration','Ảnh + seed cục bộ'])},[('ui','vm'),('vm','repo'),('repo','db')],height=290)
 svg('use-case.svg','Use case — một thiết bị, hai vai trò',{
  'g':(40,70,260,110,'Chưa đăng nhập',['Thông tin xác thực']),
  'c':(40,240,260,110,'Khách hàng',['Phiên đúng chủ dữ liệu']),
  'a':(40,470,260,110,'Quản trị viên',['Role ADMIN hiện hành']),
  'auth':(390,70,740,110,'Tài khoản',['Đăng ký / đăng nhập / khôi phục phiên']),
- 'buy':(390,230,740,175,'Mua hàng và hồ sơ',['Tìm / lọc / yêu thích / giỏ / giao hàng / COD','Xem đơn của mình / hủy PENDING','Hồ sơ / đăng xuất']),
+ 'buy':(390,230,740,175,'Mua hàng và hồ sơ',['Tìm / lọc / yêu thích / giỏ / giao hàng / COD','Xem đơn của mình / hủy PENDING','Hồ sơ / đăng xuất','Lịch chăm sóc / nhắc hẹn']),
  'admin':(390,470,740,135,'Quản trị',['Thêm / sửa / ẩn / mở sản phẩm','Xử lý trạng thái / xem lịch sử đơn'])},[('g','auth'),('c','buy'),('a','admin')],height=650)
-svg('du-lieu.svg','SQLite v5 — các quan hệ chính (chi tiết FK trong Mermaid)',{
+svg('du-lieu.svg','SQLite v6 — các quan hệ chính (chi tiết FK trong Mermaid)',{
  'users':(430,65,315,140,'users',['PK _id / UNIQUE email','role / hash / salt / iterations']),
  'session':(40,65,315,140,'auth_session',['PK _id = 1','FK user_id']),
  'shipping':(825,65,330,140,'shipping_details',['PK/FK user_id','recipient / phone / address']),
@@ -48,7 +48,8 @@ svg('du-lieu.svg','SQLite v5 — các quan hệ chính (chi tiết FK trong Merm
  'products':(430,490,315,150,'products',['PK id / FK category_id','price / stock / active / revision']),
  'categories':(825,490,330,150,'categories',['PK id','name / sort_order']),
  'lines':(40,710,315,140,'order_items',['PK order_id + product_id','Tên / giá / số lượng snapshot']),
- 'events':(430,710,315,140,'order_events',['FK order_id / actor_id','Trạng thái / người / thời gian'])},[('users','session'),('users','shipping'),('users','request'),('users','cart'),('users','favorites'),('request','orders'),('products','cart'),('products','favorites'),('categories','products'),('orders','lines'),('orders','events')],height=890)
+ 'care':(825,710,330,140,'care_routines',['FK user_id / product_id','Giờ / ngày / revision / occurrence']),
+ 'events':(430,710,315,140,'order_events',['FK order_id / actor_id','Trạng thái / người / thời gian'])},[('users','session'),('users','shipping'),('users','request'),('users','cart'),('users','favorites'),('request','orders'),('products','cart'),('products','favorites'),('categories','products'),('orders','lines'),('orders','events'),('products','care'),('users','care')],height=890)
 # Request -> orders is a logical link, not a declared foreign key.
 svg('dat-cod.svg','Đặt COD — thao tác trong transaction',{
  'prepare':(40,75,330,135,'1. Kiểm tra trước đặt',['Lưu giao hàng / UUID','Fingerprint + payload SQLite']),

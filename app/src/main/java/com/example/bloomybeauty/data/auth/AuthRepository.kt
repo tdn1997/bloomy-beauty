@@ -13,6 +13,7 @@ import kotlinx.coroutines.withContext
 class AuthRepository(
     private val helper: AuthDatabaseHelper,
     private val passwordHasher: PasswordHasher = PasswordHasher(),
+    private val onSessionChanged: () -> Unit = {},
 ) {
     suspend fun register(name: String, email: String, password: String, confirmation: String): AuthResult =
         withContext(Dispatchers.IO) {
@@ -22,6 +23,7 @@ class AuthRepository(
             val normalizedEmail = AuthValidation.normalizeEmail(email)
             val db = helper.writableDatabase
             val digest = passwordHasher.hash(password)
+            var registered = false
             db.beginTransaction()
             try {
                 if (findUser(db, normalizedEmail) != null) {
@@ -44,9 +46,11 @@ class AuthRepository(
                 }
                 saveSession(db, id)
                 db.setTransactionSuccessful()
+                registered = true
                 AuthResult.Success(AuthUser(id, name.trim(), normalizedEmail))
             } finally {
                 db.endTransaction()
+                if (registered) onSessionChanged()
             }
         }
 
@@ -61,6 +65,7 @@ class AuthRepository(
             return@withContext AuthResult.Failure(AuthError.INVALID_CREDENTIALS)
         }
         saveSession(db, account.user.id)
+        onSessionChanged()
         AuthResult.Success(account.user)
     }
 
@@ -80,6 +85,7 @@ class AuthRepository(
 
     suspend fun logout() = withContext(Dispatchers.IO) {
         helper.writableDatabase.delete(Session.TABLE, "${Session.ID} = ?", arrayOf("1"))
+        onSessionChanged()
         Unit
     }
 

@@ -1,0 +1,7 @@
+{
+  "device": "BloomyCareQA / API 36",
+  "test": "CareRoutineProviderTest#notificationPermissionDeniedStillKeepsRoutine",
+  "permission": "revoked by adb before instrumentation, restored after",
+  "tests": 1,
+  "passed": 1
+}

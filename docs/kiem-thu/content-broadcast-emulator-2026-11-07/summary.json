@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-07",
+  "physical_device_testing": "deferred by user request",
+  "apis": [
+    28,
+    33,
+    35,
+    36
+  ],
+  "all_recorded_scenarios_passed": true,
+  "doze": {
+    "28": {
+      "idle_at_delivery": "IDLE",
+      "wait_seconds": 95,
+      "occurrence_claimed": true,
+      "notified": true
+    },
+    "33": {
+      "idle_at_delivery": "IDLE",
+      "wait_seconds": 202,
+      "occurrence_claimed": true,
+      "notified": true
+    },
+    "35": {
+      "idle_at_delivery": "IDLE",
+      "wait_seconds": 182,
+      "occurrence_claimed": true,
+      "notified": true
+    },
+    "36": {
+      "idle_at_delivery": "IDLE",
+      "wait_seconds": 156,
+      "occurrence_claimed": true,
+      "notified": true
+    }
+  },
+  "regression_api35": {
+    "tests": 105,
+    "passed": 98,
+    "skipped": 7,
+    "failures": 0
+  },
+  "limitations": [
+    "Forced deep Doze with finite observation windows; not natural multi-hour device sleep.",
+    "Not every test group runs on every API; see README matrix.",
+    "Firestore live/emulator checks require separate configuration."
+  ]
+}

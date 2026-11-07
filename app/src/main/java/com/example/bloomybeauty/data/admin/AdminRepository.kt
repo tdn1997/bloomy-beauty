@@ -11,6 +11,7 @@ import com.example.bloomybeauty.data.order.OrderRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.util.UUID
+import com.example.bloomybeauty.events.*
 
 val demoImageKeys = listOf("product_cleanser", "product_micellar", "product_serum", "product_toner", "product_body_scrub", "product_shampoo", "product_lip_scrub", "product_lip_balm")
 enum class AdminError { PERMISSION, INVALID_PRODUCT, CONFLICT, NOT_FOUND, INVALID_TRANSITION, STOCK_OVERFLOW, STORAGE }
@@ -26,7 +27,7 @@ object AdminRules {
         (p.sourceUrl.isBlank() || (p.sourceUrl.length <= 1000 && runCatching { java.net.URI(p.sourceUrl).let { it.scheme == "https" && !it.host.isNullOrBlank() } }.getOrDefault(false)))
 }
 
-class AdminRepository(private val helper: AuthDatabaseHelper) {
+class AdminRepository(private val helper: AuthDatabaseHelper, private val changes: OrderChangePublisher = OrderChangePublisher.None) {
     private val orders = OrderRepository(helper)
     private suspend fun <T> authorized(userId: Long, block: (SQLiteDatabase) -> T): T = withContext(Dispatchers.IO) {
         val db = helper.writableDatabase
@@ -66,20 +67,25 @@ class AdminRepository(private val helper: AuthDatabaseHelper) {
         }
         id
     }
-    suspend fun transition(userId: Long, orderId: Long, expected: String, target: String) = authorized(userId) { db ->
-        val order = db.rawQuery("SELECT * FROM orders WHERE _id=?", arrayOf(orderId.toString())).use { c ->
-            if(!c.moveToFirst()) throw AdminException(AdminError.NOT_FOUND); orders.readOrder(db,c)
+    suspend fun transition(userId: Long, orderId: Long, expected: String, target: String) {
+        val change = authorized(userId) { db ->
+            val order = db.rawQuery("SELECT * FROM orders WHERE _id=?", arrayOf(orderId.toString())).use { c ->
+                if(!c.moveToFirst()) throw AdminException(AdminError.NOT_FOUND); orders.readOrder(db,c)
+            }
+            if(target !in (AdminRules.transitions[expected] ?: emptyList())) throw AdminException(AdminError.INVALID_TRANSITION)
+            if(order.status == target) return@authorized null // Repeated request: no duplicate stock or audit.
+            if(order.status != expected) throw AdminException(AdminError.CONFLICT)
+            if(db.update("orders", ContentValues().apply { put("status",target) }, "_id=? AND status=?", arrayOf(orderId.toString(),expected)) != 1) throw AdminException(AdminError.CONFLICT)
+            if(target == "CANCELLED") order.lines.forEach { line ->
+                val stock = db.rawQuery("SELECT stock FROM products WHERE id=?", arrayOf(line.productId)).use { if(!it.moveToFirst()) throw AdminException(AdminError.NOT_FOUND); it.getInt(0) }
+                val restored = try { Math.addExact(stock, line.quantity) } catch (_: ArithmeticException) { throw AdminException(AdminError.STOCK_OVERFLOW) }
+                db.execSQL("UPDATE products SET stock=?, revision=revision+1 WHERE id=?", arrayOf(restored,line.productId))
+            }
+            AdminSchema.record(db,orderId,userId,expected,target)
+            val owner = db.rawQuery("SELECT user_id FROM orders WHERE _id=?", arrayOf(orderId.toString())).use { it.moveToFirst(); it.getLong(0) }
+            OrderChange(orderId, owner, if (target == "CANCELLED") OrderChangeKind.CANCELLED else OrderChangeKind.STATUS_CHANGED)
         }
-        if(target !in (AdminRules.transitions[expected] ?: emptyList())) throw AdminException(AdminError.INVALID_TRANSITION)
-        if(order.status == target) return@authorized // Repeated request: no duplicate stock or audit.
-        if(order.status != expected) throw AdminException(AdminError.CONFLICT)
-        if(db.update("orders", ContentValues().apply { put("status",target) }, "_id=? AND status=?", arrayOf(orderId.toString(),expected)) != 1) throw AdminException(AdminError.CONFLICT)
-        if(target == "CANCELLED") order.lines.forEach { line ->
-            val stock = db.rawQuery("SELECT stock FROM products WHERE id=?", arrayOf(line.productId)).use { if(!it.moveToFirst()) throw AdminException(AdminError.NOT_FOUND); it.getInt(0) }
-            val restored = try { Math.addExact(stock, line.quantity) } catch (_: ArithmeticException) { throw AdminException(AdminError.STOCK_OVERFLOW) }
-            db.execSQL("UPDATE products SET stock=?, revision=revision+1 WHERE id=?", arrayOf(restored,line.productId))
-        }
-        AdminSchema.record(db,orderId,userId,expected,target)
+        if (change != null) changes.publish(change)
     }
     private fun Cursor.text(key: String) = getString(getColumnIndexOrThrow(key))
     private fun Cursor.long(key: String) = getLong(getColumnIndexOrThrow(key))

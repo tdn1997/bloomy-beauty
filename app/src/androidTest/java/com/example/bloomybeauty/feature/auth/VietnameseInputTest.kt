@@ -27,7 +27,7 @@ class VietnameseInputTest {
         // would also send edits, making the synthetic composition sequence unreliable.
         val originalIme = shell("settings get secure default_input_method").trim()
         require(originalIme.matches(Regex("[A-Za-z0-9._/]+")))
-        val testIme = "com.example.bloomybeauty.test/com.example.bloomybeauty.feature.auth.RegressionInputMethodService"
+        val testIme = "${instrumentation.context.packageName}/com.example.bloomybeauty.feature.auth.RegressionInputMethodService"
         shell("ime enable $testIme")
         shell("ime set $testIme")
         try {

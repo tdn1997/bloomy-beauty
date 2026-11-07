@@ -10,8 +10,9 @@ import kotlinx.coroutines.withContext
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.UUID
+import com.example.bloomybeauty.events.*
 
-class OrderRepository(private val helper: AuthDatabaseHelper) {
+class OrderRepository(private val helper: AuthDatabaseHelper, private val changes: OrderChangePublisher = OrderChangePublisher.None) {
     private val cart = CartRepository(helper)
 
     suspend fun prepare(userId: Long): CheckoutRequest = withContext(Dispatchers.IO) {
@@ -45,7 +46,8 @@ class OrderRepository(private val helper: AuthDatabaseHelper) {
     }
 
     suspend fun create(userId: Long, request: CheckoutRequest): CustomerOrder = withContext(Dispatchers.IO) {
-        transaction { db ->
+        var created = false
+        val result = transaction { db ->
             checkSession(db, userId)
             // Replay before checking the current cart: it may already have been cleared.
             db.query("orders", arrayOf("user_id", "fingerprint"), "request_id = ?", arrayOf(request.id), null, null, null).use {
@@ -87,8 +89,11 @@ class OrderRepository(private val helper: AuthDatabaseHelper) {
             // A later add executes after commit and stays in the cart; replay never deletes it.
             com.example.bloomybeauty.data.admin.AdminSchema.record(db, orderId, userId, null, "PENDING")
             db.delete("cart_items", "user_id = ?", arrayOf(userId.toString()))
+            created = true
             checkNotNull(findByRequest(db, userId, request.id))
         }
+        if (created) changes.publish(OrderChange(result.id, userId, OrderChangeKind.CREATED))
+        result
     }
 
     suspend fun acknowledge(userId: Long, requestId: String) = withContext(Dispatchers.IO) {
@@ -115,7 +120,8 @@ class OrderRepository(private val helper: AuthDatabaseHelper) {
     }
 
     suspend fun cancel(userId: Long, orderId: Long): CustomerOrder = withContext(Dispatchers.IO) {
-        transaction { db ->
+        var cancelled = false
+        val result = transaction { db ->
             checkSession(db, userId)
             fun current(): CustomerOrder = db.query("orders", null, "user_id = ? AND _id = ?",
                 arrayOf(userId.toString(), orderId.toString()), null, null, null).use {
@@ -141,8 +147,11 @@ class OrderRepository(private val helper: AuthDatabaseHelper) {
             }
             order.lines.forEach { db.execSQL("UPDATE products SET revision = revision + 1 WHERE id = ?", arrayOf(it.productId)) }
             com.example.bloomybeauty.data.admin.AdminSchema.record(db, orderId, userId, "PENDING", "CANCELLED")
+            cancelled = true
             current()
         }
+        if (cancelled) changes.publish(OrderChange(result.id, userId, OrderChangeKind.CANCELLED))
+        result
     }
 
     private fun findByRequest(db: SQLiteDatabase, userId: Long, requestId: String): CustomerOrder? =

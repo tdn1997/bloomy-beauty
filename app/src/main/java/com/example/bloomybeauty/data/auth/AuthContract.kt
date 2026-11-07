@@ -4,7 +4,7 @@ import android.provider.BaseColumns
 
 object AuthContract {
     const val DATABASE_NAME = "bloomy_beauty.db"
-    const val DATABASE_VERSION = 5
+    const val DATABASE_VERSION = 6
 
     object Users {
         const val TABLE = "users"

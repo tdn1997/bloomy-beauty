@@ -1,0 +1,6 @@
+    RTC_WAKEUP #8: Alarm{823e810 type 0 origWhen 1794022140000 whenElapsed 122637 com.example.bloomybeauty}
+      tag=*walarm*:com.example.bloomybeauty.action.CARE_REMINDER
+      type=RTC_WAKEUP origWhen=2026-11-07 10:29:00.000 window=+1m11s280ms repeatInterval=0 count=0 flags=0x20
+      policyWhenElapsed: requester=+1m24s331ms app_standby=-10s706ms device_idle=-- battery_saver=-10s706ms
+      whenElapsed=+1m24s331ms maxWhenElapsed=+2m35s611ms
+      operation=PendingIntent{45edf09: PendingIntentRecord{e4fe50e com.example.bloomybeauty broadcastIntent}}

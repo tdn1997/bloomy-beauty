@@ -120,6 +120,7 @@ fun HomeScreen(
     onOpenAdmin: () -> Unit = {},
     promotions: PromotionsUiState = PromotionsUiState(),
     onRetryPromotions: () -> Unit = {},
+    onOpenCare: ((String?) -> Unit)? = null,
 ) {
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(cartNotice) {
@@ -140,6 +141,7 @@ fun HomeScreen(
             selectedProduct, selectedProduct.id in state.favoriteIds, state.savingFavorite,
             state.error, { selectedProductId = null }, { onToggleFavorite(selectedProduct.id) },
             snackbar, cartCount, cartBusy, onOpenCart, { onAddToCart(selectedProduct.id) },
+            onOpenCare?.let { open -> { open(selectedProduct.id) } },
         )
         return
     }
@@ -172,7 +174,7 @@ fun HomeScreen(
         },
     ) { padding ->
         if (tab == HomeTab.ACCOUNT) {
-            AccountPage(user, logoutBusy, logoutError, onLogout, onOpenOrders, onEditProfile, onOpenAdmin, Modifier.padding(padding))
+            AccountPage(user, logoutBusy, logoutError, onLogout, onOpenOrders, onEditProfile, onOpenAdmin, Modifier.padding(padding), onOpenCare?.let { open -> { open(null) } })
         } else {
             val products = ProductSearch.filter(
                 state.products, state.query, state.categoryId, state.sort,
@@ -368,7 +370,7 @@ private fun EmptyProducts(favorites: Boolean, onReset: () -> Unit) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, error: Boolean, onBack: () -> Unit, onFavorite: () -> Unit,
-                          snackbar: SnackbarHostState, cartCount: Int, cartBusy: Boolean, onCart: () -> Unit, onAdd: () -> Unit) {
+                          snackbar: SnackbarHostState, cartCount: Int, cartBusy: Boolean, onCart: () -> Unit, onAdd: () -> Unit, onCare: (() -> Unit)? = null) {
     val context = LocalContext.current
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) },
@@ -401,6 +403,7 @@ private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, er
                 Text(if (cartBusy) "Đang xử lý…" else "Thêm vào giỏ")
             }
             if (error) Text(stringResource(R.string.catalog_error), color = MaterialTheme.colorScheme.error)
+            if (onCare != null) OutlinedButton(onCare, modifier = Modifier.fillMaxWidth()) { Text("Tạo lịch chăm sóc với sản phẩm") }
             HorizontalDivider()
             DetailSection(R.string.product_description, product.description)
             DetailSection(R.string.product_ingredients, product.ingredients)
@@ -432,7 +435,7 @@ private fun DetailSection(title: Int, body: String) {
 }
 
 @Composable
-private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout: () -> Unit, onOrders: () -> Unit, onEdit: () -> Unit, onAdmin: () -> Unit, modifier: Modifier) {
+private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout: () -> Unit, onOrders: () -> Unit, onEdit: () -> Unit, onAdmin: () -> Unit, modifier: Modifier, onCare: (() -> Unit)? = null) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(18.dp)) {
         Spacer(Modifier.height(24.dp))
         Box(Modifier.size(80.dp).background(MaterialTheme.colorScheme.primaryContainer, CircleShape), contentAlignment = Alignment.Center) {
@@ -450,6 +453,7 @@ private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout:
         }
         if (user.role == com.example.bloomybeauty.data.auth.UserRole.ADMIN) OutlinedButton(onAdmin, modifier = Modifier.fillMaxWidth()) { Text("Quản trị cửa hàng") }
         OutlinedButton(onOrders, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Đơn hàng của tôi") }
+        if (onCare != null) OutlinedButton(onCare, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Lịch chăm sóc da") }
         OutlinedButton(onEdit, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Chỉnh sửa hồ sơ") }
         if (error) Text(stringResource(R.string.error_storage), color = MaterialTheme.colorScheme.error)
         Button(onLogout, enabled = !busy, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) {

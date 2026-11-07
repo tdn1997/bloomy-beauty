@@ -49,15 +49,17 @@ class AuthDatabaseHelper(
         CartSchema.upgradeFromCatalog(db)
         OrderSchema.create(db)
         com.example.bloomybeauty.data.admin.AdminSchema.upgrade(db)
+        com.example.bloomybeauty.data.care.CareRoutineSchema.create(db)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        if (newVersion > AuthContract.DATABASE_VERSION || oldVersion !in 1..4) {
+        if (newVersion > AuthContract.DATABASE_VERSION || oldVersion !in 1..5) {
             throw SQLiteException("Missing database migration from $oldVersion to $newVersion")
         }
         if (oldVersion < 2) CatalogSchema.create(db)
         if (oldVersion < 3 && newVersion >= 3) CartSchema.upgradeFromCatalog(db)
         if (oldVersion < 4 && newVersion >= 4) OrderSchema.create(db)
         if (oldVersion < 5 && newVersion >= 5) com.example.bloomybeauty.data.admin.AdminSchema.upgrade(db)
+        if (oldVersion < 6 && newVersion >= 6) com.example.bloomybeauty.data.care.CareRoutineSchema.create(db)
     }
 }

@@ -60,6 +60,10 @@ class PushNotificationsTest {
         attach.invoke(service, context)
         service.onMessageReceived(RemoteMessage.Builder("test-sender")
             .setData(mapOf("title" to "Ưu đãi", "body" to "Tin mới")).build())
+        if (!com.example.bloomybeauty.BuildConfig.FIREBASE_ENABLED) {
+            assertTrue(manager.activeNotifications.isEmpty())
+            return
+        }
         assertEquals("Ưu đãi", awaitNotifications(1).single().notification.extras.getString(Notification.EXTRA_TITLE))
         service.onMessageReceived(RemoteMessage.Builder("test-sender").build())
         assertEquals(1, manager.activeNotifications.size)

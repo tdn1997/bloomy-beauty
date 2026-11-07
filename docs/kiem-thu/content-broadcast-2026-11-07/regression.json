@@ -1,0 +1,24 @@
+{
+  "device": "BloomyCareQA / Android 16 / API 36 / arm64 16 KB",
+  "variant": "normal debug, targetSdk 35",
+  "suite": "full regression before final alarm refinements",
+  "android": {
+    "tests": 102,
+    "passed": 97,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 5,
+    "skip_reasons": [
+      "Firestore live server: 1 test (opt-in)",
+      "Firestore emulator: 3 tests (opt-in)",
+      "FCM permission denied: 1 test (requires permission revoked before instrumentation)"
+    ]
+  },
+  "jvm": {
+    "tests": 46,
+    "passed": 46,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

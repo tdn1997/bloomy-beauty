@@ -1,6 +1,6 @@
-# Sơ đồ triển khai thực tế — SQLite schema 5
+# Sơ đồ triển khai thực tế — SQLite schema 6
 
-Các sơ đồ mô tả bản một thiết bị. Tác nhân khách/admin lần lượt dùng auth_session; không có server hay Firebase trong mã đang chạy. Có SVG ngoại tuyến kèm từng sơ đồ để in/xem không cần thư viện Mermaid.
+Các sơ đồ mô tả bản một thiết bị. Tác nhân khách/admin lần lượt dùng auth_session; đơn hàng dùng SQLite cục bộ; Firebase chỉ được bật ở biến thể phù hợp cho ưu đãi và FCM. Có SVG ngoại tuyến kèm từng sơ đồ để in/xem không cần thư viện Mermaid.
 
 ## 1. Use case
 
@@ -13,6 +13,7 @@ flowchart LR
     Customer --> Cart[Giỏ / giao hàng / xác nhận COD]
     Customer --> History[Xem đơn của mình / hủy PENDING]
     Customer --> Profile[Hồ sơ / đăng xuất]
+    Customer --> Care[Lịch chăm sóc / nhắc hẹn]
     Admin[Quản trị viên] --> Product[Thêm / sửa / ẩn / mở sản phẩm]
     Admin --> Order[Xem đơn / xử lý trạng thái / lịch sử]
     Admin --> Profile
@@ -26,7 +27,7 @@ flowchart LR
 flowchart LR
     UI[Compose / BloomyApp] --> VM[ViewModel / StateFlow]
     VM --> Repo[Repository + kiểm tra phiên/quyền]
-    Repo --> DB[SQLiteOpenHelper / SQLite v5]
+    Repo --> DB[SQLiteOpenHelper / SQLite v6]
     Seed[Seed 8 sản phẩm + ảnh resource] --> DB
     Resource[Ảnh đóng gói] --> UI
 ```
@@ -115,3 +116,25 @@ stateDiagram-v2
 ```
 
 Hủy kiểm tra phiên, quyền sở hữu/vai trò và trạng thái trong transaction; cập nhật trạng thái có điều kiện, hoàn tồn từng dòng, tăng revision và ghi audit. Gửi lại hủy đã thành công không hoàn tồn lần hai. Khi lỗi ghi lịch sử hoặc tràn tồn, rollback cả trạng thái và tồn. Khách không hủy CONFIRMED/SHIPPING/DELIVERED.
+
+## 6. Lịch chăm sóc bổ sung ở schema 6
+
+```mermaid
+erDiagram
+    users ||--o{ care_routines : owns
+    products o|--o{ care_routines : references
+    care_routines {
+        integer _id PK
+        integer user_id FK
+        text product_id FK
+        text title
+        integer minute_of_day
+        integer days_mask
+        integer enabled
+        integer revision
+        integer last_occurrence_at
+    }
+```
+
+UI → ViewModel → Repository → ContentResolver → CareRoutineProvider → SQLite.
+ContentObserver cập nhật danh sách sau commit. AlarmManager → receiver tĩnh → kiểm tra phiên/revision/occurrence → notification. Receiver hệ thống khôi phục lịch; receiver động nhận tín hiệu đổi đơn theo vòng đời.
