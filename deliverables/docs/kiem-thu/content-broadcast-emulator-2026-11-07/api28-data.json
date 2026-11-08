@@ -1,0 +1,354 @@
+{
+  "avd": "BloomyCareAPI28",
+  "scenario": "data",
+  "passed": true,
+  "details": {
+    "sdk": 28,
+    "tests": 67,
+    "passed": 62,
+    "skipped": 5,
+    "failures": 0,
+    "cases": [
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "staleProductDraftCannotOverwriteCheckoutOrAnotherEdit",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "invalidProductDoesNotWrite",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "revokedRoleBlocksEveryReadAndWrite",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "addEditHideAndUnhideKeepOrderSnapshots",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "staleOrderStatusCannotSkipOrReverseTransitions",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "concurrentConfirmedCancellationRestoresOnce",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "customerSignupRestoreLoginAndProfilePreserveTrustedRole",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "processAllOrdersWithAuditAndTerminalProtection",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "migrationFromFourPreservesCustomersOrdersAndSession",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "staleProductDraftCannotOverwriteCancelledStock",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "overflowRollsBackCancellation",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.admin.AdminRepositoryTest",
+        "name": "auditFailureRollsBackStateAndStock",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "invalidRegistrationDoesNotPersistAccount",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "concurrentRegistrationsProduceOneAccount",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "logoutAndAccountSwitchRestoreOnlyCurrentUser",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "incorrectCredentialsDoNotCreateSession",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "duplicateEmailDoesNotOverwriteAccountOrSession",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "queryParametersDoNotAllowSqlInjection",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "accountAndSessionSurviveDatabaseReopen",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.auth.AuthRepositoryTest",
+        "name": "passwordsAreStoredAsIndependentSaltedHashes",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareMigrationTest",
+        "name": "versionFiveUpgradePreservesSessionCartOrdersAndStock",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "anotherSessionCannotReadOrMutatePreviousUsersRows",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "writesNotifyContentObservers",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "resolverCrudMimeAndRevisionConflict",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "rejectsOwnerInjectionInvalidFieldsAndUnknownPaths",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "staticReceiverPostsOnceAndLogoutCancelsNotificationAndAlarms",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "simultaneousOccurrencesDoNotCancelEachOther",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "notificationPermissionDeniedStillKeepsRoutine",
+        "code": -4,
+        "error": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>"
+      },
+      {
+        "class": "com.example.bloomybeauty.data.care.CareRoutineProviderTest",
+        "name": "occurrenceClaimsRejectReplayAndStaleRevision",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.cart.CartRepositoryTest",
+        "name": "concurrentAddsDoNotLoseIncrementsOrReduceStock",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.cart.CartRepositoryTest",
+        "name": "invalidShippingCannotBePersisted",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.cart.CartRepositoryTest",
+        "name": "shippingRechecksStockAndStatusAndDoesNotOverwriteSavedAddressOnFailure",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.cart.CartRepositoryTest",
+        "name": "priceChangesRequireExplicitAcceptanceAndDoNotAddQuantity",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.cart.CartRepositoryTest",
+        "name": "quantityTotalsCartAndShippingPersistAndStayAccountScoped",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.cart.CartRepositoryTest",
+        "name": "hiddenSoldOutAndInvalidQuantitiesCannotBeAdded",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.cart.CartRepositoryTest",
+        "name": "versionTwoMigrationKeepsSessionFavoritesAndProductEdits",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.catalog.CatalogRepositoryTest",
+        "name": "bundledPhotosExistForEverySeededProduct",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.catalog.CatalogRepositoryTest",
+        "name": "favoritesPersistAndBelongToOneAccount",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.catalog.CatalogRepositoryTest",
+        "name": "migrationFromVersionOnePreservesAccountAndSession",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "repeatedAndConcurrentCancellationRestoresStockOnceAndCannotRecreateOrder",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "createKeepsSnapshotsClearsCartAndReplayLeavesNewCartUntouched",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "stockOverflowBlocksCancellationWithoutChangingStatus",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "processedOrdersCannotBeCancelled",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "failureDuringStockRestorationRollsBackStatusAndEveryLine",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "lastUnitCannotBeSoldTwiceAndOrdersStayPrivate",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "cancellationAndConditionalConfirmationCannotBothWin",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "shortageInOneLineRollsBackEntireOrderAndPreservesCart",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "simultaneousRetriesCreateOneOrderAndDeductOnce",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "changedPriceStatusQuantityOrAddressRequireNewConfirmation",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "requestsAndCommittedResultsRecoverAfterDatabaseReopen",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "requestIdentityCannotBeReusedForDifferentContent",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "insertFailureAfterFirstStockUpdateRollsBackAllWrites",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "hiddenProductsStillReceiveRestoredStockWithoutBecomingVisible",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "versionThreeMigrationKeepsSessionCartAddressAndFavorites",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.order.OrderRepositoryTest",
+        "name": "cancellationRequiresActiveSessionAndOwnership",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.profile.ProfileRepositoryTest",
+        "name": "nameOnlyProfileCanClearDefaultAddressAndDoesNotChangeExistingOrders",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.profile.ProfileRepositoryTest",
+        "name": "failedAddressWriteRollsBackNameChange",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.profile.ProfileRepositoryTest",
+        "name": "invalidFieldsCannotPartiallyChangeNameOrAddress",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.profile.ProfileRepositoryTest",
+        "name": "inactiveSessionCannotReadOrOverwriteAnotherProfile",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.profile.ProfileRepositoryTest",
+        "name": "profileAndDefaultAddressPersistWithoutChangingCredentials",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.promotions.FirestoreConnectionTest",
+        "name": "productionCollectionsCanBeReadFromServer",
+        "code": -4,
+        "error": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>"
+      },
+      {
+        "class": "com.example.bloomybeauty.data.promotions.FirestorePromotionsTest",
+        "name": "publishedChangesUnpublishingAndDeletionReachListener",
+        "code": -4,
+        "error": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>"
+      },
+      {
+        "class": "com.example.bloomybeauty.data.promotions.FirestorePromotionsTest",
+        "name": "cacheIsMarkedAndReconnectDeliversNewPrice",
+        "code": -4,
+        "error": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>"
+      },
+      {
+        "class": "com.example.bloomybeauty.data.promotions.FirestorePromotionsTest",
+        "name": "malformedDocumentDoesNotHideOtherCampaigns",
+        "code": -4,
+        "error": "org.junit.AssumptionViolatedException: got: <false>, expected: is <true>"
+      },
+      {
+        "class": "com.example.bloomybeauty.data.security.SessionIsolationTest",
+        "name": "loggedOutCallsCannotReadOrMutatePrivateData",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.security.SessionIsolationTest",
+        "name": "otherCustomerCannotImpersonateOwnerOrAcknowledgeTheirRequest",
+        "code": 0
+      },
+      {
+        "class": "com.example.bloomybeauty.data.security.SessionIsolationTest",
+        "name": "customerCannotWriteCatalogOrOrderStatusThroughAdminApi",
+        "code": 0
+      }
+    ]
+  }
+}

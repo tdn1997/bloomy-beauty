@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.bloomybeauty.data.care.CareRoutineRulesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-08T07:43:29" hostname="Thuans-MacBook-Pro.local" time="0.022">
+  <properties/>
+  <testcase name="selectedWeekdayWrapsToFollowingWeek" classname="com.example.bloomybeauty.data.care.CareRoutineRulesTest" time="0.019"/>
+  <testcase name="sundayUsesLastBitAndMidnightUsesLocalDate" classname="com.example.bloomybeauty.data.care.CareRoutineRulesTest" time="0.0"/>
+  <testcase name="timezoneChangesPreserveLocalHour" classname="com.example.bloomybeauty.data.care.CareRoutineRulesTest" time="0.001"/>
+  <testcase name="validatesRequiredFieldsAndBounds" classname="com.example.bloomybeauty.data.care.CareRoutineRulesTest" time="0.0"/>
+  <testcase name="exactOccurrenceMovesToNextDay" classname="com.example.bloomybeauty.data.care.CareRoutineRulesTest" time="0.0"/>
+  <testcase name="daylightSavingGapAdvancesToValidLocalTime" classname="com.example.bloomybeauty.data.care.CareRoutineRulesTest" time="0.002"/>
+  <testcase name="schedulesTodayBeforeSelectedTime" classname="com.example.bloomybeauty.data.care.CareRoutineRulesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

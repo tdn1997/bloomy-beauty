@@ -1,0 +1,24 @@
+{
+  "avd": "Pixel_6",
+  "serial": "emulator-5554",
+  "package": "com.example.bloomybeauty.demo",
+  "classes": "com.example.bloomybeauty.data.statistics.StatisticsRepositoryTest,com.example.bloomybeauty.feature.statistics.StatisticsScreenTest",
+  "api": "36",
+  "startedAtUtc": "2026-11-08T07:01:56.808296+00:00",
+  "animationsTemporarilyDisabled": true,
+  "originalAnimations": {
+    "window_animation_scale": "1.0",
+    "transition_animation_scale": "1.0",
+    "animator_duration_scale": "null"
+  },
+  "commandExitCode": 0,
+  "passed": false,
+  "tests": null,
+  "restoredAnimations": {
+    "window_animation_scale": "1.0",
+    "transition_animation_scale": "1.0",
+    "animator_duration_scale": "null"
+  },
+  "restoreErrors": [],
+  "elapsedSeconds": 566.649
+}

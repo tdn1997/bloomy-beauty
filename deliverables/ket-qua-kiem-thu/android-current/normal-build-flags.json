@@ -1,0 +1,5 @@
+{
+  "APPLICATION_ID": "\"com.example.bloomybeauty\"",
+  "FIREBASE_ENABLED": "true",
+  "LOCAL_COUPONS_ENABLED": "false"
+}

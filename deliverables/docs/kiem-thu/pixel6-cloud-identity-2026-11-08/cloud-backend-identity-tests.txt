@@ -1,0 +1,45 @@
+TAP version 13
+# Subtest: anonymous callable cannot bootstrap a profile
+ok 1 - anonymous callable cannot bootstrap a profile
+  ---
+  duration_ms: 1456.597166
+  ...
+# Subtest: account bootstrap derives UID from ID token and repeats without replacing profile
+ok 2 - account bootstrap derives UID from ID token and repeats without replacing profile
+  ---
+  duration_ms: 184.298833
+  ...
+# Subtest: supplied UID and ADMIN role cannot impersonate or elevate
+ok 3 - supplied UID and ADMIN role cannot impersonate or elevate
+  ---
+  duration_ms: 642.022042
+  ...
+# Subtest: backend rechecks trusted role document after grant and revoke using the same token
+ok 4 - backend rechecks trusted role document after grant and revoke using the same token
+  ---
+  duration_ms: 53.755708
+  ...
+# Subtest: only owner reads profile or role; writes and collection enumeration are denied
+ok 5 - only owner reads profile or role; writes and collection enumeration are denied
+  ---
+  duration_ms: 287.37725
+  ...
+# Subtest: disabled account cannot use an existing ID token to load profile
+ok 6 - disabled account cannot use an existing ID token to load profile
+  ---
+  duration_ms: 14.578291
+  ...
+# Subtest: same email is not a bootstrap key and creates no server orders
+ok 7 - same email is not a bootstrap key and creates no server orders
+  ---
+  duration_ms: 65.805833
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3448.979667

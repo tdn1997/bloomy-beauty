@@ -7,6 +7,7 @@ import com.example.bloomybeauty.BloomyBeautyApplication
 
 class CareReminderReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        if(com.example.bloomybeauty.BuildConfig.CLOUD_EMULATOR) return
         if (intent.action != context.packageName + ".action.CARE_REMINDER") return
         val result = goAsync()
         val app = context.applicationContext as BloomyBeautyApplication
@@ -16,6 +17,7 @@ class CareReminderReceiver : BroadcastReceiver() {
 
 class CareScheduleRestoreReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
+        if(com.example.bloomybeauty.BuildConfig.CLOUD_EMULATOR) return
         if (intent.action !in setOf(Intent.ACTION_BOOT_COMPLETED, Intent.ACTION_TIME_CHANGED, Intent.ACTION_TIMEZONE_CHANGED, Intent.ACTION_MY_PACKAGE_REPLACED)) return
         val result = goAsync()
         val app = context.applicationContext as BloomyBeautyApplication

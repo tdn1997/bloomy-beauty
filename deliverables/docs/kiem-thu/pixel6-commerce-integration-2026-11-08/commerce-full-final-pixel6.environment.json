@@ -1,0 +1,26 @@
+{
+  "avd": "Pixel_6",
+  "serial": "emulator-5554",
+  "package": "com.example.bloomybeauty.demo",
+  "classes": "com.example.bloomybeauty.ExampleInstrumentedTest,com.example.bloomybeauty.data.address.AddressRepositoryTest,com.example.bloomybeauty.data.admin.AdminRepositoryTest,com.example.bloomybeauty.data.auth.AuthRepositoryTest,com.example.bloomybeauty.data.care.CareMigrationTest,com.example.bloomybeauty.data.care.CareRoutineProviderTest,com.example.bloomybeauty.data.care.CommerceFoundationTest,com.example.bloomybeauty.data.cart.CartRepositoryTest,com.example.bloomybeauty.data.catalog.CatalogRepositoryTest,com.example.bloomybeauty.data.coupon.CouponMigrationTest,com.example.bloomybeauty.data.coupon.CouponOrderTest,com.example.bloomybeauty.data.notification.InboxPermissionDeniedTest,com.example.bloomybeauty.data.notification.NotificationRepositoryTest,com.example.bloomybeauty.data.order.OrderRepositoryTest,com.example.bloomybeauty.data.profile.ProfileRepositoryTest,com.example.bloomybeauty.data.promotions.FirestoreConnectionTest,com.example.bloomybeauty.data.promotions.FirestorePromotionsTest,com.example.bloomybeauty.data.review.ReviewRepositoryTest,com.example.bloomybeauty.data.security.SessionIsolationTest,com.example.bloomybeauty.data.statistics.StatisticsRepositoryTest,com.example.bloomybeauty.events.OrderChangesTest,com.example.bloomybeauty.export.OrderPdfExporterTest,com.example.bloomybeauty.export.OrderPdfScreenTest,com.example.bloomybeauty.feature.address.AddressScreenTest,com.example.bloomybeauty.feature.admin.AdminFlowTest,com.example.bloomybeauty.feature.app.CommerceExtensionsIntegrationTest,com.example.bloomybeauty.feature.app.ShopColdStartTest,com.example.bloomybeauty.feature.app.ShopIntegrationTest,com.example.bloomybeauty.feature.app.ShopRecreationTest,com.example.bloomybeauty.feature.auth.AuthFlowTest,com.example.bloomybeauty.feature.auth.VietnameseInputTest,com.example.bloomybeauty.feature.care.CareScreenTest,com.example.bloomybeauty.feature.cart.CartFlowTest,com.example.bloomybeauty.feature.cart.CartRefreshTest,com.example.bloomybeauty.feature.coupon.CouponScreenTest,com.example.bloomybeauty.feature.home.HomeFlowTest,com.example.bloomybeauty.feature.notification.NotificationScreenTest,com.example.bloomybeauty.feature.promotions.PromotionsSectionTest,com.example.bloomybeauty.feature.review.ReviewScreenTest,com.example.bloomybeauty.feature.statistics.StatisticsScreenTest,com.example.bloomybeauty.notifications.PushNotificationsTest,com.example.bloomybeauty.notifications.PushPermissionDeniedTest,com.example.bloomybeauty.reminders.CareDeviceScenarioTest",
+  "api": "36",
+  "passed": true,
+  "startedAtUtc": "2026-11-08T08:25:00.254203+00:00",
+  "animationsTemporarilyDisabled": true,
+  "originalAnimations": {
+    "window_animation_scale": "1.0",
+    "transition_animation_scale": "1.0",
+    "animator_duration_scale": "null"
+  },
+  "commandExitCode": 0,
+  "tests": 172,
+  "passedCases": 164,
+  "assumedOrIgnoredCases": 8,
+  "restoredAnimations": {
+    "window_animation_scale": "1.0",
+    "transition_animation_scale": "1.0",
+    "animator_duration_scale": "null"
+  },
+  "restoreErrors": [],
+  "elapsedSeconds": 360.074
+}

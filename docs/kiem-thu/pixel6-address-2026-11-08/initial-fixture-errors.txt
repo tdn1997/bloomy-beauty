@@ -1,0 +1,92 @@
+
+com.example.bloomybeauty.data.review.ReviewRepositoryTest:.
+com.example.bloomybeauty.data.profile.ProfileRepositoryTest:.
+Error in namePersistsWithoutChangingCredentialsAddressBookOrCheckoutDraft(com.example.bloomybeauty.data.profile.ProfileRepositoryTest):
+com.example.bloomybeauty.data.cart.CartException: EMPTY
+	at com.example.bloomybeauty.data.cart.CartRepository.checkCart$app_debug(CartRepository.kt:81)
+	at com.example.bloomybeauty.data.cart.CartRepository$saveShipping$2.invokeSuspend(CartRepository.kt:68)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:589)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:823)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:720)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+..
+com.example.bloomybeauty.data.catalog.CatalogRepositoryTest:.
+com.example.bloomybeauty.data.cart.CartRepositoryTest:.
+com.example.bloomybeauty.data.address.AddressRepositoryTest:
+Error in defaultIsUsedOnlyWhenCheckoutHasNoDraft(com.example.bloomybeauty.data.address.AddressRepositoryTest):
+com.example.bloomybeauty.data.cart.CartException: EMPTY
+	at com.example.bloomybeauty.data.cart.CartRepository.checkCart$app_debug(CartRepository.kt:81)
+	at com.example.bloomybeauty.data.cart.CartRepository$saveShipping$2.invokeSuspend(CartRepository.kt:68)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:589)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:823)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:720)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+......
+Error in addressesNeverMutateSelectedDraftOrOrderSnapshots(com.example.bloomybeauty.data.address.AddressRepositoryTest):
+com.example.bloomybeauty.data.cart.CartException: EMPTY
+	at com.example.bloomybeauty.data.cart.CartRepository.checkCart$app_debug(CartRepository.kt:81)
+	at com.example.bloomybeauty.data.cart.CartRepository$saveShipping$2.invokeSuspend(CartRepository.kt:68)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:589)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:823)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:720)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+..
+com.example.bloomybeauty.data.care.CareMigrationTest:.
+com.example.bloomybeauty.data.order.OrderRepositoryTest:.
+com.example.bloomybeauty.data.admin.AdminRepositoryTest:..
+
+Time: 168.933
+There were 3 failures:
+1) namePersistsWithoutChangingCredentialsAddressBookOrCheckoutDraft(com.example.bloomybeauty.data.profile.ProfileRepositoryTest)
+com.example.bloomybeauty.data.cart.CartException: EMPTY
+	at com.example.bloomybeauty.data.cart.CartRepository.checkCart$app_debug(CartRepository.kt:81)
+	at com.example.bloomybeauty.data.cart.CartRepository$saveShipping$2.invokeSuspend(CartRepository.kt:68)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:589)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:823)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:720)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+2) defaultIsUsedOnlyWhenCheckoutHasNoDraft(com.example.bloomybeauty.data.address.AddressRepositoryTest)
+com.example.bloomybeauty.data.cart.CartException: EMPTY
+	at com.example.bloomybeauty.data.cart.CartRepository.checkCart$app_debug(CartRepository.kt:81)
+	at com.example.bloomybeauty.data.cart.CartRepository$saveShipping$2.invokeSuspend(CartRepository.kt:68)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:589)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:823)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:720)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+3) addressesNeverMutateSelectedDraftOrOrderSnapshots(com.example.bloomybeauty.data.address.AddressRepositoryTest)
+com.example.bloomybeauty.data.cart.CartException: EMPTY
+	at com.example.bloomybeauty.data.cart.CartRepository.checkCart$app_debug(CartRepository.kt:81)
+	at com.example.bloomybeauty.data.cart.CartRepository$saveShipping$2.invokeSuspend(CartRepository.kt:68)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.internal.LimitedDispatcher$Worker.run(LimitedDispatcher.kt:113)
+	at kotlinx.coroutines.scheduling.TaskImpl.run(Tasks.kt:89)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:589)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:823)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:720)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:707)
+
+FAILURES!!!
+Tests run: 21,  Failures: 3
+
+

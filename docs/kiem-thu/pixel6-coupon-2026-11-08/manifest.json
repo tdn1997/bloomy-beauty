@@ -1,0 +1,37 @@
+{
+  "recordedAtUtc": "2026-11-08T06:11:21.452819+00:00",
+  "scope": "A3 snapshot before A4; hashes refer to capture-time contents",
+  "avd": "Pixel_6",
+  "serial": "emulator-5554",
+  "androidApi": 36,
+  "package": "com.example.bloomybeauty.demo",
+  "databaseVersion": 10,
+  "firebaseEnabled": false,
+  "localCouponsEnabled": true,
+  "acceptance": {
+    "tests": 37,
+    "failures": 0,
+    "skipped": 0,
+    "durationSeconds": 339.056
+  },
+  "sha256": {
+    "app/build/outputs/apk/debug/app-debug.apk": "111b86d7cd767e990ffaf4f8615b0239c3e655ca91b7708bd6cecac40364ff15",
+    "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk": "a7f40b9b84d1aebd3efcf2cecc6fb4c4ee40441e68e5923577b403054400bd33",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/02-ma-het-han.png": "717dcdb0c823630b9a8cdcb48b97193ed7f16c8d7e7e219ea4ac067ea3996e61",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/02-ma-het-han.json": "92173ad46222c59189aadf56a32ca0fa861160d3faaf2a35a2872d1029ab2247",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/04-don-luu-snapshot-giam-gia.png": "83a9aebccd769465a816d6df184976d91901386e85f9f12a6c37b2758e81cf57",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/03-chu-dong-bo-ma.png": "a2aeacd453a76c0fa7453f37748f7e15d1e15757b4fcc97d80bd74965acb82bc",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/01-ap-ma-phan-tram.png": "64449e0bda145eb5e73027f67df511f418c726885cd9a8f396065660ec681eab",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/04-don-luu-snapshot-giam-gia.json": "bd82a21df1efd855860ce33067120c8d0b0d07487ebc23a24e2584f7a0e92194",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/01-ap-ma-phan-tram.json": "f82ea3386f6d7502ff5a7432c7b311309ea13e2ffbf6e49095da176d1ec862eb",
+    "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/03-chu-dong-bo-ma.json": "b9c07b3e992004019af52e5827822bfe11db8496350032801c41684b9a4bcc72",
+    "app/src/main/java/com/example/bloomybeauty/data/coupon/LocalCouponRepository.kt": "ceabd239b3b70acbb26d3d879acc511fcdaaaea6f42cede63df0516bc9f0faed",
+    "app/src/main/java/com/example/bloomybeauty/data/coupon/CouponModels.kt": "885404c672e21227fc3b16ca03241e50fbbff1e385c80b9761c6e2a7fa6188d6",
+    "app/src/androidTest/java/com/example/bloomybeauty/data/coupon/CouponOrderTest.kt": "680f412c57c84de80b74ebc386617ecb94d8e5b682f445fb482bec5b4a1cc65c",
+    "app/src/androidTest/java/com/example/bloomybeauty/data/coupon/CouponMigrationTest.kt": "31626357bd99a606d1daa5eca364bdea0710bc91f99b954346dd4523fcef645b",
+    "app/src/androidTest/java/com/example/bloomybeauty/feature/coupon/CouponScreenTest.kt": "a14cfbde0a32466426de8f1bbfeb0fe52335e397e401b0b4fb3206989e596312",
+    "app/src/test/java/com/example/bloomybeauty/data/coupon/CouponPricingTest.kt": "d27b497d7f64fd581cd238b519135d1a2f51c748ccc2859c0503480caed06e84",
+    "app/src/main/java/com/example/bloomybeauty/data/order/OrderModels.kt": "495b282a9fef65266c2acbfbdb2fdb2cb94f475ac926fc75a6dad2b5c3459736",
+    "app/src/main/java/com/example/bloomybeauty/data/order/OrderRepository.kt": "bac32c72d817deabd3ee4d91cd27779edd8b08dedbdb10eae8a9166c36d0cb6a"
+  }
+}

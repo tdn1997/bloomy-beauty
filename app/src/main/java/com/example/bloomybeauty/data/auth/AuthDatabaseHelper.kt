@@ -50,10 +50,15 @@ class AuthDatabaseHelper(
         OrderSchema.create(db)
         com.example.bloomybeauty.data.admin.AdminSchema.upgrade(db)
         com.example.bloomybeauty.data.care.CareRoutineSchema.create(db)
+        com.example.bloomybeauty.data.extension.CommerceFoundation.upgrade(db)
+        com.example.bloomybeauty.data.review.ReviewSchema.create(db)
+        com.example.bloomybeauty.data.address.AddressSchema.create(db)
+        com.example.bloomybeauty.data.coupon.CouponSchema.upgrade(db)
+        com.example.bloomybeauty.data.notification.NotificationSchema.create(db)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        if (newVersion > AuthContract.DATABASE_VERSION || oldVersion !in 1..5) {
+        if (newVersion > AuthContract.DATABASE_VERSION || oldVersion !in 1..10) {
             throw SQLiteException("Missing database migration from $oldVersion to $newVersion")
         }
         if (oldVersion < 2) CatalogSchema.create(db)
@@ -61,5 +66,10 @@ class AuthDatabaseHelper(
         if (oldVersion < 4 && newVersion >= 4) OrderSchema.create(db)
         if (oldVersion < 5 && newVersion >= 5) com.example.bloomybeauty.data.admin.AdminSchema.upgrade(db)
         if (oldVersion < 6 && newVersion >= 6) com.example.bloomybeauty.data.care.CareRoutineSchema.create(db)
+        if (oldVersion < 7 && newVersion >= 7) com.example.bloomybeauty.data.extension.CommerceFoundation.upgrade(db)
+        if (oldVersion < 8 && newVersion >= 8) com.example.bloomybeauty.data.review.ReviewSchema.create(db)
+        if (oldVersion < 9 && newVersion >= 9) com.example.bloomybeauty.data.address.AddressSchema.create(db)
+        if (oldVersion < 10 && newVersion >= 10) com.example.bloomybeauty.data.coupon.CouponSchema.upgrade(db)
+        if (oldVersion < 11 && newVersion >= 11) com.example.bloomybeauty.data.notification.NotificationSchema.create(db)
     }
 }

@@ -4,8 +4,35 @@
     "indexes": "firestore.indexes.json"
   },
   "emulators": {
-    "firestore": { "host": "127.0.0.1", "port": 8080 },
-    "ui": { "enabled": false },
-    "singleProjectMode": true
-  }
+    "firestore": {
+      "host": "127.0.0.1",
+      "port": 8080
+    },
+    "ui": {
+      "enabled": false
+    },
+    "singleProjectMode": true,
+    "auth": {
+      "host": "127.0.0.1",
+      "port": 9099
+    },
+    "functions": {
+      "host": "127.0.0.1",
+      "port": 5001
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "commerce",
+      "runtime": "nodejs20",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "test",
+        "*-debug.log",
+        "scripts"
+      ]
+    }
+  ]
 }

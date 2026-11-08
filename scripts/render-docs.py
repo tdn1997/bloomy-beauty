@@ -29,33 +29,41 @@ svg('kien-truc.svg','Kiến trúc Android / SQLite',{
  'ui':(40,100,235,130,'Compose / BloomyApp',['Màn hình, điều hướng','Trạng thái theo phiên']),
  'vm':(330,100,230,130,'ViewModel',['StateFlow / lifecycle','Coroutines']),
  'repo':(615,100,230,130,'Repository',['Phiên, role, nghiệp vụ','Transaction','Resolver / Provider']),
- 'db':(900,100,255,130,'SQLiteOpenHelper',['Schema v6 / migration','Ảnh + seed cục bộ'])},[('ui','vm'),('vm','repo'),('repo','db')],height=290)
+ 'db':(900,100,255,130,'SQLiteOpenHelper',['Schema v11 / migration','Ảnh + seed cục bộ'])},[('ui','vm'),('vm','repo'),('repo','db')],height=290)
 svg('use-case.svg','Use case — một thiết bị, hai vai trò',{
  'g':(40,70,260,110,'Chưa đăng nhập',['Thông tin xác thực']),
  'c':(40,240,260,110,'Khách hàng',['Phiên đúng chủ dữ liệu']),
  'a':(40,470,260,110,'Quản trị viên',['Role ADMIN hiện hành']),
  'auth':(390,70,740,110,'Tài khoản',['Đăng ký / đăng nhập / khôi phục phiên']),
- 'buy':(390,230,740,175,'Mua hàng và hồ sơ',['Tìm / lọc / yêu thích / giỏ / giao hàng / COD','Xem đơn của mình / hủy PENDING','Hồ sơ / đăng xuất','Lịch chăm sóc / nhắc hẹn']),
- 'admin':(390,470,740,135,'Quản trị',['Thêm / sửa / ẩn / mở sản phẩm','Xử lý trạng thái / xem lịch sử đơn'])},[('g','auth'),('c','buy'),('a','admin')],height=650)
-svg('du-lieu.svg','SQLite v6 — các quan hệ chính (chi tiết FK trong Mermaid)',{
+ 'buy':(390,230,740,175,'Mua hàng và hồ sơ',['Tìm / lọc / yêu thích / giỏ / giao hàng / COD','Xem đơn của mình / hủy PENDING','Hồ sơ / sổ địa chỉ / mã demo','Đánh giá / phiếu PDF / inbox','Lịch chăm sóc / nhắc hẹn']),
+ 'admin':(390,470,740,135,'Quản trị',['Thêm / sửa / ẩn / mở sản phẩm','Xử lý trạng thái / xem lịch sử đơn','Thống kê / xuất PDF'])},[('g','auth'),('c','buy'),('a','admin')],height=650)
+svg('du-lieu.svg','SQLite v11 — nhóm bảng lõi (bảng mở rộng: mo-rong.svg)',{
  'users':(430,65,315,140,'users',['PK _id / UNIQUE email','role / hash / salt / iterations']),
  'session':(40,65,315,140,'auth_session',['PK _id = 1','FK user_id']),
  'shipping':(825,65,330,140,'shipping_details',['PK/FK user_id','recipient / phone / address']),
  'request':(40,270,315,150,'checkout_requests',['PK request_id / UNIQUE user_id','fingerprint / payload']),
  'cart':(430,270,315,150,'cart_items',['PK user_id + product_id','quantity / accepted_price_vnd']),
  'favorites':(825,270,330,150,'favorites',['PK user_id + product_id','FK users / products']),
- 'orders':(40,490,315,150,'orders',['PK _id / FK user_id','UNIQUE request_id / snapshot']),
+ 'orders':(40,490,315,150,'orders',['PK _id / FK user_id','UNIQUE request_id / snapshot','delivered_at / discount / coupon']),
  'products':(430,490,315,150,'products',['PK id / FK category_id','price / stock / active / revision']),
  'categories':(825,490,330,150,'categories',['PK id','name / sort_order']),
  'lines':(40,710,315,140,'order_items',['PK order_id + product_id','Tên / giá / số lượng snapshot']),
  'care':(825,710,330,140,'care_routines',['FK user_id / product_id','Giờ / ngày / revision / occurrence']),
  'events':(430,710,315,140,'order_events',['FK order_id / actor_id','Trạng thái / người / thời gian'])},[('users','session'),('users','shipping'),('users','request'),('users','cart'),('users','favorites'),('request','orders'),('products','cart'),('products','favorites'),('categories','products'),('orders','lines'),('orders','events'),('products','care'),('users','care')],height=890)
+svg('mo-rong.svg','SQLite v11 — các bảng mở rộng bán hàng',{
+ 'users':(40,80,310,130,'users',['Chủ địa chỉ / đánh giá / inbox']),
+ 'lines':(430,80,310,130,'order_items / orders',['Chứng minh chủ đơn đã giao','Snapshot tiền / coupon / ngày giao']),
+ 'events':(830,80,330,130,'order_events',['Audit trạng thái trong transaction']),
+ 'addresses':(40,320,310,160,'addresses',['FK user_id / revision','Một mặc định tối đa / 10 địa chỉ','Checkout nhận bản sao']),
+ 'reviews':(430,320,310,160,'product_reviews',['FK user + dòng hàng đã mua','UNIQUE user/order/product','rating / comment / revision']),
+ 'inbox':(830,320,330,160,'user_notifications',['UNIQUE user_id + event_id','type/entity / created_at / read_at','Ghi cùng transaction audit']),
+ 'coupon':(430,590,380,130,'coupon_rules',['Chỉ demo / QA; thời hạn / điều kiện','Đơn lưu snapshot, không FK campaign'])},[('users','addresses'),('lines','reviews'),('events','inbox')],height=760)
 # Request -> orders is a logical link, not a declared foreign key.
 svg('dat-cod.svg','Đặt COD — thao tác trong transaction',{
  'prepare':(40,75,330,135,'1. Kiểm tra trước đặt',['Lưu giao hàng / UUID','Fingerprint + payload SQLite']),
- 'begin':(430,75,330,135,'2. Bắt đầu transaction',['Đúng phiên / request / giỏ','Giá / tồn / địa chỉ khớp']),
+ 'begin':(430,75,330,135,'2. Bắt đầu transaction',['Đúng phiên / request / giỏ','Giá / tồn / địa chỉ khớp','Kiểm tra lại coupon / quote / fee']),
  'replay':(830,75,330,135,'3a. Đã có kết quả',['Cùng mã + cùng nội dung','Trả đơn cũ / giữ giỏ mới']),
- 'write':(430,285,330,160,'3b. Chưa có, hợp lệ',['Trừ tồn / tăng revision','Ghi đơn + item snapshot + audit','Dọn giỏ lần đặt']),
+ 'write':(430,285,330,160,'3b. Chưa có, hợp lệ',['Trừ tồn / tăng revision','Ghi đơn + item snapshot','Ghi audit + inbox cùng transaction','Dọn giỏ lần đặt']),
  'commit':(830,285,330,160,'4. Commit và hiển thị',['Một đơn / một lần trừ tồn','Cold start đọc lại kết quả']),
  'rollback':(40,285,330,160,'Lỗi / xung đột',['Rollback mọi thay đổi','Báo lỗi để sửa và xác nhận lại'])},[('prepare','begin'),('begin','replay'),('begin','write'),('begin','rollback'),('write','commit')],height=495)
 svg('trang-thai.svg','Trạng thái đơn — khách chỉ hủy PENDING',{
@@ -64,6 +72,14 @@ svg('trang-thai.svg','Trạng thái đơn — khách chỉ hủy PENDING',{
  's':(615,90,250,120,'SHIPPING',['Admin bắt đầu giao','Không đổi tồn']),
  'd':(905,90,250,120,'DELIVERED',['Đã giao / kết thúc','Không cho hủy']),
  'x':(325,330,420,135,'CANCELLED',['PENDING: chủ đơn hoặc admin','CONFIRMED: admin; hoàn tồn một lần'])},[('p','c'),('c','s'),('s','d'),('p','x'),('c','x')],height=510)
+
+svg('firebase-auth.svg','B0/B1 — danh tính Cloud và local tách nguồn',{
+ 'ui':(40,90,320,155,'CloudApp / ViewModel',['Package .cloud / debug opt-in','Xóa state theo UID + nonce','Không khởi tạo SQLite local']),
+ 'ports':(440,90,320,155,'Ports Auth / Accounts',['SDK Auth và HTTP callable','Guard trước / sau kết quả','Role listener chỉ yêu cầu tải lại']),
+ 'functions':(840,90,320,155,'Cloud Functions',['accountInfo / verifyAdmin','Xác minh token + Auth user','Đọc role trong transaction']),
+ 'local':(40,350,320,150,'LocalDemo',['.demo / .qa / bản thường','SQLite v11 / lịch sử local','Care Provider + receivers bật']),
+ 'auth':(440,350,320,150,'Firebase Auth Emulator',['UID chuỗi / email / displayName','SDK lưu phiên / logout riêng','Không gộp theo email local']),
+ 'firestore':(840,350,320,150,'Firestore Emulator',['roles/{uid}: server ghi','users/{uid}: bootstrap theo UID','Chủ chỉ đọc đúng dữ liệu mình'])},[('ui','ports'),('ports','functions'),('ports','auth'),('functions','auth'),('functions','firestore')],height=570)
 
 def inline(value):
     value=html.escape(value)
@@ -103,4 +119,4 @@ body=body.replace('<h2>3. Công nghệ và kiến trúc</h2>','<h2>3. Công ngh�
 body=body.replace('<h3>5.3. Giao hàng và COD</h3>','<h3>5.3. Giao hàng và COD</h3><img class="diagram" alt="Transaction COD" src="so-do/dat-cod.svg">')
 style='''@page{size:A4;margin:18mm 16mm}*{box-sizing:border-box}body{font:11pt/1.55 Arial,sans-serif;color:#30232a;max-width:190mm;margin:24px auto}h1{font-size:24pt;color:#79334f;line-height:1.2}h2{font-size:17pt;color:#79334f;margin-top:24pt}h3{font-size:13pt;color:#79334f}h1,h2,h3{break-after:avoid}p{orphans:3;widows:3}table{width:100%;border-collapse:collapse;font-size:9pt;margin:12pt 0}th,td{border:1px solid #ddc6d0;padding:7px;text-align:left;vertical-align:top}th{background:#f8e9ef}tr{break-inside:avoid}code{font-size:9pt;overflow-wrap:anywhere;background:#f8f1f4}img{display:block;margin:12pt auto;max-width:100%;max-height:105mm;object-fit:contain;break-inside:avoid}.diagram{width:100%;max-height:135mm}a{color:#79334f;overflow-wrap:anywhere}@media screen{body{padding:30px;box-shadow:0 4px 40px #e5d0da}}@media print{body{margin:0}.screen-only{display:none}}'''
 (DOCS/'bao-cao-de-tai.html').write_text('<!doctype html><html lang="vi"><meta charset="utf-8"><title>Báo cáo — Bloomy Beauty</title><style>'+style+'</style><body><p class="screen-only"><button onclick="window.print()">In / lưu PDF</button> · Bản kỹ thuật, thông tin học phần còn chờ điền.</p>'+body+'</body></html>')
-print('Rendered report HTML and five offline SVG diagrams.')
+print('Rendered report HTML and seven offline SVG diagrams.')

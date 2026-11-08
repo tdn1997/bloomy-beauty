@@ -1,0 +1,10 @@
+
+com.example.bloomybeauty.data.review.ReviewRepositoryTest:....
+com.example.bloomybeauty.data.care.CareMigrationTest:.
+com.example.bloomybeauty.data.admin.AdminRepositoryTest:............
+
+Time: 226.958
+
+OK (17 tests)
+
+

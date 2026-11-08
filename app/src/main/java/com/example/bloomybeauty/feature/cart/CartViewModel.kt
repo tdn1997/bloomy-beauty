@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.bloomybeauty.data.cart.*
 import com.example.bloomybeauty.data.order.*
+import com.example.bloomybeauty.data.coupon.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -24,19 +25,25 @@ data class CartUiState(
     val request: CheckoutRequest? = null,
     val placedOrder: CustomerOrder? = null,
     val orderError: OrderError? = null,
+    val couponsEnabled: Boolean = false,
+    val couponText: String = "",
+    val couponRules: List<CouponRule> = emptyList(),
+    val couponError: CouponException? = null,
+    val quoteInvalid: Boolean = false,
+    val reviewNotice: Boolean = false,
 )
 
 class CartViewModel(private val repository: CartRepository, private val userId: Long, private var userName: String, private val orders: OrderRepository) : ViewModel() {
-    private val mutableState = MutableStateFlow(CartUiState())
+    private val mutableState = MutableStateFlow(CartUiState(couponsEnabled = orders.localCouponsEnabled))
     val state = mutableState.asStateFlow()
-    private var draftLoaded = false
+    private var draftDirty = false
+    private var couponDraftLoaded = false
     private var reloadPending = false
 
     init { reload() }
 
-    fun refreshDefaultAddress(name: String) {
+    fun updateUserName(name: String) {
         userName = name
-        draftLoaded = false
         reload()
     }
 
@@ -52,23 +59,38 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
 
     private fun loadCurrent() = runAction {
         val snapshot = repository.load(userId)
+        val rules = orders.couponRules(userId)
         mutableState.update {
-            val draft = if (draftLoaded) it.draft else snapshot.shipping.let { saved ->
+            val draft = if (draftDirty) it.draft else snapshot.shipping.let { saved ->
                 if (saved.recipient.isBlank()) saved.copy(recipient = userName) else saved
             }
-            it.copy(snapshot = snapshot, draft = draft)
+            it.copy(snapshot = snapshot, draft = draft, couponRules = rules)
         }
-        draftLoaded = true
         val recovery = orders.recover(userId)
+        if(!couponDraftLoaded) {
+            mutableState.update {it.copy(couponText = recovery?.request?.coupon?.rule?.code.orEmpty())}
+            couponDraftLoaded = true
+        }
         if (recovery?.order?.status == "CANCELLED") {
             orders.acknowledge(userId, recovery.request.id)
-            mutableState.update { it.copy(request = null, placedOrder = null, step = CartStep.ITEMS) }
+            mutableState.update { it.copy(request = null, placedOrder = null, step = CartStep.ITEMS, couponText = "", quoteInvalid = false, reviewNotice = false) }
         } else if (recovery?.order != null) {
-            mutableState.update { it.copy(request = recovery.request, placedOrder = recovery.order, step = CartStep.SUCCESS) }
+            mutableState.update { it.copy(request = recovery.request, placedOrder = recovery.order, step = CartStep.SUCCESS,
+                couponText = recovery.request.coupon?.rule?.code.orEmpty(),quoteInvalid = false,couponError = null,reviewNotice = false) }
         } else {
+            if(recovery?.request?.version == 1) {
+                val fresh = orders.prepare(userId,"")
+                mutableState.update {it.copy(request = fresh,placedOrder = null,step = CartStep.REVIEW,couponText = "",quoteInvalid = false,reviewNotice = true)}
+                return@runAction
+            }
             val matches = recovery != null && snapshot.canContinue &&
                 recovery.request.lines.associate { it.productId to (it.quantity to it.unitPriceVnd) } ==
                 snapshot.items.associate { it.product.id to (it.quantity to it.product.priceVnd) } && recovery.request.shipping == snapshot.shipping
+            if(matches) {
+                try {orders.validateQuote(userId,checkNotNull(recovery).request)}
+                catch(e: CouponException) {mutableState.update {it.copy(couponError = e,quoteInvalid = true)}}
+                catch(e: OrderException) {if(e.error != OrderError.QUOTE_CHANGED) throw e else mutableState.update {it.copy(orderError = e.error,quoteInvalid = true)}}
+            }
             if (state.value.step == CartStep.REVIEW) {
                 repository.checkCart(snapshot)
                 if (!matches) {
@@ -95,19 +117,34 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
 
     fun continueToShipping() = runAction {
         val snapshot = repository.validateForShipping(userId)
-        mutableState.update { it.copy(snapshot = snapshot, step = CartStep.SHIPPING) }
+        mutableState.update { it.copy(snapshot = snapshot, draft = if(draftDirty) it.draft else snapshot.shipping.let {saved -> if(saved.recipient.isBlank()) saved.copy(recipient = userName) else saved}, step = CartStep.SHIPPING) }
     }
 
     fun saveShipping() = runAction {
         val snapshot = repository.saveShipping(userId, state.value.draft)
-        val request = orders.prepare(userId)
+        draftDirty = false
+        val request = orders.prepare(userId,state.value.couponText)
         val recovery = orders.recover(userId)
         mutableState.update { it.copy(snapshot = snapshot, draft = snapshot.shipping, request = request,
-            placedOrder = recovery?.order, step = if (recovery?.order != null) CartStep.SUCCESS else CartStep.REVIEW) }
+            placedOrder = recovery?.order, step = if (recovery?.order != null) CartStep.SUCCESS else CartStep.REVIEW,
+            couponText = request.coupon?.rule?.code.orEmpty(),quoteInvalid = false,reviewNotice = false,couponError = null) }
     }
 
+    fun editCoupon(text: String) {mutableState.update {it.copy(couponText = text,couponError = null)}}
+    fun removeCoupon() {editCoupon("");if(state.value.step == CartStep.REVIEW) applyCoupon()}
+    fun applyCoupon() {
+        if(state.value.step == CartStep.SHIPPING) {saveShipping();return}
+        if(state.value.step != CartStep.REVIEW) return
+        runAction {
+            val request = orders.prepare(userId,state.value.couponText)
+            val recovered = orders.recover(userId)
+            mutableState.update {it.copy(request = request,couponText = request.coupon?.rule?.code.orEmpty(),quoteInvalid = false,
+                reviewNotice = false,couponError = null,placedOrder = recovered?.order,step = if(recovered?.order != null) CartStep.SUCCESS else CartStep.REVIEW)}
+        }
+    }
     fun placeOrder() = runAction {
         val request = state.value.request ?: throw OrderException(OrderError.INVALID_REQUEST)
+        if(state.value.quoteInvalid || normalizeCoupon(state.value.couponText) != request.coupon?.rule?.code.orEmpty()) throw OrderException(OrderError.QUOTE_CHANGED)
         val order = orders.create(userId, request)
         mutableState.update { it.copy(placedOrder = order, step = CartStep.SUCCESS) }
         // The commit is already confirmed even if refreshing the cart subsequently fails.
@@ -117,11 +154,11 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
 
     fun finishOrder(onDone: () -> Unit) = runAction {
         state.value.request?.let { orders.acknowledge(userId, it.id) }
-        mutableState.update { it.copy(request = null, placedOrder = null, step = CartStep.ITEMS) }
+        mutableState.update { it.copy(request = null, placedOrder = null, step = CartStep.ITEMS, couponText = "", quoteInvalid = false, reviewNotice = false) }
         onDone()
     }
 
-    fun editDraft(details: ShippingDetails) { mutableState.update { it.copy(draft = details, shippingError = null) } }
+    fun editDraft(details: ShippingDetails) { draftDirty = true; mutableState.update { it.copy(draft = details, shippingError = null) } }
     fun back(): Boolean {
         if (state.value.busy) return true
         return when (state.value.step) {
@@ -141,7 +178,7 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
 
     private fun runAction(block: suspend () -> Unit) {
         if (state.value.busy) return
-        mutableState.update { it.copy(busy = true, error = null, shippingError = null, notice = false, orderError = null) }
+        mutableState.update { it.copy(busy = true, error = null, shippingError = null, notice = false, orderError = null, couponError = null) }
         viewModelScope.launch {
             try {
                 block()
@@ -150,8 +187,10 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
                 refreshAfterError()
             } catch (exception: ShippingException) {
                 mutableState.update { it.copy(shippingError = exception.error) }
+            } catch (exception: CouponException) {
+                mutableState.update {it.copy(couponError = exception,quoteInvalid = true)}
             } catch (exception: OrderException) {
-                mutableState.update { it.copy(orderError = exception.error, step = if (exception.error == OrderError.CART_CHANGED) CartStep.ITEMS else it.step) }
+                mutableState.update { it.copy(orderError = exception.error, quoteInvalid = it.quoteInvalid || exception.error == OrderError.QUOTE_CHANGED, step = if (exception.error == OrderError.CART_CHANGED) CartStep.ITEMS else it.step) }
                 refreshAfterError()
             } catch (exception: SQLiteException) {
                 mutableState.update {

@@ -75,7 +75,7 @@ class AdminRepository(private val helper: AuthDatabaseHelper, private val change
             if(target !in (AdminRules.transitions[expected] ?: emptyList())) throw AdminException(AdminError.INVALID_TRANSITION)
             if(order.status == target) return@authorized null // Repeated request: no duplicate stock or audit.
             if(order.status != expected) throw AdminException(AdminError.CONFLICT)
-            if(db.update("orders", ContentValues().apply { put("status",target) }, "_id=? AND status=?", arrayOf(orderId.toString(),expected)) != 1) throw AdminException(AdminError.CONFLICT)
+            if(db.update("orders", ContentValues().apply { put("status",target); if (target == "DELIVERED") put("delivered_at", System.currentTimeMillis()) }, "_id=? AND status=?", arrayOf(orderId.toString(),expected)) != 1) throw AdminException(AdminError.CONFLICT)
             if(target == "CANCELLED") order.lines.forEach { line ->
                 val stock = db.rawQuery("SELECT stock FROM products WHERE id=?", arrayOf(line.productId)).use { if(!it.moveToFirst()) throw AdminException(AdminError.NOT_FOUND); it.getInt(0) }
                 val restored = try { Math.addExact(stock, line.quantity) } catch (_: ArithmeticException) { throw AdminException(AdminError.STOCK_OVERFLOW) }
@@ -85,7 +85,7 @@ class AdminRepository(private val helper: AuthDatabaseHelper, private val change
             val owner = db.rawQuery("SELECT user_id FROM orders WHERE _id=?", arrayOf(orderId.toString())).use { it.moveToFirst(); it.getLong(0) }
             OrderChange(orderId, owner, if (target == "CANCELLED") OrderChangeKind.CANCELLED else OrderChangeKind.STATUS_CHANGED)
         }
-        if (change != null) changes.publish(change)
+        if (change != null) changes.publishAfterCommit(change)
     }
     private fun Cursor.text(key: String) = getString(getColumnIndexOrThrow(key))
     private fun Cursor.long(key: String) = getLong(getColumnIndexOrThrow(key))

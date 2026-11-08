@@ -1,0 +1,10 @@
+
+com.example.bloomybeauty.feature.coupon.CouponScreenTest:..
+com.example.bloomybeauty.data.coupon.CouponOrderTest:.
+com.example.bloomybeauty.data.coupon.CouponMigrationTest:..
+
+Time: 162.34
+
+OK (5 tests)
+
+

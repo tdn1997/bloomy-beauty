@@ -1,0 +1,10 @@
+{
+  "users": 0,
+  "auth_session": 0,
+  "orders": 0,
+  "cart_items": 0,
+  "addresses": 0,
+  "product_reviews": 0,
+  "user_notifications": 0,
+  "care_routines": 0
+}

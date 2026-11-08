@@ -4,6 +4,9 @@ from zipfile import ZipFile, ZIP_DEFLATED
 import hashlib
 import json
 import shutil
+import subprocess
+import datetime
+import re
 
 ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'deliverables'
@@ -17,11 +20,11 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 source=[]
-for name in ['app/src','gradle','scripts','docs']:
+for name in ['app/src','gradle','scripts','docs','functions/src','functions/scripts','functions/test']:
     for p in (ROOT/name).rglob('*'):
         if p.is_file() and not p.is_symlink() and '__pycache__' not in p.parts and p.suffix not in {'.mp4','.srt'}:
             source.append(p)
-for name in ['README.md','.gitignore','gradlew','gradlew.bat','gradle.properties','settings.gradle.kts','build.gradle.kts','app/build.gradle.kts','app/proguard-rules.pro']:
+for name in ['README.md','.gitignore','gradlew','gradlew.bat','gradle.properties','settings.gradle.kts','build.gradle.kts','app/build.gradle.kts','app/proguard-rules.pro','app/google-services.json.template','.env.example','firebase.json','firestore.rules','firestore.indexes.json','functions/package.json','functions/package-lock.json','firebase-tests/package.json','firebase-tests/package-lock.json','firebase-tests/firestore.rules.test.mjs']:
     p=ROOT/name
     if p.is_file():source.append(p)
 source=sorted(set(source),key=lambda p:p.relative_to(ROOT).as_posix())
@@ -31,7 +34,13 @@ for p in source:
     if '.local' in p.parts or p.name=='local.properties' or relative.startswith('deliverables/'):
         raise SystemExit(f'Unexpected private/generated path: {relative}')
     records.append({'path':relative,'bytes':p.stat().st_size,'sha256':digest(p)})
-manifest={'application':'Bloomy Beauty','version':'1.0','schema':5,'prepared':'2026-10-08','git_commit':None,'note':'No Git repository in this workspace; hashes identify the source snapshot.','files':records}
+schema=int(re.search(r'DATABASE_VERSION\s*=\s*(\d+)',(ROOT/'app/src/main/java/com/example/bloomybeauty/data/auth/AuthContract.kt').read_text())[1])
+base_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+manifest={'application':'Bloomy Beauty','version':'1.0','schema':schema,'prepared':datetime.date.today().isoformat(),
+          'git_base_commit':base_commit,'prepared_from_worktree':True,
+          'scope':'Coursework demo: local SQLite; no backend deployment required',
+          'note':'Per-file hashes identify this snapshot prepared before commit; git_base_commit is the starting revision, not the hash of the packaging commit.',
+          'acceptance':'docs/kiem-thu/pixel6-commerce-integration-2026-11-08/README.md','files':records}
 (DEST/'source-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
 with ZipFile(DEST/'bloomy-beauty-source.zip','w',ZIP_DEFLATED) as z:
     for p in source:z.write(p,p.relative_to(ROOT))
@@ -47,9 +56,11 @@ if (ROOT/'README.md').exists():
 reports=DEST/'ket-qua-kiem-thu'
 if reports.exists():shutil.rmtree(reports)
 reports.mkdir()
-for path,label in [('app/build/reports/tests/testDebugUnitTest','jvm'),('app/build/reports/androidTests/connected/debug','android')]:
+for path,label in [('app/build/reports/tests/testDebugUnitTest','jvm'),('app/build/reports/androidTests/connected/debug','android-historical')]:
     src=ROOT/path
     if src.exists():shutil.copytree(src,reports/label)
+# Current A7 instrumentation was run through ADB without uninstalling app data.
+shutil.copytree(ROOT/'docs/kiem-thu/pixel6-commerce-integration-2026-11-08',reports/'android-current')
 for label in ['debug','release']:
     for ext in ['html','xml']:
         src=ROOT/f'app/build/reports/lint-results-{label}.{ext}'

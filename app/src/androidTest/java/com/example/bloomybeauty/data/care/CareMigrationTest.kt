@@ -23,10 +23,19 @@ class CareMigrationTest {
             cart.saveShipping(id, ShippingDetails("Khách thử nghiệm", "0912345678", "123 Võ Văn Ngân, Thủ Đức, TP Hồ Chí Minh"))
             val order = orders.create(id, orders.prepare(id))
             cart.add(id, "lip_balm")
-            helper.writableDatabase.apply { execSQL("DROP TABLE care_routines"); version = 5 }
+            helper.writableDatabase.execSQL("DROP TABLE user_notifications")
+            helper.writableDatabase.execSQL("DROP TABLE coupon_rules")
+            helper.writableDatabase.execSQL("DROP TABLE addresses")
+            helper.writableDatabase.execSQL("DROP TABLE product_reviews")
+            helper.writableDatabase.execSQL("DROP TABLE care_routines")
+            helper.close()
+            android.database.sqlite.SQLiteDatabase.openDatabase(context.getDatabasePath(name).path, null, 0).use { db ->
+                com.example.bloomybeauty.fixtures.LegacyOrders.rebuild(db,false)
+                db.version=5
+            }
             helper.close()
             helper = AuthDatabaseHelper(context, name)
-            assertEquals(6, helper.readableDatabase.version)
+            assertEquals(AuthContract.DATABASE_VERSION, helper.readableDatabase.version)
             assertEquals(id, AuthRepository(helper).restoreSession()!!.id)
             assertEquals(order.id, OrderRepository(helper).list(id).single().id)
             assertEquals("lip_balm", CartRepository(helper).load(id).items.single().product.id)

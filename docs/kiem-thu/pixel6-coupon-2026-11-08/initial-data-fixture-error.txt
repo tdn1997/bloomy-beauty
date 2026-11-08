@@ -1,0 +1,55 @@
+
+com.example.bloomybeauty.data.review.ReviewRepositoryTest:.
+com.example.bloomybeauty.data.coupon.CouponOrderTest:..........
+com.example.bloomybeauty.data.catalog.CatalogRepositoryTest:.
+com.example.bloomybeauty.data.coupon.CouponMigrationTest:
+Error in initializationError(com.example.bloomybeauty.data.coupon.CouponMigrationTest):
+org.junit.runners.model.InvalidTestClassError: Invalid test class 'com.example.bloomybeauty.data.coupon.CouponMigrationTest':
+  1. Method setup() should be void
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:525)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:92)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:74)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner.<init>(AndroidJUnit4ClassRunner.java:43)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4Builder.runnerForClass(AndroidJUnit4Builder.java:51)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:37)
+	at androidx.test.internal.runner.AndroidRunnerBuilder.runnerForClass(AndroidRunnerBuilder.java:149)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:45)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:835)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:650)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:418)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+com.example.bloomybeauty.data.cart.CartRepositoryTest:.
+com.example.bloomybeauty.data.order.OrderRepositoryTest:................
+com.example.bloomybeauty.data.care.CareMigrationTest:.
+com.example.bloomybeauty.data.address.AddressRepositoryTest:.
+com.example.bloomybeauty.data.admin.AdminRepositoryTest:.
+
+Time: 264.819
+There was 1 failure:
+1) initializationError(com.example.bloomybeauty.data.coupon.CouponMigrationTest)
+org.junit.runners.model.InvalidTestClassError: Invalid test class 'com.example.bloomybeauty.data.coupon.CouponMigrationTest':
+  1. Method setup() should be void
+	at org.junit.runners.ParentRunner.validate(ParentRunner.java:525)
+	at org.junit.runners.ParentRunner.<init>(ParentRunner.java:92)
+	at org.junit.runners.BlockJUnit4ClassRunner.<init>(BlockJUnit4ClassRunner.java:74)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner.<init>(AndroidJUnit4ClassRunner.java:43)
+	at androidx.test.internal.runner.junit4.AndroidJUnit4Builder.runnerForClass(AndroidJUnit4Builder.java:51)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:37)
+	at androidx.test.internal.runner.AndroidRunnerBuilder.runnerForClass(AndroidRunnerBuilder.java:149)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:70)
+	at androidx.test.internal.runner.DirectTestLoader.doCreateRunner(DirectTestLoader.java:45)
+	at androidx.test.internal.runner.TestLoader.getRunnersFor(TestLoader.java:64)
+	at androidx.test.internal.runner.TestRequestBuilder.build(TestRequestBuilder.java:835)
+	at androidx.test.runner.AndroidJUnitRunner.buildRequest(AndroidJUnitRunner.java:650)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:418)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+FAILURES!!!
+Tests run: 33,  Failures: 1
+
+

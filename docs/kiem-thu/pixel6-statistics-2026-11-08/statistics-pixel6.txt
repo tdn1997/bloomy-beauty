@@ -1,0 +1,24 @@
+
+com.example.bloomybeauty.feature.statistics.StatisticsScreenTest:..
+Error in emptyAndFreeOrderChartsNeverDivideByZero(com.example.bloomybeauty.feature.statistics.StatisticsScreenTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 10000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:441)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.example.bloomybeauty.feature.statistics.StatisticsScreenTest.await(StatisticsScreenTest.kt:50)
+	at com.example.bloomybeauty.feature.statistics.StatisticsScreenTest.emptyAndFreeOrderChartsNeverDivideByZero(StatisticsScreenTest.kt:95)
+
+com.example.bloomybeauty.data.statistics.StatisticsRepositoryTest:.......
+
+Time: 549.131
+There was 1 failure:
+1) emptyAndFreeOrderChartsNeverDivideByZero(com.example.bloomybeauty.feature.statistics.StatisticsScreenTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 10000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:441)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.example.bloomybeauty.feature.statistics.StatisticsScreenTest.await(StatisticsScreenTest.kt:50)
+	at com.example.bloomybeauty.feature.statistics.StatisticsScreenTest.emptyAndFreeOrderChartsNeverDivideByZero(StatisticsScreenTest.kt:95)
+
+FAILURES!!!
+Tests run: 10,  Failures: 1
+
+

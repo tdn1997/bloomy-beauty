@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.bloomybeauty.data.admin.AdminRulesTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-08T07:43:28" hostname="Thuans-MacBook-Pro.local" time="0.028">
+  <properties/>
+  <testcase name="validateIntegerMoneyStockImageAndRequiredFields" classname="com.example.bloomybeauty.data.admin.AdminRulesTest" time="0.027"/>
+  <testcase name="onlyAcceptHttpsSources" classname="com.example.bloomybeauty.data.admin.AdminRulesTest" time="0.001"/>
+  <testcase name="enforceTerminalStatesAndShippingCancellationRule" classname="com.example.bloomybeauty.data.admin.AdminRulesTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -46,6 +46,11 @@ fun CartScreen(
     onRetry: () -> Unit,
     onPlaceOrder: () -> Unit = {},
     onFinishOrder: () -> Unit = {},
+    onOpenAddresses: (() -> Unit)? = null,
+    onSaveAddress: ((ShippingDetails) -> Unit)? = null,
+    onCouponChange: (String) -> Unit = {},
+    onApplyCoupon: () -> Unit = {},
+    onRemoveCoupon: () -> Unit = {},
 ) {
     BackHandler { onBack() }
     Scaffold(
@@ -65,8 +70,8 @@ fun CartScreen(
         } else {
             when (state.step) {
                 CartStep.ITEMS -> CartItems(state, onQuantityChange, onRemove, onAcceptPrices, onContinue, onRetry, Modifier.padding(padding))
-                CartStep.SHIPPING -> ShippingForm(state, onDraftChange, onSaveShipping, Modifier.padding(padding))
-                CartStep.REVIEW -> ShippingReview(state, onPlaceOrder, Modifier.padding(padding))
+                CartStep.SHIPPING -> ShippingForm(state, onDraftChange, onSaveShipping, Modifier.padding(padding), onOpenAddresses, onSaveAddress) {CouponControls(state,onCouponChange,onApplyCoupon,onRemoveCoupon)}
+                CartStep.REVIEW -> ShippingReview(state, onPlaceOrder, Modifier.padding(padding)) {CouponControls(state,onCouponChange,onApplyCoupon,onRemoveCoupon)}
                 CartStep.SUCCESS -> Column(Modifier.fillMaxSize().padding(padding).verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
                     Text(if (state.placedOrder?.status == "CANCELLED") "Đơn đã hủy" else "Đặt hàng thành công", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
                     state.placedOrder?.let { order ->
@@ -153,11 +158,12 @@ private fun CartItems(state: CartUiState, onQuantity: (String, Int) -> Unit, onR
 }
 
 @Composable
-private fun ShippingForm(state: CartUiState, onChange: (ShippingDetails) -> Unit, onSave: () -> Unit, modifier: Modifier) {
+private fun ShippingForm(state: CartUiState, onChange: (ShippingDetails) -> Unit, onSave: () -> Unit, modifier: Modifier, onOpenAddresses: (() -> Unit)?, onSaveAddress: ((ShippingDetails) -> Unit)?, coupons: @Composable () -> Unit) {
     val focus = LocalFocusManager.current
     Column(modifier.fillMaxSize().imePadding().verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text("Địa chỉ của bạn", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
-        Text("Thông tin đã lưu sẽ được dùng lại lần sau. Bạn có thể sửa trước khi tiếp tục.")
+        Text("Bạn có thể nhập trực tiếp hoặc chọn từ sổ địa chỉ. Thông tin đã chọn là bản sao riêng cho giao hàng.")
+        if(onOpenAddresses != null) OutlinedButton(onOpenAddresses, enabled = !state.busy, modifier = Modifier.fillMaxWidth()) {Text("Chọn từ sổ địa chỉ")}
         ShippingField("Người nhận", state.draft.recipient, { onChange(state.draft.copy(recipient = it)) }, !state.busy,
             state.shippingError == ShippingError.NAME, KeyboardOptions(capitalization = KeyboardCapitalization.Words, imeAction = ImeAction.Next))
         ShippingField("Số điện thoại", state.draft.phone, { onChange(state.draft.copy(phone = it)) }, !state.busy,
@@ -166,6 +172,7 @@ private fun ShippingForm(state: CartUiState, onChange: (ShippingDetails) -> Unit
         ShippingField("Địa chỉ nhận hàng", state.draft.address, { onChange(state.draft.copy(address = it)) }, !state.busy,
             state.shippingError == ShippingError.ADDRESS, KeyboardOptions(capitalization = KeyboardCapitalization.Sentences), singleLine = false)
         Text("Gồm số nhà, đường, phường/xã và tỉnh/thành phố.", style = MaterialTheme.typography.bodySmall)
+        if(onSaveAddress != null) TextButton({onSaveAddress(state.draft)}, enabled = !state.busy) {Text("Lưu địa chỉ này vào sổ")}
         state.shippingError?.let {
             Text(when (it) {
                 ShippingError.NAME -> "Người nhận cần từ 2 đến 80 ký tự."
@@ -174,6 +181,7 @@ private fun ShippingForm(state: CartUiState, onChange: (ShippingDetails) -> Unit
             }, color = MaterialTheme.colorScheme.error)
         }
         state.error?.let { CartErrorMessage(it) }
+        coupons()
         Button({ focus.clearFocus(); onSave() }, enabled = !state.busy, modifier = Modifier.fillMaxWidth()) {
             Text(if (state.busy) "Đang lưu…" else "Lưu và kiểm tra thông tin")
         }
@@ -191,7 +199,7 @@ private fun ShippingField(label: String, value: String, onChange: (String) -> Un
 }
 
 @Composable
-private fun ShippingReview(state: CartUiState, onPlace: () -> Unit, modifier: Modifier) {
+private fun ShippingReview(state: CartUiState, onPlace: () -> Unit, modifier: Modifier, coupons: @Composable () -> Unit) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         Text("Thông tin giao hàng đã lưu", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
         Surface(shape = RoundedCornerShape(20.dp), tonalElevation = 1.dp) {
@@ -209,15 +217,20 @@ private fun ShippingReview(state: CartUiState, onPlace: () -> Unit, modifier: Mo
         }
         HorizontalDivider()
         Text("Tạm tính: ${formatPrice(state.snapshot.totalVnd)}", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+        if(state.reviewNotice) Text("Giá và ưu đãi đã được cập nhật. Vui lòng kiểm tra và xác nhận lại.")
         state.request?.let {
+            it.coupon?.let {quote -> Text("Mã đã áp dụng: ${quote.rule.code}");Text("Giảm giá: −${formatPrice(quote.discountVnd)}")}
             Text("Phí giao hàng: ${formatPrice(it.feeVnd)}")
             Text("Tổng thanh toán COD: ${formatPrice(it.totalVnd)}", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
         }
         Text("Phí giao hàng demo 30.000 ₫; miễn phí từ 500.000 ₫. Thanh toán khi nhận hàng.")
         state.error?.let { CartErrorMessage(it) }
         state.orderError?.let { Text(orderErrorText(it), color = MaterialTheme.colorScheme.error) }
-        Button(onPlace, enabled = !state.busy && state.request != null, modifier = Modifier.fillMaxWidth()) {
-            Text(if (state.busy) "Đang đặt hàng…" else "Xác nhận đặt hàng COD")
+        if(state.quoteInvalid) Text("Báo giá này chưa thể dùng để đặt hàng. Hãy áp dụng lại mã hoặc quay lại kiểm tra giao hàng.",color = MaterialTheme.colorScheme.error)
+        coupons()
+        Button(onPlace, enabled = !state.busy && state.request != null && !state.quoteInvalid &&
+            com.example.bloomybeauty.data.coupon.normalizeCoupon(state.couponText) == state.request.coupon?.rule?.code.orEmpty(), modifier = Modifier.fillMaxWidth()) {
+            Text(if (state.busy) "Đang xử lý…" else "Xác nhận đặt hàng COD")
         }
     }
 }

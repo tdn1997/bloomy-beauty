@@ -98,7 +98,7 @@ class CartRepository(private val helper: AuthDatabaseHelper) {
             buildList { while (cursor.moveToNext()) add(CartItem(cursor.product(), cursor.int("quantity"), cursor.long("accepted_price_vnd"))) }
         }
         val shipping = db.query("shipping_details", null, "user_id = ?", arrayOf(userId.toString()), null, null, null).use {
-            if (it.moveToFirst()) ShippingDetails(it.text("recipient"), it.text("phone"), it.text("address")) else ShippingDetails()
+            if (it.moveToFirst()) ShippingDetails(it.text("recipient"), it.text("phone"), it.text("address")) else com.example.bloomybeauty.data.address.AddressRepository.readDefault(db,userId) ?: ShippingDetails()
         }
         return CartSnapshot(items, shipping)
     }

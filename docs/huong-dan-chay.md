@@ -1,6 +1,8 @@
 # Hướng dẫn chạy và build — Bloomy Beauty
 
-Bản tài liệu 08/10/2026. Ứng dụng Android Kotlin/Compose, dữ liệu SQLite trên một thiết bị. Đặt COD là mô phỏng, không gửi đơn tới Cocoon. Báo cáo kiểm thử và giới hạn: [kế hoạch, mục 23](ke-hoach-de-tai.md#23-phase-12--kiểm-thử-và-ổn-định-bản-cục-bộ).
+Bản tài liệu cập nhật 08/11/2026. Ứng dụng Android Kotlin/Compose, dữ liệu SQLite trên một thiết bị. Đặt COD là mô phỏng, không gửi đơn tới Cocoon. Báo cáo kiểm thử và giới hạn: [kế hoạch, mục 23](ke-hoach-de-tai.md#23-phase-12--kiểm-thử-và-ổn-định-bản-cục-bộ).
+
+**Chạy demo môn học không cần backend riêng, Node hoặc Firebase Emulator Suite.** APK `.demo` dùng SQLite schema 11, có đánh giá, sổ địa chỉ, coupon mẫu, thống kê, PDF và hộp thông báo. Phần Cloud/Auth là thử nghiệm tùy chọn; không dùng làm điều kiện cài/chạy demo.
 
 ## 1. Cài APK trình diễn
 
@@ -95,4 +97,4 @@ Video đã quay thực tế: [MP4 4 phút 10 giây](trinh-dien/bloomy-beauty-dem
 python3 scripts/package-submission.py
 ```
 
-Script yêu cầu APK demo và tài liệu đã có trong `deliverables/`; tạo zip mã nguồn, manifest SHA-256 và zip bàn giao. Bỏ cache, `local.properties`, cấu hình admin riêng và thư mục `.local`. Sửa tài liệu rồi chạy lại script để checksum/zip theo đúng bản cuối. Không có commit Git trong workspace hiện tại; `source-manifest.json` dùng hash từng file để xác định phiên bản bàn giao.
+Script yêu cầu APK demo và tài liệu đã có trong `deliverables/`; tạo zip mã nguồn, manifest SHA-256 và zip bàn giao. Bỏ cache, `local.properties`, cấu hình admin riêng và thư mục `.local`. Sửa tài liệu rồi chạy lại script để checksum/zip theo đúng bản cuối. `source-manifest.json` ghi commit nền và hash từng file để xác định chính xác snapshot bàn giao; bản đóng gói có thể chứa thay đổi chuẩn bị trước commit.

@@ -40,3 +40,9 @@ fun registerOrderChanges(context: Context, onChanged: (OrderChange) -> Unit): ()
     return { context.unregisterReceiver(receiver) }
 }
 
+
+// Publishers are post-commit side effects; callers must retain a successful business result.
+fun OrderChangePublisher.publishAfterCommit(change: OrderChange) {
+    try {publish(change)}
+    catch(e: RuntimeException) {android.util.Log.e("OrderChanges","Post-commit delivery failed",e)}
+}

@@ -177,9 +177,9 @@ document.getElementById(id).style.display = 'none';
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Lint Report: 23 warnings</span>
+      <span class="mdl-layout-title">Lint Report: 34 warnings</span>
       <div class="mdl-layout-spacer"></div>
-      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Thu Oct 08 10:09:30 ICT 2026 by AGP (8.9.1)</nav>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">Check performed at Sat Nov 07 10:24:34 ICT 2026 by AGP (8.9.1)</nav>
     </div>
   </header>
   <div class="mdl-layout__drawer">
@@ -192,7 +192,7 @@ document.getElementById(id).style.display = 'none';
       <a class="mdl-navigation__link" href="#AutoboxingStateCreation"><i class="material-icons warning-icon">warning</i><code>State&lt;T></code> will autobox values assigned to this state. Use a specialized state type instead. (1)</a>
       <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (7)</a>
       <a class="mdl-navigation__link" href="#IconXmlAndPng"><i class="material-icons warning-icon">warning</i>Icon is specified both as <code>.xml</code> file and as a bitmap (2)</a>
-      <a class="mdl-navigation__link" href="#UseKtx"><i class="material-icons warning-icon">warning</i>Use KTX extension function (4)</a>
+      <a class="mdl-navigation__link" href="#UseKtx"><i class="material-icons warning-icon">warning</i>Use KTX extension function (15)</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
@@ -232,9 +232,9 @@ document.getElementById(id).style.display = 'none';
 <tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Productivity">Productivity</a>
 </td></tr>
 <tr>
-<td class="countColumn">4</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<td class="countColumn">15</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
 <a href="#UseKtx">UseKtx</a>: Use KTX extension function</td></tr>
-<tr><td></td><td class="categoryColumn"><a href="#ExtraIssues">Included Additional Checks (49)</a>
+<tr><td></td><td class="categoryColumn"><a href="#ExtraIssues">Included Additional Checks (58)</a>
 </td></tr>
 <tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (41)</a>
 </td></tr>
@@ -255,13 +255,13 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:23</span>: <span class="message">Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the <code>android.os.Build.VERSION_CODES</code> javadoc for details.</span><br /><pre class="errorlines">
-<span class="lineno"> 20 </span>    defaultConfig {
-<span class="lineno"> 21 </span>        applicationId = "com.example.bloomybeauty"
-<span class="lineno"> 22 </span>        minSdk = 28
-<span class="caretline"><span class="lineno"> 23 </span>        <span class="warning">targetSdk = 35</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 24 </span>        versionCode = 1
-<span class="lineno"> 25 </span>        versionName = "1.0"
+<span class="location"><a href="../../build.gradle.kts">../../build.gradle.kts</a>:75</span>: <span class="message">Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the <code>android.os.Build.VERSION_CODES</code> javadoc for details.</span><br /><pre class="errorlines">
+<span class="lineno">  72 </span>  applicationId = "com.example.bloomybeauty"
+<span class="lineno">  73 </span>  buildConfigField("boolean", "FIREBASE_ENABLED", "${!presentationBuild &amp;&amp; !qaReleaseBuild}")
+<span class="lineno">  74 </span>  minSdk = 28
+<span class="caretline"><span class="lineno">  75 </span>  <span class="warning">targetSdk = 35</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  76 </span>  versionCode = 1
+<span class="lineno">  77 </span>  versionName = "1.0"
 </pre>
 
 </div>
@@ -305,14 +305,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:19</span>: <span class="message">Redundant label can be removed</span><br /><pre class="errorlines">
-<span class="lineno"> 16 </span>        <span class="tag">&lt;activity</span><span class="attribute">
-</span><span class="lineno"> 17 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">".MainActivity"</span>
-<span class="lineno"> 18 </span>            <span class="prefix">android:</span><span class="attribute">exported</span>=<span class="value">"true"</span>
-<span class="caretline"><span class="lineno"> 19 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 20 </span>            <span class="prefix">android:</span><span class="attribute">theme</span>=<span class="value">"@style/Theme.BloomyBeauty"</span>>
-<span class="lineno"> 21 </span>            <span class="tag">&lt;intent-filter></span>
-<span class="lineno"> 22 </span>                <span class="tag">&lt;action</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.intent.action.MAIN"</span> />
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:40</span>: <span class="message">Redundant label can be removed</span><br /><pre class="errorlines">
+<span class="lineno"> 37 </span>        <span class="tag">&lt;activity</span><span class="attribute">
+</span><span class="lineno"> 38 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">".MainActivity"</span>
+<span class="lineno"> 39 </span>            <span class="prefix">android:</span><span class="attribute">exported</span>=<span class="value">"true"</span>
+<span class="caretline"><span class="lineno"> 40 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 41 </span>            <span class="prefix">android:</span><span class="attribute">theme</span>=<span class="value">"@style/Theme.BloomyBeauty"</span>>
+<span class="lineno"> 42 </span>            <span class="tag">&lt;intent-filter></span>
+<span class="lineno"> 43 </span>                <span class="tag">&lt;action</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">name</span>=<span class="value">"android.intent.action.MAIN"</span> />
 </pre>
 
 </div>
@@ -370,44 +370,14 @@ Dismiss</button>            </div>
 <span class="lineno">  7 </span>espressoCore = "3.5.1"
 </pre>
 
-<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:6</span>: <span class="message">A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1</span><br /><pre class="errorlines">
-<span class="lineno">  3 </span>kotlin = "2.0.21"
-<span class="lineno">  4 </span>coreKtx = "1.10.1"
-<span class="lineno">  5 </span>junit = "4.13.2"
-<span class="caretline"><span class="lineno">  6 </span>junitVersion = <span class="warning">"1.1.5"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:9</span>: <span class="message">A newer version of androidx.activity:activity-compose than 1.8.0 is available: 1.9.3</span><br /><pre class="errorlines">
+<span class="lineno">  6 </span>junitVersion = "1.1.5"
 <span class="lineno">  7 </span>espressoCore = "3.5.1"
 <span class="lineno">  8 </span>lifecycleRuntimeKtx = "2.8.7"
-<span class="lineno">  9 </span>activityCompose = "1.8.0"
-</pre>
-
-<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:6</span>: <span class="message">A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1</span><br /><pre class="errorlines">
-<span class="lineno">  3 </span>kotlin = "2.0.21"
-<span class="lineno">  4 </span>coreKtx = "1.10.1"
-<span class="lineno">  5 </span>junit = "4.13.2"
-<span class="caretline"><span class="lineno">  6 </span>junitVersion = <span class="warning">"1.1.5"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  7 </span>espressoCore = "3.5.1"
-<span class="lineno">  8 </span>lifecycleRuntimeKtx = "2.8.7"
-<span class="lineno">  9 </span>activityCompose = "1.8.0"
-</pre>
-
-<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:7</span>: <span class="message">A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1</span><br /><pre class="errorlines">
-<span class="lineno">  4 </span>coreKtx = "1.10.1"
-<span class="lineno">  5 </span>junit = "4.13.2"
-<span class="lineno">  6 </span>junitVersion = "1.1.5"
-<span class="caretline"><span class="lineno">  7 </span>espressoCore = <span class="warning">"3.5.1"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  8 </span>lifecycleRuntimeKtx = "2.8.7"
-<span class="lineno">  9 </span>activityCompose = "1.8.0"
-<span class="lineno"> 10 </span>composeBom = "2024.09.00"
-</pre>
-
-<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:7</span>: <span class="message">A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1</span><br /><pre class="errorlines">
-<span class="lineno">  4 </span>coreKtx = "1.10.1"
-<span class="lineno">  5 </span>junit = "4.13.2"
-<span class="lineno">  6 </span>junitVersion = "1.1.5"
-<span class="caretline"><span class="lineno">  7 </span>espressoCore = <span class="warning">"3.5.1"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  8 </span>lifecycleRuntimeKtx = "2.8.7"
-<span class="lineno">  9 </span>activityCompose = "1.8.0"
-<span class="lineno"> 10 </span>composeBom = "2024.09.00"
+<span class="caretline"><span class="lineno">  9 </span>activityCompose = <span class="warning">"1.8.0"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 10 </span>fragment = "1.8.5"
+<span class="lineno"> 11 </span>composeBom = "2024.09.00"
+<span class="lineno"> 12 </span>googleServices = "4.5.0"
 </pre>
 
 <span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:9</span>: <span class="message">A newer version of androidx.activity:activity-compose than 1.8.0 is available: 1.9.3</span><br /><pre class="errorlines">
@@ -415,19 +385,49 @@ Dismiss</button>            </div>
 <span class="lineno">  7 </span>espressoCore = "3.5.1"
 <span class="lineno">  8 </span>lifecycleRuntimeKtx = "2.8.7"
 <span class="caretline"><span class="lineno">  9 </span>activityCompose = <span class="warning">"1.8.0"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 10 </span>composeBom = "2024.09.00"
-<span class="lineno"> 11 </span>
-<span class="lineno"> 12 </span>[libraries]
+<span class="lineno"> 10 </span>fragment = "1.8.5"
+<span class="lineno"> 11 </span>composeBom = "2024.09.00"
+<span class="lineno"> 12 </span>googleServices = "4.5.0"
 </pre>
 
-<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:9</span>: <span class="message">A newer version of androidx.activity:activity-compose than 1.8.0 is available: 1.9.3</span><br /><pre class="errorlines">
-<span class="lineno">  6 </span>junitVersion = "1.1.5"
+<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:10</span>: <span class="message">A newer version of androidx.fragment:fragment than 1.8.5 is available: 1.8.6</span><br /><pre class="errorlines">
 <span class="lineno">  7 </span>espressoCore = "3.5.1"
 <span class="lineno">  8 </span>lifecycleRuntimeKtx = "2.8.7"
-<span class="caretline"><span class="lineno">  9 </span>activityCompose = <span class="warning">"1.8.0"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 10 </span>composeBom = "2024.09.00"
-<span class="lineno"> 11 </span>
-<span class="lineno"> 12 </span>[libraries]
+<span class="lineno">  9 </span>activityCompose = "1.8.0"
+<span class="caretline"><span class="lineno"> 10 </span>fragment = <span class="warning">"1.8.5"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 11 </span>composeBom = "2024.09.00"
+<span class="lineno"> 12 </span>googleServices = "4.5.0"
+<span class="lineno"> 13 </span># Keep Firebase compatible with this project's Kotlin 2.0 compiler.
+</pre>
+
+<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:10</span>: <span class="message">A newer version of androidx.fragment:fragment than 1.8.5 is available: 1.8.6</span><br /><pre class="errorlines">
+<span class="lineno">  7 </span>espressoCore = "3.5.1"
+<span class="lineno">  8 </span>lifecycleRuntimeKtx = "2.8.7"
+<span class="lineno">  9 </span>activityCompose = "1.8.0"
+<span class="caretline"><span class="lineno"> 10 </span>fragment = <span class="warning">"1.8.5"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 11 </span>composeBom = "2024.09.00"
+<span class="lineno"> 12 </span>googleServices = "4.5.0"
+<span class="lineno"> 13 </span># Keep Firebase compatible with this project's Kotlin 2.0 compiler.
+</pre>
+
+<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:14</span>: <span class="message">A newer version of com.google.firebase:firebase-bom than 34.7.0 is available: 35.0.2</span><br /><pre class="errorlines">
+<span class="lineno"> 11 </span>composeBom = "2024.09.00"
+<span class="lineno"> 12 </span>googleServices = "4.5.0"
+<span class="lineno"> 13 </span># Keep Firebase compatible with this project's Kotlin 2.0 compiler.
+<span class="caretline"><span class="lineno"> 14 </span>firebaseBom = <span class="warning">"34.7.0"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 15 </span>
+<span class="lineno"> 16 </span>[libraries]
+<span class="lineno"> 17 </span>androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
+</pre>
+
+<span class="location"><a href="../../../gradle/libs.versions.toml">../../../gradle/libs.versions.toml</a>:14</span>: <span class="message">A newer version of com.google.firebase:firebase-bom than 34.7.0 is available: 35.0.2</span><br /><pre class="errorlines">
+<span class="lineno"> 11 </span>composeBom = "2024.09.00"
+<span class="lineno"> 12 </span>googleServices = "4.5.0"
+<span class="lineno"> 13 </span># Keep Firebase compatible with this project's Kotlin 2.0 compiler.
+<span class="caretline"><span class="lineno"> 14 </span>firebaseBom = <span class="warning">"34.7.0"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 15 </span>
+<span class="lineno"> 16 </span>[libraries]
+<span class="lineno"> 17 </span>androidx-fragment = { group = "androidx.fragment", name = "fragment", version.ref = "fragment" }
 </pre>
 
 </div>
@@ -699,14 +699,14 @@ Dismiss</button>            </div>
               <div class="mdl-card__supporting-text">
 <div class="issue">
 <div class="warningslist">
-<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/data/admin/AdminRepository.kt">../../src/main/java/com/example/bloomybeauty/data/admin/AdminRepository.kt</a>:33</span>: <span class="message">Use the KTX extension function <code>SQLiteDatabase.transaction</code> instead?</span><br /><pre class="errorlines">
-<span class="lineno"> 30 </span>  private <span class="keyword">val</span> orders = OrderRepository(helper)
-<span class="lineno"> 31 </span>  private suspend <span class="keyword">fun</span> &lt;T> authorized(userId: Long, block: (SQLiteDatabase) -> T): T = withContext(Dispatchers.IO) {
-<span class="lineno"> 32 </span>      <span class="keyword">val</span> db = helper.writableDatabase
-<span class="caretline"><span class="lineno"> 33 </span>      <span class="warning">db.beginTransaction()</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 34 </span>      <span class="keyword">try</span> {
-<span class="lineno"> 35 </span>          db.rawQuery(<span class="string">"SELECT 1 FROM auth_session s JOIN users u ON u._id=s.user_id WHERE u._id=? AND u.role='ADMIN'"</span>, arrayOf(userId.toString())).use {
-<span class="lineno"> 36 </span>              <span class="keyword">if</span> (!it.moveToFirst()) <span class="keyword">throw</span> AdminException(AdminError.PERMISSION)
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/data/admin/AdminRepository.kt">../../src/main/java/com/example/bloomybeauty/data/admin/AdminRepository.kt</a>:34</span>: <span class="message">Use the KTX extension function <code>SQLiteDatabase.transaction</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 31 </span>  private <span class="keyword">val</span> orders = OrderRepository(helper)
+<span class="lineno"> 32 </span>  private suspend <span class="keyword">fun</span> &lt;T> authorized(userId: Long, block: (SQLiteDatabase) -> T): T = withContext(Dispatchers.IO) {
+<span class="lineno"> 33 </span>      <span class="keyword">val</span> db = helper.writableDatabase
+<span class="caretline"><span class="lineno"> 34 </span>      <span class="warning">db.beginTransaction()</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 35 </span>      <span class="keyword">try</span> {
+<span class="lineno"> 36 </span>          db.rawQuery(<span class="string">"SELECT 1 FROM auth_session s JOIN users u ON u._id=s.user_id WHERE u._id=? AND u.role='ADMIN'"</span>, arrayOf(userId.toString())).use {
+<span class="lineno"> 37 </span>              <span class="keyword">if</span> (!it.moveToFirst()) <span class="keyword">throw</span> AdminException(AdminError.PERMISSION)
 </pre>
 
 <span class="location"><a href="../../src/main/java/com/example/bloomybeauty/data/admin/AdminSchema.kt">../../src/main/java/com/example/bloomybeauty/data/admin/AdminSchema.kt</a>:32</span>: <span class="message">Use the KTX extension function <code>SQLiteDatabase.transaction</code> instead?</span><br /><pre class="errorlines">
@@ -718,26 +718,136 @@ Dismiss</button>            </div>
 <span class="lineno"> 34 </span>            <span class="keyword">val</span> exists = db.rawQuery(<span class="string">"SELECT 1 FROM users WHERE email = ?"</span>, arrayOf(BuildConfig.DEMO_ADMIN_EMAIL)).use { it.moveToFirst() }
 <span class="lineno"> 35 </span>            <span class="comment">// Never elevate an existing customer or reset an existing administrator's password.</span></pre>
 
-<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/data/auth/AuthRepository.kt">../../src/main/java/com/example/bloomybeauty/data/auth/AuthRepository.kt</a>:25</span>: <span class="message">Use the KTX extension function <code>SQLiteDatabase.transaction</code> instead?</span><br /><pre class="errorlines">
-<span class="lineno">  22 </span>            <span class="keyword">val</span> normalizedEmail = AuthValidation.normalizeEmail(email)
-<span class="lineno">  23 </span>            <span class="keyword">val</span> db = helper.writableDatabase
-<span class="lineno">  24 </span>            <span class="keyword">val</span> digest = passwordHasher.hash(password)
-<span class="caretline"><span class="lineno">  25 </span>            <span class="warning">db.beginTransaction()</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno">  26 </span>            <span class="keyword">try</span> {
-<span class="lineno">  27 </span>                <span class="keyword">if</span> (findUser(db, normalizedEmail) != <span class="keyword">null</span>) {
-<span class="lineno">  28 </span>                    <span class="keyword">return</span><span class="annotation">@withContext</span> AuthResult.Failure(AuthError.DUPLICATE_EMAIL)
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/data/auth/AuthRepository.kt">../../src/main/java/com/example/bloomybeauty/data/auth/AuthRepository.kt</a>:27</span>: <span class="message">Use the KTX extension function <code>SQLiteDatabase.transaction</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno">  24 </span>            <span class="keyword">val</span> db = helper.writableDatabase
+<span class="lineno">  25 </span>            <span class="keyword">val</span> digest = passwordHasher.hash(password)
+<span class="lineno">  26 </span>            <span class="keyword">var</span> registered = <span class="keyword">false</span>
+<span class="caretline"><span class="lineno">  27 </span>            <span class="warning">db.beginTransaction()</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  28 </span>            <span class="keyword">try</span> {
+<span class="lineno">  29 </span>                <span class="keyword">if</span> (findUser(db, normalizedEmail) != <span class="keyword">null</span>) {
+<span class="lineno">  30 </span>                    <span class="keyword">return</span><span class="annotation">@withContext</span> AuthResult.Failure(AuthError.DUPLICATE_EMAIL)
 </pre>
 
-<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt">../../src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt</a>:404</span>: <span class="message">Use the KTX extension function <code>String.toUri</code> instead?</span><br /><pre class="errorlines">
-<span class="lineno"> 401 </span>         }
-<span class="lineno"> 402 </span>         TextButton(
-<span class="lineno"> 403 </span>             onClick = {
-<span class="caretline"><span class="lineno"> 404 </span>                 <span class="keyword">val</span> intent = Intent(Intent.ACTION_VIEW, <span class="warning">Uri.parse(product.sourceUrl)</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="lineno"> 405 </span>                 <span class="keyword">try</span> {
-<span class="lineno"> 406 </span>                     context.startActivity(intent)
-<span class="lineno"> 407 </span>                 } catch (exception: ActivityNotFoundException) {
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/reminders/CareReminderNotifications.kt">../../src/main/java/com/example/bloomybeauty/reminders/CareReminderNotifications.kt</a>:38</span>: <span class="message">Use the KTX extension function <code>String.toUri</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 35 </span>  <span class="keyword">if</span> (!allowed()) <span class="keyword">return</span>
+<span class="lineno"> 36 </span>  <span class="keyword">val</span> intent = Intent(context, MainActivity::<span class="keyword">class</span>.java).apply {
+<span class="lineno"> 37 </span>      action = context.packageName + <span class="string">".action.OPEN_CARE"</span>
+<span class="caretline"><span class="lineno"> 38 </span>      data = <span class="warning">Uri.parse(<span class="string">"bloomy-care://${</span>context.packageName<span class="string">}/${</span>routine.userId<span class="string">}/${</span>routine.id<span class="string">}"</span>)</span></span>
+<span class="lineno"> 39 </span>      putExtra(ROUTINE_ID, routine.id); putExtra(OWNER_ID, routine.userId)
+<span class="lineno"> 40 </span>      flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+<span class="lineno"> 41 </span>  }
 </pre>
 
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/reminders/CareReminderNotifications.kt">../../src/main/java/com/example/bloomybeauty/reminders/CareReminderNotifications.kt</a>:38</span>: <span class="message">Use the KTX extension function <code>String.toUri</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 35 </span>  <span class="keyword">if</span> (!allowed()) <span class="keyword">return</span>
+<span class="lineno"> 36 </span>  <span class="keyword">val</span> intent = Intent(context, MainActivity::<span class="keyword">class</span>.java).apply {
+<span class="lineno"> 37 </span>      action = context.packageName + <span class="string">".action.OPEN_CARE"</span>
+<span class="caretline"><span class="lineno"> 38 </span>      data = <span class="warning">Uri.parse(<span class="string">"bloomy-care://${</span>context.packageName<span class="string">}/${</span>routine.userId<span class="string">}/${</span>routine.id<span class="string">}"</span>)</span></span>
+<span class="lineno"> 39 </span>      putExtra(ROUTINE_ID, routine.id); putExtra(OWNER_ID, routine.userId)
+<span class="lineno"> 40 </span>      flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+<span class="lineno"> 41 </span>  }
+</pre>
+
+<button class="mdl-button mdl-js-button mdl-button--primary" id="UseKtxDivLink" onclick="reveal('UseKtxDiv');" />+ 10 More Occurrences...</button>
+<div id="UseKtxDiv" style="display: none">
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt">../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt</a>:36</span>: <span class="message">Use the KTX extension function <code>SharedPreferences.edit</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 33 </span>            <span class="string">"${</span>routine.id<span class="string">}:${</span>routine.userId<span class="string">}:${</span>routine.revision<span class="string">}:$occurrence"</span>
+<span class="lineno"> 34 </span>        }
+<span class="lineno"> 35 </span>        <span class="comment">// Persist identities before scheduling so a later launch can cancel partial work.</span>
+<span class="caretline"><span class="lineno"> 36 </span>        check(<span class="warning">preferences.edit()</span>.putStringSet(<span class="string">"scheduled"</span>, scheduled.toSet()).commit())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 37 </span>        scheduled.forEach(::scheduleEntry)
+<span class="lineno"> 38 </span>    }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt">../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt</a>:60</span>: <span class="message">Use the KTX extension function <code>SharedPreferences.edit</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 57 </span>            <span class="string">"${</span>it.id<span class="string">}:${</span>it.userId<span class="string">}:${</span>it.revision<span class="string">}:$time"</span>
+<span class="lineno"> 58 </span>        }
+<span class="lineno"> 59 </span>        <span class="keyword">if</span> (next != <span class="keyword">null</span>) remaining.add(next) <span class="keyword">else</span> notifications.cancel(id)
+<span class="caretline"><span class="lineno"> 60 </span>        check(<span class="warning">preferences.edit()</span>.putStringSet(<span class="string">"scheduled"</span>, remaining).commit())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 61 </span>        <span class="keyword">if</span> (next != <span class="keyword">null</span>) scheduleEntry(next)
+<span class="lineno"> 62 </span>    }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt">../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt</a>:73</span>: <span class="message">Use the KTX extension function <code>String.toUri</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 70 </span>  private <span class="keyword">fun</span> pending(id: Long, owner: Long, revision: Long, occurrence: Long, flags: Int): PendingIntent? =
+<span class="lineno"> 71 </span>      PendingIntent.getBroadcast(context, <span class="number">0</span>, Intent(context, CareReminderReceiver::<span class="keyword">class</span>.java).apply {
+<span class="lineno"> 72 </span>          action = context.packageName + <span class="string">".action.CARE_REMINDER"</span>
+<span class="caretline"><span class="lineno"> 73 </span>          data = <span class="warning">Uri.parse(<span class="string">"bloomy-care-alarm://${</span>context.packageName<span class="string">}/$id"</span>)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 74 </span>          putExtra(CareReminderNotifications.ROUTINE_ID, id); putExtra(CareReminderNotifications.OWNER_ID, owner)
+<span class="lineno"> 75 </span>          putExtra(<span class="string">"revision"</span>, revision); putExtra(<span class="string">"occurrence"</span>, occurrence)
+<span class="lineno"> 76 </span>      }, flags or PendingIntent.FLAG_IMMUTABLE)
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt">../../src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt</a>:73</span>: <span class="message">Use the KTX extension function <code>String.toUri</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 70 </span>  private <span class="keyword">fun</span> pending(id: Long, owner: Long, revision: Long, occurrence: Long, flags: Int): PendingIntent? =
+<span class="lineno"> 71 </span>      PendingIntent.getBroadcast(context, <span class="number">0</span>, Intent(context, CareReminderReceiver::<span class="keyword">class</span>.java).apply {
+<span class="lineno"> 72 </span>          action = context.packageName + <span class="string">".action.CARE_REMINDER"</span>
+<span class="caretline"><span class="lineno"> 73 </span>          data = <span class="warning">Uri.parse(<span class="string">"bloomy-care-alarm://${</span>context.packageName<span class="string">}/$id"</span>)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 74 </span>          putExtra(CareReminderNotifications.ROUTINE_ID, id); putExtra(CareReminderNotifications.OWNER_ID, owner)
+<span class="lineno"> 75 </span>          putExtra(<span class="string">"revision"</span>, revision); putExtra(<span class="string">"occurrence"</span>, occurrence)
+<span class="lineno"> 76 </span>      }, flags or PendingIntent.FLAG_IMMUTABLE)
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/data/care/CareRoutineContract.kt">../../src/main/java/com/example/bloomybeauty/data/care/CareRoutineContract.kt</a>:11</span>: <span class="message">Use the KTX extension function <code>String.toUri</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno">  8 </span>  const <span class="keyword">val</span> AUTHORITY = BuildConfig.APPLICATION_ID + <span class="string">".care"</span>
+<span class="lineno">  9 </span>  const <span class="keyword">val</span> EXPECTED_USER = <span class="string">"expected_user_id"</span>
+<span class="lineno"> 10 </span>  const <span class="keyword">val</span> EXPECTED_REVISION = <span class="string">"expected_revision"</span>
+<span class="caretline"><span class="lineno"> 11 </span>  <span class="keyword">val</span> CONTENT_URI: Uri = <span class="warning">Uri.parse(<span class="string">"content://$AUTHORITY/routines"</span>)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 12 </span>  <span class="keyword">val</span> columns = arrayOf(<span class="string">"_id"</span>, <span class="string">"user_id"</span>, <span class="string">"product_id"</span>, <span class="string">"title"</span>, <span class="string">"note"</span>, <span class="string">"minute_of_day"</span>, <span class="string">"days_mask"</span>, <span class="string">"enabled"</span>, <span class="string">"revision"</span>, <span class="string">"last_occurrence_at"</span>, <span class="string">"created_at"</span>, <span class="string">"updated_at"</span>)
+<span class="lineno"> 13 </span>
+<span class="lineno"> 14 </span>  <span class="keyword">fun</span> uri(userId: Long, id: Long? = <span class="keyword">null</span>, revision: Long? = <span class="keyword">null</span>): Uri =
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/data/care/CareRoutineStore.kt">../../src/main/java/com/example/bloomybeauty/data/care/CareRoutineStore.kt</a>:11</span>: <span class="message">Use the KTX extension function <code>SQLiteDatabase.transaction</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno">  8 </span><span class="keyword">class</span> CareRoutineStore(private <span class="keyword">val</span> helper: AuthDatabaseHelper) {
+<span class="lineno">  9 </span>    <span class="keyword">fun</span> &lt;T> withSession(userId: Long, block: (SQLiteDatabase) -> T): T {
+<span class="lineno"> 10 </span>        <span class="keyword">val</span> db = helper.writableDatabase
+<span class="caretline"><span class="lineno"> 11 </span>        <span class="warning">db.beginTransaction()</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 12 </span>        <span class="keyword">try</span> {
+<span class="lineno"> 13 </span>            SessionAccess.require(db, userId)
+<span class="lineno"> 14 </span>            <span class="keyword">return</span> block(db).also { db.setTransactionSuccessful() }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/feature/care/CareScreen.kt">../../src/main/java/com/example/bloomybeauty/feature/care/CareScreen.kt</a>:56</span>: <span class="message">Use the KTX extension function <code>SharedPreferences.edit</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno">  53 </span>  <span class="keyword">val</span> preferences = context.getSharedPreferences(<span class="string">"push_settings"</span>, <span class="number">0</span>)
+<span class="lineno">  54 </span>  <span class="keyword">if</span> (Build.VERSION.SDK_INT >= <span class="number">33</span> &amp;&amp; ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED &amp;&amp;
+<span class="lineno">  55 </span>      !preferences.getBoolean(<span class="string">"permission_requested"</span>, <span class="keyword">false</span>)) {
+<span class="caretline"><span class="lineno">  56 </span>      <span class="warning">preferences.edit()</span>.putBoolean(<span class="string">"permission_requested"</span>, <span class="keyword">true</span>).apply()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  57 </span>      permission.launch(Manifest.permission.POST_NOTIFICATIONS)
+<span class="lineno">  58 </span>  } <span class="keyword">else</span> <span class="keyword">if</span> (!notifications.allowed()) {
+<span class="lineno">  59 </span>      context.startActivity(Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).apply {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt">../../src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt</a>:416</span>: <span class="message">Use the KTX extension function <code>String.toUri</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 413 </span>         }
+<span class="lineno"> 414 </span>         TextButton(
+<span class="lineno"> 415 </span>             onClick = {
+<span class="caretline"><span class="lineno"> 416 </span>                 <span class="keyword">val</span> intent = Intent(Intent.ACTION_VIEW, <span class="warning">Uri.parse(product.sourceUrl)</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 417 </span>                 <span class="keyword">try</span> {
+<span class="lineno"> 418 </span>                     context.startActivity(intent)
+<span class="lineno"> 419 </span>                 } catch (exception: ActivityNotFoundException) {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/MainActivity.kt">../../src/main/java/com/example/bloomybeauty/MainActivity.kt</a>:51</span>: <span class="message">Use the KTX extension function <code>SharedPreferences.edit</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 48 </span>        ) {
+<span class="lineno"> 49 </span>            <span class="keyword">val</span> preferences = getSharedPreferences(<span class="string">"push_settings"</span>, MODE_PRIVATE)
+<span class="lineno"> 50 </span>            <span class="keyword">if</span> (!preferences.getBoolean(<span class="string">"permission_requested"</span>, <span class="keyword">false</span>)) {
+<span class="caretline"><span class="lineno"> 51 </span>                <span class="warning">preferences.edit()</span>.putBoolean(<span class="string">"permission_requested"</span>, <span class="keyword">true</span>).apply()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 52 </span>                notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+<span class="lineno"> 53 </span>            }
+<span class="lineno"> 54 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/example/bloomybeauty/notifications/PushNotifications.kt">../../src/main/java/com/example/bloomybeauty/notifications/PushNotifications.kt</a>:27</span>: <span class="message">Use the KTX extension function <code>SharedPreferences.edit</code> instead?</span><br /><pre class="errorlines">
+<span class="lineno"> 24 </span>    }
+<span class="lineno"> 25 </span>
+<span class="lineno"> 26 </span>    <span class="keyword">fun</span> saveToken(token: String) {
+<span class="caretline"><span class="lineno"> 27 </span>        <span class="warning">context.getSharedPreferences(<span class="string">"push_registration"</span>, Context.MODE_PRIVATE)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 28 </span>            .edit().putString(<span class="string">"token"</span>, token).apply()
+<span class="lineno"> 29 </span>    }
+</pre>
+
+</div>
 </div>
 <div class="metadata"><div class="explanation" id="explanationUseKtx" style="display: none;">
 The Android KTX libraries decorates the Android platform SDK as well as various libraries with more convenient extension functions available from Kotlin, allowing you to use default parameters, named parameters, and more.<br/><br/>
@@ -901,6 +1011,32 @@ Feedback: <a href="https://issuetracker.google.com/issues/new?component=612128">
 </div>
 </div>
 <div class="issue">
+<div class="id">DetachAndAttachSameFragment<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+When doing a FragmentTransaction that includes both attach()                 and detach() operations being committed on the same fragment instance, it is a                 no-op. The reason for this is that the FragmentManager optimizes all operations                 within a single transaction so the attach() and detach() cancel each other out                 and neither is actually executed. To get the desired behavior, you should separate                 the attach() and detach() calls into separate FragmentTransactions.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">DialogFragmentCallbacksDetector<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+When using a <code>DialogFragment</code>, the <code>setOnCancelListener</code> and                 <code>setOnDismissListener</code> callback functions within the <code>onCreateDialog</code> function                  __must not be used__ because the <code>DialogFragment</code> owns these callbacks.                  Instead the respective <code>onCancel</code> and <code>onDismiss</code> functions can be used to                  achieve the desired effect.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
 <div class="id">EnsureInitializerMetadata<div class="issueSeparator"></div>
 </div>
 <div class="metadata"><div class="explanation">
@@ -947,6 +1083,59 @@ Calling a Flow operator function within composition will result in a new Flow be
 Vendor: Jetpack Compose<br/>
 Identifier: androidx.compose.runtime<br/>
 Feedback: <a href="https://issuetracker.google.com/issues/new?component=612128">https://issuetracker.google.com/issues/new?component=612128</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">FragmentAddMenuProvider<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+The Fragment lifecycle can result in a Fragment being active                 longer than its view. This can lead to unexpected behavior from lifecycle aware                 objects remaining active longer than the Fragment's view. To solve this issue,                 getViewLifecycleOwner() should be used as a LifecycleOwner rather than the                 Fragment instance once it is safe to access the view lifecycle in a                 Fragment's onCreateView, onViewCreated, onActivityCreated, or                 onViewStateRestored methods.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">FragmentBackPressedCallback<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+The Fragment lifecycle can result in a Fragment being active                 longer than its view. This can lead to unexpected behavior from lifecycle aware                 objects remaining active longer than the Fragment's view. To solve this issue,                 getViewLifecycleOwner() should be used as a LifecycleOwner rather than the                 Fragment instance once it is safe to access the view lifecycle in a                 Fragment's onCreateView, onViewCreated, onActivityCreated, or                 onViewStateRestored methods.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">FragmentLiveDataObserve<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+When observing a LiveData object from a fragment's onCreateView,                 onViewCreated, onActivityCreated, or onViewStateRestored method                 getViewLifecycleOwner() should be used as the LifecycleOwner rather than the                 Fragment instance. The Fragment lifecycle can result in the Fragment being                 active longer than its view. This can lead to unexpected behavior from                 LiveData objects being observed longer than the Fragment's view is active.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">FragmentTagUsage<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+FragmentContainerView replaces the &lt;fragment> tag as the preferred                 way of adding fragments via XML. Unlike the &lt;fragment> tag, FragmentContainerView                 uses a normal <code>FragmentTransaction</code> under the hood to add the initial fragment,                 allowing further FragmentTransaction operations on the FragmentContainerView                 and providing a consistent timing for lifecycle events.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView.html">https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView.html</a>
+</div><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
 </div>
 <br/>
 <br/></div>
@@ -1399,6 +1588,19 @@ Feedback: <a href="https://issuetracker.google.com/issues/new?component=459778">
 </div>
 </div>
 <div class="issue">
+<div class="id">UnsafeRepeatOnLifecycleDetector<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+The repeatOnLifecycle APIs should be used with the viewLifecycleOwner                 in Fragments as opposed to lifecycleOwner.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
 <div class="id">UnusedBoxWithConstraintsScope<div class="issueSeparator"></div>
 </div>
 <div class="metadata"><div class="explanation">
@@ -1464,6 +1666,19 @@ Feedback: <a href="https://issuetracker.google.com/issues/new?component=612128">
 </div>
 </div>
 <div class="issue">
+<div class="id">UseGetLayoutInflater<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+Using LayoutInflater.from(Context) can return a LayoutInflater                  that does not have the correct theme.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
 <div class="id">UseOfNonLambdaOffsetOverload<div class="issueSeparator"></div>
 </div>
 <div class="metadata"><div class="explanation">
@@ -1471,6 +1686,19 @@ Feedback: <a href="https://issuetracker.google.com/issues/new?component=612128">
 Vendor: Jetpack Compose<br/>
 Identifier: androidx.compose.foundation<br/>
 Feedback: <a href="https://issuetracker.google.com/issues/new?component=612128">https://issuetracker.google.com/issues/new?component=612128</a><br/>
+</div>
+<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UseRequireInsteadOfGet<div class="issueSeparator"></div>
+</div>
+<div class="metadata"><div class="explanation">
+AndroidX added new "require____()" versions of common "get___()" APIs, such as getContext/getActivity/getArguments/etc. Rather than wrap these in something like requireNotNull(), using these APIs will allow the underlying component to try to tell you _why_ it was null, and thus yield a better error message.<br/><div class="vendor">
+Vendor: Android Open Source Project<br/>
+Identifier: androidx.fragment<br/>
+Feedback: <a href="https://issuetracker.google.com/issues/new?component=460964">https://issuetracker.google.com/issues/new?component=460964</a><br/>
 </div>
 <br/>
 <br/></div>

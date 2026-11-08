@@ -1,25 +1,38 @@
 {
   "application": "Bloomy Beauty",
   "version": "1.0",
-  "schema": 5,
-  "prepared": "2026-10-08",
-  "git_commit": null,
-  "note": "No Git repository in this workspace; hashes identify the source snapshot.",
+  "schema": 11,
+  "prepared": "2026-11-08",
+  "git_base_commit": "dc555eed784c41f1a62c803fdd2843a6bab8f9e8",
+  "prepared_from_worktree": true,
+  "scope": "Coursework demo: local SQLite; no backend deployment required",
+  "note": "Per-file hashes identify this snapshot prepared before commit; git_base_commit is the starting revision, not the hash of the packaging commit.",
+  "acceptance": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/README.md",
   "files": [
     {
+      "path": ".env.example",
+      "bytes": 151,
+      "sha256": "366ba29aacd29511bd9beb3565757aaca9a85566d4604c9708abbcd750f38b5e"
+    },
+    {
       "path": ".gitignore",
-      "bytes": 44,
-      "sha256": "8780225fd938d93bb6bc415e313a778f838b9a9d634d6faa53f0e7dbe32b7fca"
+      "bytes": 167,
+      "sha256": "516ac65ba6ae06a3c01c8de35676837758cd0053a578786665138b5ef838005b"
     },
     {
       "path": "README.md",
-      "bytes": 2774,
-      "sha256": "2fe132c583d7293afa84516afb276cb694e404de02aaa8913a0b2ecf2d6e3d37"
+      "bytes": 7890,
+      "sha256": "342d8271b2355cd61df9ed338d27a3d72bd11df59e77d37b5f09087b936d9427"
     },
     {
       "path": "app/build.gradle.kts",
-      "bytes": 3436,
-      "sha256": "9cd6e225889da337f07df8b9ade972cb6dff97cd340986245305174bcc57785d"
+      "bytes": 7227,
+      "sha256": "b8390f76bd9e956e08265d529209e18315557223ed7dd3ee743828b313c701dd"
+    },
+    {
+      "path": "app/google-services.json.template",
+      "bytes": 662,
+      "sha256": "abe1712e779cb2a09ff2bfe4a232954aa583b3d45171eb901dec41a3f897df86"
     },
     {
       "path": "app/proguard-rules.pro",
@@ -34,17 +47,37 @@
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/ExampleInstrumentedTest.kt",
       "bytes": 675,
-      "sha256": "804fff54456474579682b785f2a2ffd0ccf23eff9c8dbecb02cc571dc6da7fd1"
+      "sha256": "ede1e62621c3365d948dda26117981c5e224f2a8b7029cc75c4e5dc777aa1eee"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/address/AddressRepositoryTest.kt",
+      "bytes": 10344,
+      "sha256": "eae51b7a1a08d5aed3ca77408a8717d9dd0e0690e8cdd070be07c698b7dda019"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/data/admin/AdminRepositoryTest.kt",
-      "bytes": 9450,
-      "sha256": "abfc8bb9ea344d1274d3955b32b404c974881bbd8eaa49c69ab8266d8516254b"
+      "bytes": 11178,
+      "sha256": "489cd374d76adb83ad35e8ec9d780ef5c751bea1811317f1f67a604089fc78b1"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/data/auth/AuthRepositoryTest.kt",
       "bytes": 6006,
       "sha256": "ab7b852c6590ab411c397967f761548c473347bc6f22f6109ad2be9dfd5ba4e1"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/care/CareMigrationTest.kt",
+      "bytes": 2784,
+      "sha256": "e3318459f6bb17eea8a0d1afffc6fe1c7b05f110af15d7df0ab9a80a04f421ba"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/care/CareRoutineProviderTest.kt",
+      "bytes": 10561,
+      "sha256": "a0b4418fe1d6821c923030826dc7503160d6cab8d954a92af300605f41adf392"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/care/CommerceFoundationTest.kt",
+      "bytes": 1141,
+      "sha256": "bf40abe7231324592449c7009a4e680e324dd6bc906162695be16f9ca07c98fc"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/data/cart/CartRepositoryTest.kt",
@@ -57,14 +90,59 @@
       "sha256": "c31e28b474f3638fbb299b56d6480f69ff553ec9f7ced9c3a9c6cb111421978e"
     },
     {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/cloud/CloudEmulatorFixture.kt",
+      "bytes": 2215,
+      "sha256": "38709684cb1eda666cae5b101834c1e6f250569054614ed052e3faa64e855914"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/cloud/FirebaseCloudIdentityTest.kt",
+      "bytes": 6050,
+      "sha256": "367f13447c5766e2ea3390d6918419ef3c994e3f59579b24ec45486bbc157dce"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/coupon/CouponMigrationTest.kt",
+      "bytes": 5223,
+      "sha256": "b35770dedcc07fd8b727179a459ae136310a3e9ffd7464393520c3c0f655398c"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/coupon/CouponOrderTest.kt",
+      "bytes": 10165,
+      "sha256": "680f412c57c84de80b74ebc386617ecb94d8e5b682f445fb482bec5b4a1cc65c"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/notification/InboxPermissionDeniedTest.kt",
+      "bytes": 2658,
+      "sha256": "f151489f419777931332e43120c3b5c169bded27f336a7eb1e7534e0e4b690f7"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/notification/NotificationRepositoryTest.kt",
+      "bytes": 8144,
+      "sha256": "de13218dbc30cacac8c6fcc3e28274cd4a17706b67c7315ee54279c2f626ea9f"
+    },
+    {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/data/order/OrderRepositoryTest.kt",
       "bytes": 15417,
       "sha256": "e5628f980dedc64de5112a0cc4bad515f172ceb078143242783cb498fb6dfd95"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/data/profile/ProfileRepositoryTest.kt",
-      "bytes": 5025,
-      "sha256": "36e225ad08138e28006ae08a840dc0f96a13bddc45a91e2322ed79bf3b2fca34"
+      "bytes": 4331,
+      "sha256": "0bc6708948db1cf4880a4cfa38257f96775ccf071fdee3c56f06200e68f9582f"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/promotions/FirestoreConnectionTest.kt",
+      "bytes": 1191,
+      "sha256": "8c8eb8e69779ed861016e952cae4f726fe62c624a9cf3136b8109eac25e285fa"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/promotions/FirestorePromotionsTest.kt",
+      "bytes": 7986,
+      "sha256": "6a2e1c31c10428168fa76710fabe7f958826d96d82f69bba922377c300836daa"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/review/ReviewRepositoryTest.kt",
+      "bytes": 6506,
+      "sha256": "f7ed44ced58a103e1ff7483a9704c275c1962ed89a47a61018843e3ac785ba34"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/data/security/SessionIsolationTest.kt",
@@ -72,9 +150,39 @@
       "sha256": "458efb4501cf11374da1a5e404d4b6e2fa5186dd4d3424ba1e536c81b03b8f4d"
     },
     {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/data/statistics/StatisticsRepositoryTest.kt",
+      "bytes": 6536,
+      "sha256": "9690a82eb230b79df70990bf3b4002eef22d9d98dd6ffe1f63748d03d2aee4c3"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/events/OrderChangesTest.kt",
+      "bytes": 4285,
+      "sha256": "e4c9d16c3d2bf8dde270fb6c25a3b1e17e829c333a1e6f0c357363843fffedfc"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/export/OrderPdfExporterTest.kt",
+      "bytes": 6975,
+      "sha256": "15d8d9be1b488bc6d0729784d98dca520a8ff121fffb5d2cac5a82710963034e"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/export/OrderPdfScreenTest.kt",
+      "bytes": 5858,
+      "sha256": "53b5ed8ae9b439ee6d73ec9e6b73db9880abb935111a6c1851d27c4d534177cd"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/address/AddressScreenTest.kt",
+      "bytes": 8745,
+      "sha256": "b950d719b4ea0428c2e9c98e9fcd8b80865c1b0dafecfb6cf2d68f101e8febd2"
+    },
+    {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/admin/AdminFlowTest.kt",
       "bytes": 5504,
       "sha256": "62daa2541e3ee23082394aae61a3a3fe214ff2af3db15c6d431990e91d41b957"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/app/CommerceExtensionsIntegrationTest.kt",
+      "bytes": 7016,
+      "sha256": "27377b9bee91b95a47370475910c900525acfaf2ad1127492d3cd34fea2573ea"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/app/ShopColdStartTest.kt",
@@ -103,13 +211,18 @@
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/auth/VietnameseInputTest.kt",
-      "bytes": 4517,
-      "sha256": "d9bccc6b9baef3d2bdc4d037f5a23aa909533cf164d4c212f153307f5674cee5"
+      "bytes": 4526,
+      "sha256": "2470a2e307936daadb5c9c600687f40415041a72f762d5c12e16d34e0724d123"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/care/CareScreenTest.kt",
+      "bytes": 5928,
+      "sha256": "c4c0b961fc7df7ef390bee26041b64c2d9c1cf1d26a5a59eaf1df945ed06d9b5"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/cart/CartFlowTest.kt",
-      "bytes": 16693,
-      "sha256": "cc61fb8be775d02b1e0af0ab1c75347a87f1857a6c69f484a25d04d2566a944e"
+      "bytes": 16980,
+      "sha256": "83cf1931501cb2a81c2f77fc46564dc03d84eb46c7f772c9af505edd5a65aaef"
     },
     {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/cart/CartRefreshTest.kt",
@@ -117,9 +230,69 @@
       "sha256": "c35153f40b1f01024ee843a77aa35bb5f6d7b33626609eae3cd928bd88467f18"
     },
     {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/cloud/CloudAccountScreenTest.kt",
+      "bytes": 6790,
+      "sha256": "0f3a1205a53db72340c6447a693eee3cfd7ae5545e18fc72faaec1eca02e6354"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/cloud/CloudColdStartScenarioTest.kt",
+      "bytes": 3929,
+      "sha256": "847742537d8c0737b02f8b6c66b8b987276f29e878fd0a515dfaf4e827984a33"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/coupon/CouponScreenTest.kt",
+      "bytes": 7285,
+      "sha256": "a14cfbde0a32466426de8f1bbfeb0fe52335e397e401b0b4fb3206989e596312"
+    },
+    {
       "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/home/HomeFlowTest.kt",
       "bytes": 5789,
       "sha256": "0672e0a32d3dc7853d5d653c0f68df38735c69dea594858f2670f6b49e7e1005"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/notification/NotificationScreenTest.kt",
+      "bytes": 5189,
+      "sha256": "ae694fdd4691052915aaa14d8c54363f25a5461d3ddb55c2e6aef487b83fc591"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/promotions/PromotionsSectionTest.kt",
+      "bytes": 3011,
+      "sha256": "947326ef62fda6fa21919076db4262232e4095429db5de577443d296856f1591"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/review/ReviewScreenTest.kt",
+      "bytes": 9294,
+      "sha256": "2df60ddbae6ce814a19c63396147c5d83475f79e96bd82e40753713ab7d1d0e8"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/feature/statistics/StatisticsScreenTest.kt",
+      "bytes": 6792,
+      "sha256": "81d9994883227e5450ce4bc284f83839f935a754bc31c9f5e6622aee2086d519"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/fixtures/LegacyOrders.kt",
+      "bytes": 1785,
+      "sha256": "e4fc4d7a7facb72f290c2fd887071bc6a407d61cb481fb9f5f643ea33c717b5e"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/fixtures/StatisticsFixture.kt",
+      "bytes": 2833,
+      "sha256": "3cc230899acdcbffa5633b9ec27fce0e4015e5a3c047f9ea83c0e624206785fd"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/notifications/PushNotificationsTest.kt",
+      "bytes": 3632,
+      "sha256": "303fb3ddb6a6e9208145190cf151f4202860bc4dcd77c20d9150b168ee954457"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/notifications/PushPermissionDeniedTest.kt",
+      "bytes": 1273,
+      "sha256": "6fa4023179433da5c894409d1825aacaeb9248d1f1e95f1e63871c2eae14cbdd"
+    },
+    {
+      "path": "app/src/androidTest/java/com/example/bloomybeauty/reminders/CareDeviceScenarioTest.kt",
+      "bytes": 5668,
+      "sha256": "09466658e1350945bc937ffd7e1669b73ebecc1133268dbd99cfc08caebd3a11"
     },
     {
       "path": "app/src/androidTest/res/xml/regression_input_method.xml",
@@ -127,49 +300,64 @@
       "sha256": "4aafc899939ff4b8883a80c6e00f7ff7413a08a603d485a15f1035c07760b50c"
     },
     {
+      "path": "app/src/debug/AndroidManifest.xml",
+      "bytes": 169,
+      "sha256": "8b68dead36a18571d0cd3a9c4bab0ac3868b4dea84393de1af22f0296acd53ae"
+    },
+    {
+      "path": "app/src/debug/res/xml/debug_network_security_config.xml",
+      "bytes": 276,
+      "sha256": "b88273eea0733661aa583707c6771334da8ac750a32aea18883708a8f0261105"
+    },
+    {
       "path": "app/src/main/AndroidManifest.xml",
-      "bytes": 1084,
-      "sha256": "bc488a312598d94f1529ec27da893c81c30bbf23cff7563229c33e43d138efe0"
+      "bytes": 2919,
+      "sha256": "4a9a81835a607bb2eaaa7d1d12d2deeafad8ca1a021414b288efb3ba9e48037a"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/BloomyBeautyApplication.kt",
-      "bytes": 1183,
-      "sha256": "d85a15524b0a510cce3fd64a2e9bb2723077fed9bfa56c151667a17b59d34598"
+      "bytes": 5157,
+      "sha256": "8191bfb1625517e3d1788879062b2d62ff8318cc99a034c2d4c111fbf647ce76"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/MainActivity.kt",
-      "bytes": 1095,
-      "sha256": "5dd0cdcc48612100a3939852c5e1bb9bfc8db864c1b1c14e1a04249d4de577d3"
+      "bytes": 5865,
+      "sha256": "5ac2f6024e91c9f2e09db047d72351b521d2f38437f3d6dc719e483aa1872858"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/address/AddressRepository.kt",
+      "bytes": 7014,
+      "sha256": "5ab5f68bb850e213c11ec9c35ee3302aed9a41381f252617cc5f16a17b4cb595"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/admin/AdminRepository.kt",
-      "bytes": 7060,
-      "sha256": "7ef0752725794b019acec0f1fee439302332cf7f4dfadf0b73cbd4c2b19293cf"
+      "bytes": 7676,
+      "sha256": "0a1d710195664c86b72a472f48e12c78f1fb985ad7f600bb8921505e1f7e70ae"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/admin/AdminSchema.kt",
-      "bytes": 2505,
-      "sha256": "7eb815b7313e1d22c73f7afd6eb7b6748fcb583f01d4e7f5b07a087692247d70"
+      "bytes": 2648,
+      "sha256": "5c4eb4cc033d76ae0311151289c70c9707a66d1b9b343212d1605d1b94e80003"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthContract.kt",
-      "bytes": 662,
-      "sha256": "6959888f4eb8085f103dfd519e46b2d8d87dbd599b0b41a3045330d9aa2a6e5f"
+      "bytes": 663,
+      "sha256": "5e1bc22cd30410eabca8bb289c74edbe88568006fc8e330e334f1eb3e7c2e4fa"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthDatabaseHelper.kt",
-      "bytes": 2693,
-      "sha256": "7ea45da2dd4cfd01887596287b5fba87a195bf23218ed2fbe8fd569952eed1e0"
+      "bytes": 3816,
+      "sha256": "d9815e6e4a5132a749561a00fbf5965a780d0871d6f7d6fca3b30c6904048f20"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthModels.kt",
-      "bytes": 1743,
-      "sha256": "35e0f521001db76af4e0016495e399f7ec1acb948b5b51fad158383be3af6b19"
+      "bytes": 1735,
+      "sha256": "ce8a24b8d7a632262ecdb04230d05685a00a61fb38b5ba68d36c645b5dfee81f"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/auth/AuthRepository.kt",
-      "bytes": 5157,
-      "sha256": "f98b4836820197f7ac4c757699ac08c9801c6ece40f61423950b179bb27630e6"
+      "bytes": 5382,
+      "sha256": "03d22c776b3ee1fa9ad6951efc3d6b87a875bc2432b2062f1e2aee9f8d4c7e0c"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/auth/PasswordHasher.kt",
@@ -182,14 +370,44 @@
       "sha256": "477fbdaccf6d34b245f0afa2dac3c7f7f236327e0bcc21f1b88e6bb23f3d6332"
     },
     {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/care/CareRoutine.kt",
+      "bytes": 1414,
+      "sha256": "fdfd75c06eade79f6e75cc5d8f2673436ae43863c4da233a52290c4a61e0bdb8"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/care/CareRoutineContract.kt",
+      "bytes": 964,
+      "sha256": "27a53b257721dc74aac2484593bf22ed93433d8c8242aad4061ae96a846e95b5"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/care/CareRoutineProvider.kt",
+      "bytes": 6301,
+      "sha256": "43ca4782602a6251f008dbc04adbb5adc97f1ad6f66b89327e02dec500f06949"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/care/CareRoutineRepository.kt",
+      "bytes": 2824,
+      "sha256": "139bfb3f1f29dfb9f9b930a1958c62647c1c30f560102458fd5167f60aa45905"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/care/CareRoutineSchema.kt",
+      "bytes": 1059,
+      "sha256": "bbb6d7c1de5acb637ac11fa1e747a483de3268e2415a041225e530586704399b"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/care/CareRoutineStore.kt",
+      "bytes": 2433,
+      "sha256": "e77ffb844aa643fb718d6dc84c45a03260ab444ce8618f4fdd96e817f6c36914"
+    },
+    {
       "path": "app/src/main/java/com/example/bloomybeauty/data/cart/CartModels.kt",
       "bytes": 2250,
       "sha256": "daca7fd33dc46ec3cab59913a28ab3e511e33f017ab75a6e85d505f74ae4bc6c"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/cart/CartRepository.kt",
-      "bytes": 6919,
-      "sha256": "06fed7410aa06f8d552b9f4296ec753dfc00e25b022a7c9e3d16665ea6be29ee"
+      "bytes": 7001,
+      "sha256": "a0d804b9b2f8dab3378a4fc315a9527a411a49ad014a9a91270a309853c3cdd4"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/cart/CartSchema.kt",
@@ -217,14 +435,54 @@
       "sha256": "1a39a3d235bf8e31d331aeae9b91c34164c96802409a59c9091edcdc31d203d4"
     },
     {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/cloud/CloudApi.kt",
+      "bytes": 3250,
+      "sha256": "f40bae34e75596012590f97cbf13dcfe65049635a03a67c415dab41ab8adf9c5"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/cloud/CloudContracts.kt",
+      "bytes": 1134,
+      "sha256": "be503a718de982850be4587d2c6d9adbb2320818283312f6b12024a8bf0b4c8b"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/cloud/CloudServices.kt",
+      "bytes": 1702,
+      "sha256": "3aec49607f2301fb7640e356e95c9f8dbed5efc174dd365f3c09fcfe86ef9c4a"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/cloud/FirebaseCloudAuth.kt",
+      "bytes": 3189,
+      "sha256": "76e25ef5440720292e9a18af73fa5856b36e8617bc84bef7e3d033e075929516"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/coupon/CouponModels.kt",
+      "bytes": 2245,
+      "sha256": "885404c672e21227fc3b16ca03241e50fbbff1e385c80b9761c6e2a7fa6188d6"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/coupon/LocalCouponRepository.kt",
+      "bytes": 2640,
+      "sha256": "ceabd239b3b70acbb26d3d879acc511fcdaaaea6f42cede63df0516bc9f0faed"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/extension/CommerceFoundation.kt",
+      "bytes": 622,
+      "sha256": "f5b09edee73efb729f41709eb09cb0ccc9085e0439c5a6309155e8ae066d8a0c"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/notification/NotificationRepository.kt",
+      "bytes": 5546,
+      "sha256": "5c881dc132ff370b852cdbc7b1eb3c4bf409c52b488da758c8bcdd75b1d68768"
+    },
+    {
       "path": "app/src/main/java/com/example/bloomybeauty/data/order/OrderModels.kt",
-      "bytes": 2111,
-      "sha256": "fd9fef48ab8f3d631befd3a9c6c797a819d32ee0fc5292218ebde35f3ecf301f"
+      "bytes": 2828,
+      "sha256": "495b282a9fef65266c2acbfbdb2fdb2cb94f475ac926fc75a6dad2b5c3459736"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/order/OrderRepository.kt",
-      "bytes": 11700,
-      "sha256": "123a1e69e1d8f57655eba7ed8c5baa3335663ce64087ee348e10c01703bb60d9"
+      "bytes": 16358,
+      "sha256": "ff140c0ed9932bcd9c9b9fa27b73d36b3aba18af9cebd640d0a66d9a0c33afc7"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/order/OrderSchema.kt",
@@ -233,18 +491,68 @@
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/data/profile/ProfileRepository.kt",
-      "bytes": 3789,
-      "sha256": "3786c8c9bfae6133472e7d0f0f55c195ed78d25501825f3babc68a0cb32b18a9"
+      "bytes": 2185,
+      "sha256": "9f016f764d2ddc7d4d6862047f32ded0bf40d749941095feb49a3991ab04701a"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/promotions/PromotionModels.kt",
+      "bytes": 3751,
+      "sha256": "f24b7528c7a9e608022060617d78af0854d725dc8c737918d5078278e36a4239"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/promotions/PromotionsRepository.kt",
+      "bytes": 3247,
+      "sha256": "e5d05b4ae8be7048ec514c0b76d0462adf17ed09e9c5dfa16f045a7d85f6ce9c"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/review/ReviewRepository.kt",
+      "bytes": 5603,
+      "sha256": "fb6bebfcfdc1bf97b7a6fdc94233f64388fa7287647200bfd37c0c9364b25eb9"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/statistics/StatisticsModels.kt",
+      "bytes": 1637,
+      "sha256": "c670b1e63cf9124d08f6149534a62863d7b1da41eef222266ec5ea608220e7ab"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/data/statistics/StatisticsRepository.kt",
+      "bytes": 4020,
+      "sha256": "35a1651f57e7b74213df2025bd860c41ff6856cf8b0a7a6ef65b51ef25d37285"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/events/OrderChanges.kt",
+      "bytes": 2355,
+      "sha256": "d3751b083b63df98d482ede2e260bf9ea066ba694dba54f902bf0bf5637a2ac1"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/export/OrderPdfExporter.kt",
+      "bytes": 3865,
+      "sha256": "6f0360e5bbc9c9040c8e9cae303a7a7450755ca737bb99d4dc44ff2ae25ec1b4"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/export/OrderPdfRenderer.kt",
+      "bytes": 4928,
+      "sha256": "bb47b5874a12080c0c0dbaafac88ad5bbeeee3214f1e9dc1c3ba58f50cdad441"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/export/ReceiptFileProvider.kt",
+      "bytes": 206,
+      "sha256": "9f180c7b2a26788dc9ee748d7f0d96b30acc4ae5bae411e957127804efb33e12"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/address/AddressScreen.kt",
+      "bytes": 10467,
+      "sha256": "57c3b038f50d195e6c5d94dd4752dc01454385de59402d8d6eff2c425db25487"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/admin/AdminScreen.kt",
-      "bytes": 13955,
-      "sha256": "45d124b027f4e881a2c46e250a4e64c823c07549975d3aa9e7cd814dac97ef46"
+      "bytes": 14484,
+      "sha256": "bc294eeebc5b059e93e88f9d682c537cf50dbd4cc7d3e93ff55d73c50811ad44"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/app/BloomyApp.kt",
-      "bytes": 5662,
-      "sha256": "79b3fc9360dcd2b1166dfb473c7791ad57336123fe545eea05de92262e7ee0a9"
+      "bytes": 16095,
+      "sha256": "263a6ee58707962edd252f34dc6f6f8d92ca0a3e1694b552eed701a614fbf45e"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/auth/AuthScreen.kt",
@@ -257,19 +565,49 @@
       "sha256": "ec653435a3bafb1b0026e195705878e257d414b5e90dfb6eed987da677e1f8f0"
     },
     {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/care/CareRoutineViewModel.kt",
+      "bytes": 3125,
+      "sha256": "60dfab51aec5382d42d49d5549f692359acd50de405c63888d37db16ad2515d0"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/care/CareScreen.kt",
+      "bytes": 11956,
+      "sha256": "15b76e31bebffa87aba9327d0588466b83e539598b0767db07d6ccf432808585"
+    },
+    {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/cart/CartScreen.kt",
-      "bytes": 15575,
-      "sha256": "24211efecd4e2b677b3241df460066ce1b7d0a35ca48d49abce56364033f8f17"
+      "bytes": 17097,
+      "sha256": "cb25a36990f8ba6bd53847e0180a428d55bb60b5c83ff4b2cd075cb033df2c6e"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/cart/CartViewModel.kt",
-      "bytes": 8699,
-      "sha256": "be209b46cd554ce40db45f08e33fab2ffc014e61b75f7db96d1b3c66aebff919"
+      "bytes": 11791,
+      "sha256": "6a0ba48bc9a84dbde069bc841dc29eb21b7307d55b4bbbcbec99a2bde6a287fa"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/cart/CouponControls.kt",
+      "bytes": 4015,
+      "sha256": "0ffd79de587a4e116f67b45108fff4df2f5af0ce3c63bfea9b2c46d80713012b"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/cloud/CloudAccountViewModel.kt",
+      "bytes": 6071,
+      "sha256": "f7d2db4e2e09559d2c6bf709e9d4b48c3e92d806642381a4cb4c3918323a133a"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/cloud/CloudApp.kt",
+      "bytes": 2779,
+      "sha256": "08868249075d7e19e78b10cc8a2ac8b09483405e3cf140f1d78848432dd8853c"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/export/OrderPdfActions.kt",
+      "bytes": 2039,
+      "sha256": "743ea045cd43c1809c3a5d68ec28ed13bc018191afa17395809b7a5acf3b8dcc"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt",
-      "bytes": 25253,
-      "sha256": "eb372b2610a935e769ec473faf03cd90330be2bf2fb4b3e155b6c5327f3a9660"
+      "bytes": 27553,
+      "sha256": "6c30ffa5d90dbe29d16531144d1c3bd10b2ca5f326e18d8733bb9882a2c732c7"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeViewModel.kt",
@@ -282,19 +620,79 @@
       "sha256": "4b2878ed16d3b4b233a2adab54fa2395636474af6a309e28fd94814b4a8a399f"
     },
     {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/notification/NotificationScreen.kt",
+      "bytes": 5708,
+      "sha256": "751d1561328f3326568a646e1b6b225100950ad91be00a23e7ab1cec0c922581"
+    },
+    {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/order/OrderPresentation.kt",
       "bytes": 300,
       "sha256": "2925a827857cf4b28e9698efb0b040bd983de3bbd14bbc3e071c912d09d65dea"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/order/OrdersScreen.kt",
-      "bytes": 9946,
-      "sha256": "b9ba2d3779b46aef6ea7f2e44e62cd7d65a3f9d1f12adf5a196db54c10d4317a"
+      "bytes": 11366,
+      "sha256": "d2c8ce5362c55f9c5ab5622f10654613ebd3e730f8945e48d7c2df259217383f"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/feature/profile/ProfileScreen.kt",
-      "bytes": 8889,
-      "sha256": "c552f455783399338afaed19b5ca0c1833b5472a449249c1edf5c3368bfef82f"
+      "bytes": 6841,
+      "sha256": "b78868419d45c0d910d881104dc3e354a06ba062a11b31971b87e99aa6676e40"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/promotions/PromotionsSection.kt",
+      "bytes": 4718,
+      "sha256": "7f18fa9a319dab92df1ca83a63442eb839259cbf2e92c7f2f296aab3ab75d696"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/promotions/PromotionsViewModel.kt",
+      "bytes": 1756,
+      "sha256": "17a2e18564123a7a0b6f5648046dbdd89c040821e11fa73b3f1090c3c7b7203f"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/review/Reviews.kt",
+      "bytes": 7876,
+      "sha256": "413a406b7e3791fd0d44250a1daa838dd71b8a55caeb5de0bfd1805243539826"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/feature/statistics/StatisticsScreen.kt",
+      "bytes": 11559,
+      "sha256": "3ea20282471e574287101dbc96a47e8039e990fd57d610484183a08a3b9772d8"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/notifications/BloomyMessagingService.kt",
+      "bytes": 692,
+      "sha256": "8c30187c064c92b173ad8a69dc83280df7c614b2543f6e6d5dda3fe3c057c42a"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/notifications/OrderNotifications.kt",
+      "bytes": 3126,
+      "sha256": "2dc5671f391b7edfcf4cd92be5295ce572663f3249e55a223b88a7663528b569"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/notifications/PushMessage.kt",
+      "bytes": 657,
+      "sha256": "27721c599d6486b61529c2feb39236ce3acda782155860fc2c20dadb9461a4ac"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/notifications/PushNotifications.kt",
+      "bytes": 3169,
+      "sha256": "c8a5812dd75c4ccae5abe9caa74834bfd673084adc443b6b661b751838b7bc83"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/reminders/CareReminderNotifications.kt",
+      "bytes": 2960,
+      "sha256": "5c070ceedf6a789e4cbdf54b43442684d1d80ce4b26cb4804e27c7e1300066cb"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/reminders/CareReminderReceiver.kt",
+      "bytes": 1247,
+      "sha256": "0b825cfa401e7f81d36f91fbe62b45a3114754c520ab35b1156ec8d63833e67e"
+    },
+    {
+      "path": "app/src/main/java/com/example/bloomybeauty/reminders/CareReminderScheduler.kt",
+      "bytes": 4418,
+      "sha256": "0f612e80e9e4b2dd2a6841c289804563f8b3d26ea1bee9bbf4a7e6e340594cf7"
     },
     {
       "path": "app/src/main/java/com/example/bloomybeauty/ui/theme/Color.kt",
@@ -360,6 +758,11 @@
       "path": "app/src/main/res/drawable/ic_launcher_foreground.xml",
       "bytes": 1702,
       "sha256": "01d1a6a6c1234eb7fe270d097eb283d72b9c95ae5118886f1b6573aad280f1f7"
+    },
+    {
+      "path": "app/src/main/res/drawable/ic_notification.xml",
+      "bytes": 393,
+      "sha256": "8ab723b51e5b2a8fcf757ccf9c7c4dbba9a2de1b053194e63beff47a0cbbfc18"
     },
     {
       "path": "app/src/main/res/mipmap-anydpi/ic_launcher.xml",
@@ -428,8 +831,8 @@
     },
     {
       "path": "app/src/main/res/values/strings.xml",
-      "bytes": 4756,
-      "sha256": "2163e57215dfebf59a4b3ba9907c24af9f5b4d5a62beca20db1282890b78acc9"
+      "bytes": 4943,
+      "sha256": "e19440ba8405aea92153967ff69de9b5ba4228213fd0116966ed18d260c4d454"
     },
     {
       "path": "app/src/main/res/values/themes.xml",
@@ -438,13 +841,18 @@
     },
     {
       "path": "app/src/main/res/xml/backup_rules.xml",
-      "bytes": 213,
-      "sha256": "a257aeef5edaf2d3e675e12b5b4666861d9af211fe82e0b705ba7594e585a6ce"
+      "bytes": 339,
+      "sha256": "870078e245f8d0f03e572d5720914dbd9e9ba4d3780bac188167c63f1a3b1b27"
     },
     {
       "path": "app/src/main/res/xml/data_extraction_rules.xml",
-      "bytes": 238,
-      "sha256": "3eb2a5022465931712830a4003ba71aaccf75460777056c4aa62b1ea1b890f6e"
+      "bytes": 534,
+      "sha256": "bebfecb998b21ef17fa9ed98cef838d4a004ea86ddda183228e0baa5bebf7e24"
+    },
+    {
+      "path": "app/src/main/res/xml/receipt_paths.xml",
+      "bytes": 169,
+      "sha256": "15a9d6194ffb16c97f9cb6344ae2ae5419dd8b1b78c818ee7d7716a929fab5aa"
     },
     {
       "path": "app/src/test/java/com/example/bloomybeauty/ExampleUnitTest.kt",
@@ -467,6 +875,11 @@
       "sha256": "4958a921d2a8c4b4029133619d592e6189f09740df59d08c5424960be2104c46"
     },
     {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/care/CareRoutineRulesTest.kt",
+      "bytes": 2090,
+      "sha256": "b4b0c13334c3b55d0e58aa555d277982c5d261cf854dc169e626daa9b1cb6dbd"
+    },
+    {
       "path": "app/src/test/java/com/example/bloomybeauty/data/cart/CartRulesTest.kt",
       "bytes": 2744,
       "sha256": "0869789c272def52c37ad4293452204a428388b0f1d5b25a5fd7730ed162b728"
@@ -477,44 +890,84 @@
       "sha256": "61f8c0feb0e4d2961279ed4c19dcd3c40a28f1e488ab7188fb2821664818d003"
     },
     {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/coupon/CouponPricingTest.kt",
+      "bytes": 4517,
+      "sha256": "d27b497d7f64fd581cd238b519135d1a2f51c748ccc2859c0503480caed06e84"
+    },
+    {
       "path": "app/src/test/java/com/example/bloomybeauty/data/order/CheckoutRulesTest.kt",
       "bytes": 1621,
       "sha256": "fb813dc23a66110bc3639fdcb5bb2ca7d900904b9f88ce7d679dbf1b09f9bcf5"
     },
     {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/promotions/PromotionRulesTest.kt",
+      "bytes": 4077,
+      "sha256": "e96c4322197d8e6f149ef6ff5ecd24b2d4771986596d28aac5a8e41977fdee21"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/data/statistics/StatisticsPeriodTest.kt",
+      "bytes": 1175,
+      "sha256": "be360b0ba3e7d575b554a3a12ac0d91dda598477db022742ea96118eacd479cc"
+    },
+    {
+      "path": "app/src/test/java/com/example/bloomybeauty/notifications/PushMessageTest.kt",
+      "bytes": 1332,
+      "sha256": "64c8df730055ca7ff1c93b745c7ec171f2244130d3f7ffa4602c16141f8bc9dd"
+    },
+    {
       "path": "build.gradle.kts",
-      "bytes": 269,
-      "sha256": "b001f81a8a22975c7a2b3af65cfdd80a7ba5b8cc524be259f9537f325fff8829"
+      "bytes": 322,
+      "sha256": "6b49560580346bfcc37bd88fddce71e8a9408d612ffe4c4ee41c222ba2b889dd"
+    },
+    {
+      "path": "docs/.DS_Store",
+      "bytes": 6148,
+      "sha256": "66625c0e90bb514ad1da42d86a9538a73c7006c0fa2f053cc927f4239989665e"
+    },
+    {
+      "path": "docs/bao-cao/.DS_Store",
+      "bytes": 8196,
+      "sha256": "13040ad8fb89cdc90833f8af038ec9614eb7a32f92dbce81153a08fda243fcef"
     },
     {
       "path": "docs/bao-cao/bao-cao-de-tai.html",
-      "bytes": 21807,
-      "sha256": "545a0e737b4951f4434b30a90ce39077b1c40a0bd4b21463baca659dc8327ff7"
+      "bytes": 32775,
+      "sha256": "fc698a8f562fd1c69092683a661bfdd17d4781c9c6e7bfd7716284aaf692d8fc"
     },
     {
       "path": "docs/bao-cao/bao-cao-de-tai.md",
-      "bytes": 18245,
-      "sha256": "469d3d71ec701366038935990cd419827921c0d12a3de6090ef1e49646b4a0da"
+      "bytes": 28475,
+      "sha256": "fa6253c9a8bd7ec4185ceeb41ff195dac7a85856fd6a674a4009ed3de1e305fb"
     },
     {
       "path": "docs/bao-cao/so-do.md",
-      "bytes": 5375,
-      "sha256": "5d6a7c23c12884a4b1b5658b94bd5f501eabcbcc3d6b58adab99f28547035a12"
+      "bytes": 8849,
+      "sha256": "c5686240c7d4284de2f442bd24ea634ea36746aa73be7bbd806d83d0a0a8e92e"
     },
     {
       "path": "docs/bao-cao/so-do/dat-cod.svg",
-      "bytes": 4099,
-      "sha256": "c990c2287628664c2a77a1b089dd3b93d2ca23c32a2a1588eadf9567fdf3bad6"
+      "bytes": 4343,
+      "sha256": "99ac5bfdfd211d919783dad6287861f65f12e9accf251136b5bbeba6dc3bddeb"
     },
     {
       "path": "docs/bao-cao/so-do/du-lieu.svg",
-      "bytes": 6709,
-      "sha256": "8d9072f16f3149093166710d7424d823382f52b025efcc2af3c63a53fe11300a"
+      "bytes": 7512,
+      "sha256": "de18e965c9c4a2d2d84f8ed871c630448369468a4d2a826147e21559c7217ae9"
+    },
+    {
+      "path": "docs/bao-cao/so-do/firebase-auth.svg",
+      "bytes": 4664,
+      "sha256": "1828da1879fa533be149b33919fdb72d65bd7f1816ea58f477a97579abf47f43"
     },
     {
       "path": "docs/bao-cao/so-do/kien-truc.svg",
-      "bytes": 2657,
-      "sha256": "785f40be87dc97e4e41d766da914f217fd1e5018344f9b30e064525a9f3ea1df"
+      "bytes": 2767,
+      "sha256": "aa422c32576da5fd4861d6b85eb7de3d18a48c3677af4057134088aba71d44d4"
+    },
+    {
+      "path": "docs/bao-cao/so-do/mo-rong.svg",
+      "bytes": 4318,
+      "sha256": "fab1eec95d0595900bd9066e793ca9e2812608c2a55ade48a2a297d38a2e7966"
     },
     {
       "path": "docs/bao-cao/so-do/trang-thai.svg",
@@ -523,18 +976,1443 @@
     },
     {
       "path": "docs/bao-cao/so-do/use-case.svg",
-      "bytes": 3393,
-      "sha256": "9a02ca32f2bba85e1d9274182e4258c65df71b9c743d351182d6e30ea14198b9"
+      "bytes": 3767,
+      "sha256": "979b38b8f38d04e11487d83274a27ec924f54e11d9455bd1befc44bfcda3010d"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/01-dang-nhap.png",
+      "bytes": 97179,
+      "sha256": "8ea97de6159706e6d7bbffb801f07878fa2dbda9a377f97cba8e8f8370bacee3"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/02-loi-dang-nhap.png",
+      "bytes": 105360,
+      "sha256": "b792781ad27146b1c83f0ac02e9f80802207d7e3a815f53335c705f7906f1393"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/03-dang-ky.png",
+      "bytes": 117931,
+      "sha256": "e8548bbc99cc442a0c9aac7587a29d52baf5e62fa85ef2d5cfb7a0b9beef1193"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/04-trang-chu.png",
+      "bytes": 410677,
+      "sha256": "9f334f3257ca392a575bc73bc8af8e15ebb369c2ee37d8fb74572ab08089f3bb"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/05-gio-hang-trong.png",
+      "bytes": 78913,
+      "sha256": "0dfd2ed31b3ba0617f5f55e8692a2c2e2d1d0012cc8e0491592c4ac4cd54ab62"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/06-danh-muc.png",
+      "bytes": 348853,
+      "sha256": "fcb1bd130624c40d78dc26be7a648b57605928350e56bbb393fa075485272ad1"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/07-tim-kiem-rong.png",
+      "bytes": 167442,
+      "sha256": "a9dfbf27992569af94be6b492b162d2bb4d641c107cb11742a3e1f44690298c5"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/08-yeu-thich.png",
+      "bytes": 231547,
+      "sha256": "9bca915d45e11b88945b41b5a95daa7e1bfbc4312a18aae4e0ddd2ec63924ea6"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/09-chi-tiet-san-pham.png",
+      "bytes": 322489,
+      "sha256": "62ec7b57d33b088455e05ae85e3ea82c813e85b7c91bf3b49cfc01fe8dd6f352"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/10-chi-tiet-noi-dung.png",
+      "bytes": 214263,
+      "sha256": "a893b283ccc3c94991fb1e84aa18ae4bad0d4a86ed40c2789d6cedff6eb438c4"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/11-gio-hang.png",
+      "bytes": 109844,
+      "sha256": "96e798ae764599882f2833fe6d28027e8517e6a5cb15aa642008654b85da0264"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/12-giao-hang.png",
+      "bytes": 126307,
+      "sha256": "c5a781a617b5b52626bbc45c888d502174e66d15393fbd445202c802fcbe1eee"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/13-loi-giao-hang.png",
+      "bytes": 127889,
+      "sha256": "a57882ee6f80107d637a45cccc51ac6daca1e9d47b46c8b69bd378ce7598bd2f"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/14-xac-nhan-cod.png",
+      "bytes": 128712,
+      "sha256": "caa0f6c043c0ca0b4e91101b52c655a25df69f7c51413c00ddfdbb15aa239fbf"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/15-dat-hang-thanh-cong.png",
+      "bytes": 154331,
+      "sha256": "4916e1da2f55c5d41b81bcca29042a9dd7dce553ed131f033bf37cf669cd88a1"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/16-danh-sach-don.png",
+      "bytes": 74607,
+      "sha256": "a452dc1d42264e98604165eea16709cf55356f46ed02ddaef6f965bc3d5b48e2"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/17-chi-tiet-don.png",
+      "bytes": 130018,
+      "sha256": "8eb03c7ec15c4ada6d99496df3d819db71ffe77cecb51deafb5562b8e8900270"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/18-tai-khoan.png",
+      "bytes": 106495,
+      "sha256": "becb7eb42f018a59b24a0fc59b7c2d3b6dfc8faf23e1d7edcfd22442bdb255e2"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/19-chinh-sua-ho-so.png",
+      "bytes": 124541,
+      "sha256": "a11abf40db4f389bcb3c9e8c3dc72fd5abb03967db4f9b44fa9391bca81e1f0f"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/20-quan-tri-san-pham.png",
+      "bytes": 241938,
+      "sha256": "3bc51c9f7ac0ad2e934677dc074f315d3757ef2ae269f94ec3817b9c5cbf69a8"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/21-them-san-pham.png",
+      "bytes": 99580,
+      "sha256": "84fe849c51550b2b8e5c5cb099b39a76439ffd947e64a8c16960b13fc9baf788"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/22-quan-tri-don.png",
+      "bytes": 131238,
+      "sha256": "14ff2371a06887dc0fadcb220274989f4b7f15e4aa1316aa7d754e66707b9808"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/23-admin-cho-xac-nhan.png",
+      "bytes": 163245,
+      "sha256": "1283724a975ad90a7de97f65532170cb0d5f2317f5a086ee4d2e4eac5c008859"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/24-xac-nhan-cap-nhat.png",
+      "bytes": 159609,
+      "sha256": "92d461103df45495a47914ddeb7d7715f1320fa74466af736c2b3f51705dc504"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/25-da-xac-nhan.png",
+      "bytes": 163026,
+      "sha256": "edd4a8347ef74fd8428f9ffe7dea7dbbeee6230b8952e600f666459f3091b882"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/26-dang-giao.png",
+      "bytes": 171800,
+      "sha256": "0486a60fa2573d073bd204ba1b4dcc20bc1116460da5d4e996df6aca25adf8ae"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/27-da-giao-admin.png",
+      "bytes": 180101,
+      "sha256": "a96d269369af63eea06c3943d446c370ed13cad93acba49d16e792c0ae794dbc"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/28-da-giao-khach.png",
+      "bytes": 121165,
+      "sha256": "0ca346dd0dd60b6e697cfb2a8c6ca6db64dc3491d11550a90bd6401001b65aaf"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/29-xac-nhan-huy.png",
+      "bytes": 136519,
+      "sha256": "c93641f40989b49279a451f80e6e0f764635bb584e2269d80bb5fb55db8f8f97"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/30-da-huy.png",
+      "bytes": 137252,
+      "sha256": "87e272e096fe7293747ac82161d278d958039b5e6332dcdd0868e7d5426bf2ef"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/Bao-cao-tien-do-lan-1-Nhom-4.docx",
+      "bytes": 4932650,
+      "sha256": "89c3251eca5b33dcf60a61589f87a4571cc13f8b437f77cacf8f04ca34a0ed8d"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/README.md",
+      "bytes": 1561,
+      "sha256": "ebdbbe27c5c5e815d99645c9199f554fc7db1393c714ac83428e75f00c21ce28"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-1/danh-muc-anh.json",
+      "bytes": 10305,
+      "sha256": "a7194299eeaef8c5b99e93bdaca913bd01c7fb2b661722a6ac666c7d8cfbf69e"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/01-bieu-mau-them.png",
+      "bytes": 99675,
+      "sha256": "4580ca51263e19c93803a68f5d9f557f30521f71d3545c4b348384a08d46b074"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/02-lich-da-luu.png",
+      "bytes": 68561,
+      "sha256": "00ccac7b6e01d6de6a892189a127095d738576b9455afd72aa959f454bcdfdc1"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/03-sua-lich.png",
+      "bytes": 102241,
+      "sha256": "71f73eb346a0f4cd0e21163845221ff132084b5133dd7ea44cbb96b73aa4a1a7"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/04-tat-nhac.png",
+      "bytes": 72935,
+      "sha256": "7b657284fa101745ab974716ff794e8b902d746a39cf63ec27cb11514bf8e885"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/05-xac-nhan-xoa.png",
+      "bytes": 98061,
+      "sha256": "c802f6508e4240f1c226be2a45ceb63f6640c27197bcaa598aa6b81b65cc502a"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/06-da-xoa-lich.png",
+      "bytes": 59355,
+      "sha256": "fa9bf030e195a117737eb7b80a586dec4498ecc22d04564258ef08a4d05ace4d"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/07-khoi-phuc-nhap-va-loi-ngay.png",
+      "bytes": 109347,
+      "sha256": "2b4cc296719290b55707a76a98262519e5208fab07a0c10f5b2726fe3ddcd15c"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/Bao-cao-tien-do-lan-2-Nhom-4.docx",
+      "bytes": 1163318,
+      "sha256": "c5fae2c49edb7c7fac04e3d9ce2b9bc94f6415d857ed7c657e716c6da72d728b"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/README.md",
+      "bytes": 2528,
+      "sha256": "0a69ae960ca0278f91aaa12142159a85e1869e83d2644c6769d37437dab921a7"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/danh-muc-anh.json",
+      "bytes": 4408,
+      "sha256": "86ff5372fa4fdbeb69cd0787f41ad0d46a475d17ea5f52df73b4d153e1b21e28"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/firebase-01-uu-dai-firestore.png",
+      "bytes": 258529,
+      "sha256": "508e8a4c6fa385a55cc11ecf2a0dc4303cde96ec4eebbaacaf7ee348a220a649"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/firebase-02-cap-nhat-realtime.png",
+      "bytes": 248102,
+      "sha256": "e43e625f1db8297e28448f0e6d09b5abd17881b9e6e2b61109fdadf6f3a42c40"
+    },
+    {
+      "path": "docs/bao-cao/tien-do-lan-2/kiem-tra-file.json",
+      "bytes": 367,
+      "sha256": "21721df9e10d5071f8c213943c44cad0d5bd3a1b88a24cf4b4c8d4d7f8b3ed0d"
+    },
+    {
+      "path": "docs/firebase-auth-emulator.md",
+      "bytes": 7200,
+      "sha256": "ff69d69bd4dddd52a292e9acd9072a55cc1aa638f96a702f0908139e79649b51"
+    },
+    {
+      "path": "docs/firestore-realtime.md",
+      "bytes": 10084,
+      "sha256": "45d00ffa27afc36b3588586db3ad193fc311bfafee4f411ef02df9f0a5133b32"
     },
     {
       "path": "docs/huong-dan-chay.md",
-      "bytes": 8361,
-      "sha256": "91dd58c35e5b2a4b9969c2c8267b1508a18ca51bb180dde1b0ee0d95d56d52c1"
+      "bytes": 8743,
+      "sha256": "8fd271c7b4b91a0eb65dbae31a0ea10930f96999f3d4427e0b02caa54f22bc91"
+    },
+    {
+      "path": "docs/ke-hoach-content-provider-broadcast.md",
+      "bytes": 34815,
+      "sha256": "a5c6de1aff43e5ea595c452f18921e290f09265ea3c9c5e56076705b33e5553d"
     },
     {
       "path": "docs/ke-hoach-de-tai.md",
-      "bytes": 127121,
-      "sha256": "1f56edae524b3bc51e605e1bfcb01af0bd7c440d768a5f8056f69b2a7fc228eb"
+      "bytes": 127148,
+      "sha256": "e4cdda8840826db3f73f3a749b224135e54171e39d297b70e7482a96883db762"
+    },
+    {
+      "path": "docs/ke-hoach-mo-rong-ban-hang.md",
+      "bytes": 40391,
+      "sha256": "b349bddade9a799edafdd6796a128ea16732d67b88c41b788e6a8fb962de1a4e"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/01-lich-cham-soc.png",
+      "bytes": 77046,
+      "sha256": "fb1d220d1086309bf2f17d1bdb28f6ac910c6dca933da19d3629a7331ddb10a4"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/02-demo-tao-tu-san-pham.png",
+      "bytes": 131961,
+      "sha256": "8c435dc59d7eb1e06aa5137a0dc46607d563695aeb50309668cc4baf45b6aaf9"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/03-thong-bao-alarm-that.png",
+      "bytes": 116146,
+      "sha256": "515d2bbf7be0aafa8afbebbd199d7ab6c467b4a1109f564dfe0c7688109e905a"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/04-mo-lich-tu-thong-bao.png",
+      "bytes": 111654,
+      "sha256": "6c005a69de7a5b7da04b4e216dc4d084f750508436530796c15289488657e92c"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/README.md",
+      "bytes": 4418,
+      "sha256": "a45ef666f30cf0fb63a97f60ed1267270199332c1065d54502fc53850259886c"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/alarm-after-reboot.txt",
+      "bytes": 558,
+      "sha256": "8067a47f8eebd17f377205482442f4e634ce201d6b3c4a3db9f7c326938bdcb7"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/features.json",
+      "bytes": 2457,
+      "sha256": "a97770299becff2650a89cf3f28dc9f3ec6bda09dbfbdb3d2da56f914af0502f"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/live-alarm.json",
+      "bytes": 854,
+      "sha256": "4b0c8e2d70a74b4de3dc4d7169b8984290a706525f6389506f12904818384371"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/permission-denied.json",
+      "bytes": 225,
+      "sha256": "3e979441b709c92a8e762d7ef61983437198a37bb50ffd2dc9046bc8b67cd19e"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-2026-11-07/regression.json",
+      "bytes": 598,
+      "sha256": "0d7536d42b8fd768092a292ebec889597db2ce37b99aee5cd1db480029f15096"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/README.md",
+      "bytes": 6545,
+      "sha256": "fe74ef7f13818cc378dc2d91162cd73a7da684e3a58fa94315a0dc95c90eb442"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api28-data.json",
+      "bytes": 12664,
+      "sha256": "10faecc85022c09a13a92586f2a4b0bb1b990f8a483e0b62971554a0107eb926"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api28-doze.json",
+      "bytes": 1009,
+      "sha256": "56cb9d4208278c07c98494098ecc25a427bae2cde06d53711538d36324758442"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api28-features.json",
+      "bytes": 340,
+      "sha256": "1fe44cf2223d3f702187f0ce4781bc4adf00fe4c104b0ef4116f2ab4816ce039"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api28-features.txt",
+      "bytes": 262,
+      "sha256": "e47bf9e8f8f2c44e98732a966353b622228f60e87ba90e9e1aaa9b1986c93cad"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api33-doze.json",
+      "bytes": 1010,
+      "sha256": "b6dc9ef3e4682db0a4fb9cb85008498eacebdb71a733cf2b284308efec495594"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api33-environment.json",
+      "bytes": 3032,
+      "sha256": "4e5471331599dd94413d2f3a028aeacf0a08b1fe3f1a504cae9b7a7d194eb6a4"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api33-features.json",
+      "bytes": 2583,
+      "sha256": "34c4e747ffb3116a7d3fa70f401770d86d4cb4750ac1a58b9c348777ff2c0db7"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api33-permission-denied.json",
+      "bytes": 401,
+      "sha256": "b8457c2f246cfdffa60b8f076e5058159ac54205431822acd7523e47508410ef"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api35-doze.json",
+      "bytes": 1010,
+      "sha256": "9c81f52ead57e464e11f64426c809945de84de3a200e9434382e12f06ee79da4"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api35-environment.json",
+      "bytes": 3018,
+      "sha256": "e8032437a701a3405660083e6851995e445959a7a6eaade7c6220580000335ab"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api35-regression.json",
+      "bytes": 19592,
+      "sha256": "e80899d5f6b2b90e4f5dd77170ad913c85db9fe9bfb91a4044567819d7662f8a"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api36-doze.json",
+      "bytes": 999,
+      "sha256": "34682a2f5742aaca8f3da1fba0c264267d09592d959706a8a5c6abe0f18e72b1"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/api36-environment.json",
+      "bytes": 3001,
+      "sha256": "40b9105a56e0267cc8a15bc30099d397f075ce64d04274c26f1eb53e86bfde37"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/build.json",
+      "bytes": 392,
+      "sha256": "5f5aee76b125ee2e609180a1c99627d8319979da726995989c3745a879e41381"
+    },
+    {
+      "path": "docs/kiem-thu/content-broadcast-emulator-2026-11-07/summary.json",
+      "bytes": 1090,
+      "sha256": "2be68a963720e2533f2615a0443061ce4400aa666309012502b4c2464e0df1f7"
+    },
+    {
+      "path": "docs/kiem-thu/firestore-live-2026-10-21/01-uu-dai-firestore.png",
+      "bytes": 258529,
+      "sha256": "508e8a4c6fa385a55cc11ecf2a0dc4303cde96ec4eebbaacaf7ee348a220a649"
+    },
+    {
+      "path": "docs/kiem-thu/firestore-live-2026-10-21/02-cap-nhat-realtime.png",
+      "bytes": 248102,
+      "sha256": "e43e625f1db8297e28448f0e6d09b5abd17881b9e6e2b61109fdadf6f3a42c40"
+    },
+    {
+      "path": "docs/kiem-thu/firestore-live-2026-10-21/03-khoi-phuc-chuong-trinh.png",
+      "bytes": 258398,
+      "sha256": "e0b2e27960356f351a74071bf4b6acc7b3934d0521e4f19cdac52986c4110472"
+    },
+    {
+      "path": "docs/kiem-thu/firestore-live-2026-10-21/04-sao-chep-ma-khuyen-mai.png",
+      "bytes": 208078,
+      "sha256": "5ea268591bc6aaab9e1eeb70fc5f0a7351c506a222c078bab4b11ce29fbf1a86"
+    },
+    {
+      "path": "docs/kiem-thu/firestore-live-2026-10-21/05-chi-tiet-san-pham.png",
+      "bytes": 324343,
+      "sha256": "cea47737353ec906efc63177e03c46e1c4fd2f07233ebed4f516ce807520e6b7"
+    },
+    {
+      "path": "docs/kiem-thu/firestore-live-2026-10-21/README.md",
+      "bytes": 2890,
+      "sha256": "dc35cb480a6a5efba78d08e53bd63c36f58503b7edfaa2e0cd87ead6fbb6befe"
+    },
+    {
+      "path": "docs/kiem-thu/firestore-live-2026-10-21/ket-qua.json",
+      "bytes": 1571,
+      "sha256": "531931b3d172c7236fb25214160978aba1339f74a425be07ee246717eb9ac6c2"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/README.md",
+      "bytes": 3146,
+      "sha256": "858a70752dcd139743609902e2816b2f573fa10eed2879aae4eb53c91205a282"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/build-jvm-lint.txt",
+      "bytes": 4634,
+      "sha256": "a1edab133c735c824b6ed79c5f3c68ff6beff5fcedf2a47c2c5a7a837ee5d935"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/final-acceptance.txt",
+      "bytes": 634,
+      "sha256": "93846832458abbd822457d5dd6bde51db0d467981a75f1fffc5539589ee2b73d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/fixed-fixtures-and-ui.txt",
+      "bytes": 271,
+      "sha256": "46d96c675d757019eeab6d2b1685ae388afa0913addbc0ebf277cc27eedb9850"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/initial-fixture-errors.txt",
+      "bytes": 6905,
+      "sha256": "e1b873b51f3e00d5d0da57698a1533b725a9a5c3dc9ed15cb613f8580983b853"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/jvm-summary.json",
+      "bytes": 1790,
+      "sha256": "05eb381669cebdc8e6a103a7efe627ae87f98ea691b354305cc156333de01a1a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/manifest.json",
+      "bytes": 2071,
+      "sha256": "506485a237932b62c33cf877f2a969ca83035fea97db74f4d3b7e7ed5ee29993"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/01-dia-chi-dau-tien.png",
+      "bytes": 85847,
+      "sha256": "279e9598431f525ae0566e6b8e10dd07d25321cce79ac8673aeaa66e81797535"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/02-doi-mac-dinh.png",
+      "bytes": 128942,
+      "sha256": "2a74dd8e6595eba36e88f58fea36d74f10185b18a3d668aed1e7efffd92ad771"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/03-chon-tai-checkout.png",
+      "bytes": 135030,
+      "sha256": "f13cd87607c30833e18d183b83a8ae96cd485df7c284818a9d2c77ad0001eeac"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/04-don-giu-dia-chi-snapshot.png",
+      "bytes": 148494,
+      "sha256": "fa6e9bec5b69d13fe73098f11246b8077572811ebd5fdd9f218628c11dcf7f8f"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/05-luu-tu-ban-nhap.png",
+      "bytes": 92832,
+      "sha256": "f859edd1da2fddef9161bf98ff36f1a3f7ec81e31db496006388aa538ec31c58"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/README.md",
+      "bytes": 2740,
+      "sha256": "b13f63db64619c0621b4c75e1c91b14185f45d968a910ad504c442950cc30b21"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh-manifest.json",
+      "bytes": 1620,
+      "sha256": "27cc531091407057920ca9329e0fdb91e925667d605ead6a54096efd3d97e800"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh/01-bieu-mau-them.png",
+      "bytes": 99675,
+      "sha256": "4580ca51263e19c93803a68f5d9f557f30521f71d3545c4b348384a08d46b074"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh/02-lich-da-luu.png",
+      "bytes": 68561,
+      "sha256": "00ccac7b6e01d6de6a892189a127095d738576b9455afd72aa959f454bcdfdc1"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh/03-sua-lich.png",
+      "bytes": 102241,
+      "sha256": "71f73eb346a0f4cd0e21163845221ff132084b5133dd7ea44cbb96b73aa4a1a7"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh/04-tat-nhac.png",
+      "bytes": 72935,
+      "sha256": "7b657284fa101745ab974716ff794e8b902d746a39cf63ec27cb11514bf8e885"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh/05-xac-nhan-xoa.png",
+      "bytes": 98061,
+      "sha256": "c802f6508e4240f1c226be2a45ceb63f6640c27197bcaa598aa6b81b65cc502a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh/06-da-xoa-lich.png",
+      "bytes": 59355,
+      "sha256": "fa9bf030e195a117737eb7b80a586dec4498ecc22d04564258ef08a4d05ace4d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/anh/07-khoi-phuc-nhap-va-loi-ngay.png",
+      "bytes": 109347,
+      "sha256": "2b4cc296719290b55707a76a98262519e5208fab07a0c10f5b2726fe3ddcd15c"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/features.json",
+      "bytes": 2577,
+      "sha256": "fa16507b32a52080d0950524b036377b078920df5bb85b90bd2e561a004cc109"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/instrumentation.txt",
+      "bytes": 12718,
+      "sha256": "3a7c6fb3d5e1df086b0d50c1df919a58943a87132b38a60305048f6788d77162"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/recheck.txt",
+      "bytes": 2134,
+      "sha256": "6e657cbaafc0f1bce830c5c2c1818ba075cb3e724cf5fd34c31a1203b5fd47c5"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/regression-initial.txt",
+      "bytes": 101011,
+      "sha256": "65769b738ad3b65337fe54679da9c55353f2a736ee47ac7b2d69a1e8015bd13e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/regression.json",
+      "bytes": 19584,
+      "sha256": "4b0a35a3ec868542adff35bb1cf6cedc30e09d807b2987b4afcca53fc681788d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-care-2026-11-07/regression.txt",
+      "bytes": 94762,
+      "sha256": "515d66d487df20ab17873c3ffc507dc084d5b19d9885d0522873b1d8a8fce72b"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/01-registered-customer.png",
+      "bytes": 87032,
+      "sha256": "20e20d6bc04163b36a25b142f565d9ce0d8b7fc0ebd8d177e59f812644eeb147"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/02-logout-clears-account.png",
+      "bytes": 114344,
+      "sha256": "3c052ef697f6bb69bc48ea40a5c8efc48de7faa3cae77d33ce3439b333e49807"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/03-server-admin-role.png",
+      "bytes": 87788,
+      "sha256": "defa3b582c646f5fb1adeda9a8f941848344637382a53c296c9215970d9b1c83"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/04-revoked-admin-role.png",
+      "bytes": 87084,
+      "sha256": "5e3fe5bb9a9c0d00b49ba9f492ae6298d9a9fba44ed3062acde00e7b230cd07e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/05-switched-customer.png",
+      "bytes": 84320,
+      "sha256": "c5922a06f571087678c18cee3fd445059787b1f68a54db3458b554849d51b2a3"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/06-cold-inspect.png",
+      "bytes": 73143,
+      "sha256": "bb58a8777c1e6f109bc109e9ac9c80c86dcda09c9614fc082464bb16af69c3a9"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/06-cold-prepare.png",
+      "bytes": 74260,
+      "sha256": "5003fc03da3c2c88064f3a753d78a0a5e35e842ec7e270784f559f033c055bed"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/README.md",
+      "bytes": 5227,
+      "sha256": "d01af02a2c9412ac94f4e90149bedc0e0edab8363c6fc703ec2ae9938c97dcc6"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.ExampleUnitTest.xml",
+      "bytes": 441,
+      "sha256": "d74de8bb134870911343b13f5d4ba82ceae32d8ac878850e7a7b00ae57b348cf"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.admin.AdminRulesTest.xml",
+      "bytes": 752,
+      "sha256": "127f24e9e1dcefac837f3ca84a2983f14d6c6874732e877ac43fad3d3e4e59b6"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.auth.AuthValidationTest.xml",
+      "bytes": 1021,
+      "sha256": "9a8717aa3c8bae9e02e676bbaa2f6b009186a9e703d3228ec1ca2e88f6a06171"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.auth.PasswordHasherTest.xml",
+      "bytes": 777,
+      "sha256": "86fbcefcde73d3f4725ceac167c37bebd540310dcb5654a05e90a182383fe1c8"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.care.CareRoutineRulesTest.xml",
+      "bytes": 1307,
+      "sha256": "535c933afd6ae9079323796cc1f3c36b6c8c419b847e5ef21425c019dec8c10b"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.cart.CartRulesTest.xml",
+      "bytes": 1057,
+      "sha256": "8e2bb6a0e102b59967f1c498558420194e000db68c1a5aa3cc794d003f6acc22"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.catalog.ProductSearchTest.xml",
+      "bytes": 918,
+      "sha256": "763b39c06e5b6da5c12e71c048dca16e6ed2507e529a47eef2e6c64c8fa3e360"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.coupon.CouponPricingTest.xml",
+      "bytes": 2018,
+      "sha256": "d54b29a4328333f85c3eb29a7ec060f72ce526a019de2c90412ed3624fb04115"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.order.CheckoutRulesTest.xml",
+      "bytes": 776,
+      "sha256": "a9f1f31254da86bf3c65db9bc4bc1cda58b3f61994711ffc880d1d8ae5ae1756"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.promotions.PromotionRulesTest.xml",
+      "bytes": 1629,
+      "sha256": "2e8621ffeec6beea16b404c891e172c0ba80423d9b79b3ebcc7a6b0561e408ee"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.data.statistics.StatisticsPeriodTest.xml",
+      "bytes": 937,
+      "sha256": "4697f4c0e2354b1c9db263b6f2d65088413fbb07d0958fcb63e331b0d21e7f39"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/TEST-com.example.bloomybeauty.notifications.PushMessageTest.xml",
+      "bytes": 1135,
+      "sha256": "bbf20b9930d1eacbe3da2434856e6cedbee1e625ec27156a7c3b71fdbc3475ee"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-acceptance-build-fixed.log",
+      "bytes": 4701,
+      "sha256": "65855d1afd74b294296561a71facecaad10f0135a0ab1d6019b4256f10905289"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-acceptance-build.log",
+      "bytes": 4846,
+      "sha256": "23492c4937894dd984eff61d89127c0106fa400fe2ffbb130e4a30e45de24e3e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-account-cold.xml",
+      "bytes": 6810,
+      "sha256": "ff5657c4c70eeebf123673b1d90ec7e18034504d3b75ffb5d2a0bfb413036820"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-backend-identity-tests.txt",
+      "bytes": 1461,
+      "sha256": "b8da9954e861cd6a2c0e89ca0c35845da7b81e10aea4cc078c6459a2e9de9025"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-cold-inspect.environment.json",
+      "bytes": 801,
+      "sha256": "796b9204f7224c12cd9783dade2bc3de412387888aad3056cb826b00c792db4d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-cold-inspect.txt",
+      "bytes": 777,
+      "sha256": "d063219353808536c27aabadda4aae8bc8c5d3ba4b589f6a6141166d2e816111"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-cold-prepare.environment.json",
+      "bytes": 800,
+      "sha256": "5d577fda80b41c9aa064e98e2807c30497f8f929edf89c112f0219bd79b4b306"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-cold-prepare.txt",
+      "bytes": 777,
+      "sha256": "48baa6b3c58d5b7bd0293500fbe8539a5fd8292046164c47fa55cf48daa7281c"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-component-test-build.log",
+      "bytes": 2911,
+      "sha256": "4a5616e2b698e10d197739917a7401bf8bcb7b061ddcb90e0274c3387033906d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-empty-db-verification.json",
+      "bytes": 163,
+      "sha256": "648deb6c578f4d1df67af0e6e6a6a8b934b458eb7a765977a0fbc91997e41c24"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-final-auth-policy-build.log",
+      "bytes": 4340,
+      "sha256": "773e9336a9ff228c4fb833cb86fa5837c042d4c40bcb99e09a2f709ae0e373a5"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-identity-pixel6.environment.json",
+      "bytes": 800,
+      "sha256": "9be09e828f430046651f02fe8c6ad159f409de2bfd4644b30dd4f3ad46a376bf"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-identity-pixel6.txt",
+      "bytes": 5116,
+      "sha256": "9a4eacaf2b463349d2650d3e5769f427573f20ab79aeb25a8dc13965a2110663"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-legacy-promo-rules.txt",
+      "bytes": 3879,
+      "sha256": "399d1110150b1992559a517a595edcb496fb985de049fb2c1635dd2237ab1418"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-local-regression-build.log",
+      "bytes": 4340,
+      "sha256": "dfc61a96ec19c884406ebf8e8afbe60ccc4ee86a246b52d0ce8084485ffa8a1e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-local-regression-pixel6.environment.json",
+      "bytes": 1161,
+      "sha256": "866e94ca30175d5372cb7567dd0c2c24d3946472ffaff6b92141d6e6060ddd45"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-local-regression-pixel6.txt",
+      "bytes": 37342,
+      "sha256": "f5b90c1919fd3730020a166777a06c949713639d9e4248c964874bca51e82f7e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-normal-compatibility-build.log",
+      "bytes": 1892,
+      "sha256": "6c9b9d4fc8fce8a0526ef0993aad59b0d34f1fdf5856939a4db6a5b05914ffd1"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-policy-cold-inspect.environment.json",
+      "bytes": 801,
+      "sha256": "ba2c220c66f3814334fa76acda56ad3e2cfc7041d18f6dbb60dacada41da7532"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-policy-cold-inspect.txt",
+      "bytes": 777,
+      "sha256": "ed15148633830bb4ea2854957827dc6acc027dd849fa2b653ad8d5d32021e0db"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-policy-cold-launch.txt",
+      "bytes": 242,
+      "sha256": "f68bf2160ba3dcaa87879efb53550a29a22c2788f69f74b36cfdafa358fbf703"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-policy-cold-prepare.environment.json",
+      "bytes": 801,
+      "sha256": "3baa4409f6d57fc979a8d5e7e7374de34836f86f0d16a677d977238ce5479d96"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-policy-cold-prepare.txt",
+      "bytes": 777,
+      "sha256": "469458e5c327cb2a7b40c741d70229fc927f28fad5f26310aed92b181a933bb1"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-policy-final-pixel6.environment.json",
+      "bytes": 829,
+      "sha256": "833fdf65aca3d655bffad452807dd92da416b799e2cc4fa44b306d221a2f5221"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-policy-final-pixel6.txt",
+      "bytes": 5841,
+      "sha256": "97f47914333add6f62262fcd855657d30ce20fe414305e15ed35c9afcb9f291e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-process-cold-launch.txt",
+      "bytes": 242,
+      "sha256": "8c170b502268613f76d4b9601afc95be6edb6939db5ee0335562acb0118f16f2"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-process-cold.png",
+      "bytes": 82342,
+      "sha256": "54e1ac119851c6cc14e0e3155693f39ce006e7ed8502224a431105d47e708b15"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-source-final-pixel6.environment.json",
+      "bytes": 829,
+      "sha256": "2c88b01d44a54a9dd2e06f72853299bc43a5ff303ca1600b1a63374e70bea670"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-source-final-pixel6.txt",
+      "bytes": 5116,
+      "sha256": "bdacdf2c9d4ba53930d45f4344b369eb598ca7ce2823b05b3e29b2b1adecf894"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-source-guard-build.log",
+      "bytes": 4560,
+      "sha256": "0a89a7ac157eb0242e6708995fa03d780daf82417adc4c6e2954ed05ca4dc107"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cloud-variant-tasks.txt",
+      "bytes": 8156,
+      "sha256": "d984d0eec625eafb00c7ee0fa029ec624d399b97360c536b66c6c7463759be28"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cold-inspect.json",
+      "bytes": 179,
+      "sha256": "5a6e6c0c15db0ab4ac0415397efdd665421f3b10a3066011ec32aa98357c62b0"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/cold-prepare.json",
+      "bytes": 179,
+      "sha256": "a93f836031069f3411f3af5001fd5de8fe3afb9e06a5033dd3e1019bb0732815"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/lint-results-cloud.xml",
+      "bytes": 44247,
+      "sha256": "2a994f52e8bc103e14449497da2f767b7cb563cfcd4cb892fb33b94454566f7e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/manifest.json",
+      "bytes": 22562,
+      "sha256": "018af8f99792f7b473b53828762f06edf125c1b3f5f7a2e3e22f260a053595c7"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-cloud-identity-2026-11-08/normal-build-flags.json",
+      "bytes": 150,
+      "sha256": "99eba161b1bd6c9fc2408fbc146910e3d915cf4943cbbf44f0b1d44e21ce3eef"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/01-home-badge.png",
+      "bytes": 373236,
+      "sha256": "bc6abe4b2959f8e0363be1e53d96486d7cdda1e9f00fd06ccae30b547c9687a3"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/02-inbox-to-order-pdf.png",
+      "bytes": 156611,
+      "sha256": "4032155f4b119f6c0a5c4c7dfa21d536508c4c67c7fb19231176d02a7b3fe8c6"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/03-address-route.png",
+      "bytes": 48490,
+      "sha256": "7ec07ddf4fb6c90928bd66c904d03ddad49f2d22d92d94de6840b203447bdf13"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/04-admin-statistics-route.png",
+      "bytes": 171849,
+      "sha256": "8319b7eb73e00a682222d2e444f54bc7fddb05cec1f1db1884e0575095f547cb"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/README.md",
+      "bytes": 3668,
+      "sha256": "240eebea46611be938b646e028dd45991006a2e84d66034631f3234fb37696e0"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.ExampleUnitTest.xml",
+      "bytes": 441,
+      "sha256": "9dbbad7a0e654dba1f32798fcf47cb3dd0d7107da3c6e83e0a79a8786aab9807"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.admin.AdminRulesTest.xml",
+      "bytes": 754,
+      "sha256": "ca0e5eca86b7ceed12b80e9fa80dea2eab5a86ade4772aea8eacd0586dd2f68d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.auth.AuthValidationTest.xml",
+      "bytes": 1025,
+      "sha256": "e9a4d3085d511658f0e0363474402cb7e9af4746d8aa1446b69e9bbfc79c2e8e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.auth.PasswordHasherTest.xml",
+      "bytes": 775,
+      "sha256": "b9b7bdb09cdadca1c5e060289967f834cfa3d8722b7110275ed1c0bc252c3664"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.care.CareRoutineRulesTest.xml",
+      "bytes": 1305,
+      "sha256": "4f0e18caa2e1039ca96f25bdd94472af90fac09ab3b5ef72a5a6f294baa98afc"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.cart.CartRulesTest.xml",
+      "bytes": 1055,
+      "sha256": "957d08bb4079178ba5ee6237c357574459f3cbc0f8b369eb5a90aa56085822c9"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.catalog.ProductSearchTest.xml",
+      "bytes": 917,
+      "sha256": "bf9666a95bcdcfe5340eb673f826429de2215291223d787f7d0a99a7de05d2ef"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.coupon.CouponPricingTest.xml",
+      "bytes": 2018,
+      "sha256": "fc68de0150ba5f8188bbcbfb47cd4070e198072c5bc1000b8f7aa734d617d2d5"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.order.CheckoutRulesTest.xml",
+      "bytes": 778,
+      "sha256": "ae0b8879622b97bf55e57e6a152d3bd997389e44ae9ab919c409e7202cf6eefa"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.promotions.PromotionRulesTest.xml",
+      "bytes": 1629,
+      "sha256": "3d5c3f128303e098cc53857db4a4f0497105d6ff1bf270dec4ba88948894699b"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.data.statistics.StatisticsPeriodTest.xml",
+      "bytes": 937,
+      "sha256": "780dce67fe1e534536b03b30b304f37c9ce45340aac8c386c5d38b401dc18602"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/TEST-com.example.bloomybeauty.notifications.PushMessageTest.xml",
+      "bytes": 1137,
+      "sha256": "dc04f774bb46fd20b82b7e1b315c0ff79dc7da4ec769bd45ca8cdfadee1643df"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/cart-review-investigation.environment.json",
+      "bytes": 762,
+      "sha256": "019feb0abc49dbe7c460a517b1b42e166d9703c0347f70c95f7dd3beaec63774"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/cart-review-investigation.txt",
+      "bytes": 788,
+      "sha256": "a6e2012b1750a88ea932fab50b625293093610313b34f09d59789c26638b4295"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/cases.json",
+      "bytes": 28156,
+      "sha256": "274ec93b5670a30b4b435a1062649ed851cba10f7c324774059239a475de1a9b"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-final-host-check.log",
+      "bytes": 1932,
+      "sha256": "d524aacaa908af49831c0741ea93cb45a66e473e461c85f6f0565753c835e0e7"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-full-final-pixel6.environment.json",
+      "bytes": 3181,
+      "sha256": "d9b01cb3c62624fae7348e6a708790cdc2001f09ccdf1b140fe4ccb47c0646f0"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-full-final-pixel6.txt",
+      "bytes": 146740,
+      "sha256": "5f2ae21cf132df71d2c96afbde800c280190978a453b094d230ea12be7c3c1ae"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-full-pixel6.environment.json",
+      "bytes": 3114,
+      "sha256": "1d019cc4de06005ed0e053cfd83b0ebecb8844fcd3b80eac8a1e628a19d3e4b0"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-full-pixel6.txt",
+      "bytes": 144898,
+      "sha256": "a4cf4fe8789a919ec75426b17f64cb83550a89e8123d27cd5fa590ddd8ec7cf6"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-io-fix-build.log",
+      "bytes": 4438,
+      "sha256": "1d9a7888100d6f21c82c25b00b00695dda0511a596c9f742b391d0663dbe223c"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-normal-build.log",
+      "bytes": 1914,
+      "sha256": "285d2eeb9ec231e83eb5744539e5d81ae1a3d803acced3bd47d1c3e5f83f50fc"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-qa-coldstart.png",
+      "bytes": 412961,
+      "sha256": "cfe8590c40af29b87f83e87db41ccc6802a18721c864a9517487cc508c704768"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-qa-coldstart.txt",
+      "bytes": 234,
+      "sha256": "7e8b25908dbeb330032f914fcfd0a651429969b65e407a5c037e4e38a2ad5dbc"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-qa-release-build.log",
+      "bytes": 2526,
+      "sha256": "4c10fae2e8f5bf287b3bf8f70984fcb5e6bc9bb036bac4af7ba6a00efc2b5d0e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-routes-reader-pixel6.environment.json",
+      "bytes": 797,
+      "sha256": "d772c0e30d4a9a582820c18b87fd1ccd3e4eb775a32668b7b576da98b0d47552"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/commerce-routes-reader-pixel6.txt",
+      "bytes": 2410,
+      "sha256": "bb0a1d2fd1943dc7ef00d6e96db0213c94f9b85a702b26dd82b0f3210c6295e6"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/lint-results-debug.xml",
+      "bytes": 43372,
+      "sha256": "7f28d627b62bed2642c32cf944f6d374308b4799d1fb7f1154a49f105b2efeb4"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/manifest.json",
+      "bytes": 32628,
+      "sha256": "6bd59c4614d204335bfbc5a20088f003b83d3e0ab1c5acfa52443cf56d174e0f"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/normal-build-flags.json",
+      "bytes": 121,
+      "sha256": "4407611d7c9da56cb75da7d925f5cf0ab5d3ea6218c9fa2d2b64a11f34e6861e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-commerce-integration-2026-11-08/qa-release-build-flags.json",
+      "bytes": 124,
+      "sha256": "eae258a981b18049bd9bbd20abc587961bcff1260ffc076fbb89fadf6f1a4e17"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/README.md",
+      "bytes": 3544,
+      "sha256": "d620671db99b35d1ef36864160e2523d1e43fd4ea27a27edf78744acca83b43c"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/animation-settings.json",
+      "bytes": 311,
+      "sha256": "4db76eda1c6fa71cd44bbfe38332120b0441f69d7df154c037eb67bc3103016d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/build-jvm-lint.txt",
+      "bytes": 4482,
+      "sha256": "da6b39b43d2018a4c6b49f3d85edf1ebe3d24fe962074d68e342d78f2553121a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/final-acceptance.txt",
+      "bytes": 644,
+      "sha256": "15cad33297856d68ebcf256068476a4d8d5735aa6634e42bd2a7a41cf36c4d85"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/initial-data-fixture-error.txt",
+      "bytes": 3774,
+      "sha256": "e779b796a42d6a18d3b4f5ec8866e26d83557761bd88e666badbd710e768e42f"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/intermediate-activity-cleanup-error.txt",
+      "bytes": 10268,
+      "sha256": "d6cee0efefb9e174b42ef1411267a25b178c3dac8cb4746e01f027bf321a41d8"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/jvm-summary.json",
+      "bytes": 1961,
+      "sha256": "415c96aaec5db61f4d38d27803157a77c963ad86717974b141b820db63105266"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/manifest.json",
+      "bytes": 3140,
+      "sha256": "2d196531996e0dbfabfb284bada440503d92872a25a8f0c470bf743a5a8bd4a7"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/migration-and-ui-passed.txt",
+      "bytes": 206,
+      "sha256": "7dac4ceb989bbbcacd87b80220e9e21bc2ca2d7aba319bc2f39462eda0971ac1"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/01-ap-ma-phan-tram.json",
+      "bytes": 183,
+      "sha256": "f82ea3386f6d7502ff5a7432c7b311309ea13e2ffbf6e49095da176d1ec862eb"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/01-ap-ma-phan-tram.png",
+      "bytes": 212450,
+      "sha256": "64449e0bda145eb5e73027f67df511f418c726885cd9a8f396065660ec681eab"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/02-ma-het-han.json",
+      "bytes": 182,
+      "sha256": "92173ad46222c59189aadf56a32ca0fa861160d3faaf2a35a2872d1029ab2247"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/02-ma-het-han.png",
+      "bytes": 220782,
+      "sha256": "717dcdb0c823630b9a8cdcb48b97193ed7f16c8d7e7e219ea4ac067ea3996e61"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/03-chu-dong-bo-ma.json",
+      "bytes": 171,
+      "sha256": "b9c07b3e992004019af52e5827822bfe11db8496350032801c41684b9a4bcc72"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/03-chu-dong-bo-ma.png",
+      "bytes": 199596,
+      "sha256": "a2aeacd453a76c0fa7453f37748f7e15d1e15757b4fcc97d80bd74965acb82bc"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/04-don-luu-snapshot-giam-gia.json",
+      "bytes": 187,
+      "sha256": "bd82a21df1efd855860ce33067120c8d0b0d07487ebc23a24e2584f7a0e92194"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-coupon-2026-11-08/screenshots/04-don-luu-snapshot-giam-gia.png",
+      "bytes": 165214,
+      "sha256": "83a9aebccd769465a816d6df184976d91901386e85f9f12a6c37b2758e81cf57"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/01-unread-inbox.png",
+      "bytes": 145300,
+      "sha256": "0b3f6cc877f11fd0fdc839bb765296aa61f8c0cee610abfdcc63b03b8ea7eb28"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/02-all-read.png",
+      "bytes": 140643,
+      "sha256": "10db0331c69ac63677d50e3f0c21f76693964f930c10fb63fb7e81896f7a5d2f"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/03-missing-target.png",
+      "bytes": 149815,
+      "sha256": "852ccef421920d25d524e8c12753f04608ef580f995f50d5f263cb9a6257e0cb"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/04-session-cleared.png",
+      "bytes": 66309,
+      "sha256": "e136d12a9d5dd2d505fd138bf282ef9848ae6dc101166265435b1334d28e7d09"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/README.md",
+      "bytes": 2302,
+      "sha256": "b5c56870ff71aa2cd877da78b877b3491bef018411856ac2436074fd959daa2a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/inbox-denied-permission.json",
+      "bytes": 423,
+      "sha256": "7ae7051a97f19ae0260e7ddafbcebe3ec18638ef4cfd3244c0e1e97369ffcc99"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/inbox-denied-pixel6.environment.json",
+      "bytes": 877,
+      "sha256": "f231da16f79319c30c9c44604256e50361fafebdcf3c1eda92e7a96c43885f97"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-inbox-2026-11-08/inbox-denied-pixel6.txt",
+      "bytes": 3139,
+      "sha256": "50e2f5e2a296f4172720a65535b8675159ce25ed6b9da55a9b01de0e6ae24055"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/01-snapshot-annule-coupon.pdf",
+      "bytes": 124945,
+      "sha256": "4a73246bb50cf35b8c4fd902b3a931404efb22d1ca8c672bd1c1a8388d35c01a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/01-snapshot-annule-coupon.txt",
+      "bytes": 756,
+      "sha256": "4aafac3e0e5da942be6a50951132a39972e64c7e5281e72e5f3375ad03209390"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/02-vietnamese-100-products-long-address.pdf",
+      "bytes": 143051,
+      "sha256": "2f2d443740ed55ef61b7c0e0dd36ec940b893ba8305c00e673fc4581d7ec4565"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/02-vietnamese-100-products-long-address.txt",
+      "bytes": 26290,
+      "sha256": "db4000bbfecaf2ecf728563f6722ee24045c9bebe17d1dfaaf12fca620a3ec2a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/03-legacy-zero-discount.pdf",
+      "bytes": 121447,
+      "sha256": "06004453457630b6d0ed956f16b1f2ada2dd8437bfeee502f45abe271c126bc4"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/03-legacy-zero-discount.txt",
+      "bytes": 716,
+      "sha256": "7ac7aa57c36435f8e5ce5cf49eee27286962909ad6d66b38fb8c1388d227a580"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/04-export-actions.png",
+      "bytes": 48449,
+      "sha256": "b913583db5de5e4c561b7d17dcea1b6e3fff7e6a04189fa59589ed6509b6ac89"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/05-share-chooser-no-recipient-selected.png",
+      "bytes": 102404,
+      "sha256": "a4996ef956cfc966376c8803e0bc98215e2ecab4c193dcd2f4a8a46f53e8d2a0"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/06-external-pdf-reader.png",
+      "bytes": 145940,
+      "sha256": "81addf937cb945d8e69b46f55d00f86abbc1b71324d351d63d5bbbf200826461"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/README.md",
+      "bytes": 2568,
+      "sha256": "61eb18bdc35a7145acd7f5a82cfb973ca1e21b0abcb995329647ce9c9932ab3d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/commerce-pixel6-acceptance.environment.json",
+      "bytes": 1004,
+      "sha256": "9a688b93b96f8dd66ab79e174326b63ca5e712dc6cd81b32c7e291d45457e096"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/commerce-pixel6-acceptance.txt",
+      "bytes": 5181,
+      "sha256": "4197742b026979104bbf77ea10089df06d5fcd455dc9b2886e8e5a3bd39e11a8"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/long-page-1.png",
+      "bytes": 252593,
+      "sha256": "f94ea7b8a7f60b578710a25a5388ff46a80f667dc3c589de71ed7a402e3f5a6d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/long-page-8.png",
+      "bytes": 28547,
+      "sha256": "148d2baadfc0610ec35d78fa74c3eda5592b4195734663f3b2359513931ef26a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/pdf-statistics-final-pixel6.environment.json",
+      "bytes": 739,
+      "sha256": "1e270bf91808edb585f5a0c7af26e0ca72d61f4f5f437f3a203e2cc1651ff4b1"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/pdf-statistics-final-pixel6.txt",
+      "bytes": 1404,
+      "sha256": "5a2666c64d5b72b186bbd5aede3ce27d8cf38b181057f26feec1f0ba3f4ecce1"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/statistics-pdf-pixel6.environment.json",
+      "bytes": 804,
+      "sha256": "f322f2b1b9c3df507db14be51070af0aa449ac6d19f7a6907768c55859ae689d"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-pdf-2026-11-08/statistics-pdf-pixel6.txt",
+      "bytes": 1413,
+      "sha256": "5717a35c2b6962a9ded1fd14410d3e9cbf2b4f8fb4af56170bcdd12c110e25e5"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/README.md",
+      "bytes": 4592,
+      "sha256": "f5967fd30a090ed74191a7a8ae17fe073dc8a98b5039e247208181000bbd62c7"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/acceptance-eight-passed.txt",
+      "bytes": 216,
+      "sha256": "29737bc86cdcdb4201632fccfd3dcdc7ed08ee11a68348cb49be69615c8eefb5"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/build-and-lint.txt",
+      "bytes": 4437,
+      "sha256": "356a51959ccb5fd084da781770feb23d32ea21aacd48a072ebb6d756609eab2f"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/data-admin-care-initial.txt",
+      "bytes": 220,
+      "sha256": "82370a4aa8a71ba88f8c2e123ef6b09d2323d3d661d6e31bb6c79fc6077623ee"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/final-acceptance.txt",
+      "bytes": 217,
+      "sha256": "e3f9ff0dde59755141e58d2094adaf049cbcbcc6b85e9626fd3f22d9739991c4"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/final-build.txt",
+      "bytes": 4503,
+      "sha256": "02fb8242e64f5023cbdf2376362041e724390741ae31669d06fddca05c842128"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/final-checks.txt",
+      "bytes": 1932,
+      "sha256": "54b3a5d3d4f9c1f91600a00f881891a34c3ecd8efbbe70baf1e5f90a8148275c"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/final-jvm-lint.txt",
+      "bytes": 1866,
+      "sha256": "816d2abb33cde19fe3e36fbc376bd88f5990f8978974d07bcd2d637037e757eb"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/jvm-summary.json",
+      "bytes": 1790,
+      "sha256": "05eb381669cebdc8e6a103a7efe627ae87f98ea691b354305cc156333de01a1a"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/manifest.json",
+      "bytes": 2258,
+      "sha256": "f2e8a7f150f385f7b74c7f1159551b58cd08966752ff937047455e140119b03e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/regression-initial.txt",
+      "bytes": 1553,
+      "sha256": "5bd89add7b960e4aa9bf7039ee94d0f575f01da08c3f5def11267e78130855ed"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/screenshots/00-editor-open.png",
+      "bytes": 113534,
+      "sha256": "eef35f12e1e1f295f5576e970280b82ad020d6681f3e370f504370d029db6bd9"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/screenshots/01-viet-danh-gia.png",
+      "bytes": 156215,
+      "sha256": "aefc0375eb7212fd91f2f29c8192dd6d2b67d58670fe8fbb2d0ecd556ca821f2"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/screenshots/02-danh-gia-san-pham.png",
+      "bytes": 59467,
+      "sha256": "d9428c4f8ec68ea19baf71e51a1e171a0d7de32e44d30d77c244088ac8574f39"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/screenshots/03-sua-danh-gia.png",
+      "bytes": 117240,
+      "sha256": "b93257b1e7339dc33c83f3210948f2b3c52089cd24cf1855a56c70821c84c555"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/screenshots/04-xac-nhan-xoa.png",
+      "bytes": 135104,
+      "sha256": "fa54bb121444caf4ba2914d1c123b905cbed0447dd7f4fce56379883db83dfd4"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/screenshots/05-chan-xoa-ban-nhap-cu.png",
+      "bytes": 76410,
+      "sha256": "525eda6cd639619ca5fd811f5ffcf15fcd52e4201db5d3c973abd0ff6b6fd86e"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/stable-build-jvm-lint.txt",
+      "bytes": 4481,
+      "sha256": "005d51085734ed1f76aaa32d21740e6b84e59624cd9f62228ad6b19b54622cce"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/tests-build.txt",
+      "bytes": 2911,
+      "sha256": "9da62195516c5e2a3c15b67b604985e7870f33c44a14cba0bda73cd1ab63f728"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/troubleshooting/acceptance-intermediate.txt",
+      "bytes": 1419,
+      "sha256": "dd72a171b7b7c52c849db2d42a4fc437b10057cf3f5a359d3302c2da8ef89bd4"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/troubleshooting/acceptance-with-systemui-overlay.txt",
+      "bytes": 216,
+      "sha256": "2e983be0d55734bca368d4426fc54d673abf2235ad0e55ef3dda2ca475d74d40"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/troubleshooting/clean-ui-before-one-window.txt",
+      "bytes": 7619,
+      "sha256": "8aa9930a506e47f48f8a9c6e6bcb842d543ff13c8d2f02e45f9b10d117296a43"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/troubleshooting/stacked-dialogs-interrupted.txt",
+      "bytes": 3592,
+      "sha256": "bfa3b634fcadce54916671ccca5186f06821d9afc37de3957354189aa23819cb"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/troubleshooting/systemui-overlay.png",
+      "bytes": 87674,
+      "sha256": "61d26ec12855f6dc6c2a32859da25609cd8f227ca643920ea489696ba0eac3e4"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/troubleshooting/ui-intermediate.txt",
+      "bytes": 1360,
+      "sha256": "f7d0b9e02e6ac55aff031dd264b500f02d5fd93a9c0e26b7f7c3d82104d8eb7f"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-reviews-2026-11-07/ui-and-restoration-passed.txt",
+      "bytes": 92,
+      "sha256": "d0872953c2f962772fd977022657b8a0f3acb44d68c45b398c095bc5649ad534"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/01-doanh-thu-theo-ngay-giao.png",
+      "bytes": 159778,
+      "sha256": "43430db65b4f52aef5c02433583af931b99311f8748138154168a7893a366212"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/02-don-theo-ngay-tao.png",
+      "bytes": 160002,
+      "sha256": "0bd4b0cabd6a58a5ac4ca3dfefeb8c07e281085fbaec51a5a8395919a33932ec"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/03-toan-thoi-gian.png",
+      "bytes": 160599,
+      "sha256": "7de5aa0d8b015d5bab32c19ea0bae3df6acf26bb94348c28482be2384fa0282b"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/04-nhom-thieu-ngay-giao.png",
+      "bytes": 176672,
+      "sha256": "7ff24a255dd6834a1a3d2c995a2639a94c53b60e070658aeeaca0ce439cafae8"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/05-ton-kho-thap.png",
+      "bytes": 176672,
+      "sha256": "7ff24a255dd6834a1a3d2c995a2639a94c53b60e070658aeeaca0ce439cafae8"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/06-thu-hoi-quyen.png",
+      "bytes": 44473,
+      "sha256": "76ee5436397cc430df71c80f9f21f270c86f2e369c83b03204bff4e2723fef6b"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/07-bieu-do-gia-tri-khong.png",
+      "bytes": 181725,
+      "sha256": "b984dcfd669311bdcac4dbdb7056e124c76fcde4045f8960e762c12e57c68479"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/README.md",
+      "bytes": 2210,
+      "sha256": "588d5c585b10af8410b9e8813dac4113a0edd18c510c64b99eabb3cfc466aca0"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/statistics-final-build.log",
+      "bytes": 4503,
+      "sha256": "7d3ac689949154d181ac67b85be1170b7f4bd85837ec451600607694b3a9a695"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/statistics-pixel6.environment.json",
+      "bytes": 761,
+      "sha256": "cb0134e939917283c36339923c5d7e9421a2fef5cdec9b0a97355bc9536b30af"
+    },
+    {
+      "path": "docs/kiem-thu/pixel6-statistics-2026-11-08/statistics-pixel6.txt",
+      "bytes": 1590,
+      "sha256": "5079bfe44061865f9300c9e04ed0d4e92c51c27fea0fd092741a9037b7312995"
+    },
+    {
+      "path": "docs/lich-cham-soc.md",
+      "bytes": 5494,
+      "sha256": "e375284c7d37d5b8c60c0caea97887fa80e098aedcbe2c9d24a739b3a161a1e2"
+    },
+    {
+      "path": "docs/ma-giam-gia-demo.md",
+      "bytes": 2509,
+      "sha256": "c33b2a4987de983226eda8b030067fef6f20610d5412914ca6f29e7425aac9c7"
+    },
+    {
+      "path": "docs/phieu-don-hang-pdf.md",
+      "bytes": 2240,
+      "sha256": "2e45a79bf7ccf4f3685ea23ce5b89fc02ee0c5e9caf75c91bf649cb597b35ca5"
     },
     {
       "path": "docs/product-sources.md",
@@ -542,34 +2420,64 @@
       "sha256": "9221e4e94cb16ca0dcd73eb78af2d4d5c275cb24ea8d1aab2a449a59e4465f70"
     },
     {
-      "path": "docs/screenshots/admin-order-detail.png",
+      "path": "docs/screenshots/1-home-screen.png",
+      "bytes": 370505,
+      "sha256": "ed971a00ff90715f3c5324c631de2ff0fd9571327d7ba3a73ef65036985832e5"
+    },
+    {
+      "path": "docs/screenshots/10-admin-order-detail.png",
       "bytes": 157873,
       "sha256": "86e0e6b220aefe8207a5b5007e037926f3f4c79834a1361860c9e75eebc0fa1f"
     },
     {
-      "path": "docs/screenshots/admin-products.png",
-      "bytes": 218170,
-      "sha256": "a265503ef953470387de785b06e487f1fbdfe55bdc211dc6ead1b88afd6b9a55"
+      "path": "docs/screenshots/11-customer-delivered-order.png",
+      "bytes": 118518,
+      "sha256": "31e1e921d07f48153b73381b6a77a8d716c251be4b4f6066d79a326baa51a195"
     },
     {
-      "path": "docs/screenshots/cancelled-order.png",
-      "bytes": 133007,
-      "sha256": "f8a2cc8aaa88c1c42688dd5da3e36ea0d041ca3af28a244e57546361c19210d7"
+      "path": "docs/screenshots/12-profile-screen.png",
+      "bytes": 119225,
+      "sha256": "8a42160570df214ee6a081d62f68192507f86e7324902c9bbef27427c9cfbcb8"
     },
     {
-      "path": "docs/screenshots/cart-screen.png",
+      "path": "docs/screenshots/2-product-detail.png",
+      "bytes": 290510,
+      "sha256": "09f00f024faca4c618b993da3201305aa16974a09b31443dec63887b62df75a1"
+    },
+    {
+      "path": "docs/screenshots/3-cart-screen.png",
       "bytes": 103968,
       "sha256": "54d75aaf6192f3033e4a590692a49b9946f76b91870c38d4dfa9385fe9feee3c"
     },
     {
-      "path": "docs/screenshots/cod-confirmation.png",
+      "path": "docs/screenshots/4-order-detail.png",
+      "bytes": 126170,
+      "sha256": "d56df429aefe5af2ae4bb7f7b60f4c8722b5f247a2c9d6aba41679028062f778"
+    },
+    {
+      "path": "docs/screenshots/5-cod-confirmation.png",
       "bytes": 124989,
       "sha256": "f8390f60e31ccc1b6e3d061675fe85c4e4998ed452f8ada337ac9d9a2f7eec62"
     },
     {
-      "path": "docs/screenshots/customer-delivered-order.png",
-      "bytes": 118518,
-      "sha256": "31e1e921d07f48153b73381b6a77a8d716c251be4b4f6066d79a326baa51a195"
+      "path": "docs/screenshots/6-shipping-review.png",
+      "bytes": 125851,
+      "sha256": "158b329ca665700c4d11aeb3099388df6237970e79f258d5abbd905805f7d3ec"
+    },
+    {
+      "path": "docs/screenshots/7-order-success.png",
+      "bytes": 148714,
+      "sha256": "6c5b4bcf23a37bbe767cd5c3724a0a391d697c63753f5249067bdf5533efb3f9"
+    },
+    {
+      "path": "docs/screenshots/8-cancelled-order.png",
+      "bytes": 133007,
+      "sha256": "f8a2cc8aaa88c1c42688dd5da3e36ea0d041ca3af28a244e57546361c19210d7"
+    },
+    {
+      "path": "docs/screenshots/9-admin-products.png",
+      "bytes": 218170,
+      "sha256": "a265503ef953470387de785b06e487f1fbdfe55bdc211dc6ead1b88afd6b9a55"
     },
     {
       "path": "docs/screenshots/demo-admin-delivered.png",
@@ -587,34 +2495,9 @@
       "sha256": "781766fc31986e874465c0b7662f185153ae14b1d562dc7702a90461f3be8f00"
     },
     {
-      "path": "docs/screenshots/home-screen.png",
-      "bytes": 370505,
-      "sha256": "ed971a00ff90715f3c5324c631de2ff0fd9571327d7ba3a73ef65036985832e5"
-    },
-    {
       "path": "docs/screenshots/landscape-font150.png",
       "bytes": 98568,
       "sha256": "54e5d1dfe4523b86a056189b57fe3eb3750d0b66cb476e282082ec2b3cce1fe3"
-    },
-    {
-      "path": "docs/screenshots/order-detail.png",
-      "bytes": 126170,
-      "sha256": "d56df429aefe5af2ae4bb7f7b60f4c8722b5f247a2c9d6aba41679028062f778"
-    },
-    {
-      "path": "docs/screenshots/order-success.png",
-      "bytes": 148714,
-      "sha256": "6c5b4bcf23a37bbe767cd5c3724a0a391d697c63753f5249067bdf5533efb3f9"
-    },
-    {
-      "path": "docs/screenshots/product-detail.png",
-      "bytes": 290510,
-      "sha256": "09f00f024faca4c618b993da3201305aa16974a09b31443dec63887b62df75a1"
-    },
-    {
-      "path": "docs/screenshots/profile-screen.png",
-      "bytes": 119225,
-      "sha256": "8a42160570df214ee6a081d62f68192507f86e7324902c9bbef27427c9cfbcb8"
     },
     {
       "path": "docs/screenshots/recreated-REVIEW.png",
@@ -647,9 +2530,19 @@
       "sha256": "f743385b5d48f1d1e55673d8495a5b8c6490f149c80ebc305bb63e2530552a53"
     },
     {
-      "path": "docs/screenshots/shipping-review.png",
-      "bytes": 125851,
-      "sha256": "158b329ca665700c4d11aeb3099388df6237970e79f258d5abbd905805f7d3ec"
+      "path": "docs/so-dia-chi.md",
+      "bytes": 2138,
+      "sha256": "d0bc2982305bbf9bc069dfd4334ec6d772af2ed461d295920e38ccbcbfb46bf4"
+    },
+    {
+      "path": "docs/thong-bao-day.md",
+      "bytes": 4558,
+      "sha256": "942c3c061627cbc0afe6453f00b9e42898da91e6199d2a2938f80e5c993a26ee"
+    },
+    {
+      "path": "docs/thong-ke-ban-hang.md",
+      "bytes": 2101,
+      "sha256": "32f0f54fa2387dfd3387a84eeff08851135eef2b8661b18f7e5d15703703f009"
     },
     {
       "path": "docs/trinh-dien/kich-ban.md",
@@ -662,14 +2555,84 @@
       "sha256": "175154cd5c163c1762b93113f8ca5a32b55ed43273c25a4d45e2f867bdd2c67c"
     },
     {
+      "path": "docs/trung-tam-thong-bao.md",
+      "bytes": 2394,
+      "sha256": "5bb13462e4ca99aad04def2122bd4dad3664ee71df505dd0d352a71e0eaba911"
+    },
+    {
+      "path": "firebase-tests/firestore.rules.test.mjs",
+      "bytes": 2621,
+      "sha256": "1e3bdb6f1c309a5937a1c0daa16927e33f7e75a9115f13dbc625b90c3d8e2775"
+    },
+    {
+      "path": "firebase-tests/package-lock.json",
+      "bytes": 369312,
+      "sha256": "f37cb105758e631e9dde75cfdb4b71e04d7c9d295c9135d4882890050c539f2e"
+    },
+    {
+      "path": "firebase-tests/package.json",
+      "bytes": 495,
+      "sha256": "f50913e7318eea9c71fcab9071b66542dbc293a8bf68f5b944db5d5ef2f6fbfd"
+    },
+    {
+      "path": "firebase.json",
+      "bytes": 647,
+      "sha256": "96a82c26d4cc4c3b65d593c178ebd29de689c44af395b449ec77bd06e0612f1e"
+    },
+    {
+      "path": "firestore.indexes.json",
+      "bytes": 44,
+      "sha256": "6742255415c36daf631b52f233039190af819205cc41fa58d07dd7d9e180c2b9"
+    },
+    {
+      "path": "firestore.rules",
+      "bytes": 1039,
+      "sha256": "60d9d5e5838da434db383d02ed48d67886a32711dd04ce926d1822c78b5d385c"
+    },
+    {
+      "path": "functions/package-lock.json",
+      "bytes": 104149,
+      "sha256": "8b208575d2b10ceda979406930b4e2db400eba37d1f1a699e2eefbf54c18c424"
+    },
+    {
+      "path": "functions/package.json",
+      "bytes": 294,
+      "sha256": "3f5c70e84c8d9450d93bc33b85c0ebf7e560e6a4a01211d33cd2a32fa2ddd850"
+    },
+    {
+      "path": "functions/scripts/emulator.cjs",
+      "bytes": 654,
+      "sha256": "8c57fb6101ad0959ab3e201c31855615b9c9a50a0059e2f982e9a6944ea69ee1"
+    },
+    {
+      "path": "functions/scripts/seed-emulator.cjs",
+      "bytes": 1029,
+      "sha256": "1c6ad824621319990c873d22a482af2a97bc3c605bb3eef0748c38e2c39374b1"
+    },
+    {
+      "path": "functions/src/identity.cjs",
+      "bytes": 2379,
+      "sha256": "766864dc98377350407dda490eecf4dcc71d58c9e37b1c0052dd92281296cafd"
+    },
+    {
+      "path": "functions/src/index.cjs",
+      "bytes": 363,
+      "sha256": "96bc8929e106159f8f348bdf3c9f6863475eac40786f27375baa082e7d5dc566"
+    },
+    {
+      "path": "functions/test/identity.test.cjs",
+      "bytes": 5486,
+      "sha256": "8e9487fa0745533fd7023c60f5adfcd053bcd4899871be0b9cb37e5acf1c6c01"
+    },
+    {
       "path": "gradle.properties",
       "bytes": 1346,
       "sha256": "51e4b5a131eb01b1cdeb2f6f26aaba69d367a4a9d4ccd10c6d6f6d12fd545b66"
     },
     {
       "path": "gradle/libs.versions.toml",
-      "bytes": 2202,
-      "sha256": "70dcf204987e466513151d3f416cda93b6814e4e7a9906ee1c8bacef7e8c7211"
+      "bytes": 2879,
+      "sha256": "45da70dd40541e31316a63e4cfdcc6e7cc984b9dcbca38be679f2a1e95c485b4"
     },
     {
       "path": "gradle/wrapper/gradle-wrapper.jar",
@@ -692,24 +2655,54 @@
       "sha256": "af835f98787e9269af5a046edcb821a592fed372139df7b947b471a63cfc236b"
     },
     {
+      "path": "scripts/capture-progress.py",
+      "bytes": 2166,
+      "sha256": "f0bdfba110c0cac5f14dbe76ed5c8d50b1bb56af16d6f43d89e3367eafe62e6f"
+    },
+    {
       "path": "scripts/create-demo-admin.py",
       "bytes": 1065,
       "sha256": "e18a00a286cde5d664489bf1f449427ad52b84e28520f233523f5b8fec34dcfe"
     },
     {
+      "path": "scripts/create-progress-report-2.py",
+      "bytes": 27429,
+      "sha256": "9ef6563481aa70376929ba1678225349bd8067767fd3eebeebf1c58bc6b34176"
+    },
+    {
+      "path": "scripts/create-progress-report.py",
+      "bytes": 16370,
+      "sha256": "cda6054f09147416902916649d5c3136793d2bd95da7d91046667882f9ea3862"
+    },
+    {
       "path": "scripts/package-submission.py",
-      "bytes": 4069,
-      "sha256": "31a40c40ff3d89b906def975befd23a1168136dc7427ea13167e9641e45072a7"
+      "bytes": 5202,
+      "sha256": "e31ba7a0e951ae3ca2277ea68789012924558119b80fa2a7c8dc1129cf9a7f87"
+    },
+    {
+      "path": "scripts/qa-care-emulator.py",
+      "bytes": 13680,
+      "sha256": "133d8ebed231523cec4933c0afd7b3d44f44d7137498fb6847a4ff4aa0a221cc"
     },
     {
       "path": "scripts/render-docs.py",
-      "bytes": 9737,
-      "sha256": "172683a3b072bb784179cbb971fd8305573740621a4abb0d3bf8321823317fd6"
+      "bytes": 12239,
+      "sha256": "481a7d83addb182131876c68467312703aa117f157ff8686b7dda608b2574550"
     },
     {
       "path": "scripts/render-video.py",
       "bytes": 2018,
       "sha256": "346ea566e341168fe767f1305773478e8093f706a3a90550749c9ad32f202a22"
+    },
+    {
+      "path": "scripts/run-cloud-emulators.sh",
+      "bytes": 1178,
+      "sha256": "54c4dee96430e31067b478f6cef20077c081724938c74d2e2152227ca814c263"
+    },
+    {
+      "path": "scripts/run-pixel6-tests.py",
+      "bytes": 4861,
+      "sha256": "bd790bf0dbe655b3e7d8181d29b5792f33579f2d663ecc3dc5d078a05f3d5e89"
     },
     {
       "path": "settings.gradle.kts",

@@ -1,0 +1,1795 @@
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.ExampleInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.ExampleInstrumentedTest:
+INSTRUMENTATION_STATUS: test=useAppContext
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.ExampleInstrumentedTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=useAppContext
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.admin.AdminRepositoryTest:
+INSTRUMENTATION_STATUS: test=staleProductDraftCannotOverwriteCheckoutOrAnotherEdit
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=staleProductDraftCannotOverwriteCheckoutOrAnotherEdit
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=invalidProductDoesNotWrite
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=invalidProductDoesNotWrite
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=revokedRoleBlocksEveryReadAndWrite
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=revokedRoleBlocksEveryReadAndWrite
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=addEditHideAndUnhideKeepOrderSnapshots
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=addEditHideAndUnhideKeepOrderSnapshots
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=staleOrderStatusCannotSkipOrReverseTransitions
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=staleOrderStatusCannotSkipOrReverseTransitions
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=concurrentConfirmedCancellationRestoresOnce
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=concurrentConfirmedCancellationRestoresOnce
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=customerSignupRestoreLoginAndProfilePreserveTrustedRole
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=customerSignupRestoreLoginAndProfilePreserveTrustedRole
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=processAllOrdersWithAuditAndTerminalProtection
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=processAllOrdersWithAuditAndTerminalProtection
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=migrationFromFourPreservesCustomersOrdersAndSession
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=10
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=migrationFromFourPreservesCustomersOrdersAndSession
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=staleProductDraftCannotOverwriteCancelledStock
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=11
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=staleProductDraftCannotOverwriteCancelledStock
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=overflowRollsBackCancellation
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=12
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=overflowRollsBackCancellation
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=auditFailureRollsBackStateAndStock
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.admin.AdminRepositoryTest
+INSTRUMENTATION_STATUS: current=13
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=auditFailureRollsBackStateAndStock
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.auth.AuthRepositoryTest:
+INSTRUMENTATION_STATUS: test=invalidRegistrationDoesNotPersistAccount
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=14
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=invalidRegistrationDoesNotPersistAccount
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=concurrentRegistrationsProduceOneAccount
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=15
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=concurrentRegistrationsProduceOneAccount
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=logoutAndAccountSwitchRestoreOnlyCurrentUser
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=16
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=logoutAndAccountSwitchRestoreOnlyCurrentUser
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=incorrectCredentialsDoNotCreateSession
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=17
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=incorrectCredentialsDoNotCreateSession
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=duplicateEmailDoesNotOverwriteAccountOrSession
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=18
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=duplicateEmailDoesNotOverwriteAccountOrSession
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=queryParametersDoNotAllowSqlInjection
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=19
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=queryParametersDoNotAllowSqlInjection
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=20
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=accountAndSessionSurviveDatabaseReopen
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=20
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=accountAndSessionSurviveDatabaseReopen
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=21
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=passwordsAreStoredAsIndependentSaltedHashes
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.auth.AuthRepositoryTest
+INSTRUMENTATION_STATUS: current=21
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=passwordsAreStoredAsIndependentSaltedHashes
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareMigrationTest
+INSTRUMENTATION_STATUS: current=22
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.care.CareMigrationTest:
+INSTRUMENTATION_STATUS: test=versionFiveUpgradePreservesSessionCartOrdersAndStock
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareMigrationTest
+INSTRUMENTATION_STATUS: current=22
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=versionFiveUpgradePreservesSessionCartOrdersAndStock
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=23
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.care.CareRoutineProviderTest:
+INSTRUMENTATION_STATUS: test=anotherSessionCannotReadOrMutatePreviousUsersRows
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=23
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=anotherSessionCannotReadOrMutatePreviousUsersRows
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=24
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=writesNotifyContentObservers
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=24
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=writesNotifyContentObservers
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=25
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=resolverCrudMimeAndRevisionConflict
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=25
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=resolverCrudMimeAndRevisionConflict
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=26
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=rejectsOwnerInjectionInvalidFieldsAndUnknownPaths
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=26
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=rejectsOwnerInjectionInvalidFieldsAndUnknownPaths
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=27
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=staticReceiverPostsOnceAndLogoutCancelsNotificationAndAlarms
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=27
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=staticReceiverPostsOnceAndLogoutCancelsNotificationAndAlarms
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=28
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=simultaneousOccurrencesDoNotCancelEachOther
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=28
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=simultaneousOccurrencesDoNotCancelEachOther
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=29
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=notificationPermissionDeniedStillKeepsRoutine
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=29
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stack=org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+	at org.junit.Assume.assumeThat(Assume.java:106)
+	at org.junit.Assume.assumeTrue(Assume.java:50)
+	at com.example.bloomybeauty.data.care.CareRoutineProviderTest$notificationPermissionDeniedStillKeepsRoutine$1.invokeSuspend(CareRoutineProviderTest.kt:170)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+	at com.example.bloomybeauty.data.care.CareRoutineProviderTest.notificationPermissionDeniedStillKeepsRoutine(CareRoutineProviderTest.kt:169)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:80)
+	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:67)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:58)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:446)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=notificationPermissionDeniedStillKeepsRoutine
+INSTRUMENTATION_STATUS_CODE: -4
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=30
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=occurrenceClaimsRejectReplayAndStaleRevision
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.care.CareRoutineProviderTest
+INSTRUMENTATION_STATUS: current=30
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=occurrenceClaimsRejectReplayAndStaleRevision
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=31
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.cart.CartRepositoryTest:
+INSTRUMENTATION_STATUS: test=concurrentAddsDoNotLoseIncrementsOrReduceStock
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=31
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=concurrentAddsDoNotLoseIncrementsOrReduceStock
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=32
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=invalidShippingCannotBePersisted
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=32
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=invalidShippingCannotBePersisted
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=33
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=shippingRechecksStockAndStatusAndDoesNotOverwriteSavedAddressOnFailure
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=33
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=shippingRechecksStockAndStatusAndDoesNotOverwriteSavedAddressOnFailure
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=34
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=priceChangesRequireExplicitAcceptanceAndDoNotAddQuantity
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=34
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=priceChangesRequireExplicitAcceptanceAndDoNotAddQuantity
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=35
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=quantityTotalsCartAndShippingPersistAndStayAccountScoped
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=35
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=quantityTotalsCartAndShippingPersistAndStayAccountScoped
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=36
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=hiddenSoldOutAndInvalidQuantitiesCannotBeAdded
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=36
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=hiddenSoldOutAndInvalidQuantitiesCannotBeAdded
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=37
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=versionTwoMigrationKeepsSessionFavoritesAndProductEdits
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.cart.CartRepositoryTest
+INSTRUMENTATION_STATUS: current=37
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=versionTwoMigrationKeepsSessionFavoritesAndProductEdits
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.catalog.CatalogRepositoryTest
+INSTRUMENTATION_STATUS: current=38
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.catalog.CatalogRepositoryTest:
+INSTRUMENTATION_STATUS: test=bundledPhotosExistForEverySeededProduct
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.catalog.CatalogRepositoryTest
+INSTRUMENTATION_STATUS: current=38
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=bundledPhotosExistForEverySeededProduct
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.catalog.CatalogRepositoryTest
+INSTRUMENTATION_STATUS: current=39
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=favoritesPersistAndBelongToOneAccount
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.catalog.CatalogRepositoryTest
+INSTRUMENTATION_STATUS: current=39
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=favoritesPersistAndBelongToOneAccount
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.catalog.CatalogRepositoryTest
+INSTRUMENTATION_STATUS: current=40
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=migrationFromVersionOnePreservesAccountAndSession
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.catalog.CatalogRepositoryTest
+INSTRUMENTATION_STATUS: current=40
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=migrationFromVersionOnePreservesAccountAndSession
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=41
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.order.OrderRepositoryTest:
+INSTRUMENTATION_STATUS: test=repeatedAndConcurrentCancellationRestoresStockOnceAndCannotRecreateOrder
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=41
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=repeatedAndConcurrentCancellationRestoresStockOnceAndCannotRecreateOrder
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=42
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=createKeepsSnapshotsClearsCartAndReplayLeavesNewCartUntouched
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=42
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=createKeepsSnapshotsClearsCartAndReplayLeavesNewCartUntouched
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=43
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=stockOverflowBlocksCancellationWithoutChangingStatus
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=43
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=stockOverflowBlocksCancellationWithoutChangingStatus
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=44
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=processedOrdersCannotBeCancelled
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=44
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=processedOrdersCannotBeCancelled
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=45
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=failureDuringStockRestorationRollsBackStatusAndEveryLine
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=45
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=failureDuringStockRestorationRollsBackStatusAndEveryLine
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=46
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=lastUnitCannotBeSoldTwiceAndOrdersStayPrivate
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=46
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=lastUnitCannotBeSoldTwiceAndOrdersStayPrivate
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=47
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cancellationAndConditionalConfirmationCannotBothWin
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=47
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cancellationAndConditionalConfirmationCannotBothWin
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=48
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=shortageInOneLineRollsBackEntireOrderAndPreservesCart
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=48
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=shortageInOneLineRollsBackEntireOrderAndPreservesCart
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=49
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=simultaneousRetriesCreateOneOrderAndDeductOnce
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=49
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=simultaneousRetriesCreateOneOrderAndDeductOnce
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=50
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=changedPriceStatusQuantityOrAddressRequireNewConfirmation
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=50
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=changedPriceStatusQuantityOrAddressRequireNewConfirmation
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=51
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=requestsAndCommittedResultsRecoverAfterDatabaseReopen
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=51
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=requestsAndCommittedResultsRecoverAfterDatabaseReopen
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=52
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=requestIdentityCannotBeReusedForDifferentContent
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=52
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=requestIdentityCannotBeReusedForDifferentContent
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=53
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=insertFailureAfterFirstStockUpdateRollsBackAllWrites
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=53
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=insertFailureAfterFirstStockUpdateRollsBackAllWrites
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=54
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=hiddenProductsStillReceiveRestoredStockWithoutBecomingVisible
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=54
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=hiddenProductsStillReceiveRestoredStockWithoutBecomingVisible
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=55
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=versionThreeMigrationKeepsSessionCartAddressAndFavorites
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=55
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=versionThreeMigrationKeepsSessionCartAddressAndFavorites
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=56
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cancellationRequiresActiveSessionAndOwnership
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.order.OrderRepositoryTest
+INSTRUMENTATION_STATUS: current=56
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cancellationRequiresActiveSessionAndOwnership
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=57
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.profile.ProfileRepositoryTest:
+INSTRUMENTATION_STATUS: test=nameOnlyProfileCanClearDefaultAddressAndDoesNotChangeExistingOrders
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=57
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=nameOnlyProfileCanClearDefaultAddressAndDoesNotChangeExistingOrders
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=58
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=failedAddressWriteRollsBackNameChange
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=58
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=failedAddressWriteRollsBackNameChange
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=59
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=invalidFieldsCannotPartiallyChangeNameOrAddress
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=59
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=invalidFieldsCannotPartiallyChangeNameOrAddress
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=60
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=inactiveSessionCannotReadOrOverwriteAnotherProfile
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=60
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=inactiveSessionCannotReadOrOverwriteAnotherProfile
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=61
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=profileAndDefaultAddressPersistWithoutChangingCredentials
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.profile.ProfileRepositoryTest
+INSTRUMENTATION_STATUS: current=61
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=profileAndDefaultAddressPersistWithoutChangingCredentials
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestoreConnectionTest
+INSTRUMENTATION_STATUS: current=62
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.promotions.FirestoreConnectionTest:
+INSTRUMENTATION_STATUS: test=productionCollectionsCanBeReadFromServer
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestoreConnectionTest
+INSTRUMENTATION_STATUS: current=62
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stack=org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+	at org.junit.Assume.assumeThat(Assume.java:106)
+	at org.junit.Assume.assumeTrue(Assume.java:50)
+	at com.example.bloomybeauty.data.promotions.FirestoreConnectionTest.productionCollectionsCanBeReadFromServer(FirestoreConnectionTest.kt:18)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:67)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:58)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:446)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.promotions.FirestoreConnectionTest:
+INSTRUMENTATION_STATUS: test=productionCollectionsCanBeReadFromServer
+INSTRUMENTATION_STATUS_CODE: -4
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestorePromotionsTest
+INSTRUMENTATION_STATUS: current=63
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.promotions.FirestorePromotionsTest:
+INSTRUMENTATION_STATUS: test=publishedChangesUnpublishingAndDeletionReachListener
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestorePromotionsTest
+INSTRUMENTATION_STATUS: current=63
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stack=org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+	at org.junit.Assume.assumeThat(Assume.java:106)
+	at org.junit.Assume.assumeTrue(Assume.java:50)
+	at com.example.bloomybeauty.data.promotions.FirestorePromotionsTest.setup(FirestorePromotionsTest.kt:31)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:76)
+	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:67)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:58)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:446)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.promotions.FirestorePromotionsTest:
+INSTRUMENTATION_STATUS: test=publishedChangesUnpublishingAndDeletionReachListener
+INSTRUMENTATION_STATUS_CODE: -4
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestorePromotionsTest
+INSTRUMENTATION_STATUS: current=64
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cacheIsMarkedAndReconnectDeliversNewPrice
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestorePromotionsTest
+INSTRUMENTATION_STATUS: current=64
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stack=org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+	at org.junit.Assume.assumeThat(Assume.java:106)
+	at org.junit.Assume.assumeTrue(Assume.java:50)
+	at com.example.bloomybeauty.data.promotions.FirestorePromotionsTest.setup(FirestorePromotionsTest.kt:31)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:76)
+	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:67)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:58)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:446)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cacheIsMarkedAndReconnectDeliversNewPrice
+INSTRUMENTATION_STATUS_CODE: -4
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestorePromotionsTest
+INSTRUMENTATION_STATUS: current=65
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=malformedDocumentDoesNotHideOtherCampaigns
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.promotions.FirestorePromotionsTest
+INSTRUMENTATION_STATUS: current=65
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stack=org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+	at org.junit.Assume.assumeThat(Assume.java:106)
+	at org.junit.Assume.assumeTrue(Assume.java:50)
+	at com.example.bloomybeauty.data.promotions.FirestorePromotionsTest.setup(FirestorePromotionsTest.kt:31)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at androidx.test.internal.runner.junit4.statement.RunBefores.evaluate(RunBefores.java:76)
+	at androidx.test.internal.runner.junit4.statement.RunAfters.evaluate(RunAfters.java:61)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:67)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:58)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:446)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=malformedDocumentDoesNotHideOtherCampaigns
+INSTRUMENTATION_STATUS_CODE: -4
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.security.SessionIsolationTest
+INSTRUMENTATION_STATUS: current=66
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.data.security.SessionIsolationTest:
+INSTRUMENTATION_STATUS: test=loggedOutCallsCannotReadOrMutatePrivateData
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.security.SessionIsolationTest
+INSTRUMENTATION_STATUS: current=66
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=loggedOutCallsCannotReadOrMutatePrivateData
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.security.SessionIsolationTest
+INSTRUMENTATION_STATUS: current=67
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=otherCustomerCannotImpersonateOwnerOrAcknowledgeTheirRequest
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.security.SessionIsolationTest
+INSTRUMENTATION_STATUS: current=67
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=otherCustomerCannotImpersonateOwnerOrAcknowledgeTheirRequest
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.security.SessionIsolationTest
+INSTRUMENTATION_STATUS: current=68
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=customerCannotWriteCatalogOrOrderStatusThroughAdminApi
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.data.security.SessionIsolationTest
+INSTRUMENTATION_STATUS: current=68
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=customerCannotWriteCatalogOrOrderStatusThroughAdminApi
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.events.OrderChangesTest
+INSTRUMENTATION_STATUS: current=69
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.events.OrderChangesTest:
+INSTRUMENTATION_STATUS: test=packageScopedBroadcastReachesDynamicReceiver
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.events.OrderChangesTest
+INSTRUMENTATION_STATUS: current=69
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=packageScopedBroadcastReachesDynamicReceiver
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.events.OrderChangesTest
+INSTRUMENTATION_STATUS: current=70
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=eventsFollowCommitAndIgnoreRetriesAndRollbacks
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.events.OrderChangesTest
+INSTRUMENTATION_STATUS: current=70
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=eventsFollowCommitAndIgnoreRetriesAndRollbacks
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.admin.AdminFlowTest
+INSTRUMENTATION_STATUS: current=71
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.admin.AdminFlowTest:
+INSTRUMENTATION_STATUS: test=confirmProcessAndFilterOrders
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.admin.AdminFlowTest
+INSTRUMENTATION_STATUS: current=71
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=confirmProcessAndFilterOrders
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.admin.AdminFlowTest
+INSTRUMENTATION_STATUS: current=72
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=revokedPermissionHidesDataAndShowsRecoverableError
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.admin.AdminFlowTest
+INSTRUMENTATION_STATUS: current=72
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=revokedPermissionHidesDataAndShowsRecoverableError
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.admin.AdminFlowTest
+INSTRUMENTATION_STATUS: current=73
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=editProductRejectNegativePriceThenHide
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.admin.AdminFlowTest
+INSTRUMENTATION_STATUS: current=73
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=editProductRejectNegativePriceThenHide
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopColdStartTest
+INSTRUMENTATION_STATUS: current=74
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.app.ShopColdStartTest:
+INSTRUMENTATION_STATUS: test=newViewModelsRecoverPendingAndCommittedRequestWithoutDuplicateOrder
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopColdStartTest
+INSTRUMENTATION_STATUS: current=74
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=newViewModelsRecoverPendingAndCommittedRequestWithoutDuplicateOrder
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopColdStartTest
+INSTRUMENTATION_STATUS: current=75
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=revokedSessionClearsCartAndCheckoutInsteadOfCrashingDuringErrorRefresh
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopColdStartTest
+INSTRUMENTATION_STATUS: current=75
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=revokedSessionClearsCartAndCheckoutInsteadOfCrashingDuringErrorRefresh
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=76
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.app.ShopIntegrationTest:
+INSTRUMENTATION_STATUS: test=returningFromCartAndProfilePreservesHomeAndLoginCreatesFreshModels
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=76
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=returningFromCartAndProfilePreservesHomeAndLoginCreatesFreshModels
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=77
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=savedAdminDraftStaysStaleAfterReloadAndRestore
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=77
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=savedAdminDraftStaysStaleAfterReloadAndRestore
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=78
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=customerPlacesAdminProcessesAndCustomerSeesDeliveredOrder
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=78
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=customerPlacesAdminProcessesAndCustomerSeesDeliveredOrder
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=79
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=saveRestoreKeepsShippingDraftAndRouteWithoutSubmitting
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopIntegrationTest
+INSTRUMENTATION_STATUS: current=79
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=saveRestoreKeepsShippingDraftAndRouteWithoutSubmitting
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopRecreationTest
+INSTRUMENTATION_STATUS: current=80
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.app.ShopRecreationTest:
+INSTRUMENTATION_STATUS: test=landscapeWithLargeFontKeepsShippingAndConfirmationReachable
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopRecreationTest
+INSTRUMENTATION_STATUS: current=80
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=landscapeWithLargeFontKeepsShippingAndConfirmationReachable
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopRecreationTest
+INSTRUMENTATION_STATUS: current=81
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=activityRecreationPreservesDraftReviewAndCommittedOrderWithoutDuplicates
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.app.ShopRecreationTest
+INSTRUMENTATION_STATUS: current=81
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=activityRecreationPreservesDraftReviewAndCommittedOrderWithoutDuplicates
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.auth.AuthFlowTest
+INSTRUMENTATION_STATUS: current=82
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.auth.AuthFlowTest:
+INSTRUMENTATION_STATUS: test=registerLogoutAndLoginThroughUi
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.auth.AuthFlowTest
+INSTRUMENTATION_STATUS: current=82
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=registerLogoutAndLoginThroughUi
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.auth.VietnameseInputTest
+INSTRUMENTATION_STATUS: current=83
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.auth.VietnameseInputTest:
+INSTRUMENTATION_STATUS: test=composingVietnameseKeepsAccentsAndCursorInRegistration
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.auth.VietnameseInputTest
+INSTRUMENTATION_STATUS: current=83
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=composingVietnameseKeepsAccentsAndCursorInRegistration
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.care.CareScreenTest
+INSTRUMENTATION_STATUS: current=84
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.care.CareScreenTest:
+INSTRUMENTATION_STATUS: test=draftSurvivesStateRestorationAndEmptyDaysCannotBeSaved
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.care.CareScreenTest
+INSTRUMENTATION_STATUS: current=84
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=draftSurvivesStateRestorationAndEmptyDaysCannotBeSaved
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.care.CareScreenTest
+INSTRUMENTATION_STATUS: current=85
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=createEditToggleAndDeleteThroughUi
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.care.CareScreenTest
+INSTRUMENTATION_STATUS: current=85
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=createEditToggleAndDeleteThroughUi
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=86
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.cart.CartFlowTest:
+INSTRUMENTATION_STATUS: test=addFromDetailChangeQuantitySaveShippingAndReturnWithoutLosingDraft
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=86
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=addFromDetailChangeQuantitySaveShippingAndReturnWithoutLosingDraft
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=87
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=confirmCancellationUpdatesStatusAndRestoresStock
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=87
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=confirmCancellationUpdatesStatusAndRestoresStock
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=88
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=changedPriceAtSubmitReturnsToCartAndCreatesNoOrder
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=88
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=changedPriceAtSubmitReturnsToCartAndCreatesNoOrder
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=89
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=statusChangedDuringCancellationDialogRefreshesAndBlocksCancellation
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=89
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=statusChangedDuringCancellationDialogRefreshesAndBlocksCancellation
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=90
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=placeCodAndViewOrderHistoryAndDetail
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=90
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=placeCodAndViewOrderHistoryAndDetail
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=91
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=emptyAndChangedPriceBlockContinueUntilCorrected
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=91
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=emptyAndChangedPriceBlockContinueUntilCorrected
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=92
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=editProfileValidatePhoneAndUseSavedAddressAtCheckout
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartFlowTest
+INSTRUMENTATION_STATUS: current=92
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=editProfileValidatePhoneAndUseSavedAddressAtCheckout
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=93
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.cart.CartRefreshTest:
+INSTRUMENTATION_STATUS: test=hiddenProductDuringReviewRequiresRemoval
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=93
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=hiddenProductDuringReviewRequiresRemoval
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=94
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=resumeDoesNotJumpFromShippingBackToOldReview
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=94
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=resumeDoesNotJumpFromShippingBackToOldReview
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=95
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=priceChangedDuringReviewRequiresDisplayedPriceConfirmation
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=95
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=priceChangedDuringReviewRequiresDisplayedPriceConfirmation
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=96
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=lowerStockDuringReviewRequiresReducingQuantity
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.cart.CartRefreshTest
+INSTRUMENTATION_STATUS: current=96
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=lowerStockDuringReviewRequiresReducingQuantity
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.home.HomeFlowTest
+INSTRUMENTATION_STATUS: current=97
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.home.HomeFlowTest:
+INSTRUMENTATION_STATUS: test=searchEmptyStateCanClearFilters
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.home.HomeFlowTest
+INSTRUMENTATION_STATUS: current=97
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=searchEmptyStateCanClearFilters
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.home.HomeFlowTest
+INSTRUMENTATION_STATUS: current=98
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=searchOpenDetailFavoriteAndNavigateToAccount
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.home.HomeFlowTest
+INSTRUMENTATION_STATUS: current=98
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=searchOpenDetailFavoriteAndNavigateToAccount
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.promotions.PromotionsSectionTest
+INSTRUMENTATION_STATUS: current=99
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.feature.promotions.PromotionsSectionTest:
+INSTRUMENTATION_STATUS: test=liveStateChangesUpdateAndExpireVisibleOffers
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.promotions.PromotionsSectionTest
+INSTRUMENTATION_STATUS: current=99
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=liveStateChangesUpdateAndExpireVisibleOffers
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.promotions.PromotionsSectionTest
+INSTRUMENTATION_STATUS: current=100
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=cachedCodesCannotBeCopiedAndErrorsOfferRetry
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.feature.promotions.PromotionsSectionTest
+INSTRUMENTATION_STATUS: current=100
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=cachedCodesCannotBeCopiedAndErrorsOfferRetry
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushNotificationsTest
+INSTRUMENTATION_STATUS: current=101
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.notifications.PushNotificationsTest:
+INSTRUMENTATION_STATUS: test=dataMessagePassesThroughFirebaseService
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushNotificationsTest
+INSTRUMENTATION_STATUS: current=101
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=dataMessagePassesThroughFirebaseService
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushNotificationsTest
+INSTRUMENTATION_STATUS: current=102
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=messagePostsNotificationWithTapAction
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushNotificationsTest
+INSTRUMENTATION_STATUS: current=102
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=messagePostsNotificationWithTapAction
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushNotificationsTest
+INSTRUMENTATION_STATUS: current=103
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=channelIsCreatedWithoutOverwritingUserSettings
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushNotificationsTest
+INSTRUMENTATION_STATUS: current=103
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=channelIsCreatedWithoutOverwritingUserSettings
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushPermissionDeniedTest
+INSTRUMENTATION_STATUS: current=104
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.notifications.PushPermissionDeniedTest:
+INSTRUMENTATION_STATUS: test=deniedPermissionSkipsNotificationWithoutCrashing
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.notifications.PushPermissionDeniedTest
+INSTRUMENTATION_STATUS: current=104
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stack=org.junit.AssumptionViolatedException: Run separately after revoking POST_NOTIFICATIONS
+	at org.junit.Assume.assumeTrue(Assume.java:68)
+	at com.example.bloomybeauty.notifications.PushPermissionDeniedTest.deniedPermissionSkipsNotificationWithoutCrashing(PushPermissionDeniedTest.kt:21)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at androidx.test.ext.junit.runners.AndroidJUnit4.run(AndroidJUnit4.java:162)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:67)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:58)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:446)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.notifications.PushPermissionDeniedTest:
+INSTRUMENTATION_STATUS: test=deniedPermissionSkipsNotificationWithoutCrashing
+INSTRUMENTATION_STATUS_CODE: -4
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.reminders.CareDeviceScenarioTest
+INSTRUMENTATION_STATUS: current=105
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.reminders.CareDeviceScenarioTest:
+INSTRUMENTATION_STATUS: test=deviceScenario
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.bloomybeauty.reminders.CareDeviceScenarioTest
+INSTRUMENTATION_STATUS: current=105
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=105
+INSTRUMENTATION_STATUS: stack=org.junit.AssumptionViolatedException: got: <false>, expected: is <true>
+	at org.junit.Assume.assumeThat(Assume.java:106)
+	at org.junit.Assume.assumeTrue(Assume.java:50)
+	at com.example.bloomybeauty.reminders.CareDeviceScenarioTest$deviceScenario$1.invokeSuspend(CareDeviceScenarioTest.kt:33)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+	at com.example.bloomybeauty.reminders.CareDeviceScenarioTest.deviceScenario(CareDeviceScenarioTest.kt:30)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:67)
+	at androidx.test.internal.runner.TestExecutor.execute(TestExecutor.java:58)
+	at androidx.test.runner.AndroidJUnitRunner.onStart(AndroidJUnitRunner.java:446)
+	at android.app.Instrumentation$InstrumentationThread.run(Instrumentation.java:2597)
+
+INSTRUMENTATION_STATUS: stream=
+com.example.bloomybeauty.reminders.CareDeviceScenarioTest:
+INSTRUMENTATION_STATUS: test=deviceScenario
+INSTRUMENTATION_STATUS_CODE: -4
+INSTRUMENTATION_RESULT: stream=
+
+Time: 259.101
+
+OK (105 tests)
+
+
+INSTRUMENTATION_CODE: -1

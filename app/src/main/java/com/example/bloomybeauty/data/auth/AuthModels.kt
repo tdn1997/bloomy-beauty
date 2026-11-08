@@ -21,7 +21,7 @@ object AuthValidation {
 
     fun normalizeEmail(email: String): String = email.trim().lowercase(Locale.ROOT)
 
-    private fun validEmail(email: String): Boolean {
+    fun validEmail(email: String): Boolean {
         val normalized = normalizeEmail(email)
         if (normalized.length > 254 || !emailPattern.matches(normalized)) return false
         val local = normalized.substringBefore('@')

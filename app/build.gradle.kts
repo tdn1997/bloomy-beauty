@@ -35,10 +35,12 @@ abstract class GenerateFirebaseConfig : DefaultTask() {
 }
 
 val presentationBuild = providers.gradleProperty("presentation").orNull == "true"
+val cloudEmulatorBuild = providers.gradleProperty("cloudEmulator").orNull == "true"
+require(!cloudEmulatorBuild || (!presentationBuild && providers.gradleProperty("qaRelease").orNull != "true")) {"Cloud emulator is a separate build source."}
 val qaReleaseBuild = providers.gradleProperty("qaRelease").orNull == "true"
 // The supplied Firebase config only registers the normal application ID.
 // Keep the isolated presentation and QA builds offline.
-if (!presentationBuild && !qaReleaseBuild) {
+if (!presentationBuild && !qaReleaseBuild && !cloudEmulatorBuild) {
     apply(plugin = "com.google.gms.google-services")
     val localApiKey = providers.fileContents(rootProject.layout.projectDirectory.file(".env.local"))
         .asText.map { text ->
@@ -60,7 +62,7 @@ if (!presentationBuild && !qaReleaseBuild) {
 }
 val demoAdmin = Properties().apply {
     val config = rootProject.file(if (presentationBuild) ".local/presentation-admin.properties" else ".local/admin-demo.properties")
-    if (config.exists()) config.inputStream().use { load(it) }
+    if (!cloudEmulatorBuild && config.exists()) config.inputStream().use { load(it) }
 }
 
 
@@ -70,7 +72,10 @@ android {
 
     defaultConfig {
         applicationId = "com.example.bloomybeauty"
-        buildConfigField("boolean", "FIREBASE_ENABLED", "${!presentationBuild && !qaReleaseBuild}")
+        buildConfigField("boolean", "CLOUD_EMULATOR", "$cloudEmulatorBuild")
+        manifestPlaceholders["localCareEnabled"] = (!cloudEmulatorBuild).toString()
+        buildConfigField("boolean", "LOCAL_COUPONS_ENABLED", "false")
+        buildConfigField("boolean", "FIREBASE_ENABLED", "${!presentationBuild && !qaReleaseBuild && !cloudEmulatorBuild}")
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -82,6 +87,11 @@ android {
 
     buildTypes {
         debug {
+            if (cloudEmulatorBuild) {
+                applicationIdSuffix=".cloud";versionNameSuffix="-cloud-emulator"
+                resValue("string","app_name","Bloomy Beauty Cloud (test)")
+            }
+            buildConfigField("boolean", "LOCAL_COUPONS_ENABLED", "$presentationBuild")
             if (presentationBuild) {
                 check(demoAdmin.getProperty("email", "").isNotBlank()) {
                     "Run python3 scripts/create-demo-admin.py --presentation first"
@@ -96,6 +106,7 @@ android {
             }
         }
         release {
+            buildConfigField("boolean", "LOCAL_COUPONS_ENABLED", "$qaReleaseBuild")
             // Opt-in installable release for QA, isolated from the user's app data.
             // The normal release remains unsigned and uses the production application ID.
             if (providers.gradleProperty("qaRelease").orNull == "true") {
@@ -127,6 +138,7 @@ dependencies {
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
+    implementation("com.google.firebase:firebase-auth")
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.firestore)
     // Google Play services pulls Fragment 1.1; Activity Result requires 1.3+.
@@ -150,4 +162,8 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+}
+
+androidComponents {
+    beforeVariants(selector().withBuildType("release")) { if(cloudEmulatorBuild) it.enable=false }
 }

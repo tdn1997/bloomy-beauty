@@ -34,6 +34,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.outlined.Close
@@ -121,6 +122,9 @@ fun HomeScreen(
     promotions: PromotionsUiState = PromotionsUiState(),
     onRetryPromotions: () -> Unit = {},
     onOpenCare: ((String?) -> Unit)? = null,
+    reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null,
+    onOpenAddresses: (() -> Unit)? = null,
+    onOpenInbox: (() -> Unit)? = null, unreadNotifications: Long = 0,
 ) {
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(cartNotice) {
@@ -142,6 +146,7 @@ fun HomeScreen(
             state.error, { selectedProductId = null }, { onToggleFavorite(selectedProduct.id) },
             snackbar, cartCount, cartBusy, onOpenCart, { onAddToCart(selectedProduct.id) },
             onOpenCare?.let { open -> { open(selectedProduct.id) } },
+            reviews, user.id,
         )
         return
     }
@@ -174,7 +179,7 @@ fun HomeScreen(
         },
     ) { padding ->
         if (tab == HomeTab.ACCOUNT) {
-            AccountPage(user, logoutBusy, logoutError, onLogout, onOpenOrders, onEditProfile, onOpenAdmin, Modifier.padding(padding), onOpenCare?.let { open -> { open(null) } })
+            AccountPage(user, logoutBusy, logoutError, onLogout, onOpenOrders, onEditProfile, onOpenAdmin, Modifier.padding(padding), onOpenCare?.let { open -> { open(null) } }, onOpenAddresses,onOpenInbox)
         } else {
             val products = ProductSearch.filter(
                 state.products, state.query, state.categoryId, state.sort,
@@ -188,7 +193,7 @@ fun HomeScreen(
                 verticalArrangement = Arrangement.spacedBy(14.dp),
             ) {
                 item(span = { GridItemSpan(maxLineSpan) }) {
-                    StoreHeader(user.name, cartCount, onOpenCart) { tabName = HomeTab.ACCOUNT.name }
+                    StoreHeader(user.name,cartCount,onOpenCart,{tabName=HomeTab.ACCOUNT.name},onOpenInbox,unreadNotifications)
                 }
                 item(span = { GridItemSpan(maxLineSpan) }) {
                     SearchField(state.query, onQueryChange)
@@ -269,11 +274,16 @@ fun HomeScreen(
 }
 
 @Composable
-private fun StoreHeader(name: String, cartCount: Int, onCart: () -> Unit, onAccount: () -> Unit) {
+private fun StoreHeader(name: String, cartCount: Int, onCart: () -> Unit, onAccount: () -> Unit, onInbox: (() -> Unit)? = null, unread: Long = 0) {
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
         Column(Modifier.weight(1f)) {
             Text(stringResource(R.string.brand_name), style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
             Text(stringResource(R.string.welcome_user, name), style = MaterialTheme.typography.bodyMedium, maxLines = 1, overflow = TextOverflow.Ellipsis)
+        }
+        if(onInbox != null) IconButton(onInbox) {
+            BadgedBox(badge={if(unread>0) Badge {Text(if(unread>99) "99+" else "$unread")}}) {
+                Icon(androidx.compose.material.icons.Icons.Outlined.Notifications,"Mở thông báo, $unread chưa đọc")
+            }
         }
         CartButton(cartCount, onCart)
         IconButton(onAccount, Modifier.background(MaterialTheme.colorScheme.primaryContainer, CircleShape)) {
@@ -370,7 +380,8 @@ private fun EmptyProducts(favorites: Boolean, onReset: () -> Unit) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, error: Boolean, onBack: () -> Unit, onFavorite: () -> Unit,
-                          snackbar: SnackbarHostState, cartCount: Int, cartBusy: Boolean, onCart: () -> Unit, onAdd: () -> Unit, onCare: (() -> Unit)? = null) {
+                          snackbar: SnackbarHostState, cartCount: Int, cartBusy: Boolean, onCart: () -> Unit, onAdd: () -> Unit, onCare: (() -> Unit)? = null,
+                          reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null, userId: Long = 0) {
     val context = LocalContext.current
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) },
@@ -405,6 +416,7 @@ private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, er
             if (error) Text(stringResource(R.string.catalog_error), color = MaterialTheme.colorScheme.error)
             if (onCare != null) OutlinedButton(onCare, modifier = Modifier.fillMaxWidth()) { Text("Tạo lịch chăm sóc với sản phẩm") }
             HorizontalDivider()
+            if (reviews != null) com.example.bloomybeauty.feature.review.ProductReviews(reviews, userId, product.id)
             DetailSection(R.string.product_description, product.description)
             DetailSection(R.string.product_ingredients, product.ingredients)
             DetailSection(R.string.product_usage, product.usage)
@@ -435,7 +447,8 @@ private fun DetailSection(title: Int, body: String) {
 }
 
 @Composable
-private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout: () -> Unit, onOrders: () -> Unit, onEdit: () -> Unit, onAdmin: () -> Unit, modifier: Modifier, onCare: (() -> Unit)? = null) {
+private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout: () -> Unit, onOrders: () -> Unit, onEdit: () -> Unit, onAdmin: () -> Unit, modifier: Modifier, onCare: (() -> Unit)? = null,
+                          onAddresses: (() -> Unit)? = null,onInbox: (() -> Unit)? = null) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(18.dp)) {
         Spacer(Modifier.height(24.dp))
         Box(Modifier.size(80.dp).background(MaterialTheme.colorScheme.primaryContainer, CircleShape), contentAlignment = Alignment.Center) {
@@ -452,8 +465,10 @@ private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout:
             }
         }
         if (user.role == com.example.bloomybeauty.data.auth.UserRole.ADMIN) OutlinedButton(onAdmin, modifier = Modifier.fillMaxWidth()) { Text("Quản trị cửa hàng") }
+        if(onInbox != null) OutlinedButton(onInbox,modifier=Modifier.fillMaxWidth()) {Text("Thông báo đơn hàng")}
         OutlinedButton(onOrders, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Đơn hàng của tôi") }
         if (onCare != null) OutlinedButton(onCare, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Lịch chăm sóc da") }
+        if (onAddresses != null) OutlinedButton(onAddresses, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Sổ địa chỉ") }
         OutlinedButton(onEdit, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Chỉnh sửa hồ sơ") }
         if (error) Text(stringResource(R.string.error_storage), color = MaterialTheme.colorScheme.error)
         Button(onLogout, enabled = !busy, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) {

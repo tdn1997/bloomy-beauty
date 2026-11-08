@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.bloomybeauty.data.catalog.ProductSearchTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-08T07:43:29" hostname="Thuans-MacBook-Pro.local" time="0.017">
+  <properties/>
+  <testcase name="sortingUsesIntegerPriceAndDoesNotChangeSourceList" classname="com.example.bloomybeauty.data.catalog.ProductSearchTest" time="0.003"/>
+  <testcase name="vietnameseNamesMatchWithOrWithoutAccents" classname="com.example.bloomybeauty.data.catalog.ProductSearchTest" time="0.01"/>
+  <testcase name="filtersCombineCategoryAndFavorites" classname="com.example.bloomybeauty.data.catalog.ProductSearchTest" time="0.003"/>
+  <testcase name="queryMatchesBrandAndMultipleWords" classname="com.example.bloomybeauty.data.catalog.ProductSearchTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

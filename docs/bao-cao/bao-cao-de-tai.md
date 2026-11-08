@@ -1,7 +1,7 @@
 # ỨNG DỤNG BÁN MỸ PHẨM — BLOOMY BEAUTY
 
 **Báo cáo đồ án Lập trình di động**  
-Phiên bản tài liệu: cập nhật 07/11/2026 — ứng dụng 1.0, SQLite schema 6. Kết quả Phase 12/13 được giữ như lịch sử; nghiệm thu bổ sung trên Pixel_6 ở mục 7.1.
+Phiên bản tài liệu: cập nhật 08/11/2026 — ứng dụng 1.0, SQLite schema 11. Kết quả Phase 12/13 được giữ như lịch sử; nghiệm thu bổ sung trên Pixel_6 ở mục 7.1–7.3.
 
 | Thông tin | Nội dung cần điền |
 |---|---|
@@ -15,6 +15,8 @@ Phiên bản tài liệu: cập nhật 07/11/2026 — ứng dụng 1.0, SQLite s
 Thông tin tác giả và phân công chưa được cung cấp; báo cáo không tự suy diễn đóng góp của thành viên. Bản hiện tại là báo cáo kỹ thuật có thể hoàn thiện theo biểu mẫu học phần.
 
 ## Tóm tắt
+
+Phạm vi được người dùng chốt ngày 08/11/2026: **demo môn học trên một thiết bị, không yêu cầu triển khai backend riêng**. Bản bàn giao chính là APK `.demo` dùng SQLite schema 11 và đủ sáu tính năng mở rộng. Cloud/Auth Emulator là thử nghiệm tham khảo; các phần giao dịch/đồng bộ server không nằm trong tiêu chí hoàn thành.
 
 Bloomy Beauty là ứng dụng Android mô phỏng mua mỹ phẩm: đăng ký/đăng nhập, xem và tìm sản phẩm, yêu thích, giỏ hàng, lưu giao hàng, đặt COD, lịch sử/hủy đơn và quản trị sản phẩm/đơn. Giao diện dùng Kotlin/Jetpack Compose, dữ liệu dùng SQLiteOpenHelper trên một thiết bị. Tám sản phẩm và ảnh tham khảo Cocoon được đóng gói để dùng ngoại tuyến; giá là dữ liệu thu thập ngày 07/10/2026, tồn 30 đơn vị ban đầu là dữ liệu demo.
 
@@ -51,7 +53,7 @@ Sơ đồ use case, dữ liệu và trình tự ở [tài liệu sơ đồ](so-d
 | Ngôn ngữ/giao diện | Kotlin 2.0.21, Jetpack Compose, Material 3 |
 | Công cụ build | Android Gradle Plugin 8.9.1, Gradle wrapper của dự án |
 | Android | compile/target SDK 35, min SDK 28 |
-| Dữ liệu | Android SQLiteOpenHelper, database schema version 6 |
+| Dữ liệu | Android SQLiteOpenHelper, database schema version 11 |
 | Trạng thái | ViewModel, StateFlow, collectAsStateWithLifecycle |
 | Công việc nền | Kotlin coroutines / Dispatchers.IO |
 | Content Provider | URI theo biến thể, CRUD lịch cá nhân, ContentObserver |
@@ -74,16 +76,21 @@ Cấu trúc thực tế: `data/auth`, `data/catalog`, `data/cart`, `data/order`,
 | products | id, category_id, giá, tồn, active, revision, thông tin/ảnh/nguồn | Danh mục và kho cục bộ |
 | favorites | `(user_id, product_id)` | Yêu thích không trùng |
 | cart_items | `(user_id, product_id)`, quantity, accepted_price_vnd | Giỏ và giá khách đã thấy |
-| shipping_details | user_id PK, recipient, phone, address | Địa chỉ mặc định/checkout |
+| shipping_details | user_id PK, recipient, phone, address | Bản nháp giao hàng checkout, tách khỏi sổ địa chỉ |
 | checkout_requests | request_id PK, user_id UNIQUE, fingerprint, payload | Yêu cầu đã lưu trước xác nhận |
-| orders | `_id`, user_id, request_id UNIQUE, fingerprint, status, tiền/địa chỉ snapshot | Đơn và chống trùng |
+| orders | `_id`, user_id, request_id UNIQUE, fingerprint, status, delivered_at, subtotal/discount/fee/total, coupon snapshot | Đơn, thống kê và chống trùng |
 | order_items | `(order_id, product_id)`, tên/dung tích/ảnh/giá/số lượng snapshot | Chi tiết mua không đổi theo danh mục |
 | care_routines | `_id`, user_id, product_id, title, minute_of_day, days_mask, enabled, revision, last_occurrence_at | Lịch chăm sóc cá nhân và chống nhắc lặp |
 | order_events | `_id`, order_id, actor_id/name, trạng thái trước/sau, thời gian | Lịch sử quản trị/đơn |
 
+| product_reviews | user/order/product UNIQUE, rating, comment, revision | Chứng minh mua đơn DELIVERED, sửa/xóa theo token |
+| addresses | user_id, label, giao hàng, is_default, revision | Tối đa 10 địa chỉ; partial unique cho mặc định |
+| coupon_rules | code, kind/value/min/cap, thời hạn, revision | Mã mẫu chỉ bật ở demo/QA |
+| user_notifications | user/event UNIQUE, type/entity, title/body, created/read | Inbox bền cùng transaction audit; không chứa PII |
+
 Khóa ngoại được bật trong onConfigure. Các CHECK chặn số lượng ngoài 1–99, tồn/tiền âm, vai trò/trạng thái không hợp lệ. Chỉ mục đơn theo người dùng và thời gian hỗ trợ lịch sử. UNIQUE request_id là lớp bảo vệ dữ liệu cuối cùng chống tạo đơn lặp.
 
-Migration giữ dữ liệu cũ: v1 tài khoản/phiên; v2 danh mục/yêu thích; v3 giỏ/giao hàng/tồn; v4 yêu cầu/đơn/chi tiết; v5 role/revision/audit; v6 lịch chăm sóc cá nhân. Migration 5 → 6 đã kiểm tra giữ tài khoản, giỏ, đơn và tồn. Vai trò dữ liệu cũ mặc định CUSTOMER. Kiểm thử Android chạy migration từ các schema cũ lên schema hiện hành, gồm đường 5 → 6. Không dùng xóa database làm cách migration.
+Migration giữ dữ liệu cũ: v1 tài khoản/phiên; v2 danh mục/yêu thích; v3 giỏ/giao hàng/tồn; v4 yêu cầu/đơn/chi tiết; v5 role/revision/audit; v6 lịch chăm sóc cá nhân. Migration 5 → 6 đã kiểm tra giữ tài khoản, giỏ, đơn và tồn. Vai trò dữ liệu cũ mặc định CUSTOMER. Kiểm thử Android chạy migration từ các schema cũ lên schema hiện hành, gồm đường 5 → 6. Không dùng xóa database làm cách migration. v7 thêm ngày giao và backfill audit; v8 đánh giá; v9 sổ địa chỉ; v10 snapshot coupon/payload v2 giữ request v1; v11 inbox backfill audit thật. Các fixture v1/v2/v3/v4/v5/v7/v8/v9/v10 được chạy lên schema hiện hành; nền v6→v7 có fixture riêng.
 
 ## 5. Triển khai chức năng
 
@@ -136,6 +143,26 @@ Database được loại khỏi cloud/device backup qua hai XML rule. Đó là c
 Lịch chăm sóc cá nhân được lưu trong bảng `care_routines`, truy cập qua ContentResolver và CareRoutineProvider có authority theo application ID, `exported=false`. Provider kiểm tra phiên/chủ sở hữu, URI, dữ liệu và revision; hỗ trợ thêm, đọc, sửa, xóa. ContentObserver đưa thay đổi tới Repository và StateFlow cho Compose.
 
 AlarmManager gửi explicit PendingIntent tới receiver tĩnh để nhắc khoảng giờ địa phương đã chọn. Receiver kiểm tra phiên, revision và occurrence để chặn lịch cũ/nhắc lặp. Boot, đổi giờ/múi giờ và mở lại app sẽ đối chiếu lịch; notification mở đúng lịch sau kiểm tra tài khoản. Broadcast tùy chỉnh sau commit đơn hàng chỉ yêu cầu màn hình tải lại dữ liệu theo quyền. Receiver động được đăng ký/hủy theo vòng đời. Không dùng LocalBroadcastManager.
+
+### 5.7. Sáu phần mở rộng local
+
+Đánh giá chỉ cho chủ dòng đơn đã giao; revision token chống sửa/xóa bản cũ, điểm và phân trang cập nhật qua repository. Sổ địa chỉ tách khỏi hồ sơ tên tài khoản và checkout draft; chọn địa chỉ tạo bản sao, không sửa lại snapshot đơn khi địa chỉ nguồn thay đổi.
+
+Coupon demo có điều kiện/thời hạn và fingerprint v2, chụp giảm giá/điều kiện/fee vào yêu cầu và đơn. Checkout kiểm tra lại trong transaction, không tự bỏ mã hết hạn. Replay đơn đã commit trả snapshot gốc kể cả chiến dịch đã mất.
+
+Thống kê ADMIN tính tiền hàng DELIVERED sau giảm theo ngày giao giờ Việt Nam, tách phí ship; đếm trạng thái theo ngày tạo và tách đơn thiếu ngày giao. PDF native đọc snapshot, hỗ trợ tiếng Việt/nhiều trang; FileProvider chỉ mở cache phiếu với quyền đọc tạm và kiểm tra lại phiên trước chia sẻ.
+
+Inbox ghi cùng transaction với audit, unique theo user/event; phân trang 30, badge chưa đọc, đọc tất cả và mở lại đúng đơn có kiểm tra chủ. Từ chối quyền notification vẫn giữ inbox. Broadcast/notification sau commit không quyết định kết quả nghiệp vụ. Xem [hướng dẫn thống kê](../thong-ke-ban-hang.md), [PDF](../phieu-don-hang-pdf.md) và [inbox](../trung-tam-thong-bao.md).
+
+### 5.8. Thử nghiệm tham khảo: danh tính và quyền Firebase
+
+B0/B1 thêm Firebase Auth qua CloudAuthGateway và CloudAccounts. MainActivity chọn nguồn theo build; `.cloud` dùng UID chuỗi và nonce phiên, còn các bản local tiếp tục dùng SQLite. SDK/API nằm sau repository; ViewModel bỏ response sai UID/nonce, hủy listener và xóa account khi logout/chuyển phiên.
+
+Cloud Functions xác minh ID token và Auth user, đọc role từ document server trong transaction. UI chỉ hiện account sau phản hồi thành công; role listener chỉ yêu cầu tải lại, không cấp quyền từ cache. Client không ghi profile/role trực tiếp qua Firestore. Đăng ký Firebase là thao tác riêng, không gộp email/hash local; đơn local được giữ nguyên. Care Provider/receivers được tắt ở Cloud để nguồn local không tự khởi tạo khi cài đè hay boot.
+
+![Danh tính Cloud tách khỏi local](so-do/firebase-auth.svg)
+
+Phạm vi này chạy Auth/Firestore/Functions Emulator cùng project demo trên máy tính và Pixel_6; chưa có giao dịch đơn/kho/coupon server, đồng bộ sáu tính năng hoặc triển khai backend live. [Hướng dẫn và hợp đồng](../firebase-auth-emulator.md).
 
 ## 6. Giao diện và minh chứng
 
@@ -193,15 +220,29 @@ Bộ hồi quy toàn app chạy lại trên gói demo sau sửa fixture: **98 ca
 
 ![Pixel 6 — bản nháp được khôi phục và không lưu khi thiếu ngày lặp](../kiem-thu/pixel6-care-2026-11-07/anh/07-khoi-phuc-nhap-va-loi-ngay.png)
 
+### 7.2. Mở rộng schema 11, ngày 08/11/2026
+
+Hồi quy local trên đúng Pixel_6: 172 ca, 164 đạt và 8 assumption skip, 0 lỗi; lượt denied riêng 4/4 và khôi phục quyền; JVM 62/62, lint 0 lỗi/43 cảnh báo/1 thông tin. Có ảnh dashboard, phiếu PDF native mở bằng reader bên ngoài, inbox và navigation tích hợp. Phiếu dài 100 sản phẩm có 8 trang; đã đối chiếu văn bản tiếng Việt, dòng cuối và tổng tiền.
+
+[Xem log, nguồn ảnh, manifest và giải thích các lượt chưa đạt](../kiem-thu/pixel6-commerce-integration-2026-11-08/README.md). Đây là nghiệm thu SQLite một thiết bị, không phải chứng nhận đồng bộ Firebase hoặc kiểm tra điện thoại thật. Báo cáo tiến độ Word lần 2 là mốc lịch sử trước mở rộng và không bị sửa số liệu cũ.
+
+### 7.3. Nghiệm thu danh tính Cloud trên Emulator, 08/11/2026
+
+Backend danh tính/quyền 7/7, rules ưu đãi cũ 9/9; kiểm thử Pixel_6 cho đăng ký/đăng nhập tiếng Việt, cùng email không kế thừa tài khoản/đơn local, đổi UID, grant/revoke ADMIN với cùng ID token và cold start qua force-stop thật. Hồi quy local 48/48 và JVM 62/62. [Số ca cuối cùng, ảnh đã xem, log và manifest](../kiem-thu/pixel6-cloud-identity-2026-11-08/README.md).
+
+Đã sửa receiver khôi phục lịch còn khởi tạo database local trong Cloud sau cài đè. Cold-start scenario kiểm tra Provider/receivers local bị tắt và không tạo database local. Việc này không thay dữ liệu hoặc khả năng nhắc lịch của bản local.
+
 ## 8. Hạn chế và hướng phát triển
 
-Min SDK 28 đã có kiểm thử trên giả lập; thiết bị thật để nghiệm thu sau theo yêu cầu. APK trình diễn ký debug, release thường chưa có khóa ký chính thức. Thông tin thành viên/lớp/giảng viên, phân công và ngày bảo vệ còn chờ điền.
+Min SDK là 28; đợt nghiệm thu mở rộng này chạy trên Pixel_6 API 36. Thiết bị thật để nghiệm thu sau theo yêu cầu. APK trình diễn ký debug, release thường chưa có khóa ký chính thức. Thông tin thành viên/lớp/giảng viên, phân công và ngày bảo vệ còn chờ điền.
 
-SQLite một thiết bị không cung cấp danh tính/ủy quyền tin cậy cho cửa hàng nhiều thiết bị. Bảo vệ Repository không chống root/sửa database trực tiếp. Đơn hàng chưa có backend và đồng bộ kho, online payment, remote image upload hoặc đánh giá. Đã có nhắc chăm sóc cục bộ, broadcast thay đổi đơn và nhận FCM; chưa có backend gửi FCM tự động theo trạng thái đơn. Giá tham khảo không cập nhật theo cửa hàng; tồn và mọi đơn là dữ liệu demo.
+SQLite một thiết bị không cung cấp danh tính/ủy quyền tin cậy cho cửa hàng nhiều thiết bị. Bảo vệ Repository không chống root/sửa database trực tiếp. Đơn hàng chưa có backend và đồng bộ kho, online payment, remote image upload. Đã có đánh giá cục bộ cho đơn đã giao. Đã có nhắc chăm sóc cục bộ, broadcast thay đổi đơn và nhận FCM; chưa có backend gửi FCM tự động theo trạng thái đơn. Giá tham khảo không cập nhật theo cửa hàng; tồn và mọi đơn là dữ liệu demo.
 
-Hướng phát triển: backend có xác thực và quyền server; giao dịch/khóa chống trùng phía server; đồng bộ thay đổi kho; kiểm thử mất phản hồi mạng; cổng thanh toán sandbox; ảnh có kiểm tra quyền; kiểm thử thiết bị Android tối thiểu và kiểm thử backup thực tế. Không dùng các phần dự kiến này để mô tả chức năng đã có.
+Các hướng mở rộng sau môn học (không phải hạng mục còn thiếu của demo): backend có xác thực và quyền server; giao dịch/khóa chống trùng phía server; đồng bộ thay đổi kho; kiểm thử mất phản hồi mạng; cổng thanh toán sandbox; ảnh có kiểm tra quyền; kiểm thử thiết bị Android tối thiểu và kiểm thử backup thực tế. Không dùng các phần dự kiến này để mô tả chức năng đã có.
 
 ## 9. Kết luận
+
+Phạm vi demo môn học đã hoàn thành ở bản local A0–A7. Không cần xây dựng hoặc triển khai BE để nghiệm thu; phần Cloud/Auth đã thử được giữ làm tài liệu tham khảo.
 
 Đồ án đã triển khai luồng khách–quản trị trên Android với SQLite, từ xác thực đến đặt/hủy và xử lý đơn. Trọng tâm kỹ thuật là tính đúng của tiền/tồn/quyền qua transaction, dữ liệu snapshot, fingerprint và revision. Bộ kiểm thử và kịch bản cold start cung cấp bằng chứng cho phạm vi chạy trên API 36. Các bước nghiệm thu thiết bị, ký phát hành và hoàn thiện thông tin học phần cần thực hiện trước khi nộp chính thức.
 

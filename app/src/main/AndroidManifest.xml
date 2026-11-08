@@ -16,10 +16,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BloomyBeauty"
         tools:targetApi="31">
-        <provider android:name=".data.care.CareRoutineProvider"
+        <provider android:name=".export.ReceiptFileProvider"
+            android:authorities="${applicationId}.receipts" android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/receipt_paths" />
+        </provider>
+        <provider android:name=".data.care.CareRoutineProvider" android:enabled="${localCareEnabled}"
             android:authorities="${applicationId}.care" android:exported="false" />
-        <receiver android:name=".reminders.CareReminderReceiver" android:exported="false" />
-        <receiver android:name=".reminders.CareScheduleRestoreReceiver" android:exported="false">
+        <receiver android:name=".reminders.CareReminderReceiver" android:enabled="${localCareEnabled}" android:exported="false" />
+        <receiver android:name=".reminders.CareScheduleRestoreReceiver" android:enabled="${localCareEnabled}" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.TIME_SET" />

@@ -19,10 +19,12 @@ object AdminSchema {
         val name = db.rawQuery("SELECT name FROM users WHERE _id = ?", arrayOf(actorId.toString())).use {
             check(it.moveToFirst()); it.getString(0)
         }
-        db.insertOrThrow("order_events", null, ContentValues().apply {
+        val time = System.currentTimeMillis()
+        val eventId = db.insertOrThrow("order_events", null, ContentValues().apply {
             put("order_id", orderId); put("actor_id", actorId); put("actor_name", name)
-            put("from_status", from); put("to_status", to); put("changed_at", System.currentTimeMillis())
+            put("from_status", from); put("to_status", to); put("changed_at", time)
         })
+        com.example.bloomybeauty.data.notification.NotificationSchema.record(db,eventId,orderId,to,time)
     }
 }
 

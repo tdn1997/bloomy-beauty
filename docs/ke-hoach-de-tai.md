@@ -763,7 +763,7 @@ Kiểm thử xác nhận khả năng giữ dấu và sửa tại vị trí chọ
 
 Kết quả tại mốc trang chủ: build debug thành công, 13 kiểm thử JVM và 16 kiểm thử Android đạt trên Pixel 6 / Android 16. Android Lint có 0 lỗi và 44 cảnh báo, chủ yếu phiên bản thư viện/SDK, tài nguyên mẫu, icon launcher và gợi ý KTX. Kiểm thử mới bao phủ tìm kiếm có/không dấu, lọc/sắp xếp, ảnh đóng gói, yêu thích theo tài khoản, migration giữ tài khoản/phiên, luồng trang chủ → chi tiết → yêu thích → tài khoản và composition tiếng Việt. Báo cáo ở các đường dẫn Gradle ghi tại mục 16.5.
 
-Ảnh nghiệm thu: [Trang chủ](screenshots/home-screen.png) và [Chi tiết sản phẩm](screenshots/product-detail.png). Giỏ hàng và giao hàng ở Phase 07 đã triển khai như mục 18.
+Ảnh nghiệm thu: [Trang chủ](screenshots/1-home-screen.png) và [Chi tiết sản phẩm](screenshots/2-product-detail.png). Giỏ hàng và giao hàng ở Phase 07 đã triển khai như mục 18.
 
 ## 18. Phase 07 — Giỏ hàng và thông tin giao hàng đã triển khai
 
@@ -812,7 +812,7 @@ Tại mốc Phase 07, màn hình cuối mới lưu thông tin giao hàng. Phase 
 - Sau khi bổ sung kiểm tra giá đổi lần nữa lúc xác nhận, chạy lại 9 kiểm thử Repository/giao diện giỏ: tất cả đạt.
 - Bao phủ tiền nguyên VND và tràn số; kiểm tra thông tin giao hàng; cộng số lượng đồng thời; giữ giỏ/địa chỉ khi mở lại database; phân tách tài khoản; sản phẩm ẩn/hết hàng; số lượng sai; giá thay đổi và xác nhận giá; thay đổi tồn/trạng thái trước khi lưu; migration 2 → 3 giữ tài khoản/phiên/yêu thích/giá đã sửa.
 - Luồng giao diện: chi tiết → thêm hai lần → tăng/giảm → giỏ → nhập số điện thoại sai → sửa → lưu giao hàng → quay lại giữ thông tin. Kiểm tra giỏ rỗng và cảnh báo giá chặn nút tiếp tục.
-- Ảnh nghiệm thu: [Giỏ hàng](screenshots/cart-screen.png) và [Thông tin giao hàng đã lưu](screenshots/shipping-review.png).
+- Ảnh nghiệm thu: [Giỏ hàng](screenshots/3-cart-screen.png) và [Thông tin giao hàng đã lưu](screenshots/6-shipping-review.png).
 
 Lệnh chạy đầy đủ:
 
@@ -887,7 +887,7 @@ Schema version **4** thêm `checkout_requests`, `orders`, `order_items` và inde
 
 Kết quả ngày 07/10/2026: **21 kiểm thử JVM + 36 kiểm thử Android đạt**, build debug thành công. Lint: **0 lỗi, 44 cảnh báo** chủ yếu phiên bản thư viện/SDK, tài nguyên mẫu, icon launcher và gợi ý KTX. Kiểm thử xác thực cũ được bổ sung cuộn đến nút Đăng ký/Đăng nhập trước khi bấm để chạy ổn định khi bàn phím che bớt vùng hiển thị.
 
-Ảnh nghiệm thu: [Xác nhận COD](screenshots/cod-confirmation.png), [Đặt hàng thành công](screenshots/order-success.png), [Chi tiết đơn](screenshots/order-detail.png). APK debug giữ đường dẫn ở mục 16.4; báo cáo Gradle ở mục 16.5.
+Ảnh nghiệm thu: [Xác nhận COD](screenshots/5-cod-confirmation.png), [Đặt hàng thành công](screenshots/7-order-success.png), [Chi tiết đơn](screenshots/4-order-detail.png). APK debug giữ đường dẫn ở mục 16.4; báo cáo Gradle ở mục 16.5.
 
 ### 19.5. Bước tiếp theo
 
@@ -954,7 +954,7 @@ Giữ schema version **4**: tên nằm trong `users`, địa chỉ mặc định
 
 Kết quả ngày 07/10/2026: **21 kiểm thử JVM + 51 kiểm thử Android đạt** trên Pixel 6 / Android 16; build debug thành công. Lint: **0 lỗi, 44 cảnh báo** chủ yếu phiên bản thư viện/SDK, tài nguyên mẫu, icon launcher và gợi ý KTX.
 
-Ảnh nghiệm thu: [Chỉnh sửa hồ sơ](screenshots/profile-screen.png) và [Đơn đã hủy](screenshots/cancelled-order.png). APK và báo cáo Gradle theo đường dẫn mục 16.4–16.5.
+Ảnh nghiệm thu: [Chỉnh sửa hồ sơ](screenshots/12-profile-screen.png) và [Đơn đã hủy](screenshots/8-cancelled-order.png). APK và báo cáo Gradle theo đường dẫn mục 16.4–16.5.
 
 ### 20.5. Bước tiếp theo — Phase 10
 
@@ -1088,7 +1088,7 @@ Báo cáo: JVM ở `app/build/reports/tests/testDebugUnitTest/`, Android ở `ap
 
 APK: `app/build/outputs/apk/debug/app-debug.apk` (khoảng 25,89 MiB), hiện chứa cả quản trị và tích hợp phiên/điều hướng. Tài khoản quản trị demo và cách build ở mục 21.1.
 
-Ảnh nghiệm thu: [Danh sách quản trị](screenshots/admin-products.png), [Chi tiết đơn quản trị](screenshots/admin-order-detail.png), [Khách xem đơn đã giao](screenshots/customer-delivered-order.png), [Giao hàng sau tái tạo Activity](screenshots/recreated-SHIPPING.png), [Kiểm tra sau tái tạo](screenshots/recreated-REVIEW.png), [Đơn đã lưu sau tái tạo](screenshots/recreated-SUCCESS.png).
+Ảnh nghiệm thu: [Danh sách quản trị](screenshots/9-admin-products.png), [Chi tiết đơn quản trị](screenshots/10-admin-order-detail.png), [Khách xem đơn đã giao](screenshots/11-customer-delivered-order.png), [Giao hàng sau tái tạo Activity](screenshots/recreated-SHIPPING.png), [Kiểm tra sau tái tạo](screenshots/recreated-REVIEW.png), [Đơn đã lưu sau tái tạo](screenshots/recreated-SUCCESS.png).
 
 Lệnh nghiệm thu:
 

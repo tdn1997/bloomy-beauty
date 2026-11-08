@@ -1,0 +1,11 @@
+
+com.example.bloomybeauty.events.OrderChangesTest:..
+com.example.bloomybeauty.data.care.CareRoutineProviderTest:.......
+com.example.bloomybeauty.data.care.CareMigrationTest:.
+com.example.bloomybeauty.feature.care.CareScreenTest:..
+
+Time: 12.242
+
+OK (13 tests)
+
+

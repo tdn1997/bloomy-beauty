@@ -1,0 +1,13 @@
+{
+  "docx": "Bao-cao-tien-do-lan-2-Nhom-4.docx",
+  "archive_crc": "passed",
+  "embedded_images": 9,
+  "source_image_hashes": "matched",
+  "main_sections": 4,
+  "footer_page_field": true,
+  "template": "../tien-do-lan-1/Bao-cao-tien-do-lan-1-Nhom-4.docx",
+  "size_bytes": 1035789,
+  "firebase_section": true,
+  "historical_firestore_images": 2,
+  "pixel6_images": 7
+}

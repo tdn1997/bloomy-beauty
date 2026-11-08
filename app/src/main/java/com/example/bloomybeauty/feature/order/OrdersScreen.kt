@@ -75,10 +75,18 @@ class OrdersViewModel(private val repository: OrderRepository, private val userI
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun OrdersScreen(state: OrdersUiState, onBack: () -> Unit, onRetry: () -> Unit, onCancel: (Long) -> Unit = {}) {
-    var selected by rememberSaveable { mutableStateOf<Long?>(null) }
+fun OrdersScreen(state: OrdersUiState, onBack: () -> Unit, onRetry: () -> Unit, onCancel: (Long) -> Unit = {},
+    reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null, userId: Long = 0,
+    pdfExporter: com.example.bloomybeauty.export.OrderPdfExporter? = null, initialOrderId: Long? = null) {
+    var selected by rememberSaveable { mutableStateOf(initialOrderId) }
+    var reviewProduct by rememberSaveable { mutableStateOf<String?>(null) }
     var confirmCancel by rememberSaveable { mutableStateOf(false) }
     val order = state.orders.firstOrNull { it.id == selected }
+    if (reviewProduct != null && order != null && reviews != null) {
+        key(userId, order.id, reviewProduct) {
+            com.example.bloomybeauty.feature.review.ReviewEditor(reviews, userId, order.id, reviewProduct!!) { reviewProduct = null }
+        }
+    }
     val back = { if (selected != null) selected = null else onBack() }
     BackHandler { if (!state.busy) back() }
     if (confirmCancel && order != null) AlertDialog(
@@ -95,6 +103,15 @@ fun OrdersScreen(state: OrdersUiState, onBack: () -> Unit, onRetry: () -> Unit, 
             Column(Modifier.fillMaxSize().padding(padding).verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 OrderSummary(order)
                 OrderContents(order)
+                pdfExporter?.let { com.example.bloomybeauty.feature.export.OrderPdfActions(it,userId,order.id) }
+                if (order.status == "DELIVERED" && reviews != null) {
+                    Text("Đánh giá sau khi mua", style = MaterialTheme.typography.titleMedium)
+                    order.lines.forEach { line ->
+                        OutlinedButton({ reviewProduct = line.productId }, modifier = Modifier.fillMaxWidth()) {
+                            Text("Đánh giá / sửa: ${line.name}")
+                        }
+                    }
+                }
                 state.cancelError?.let { Text(cancelErrorText(it), color = MaterialTheme.colorScheme.error) }
                 if (state.error) Text("Không thể tải đơn hàng. Vui lòng thử lại.", color = MaterialTheme.colorScheme.error)
                 if (order.status == "PENDING") OutlinedButton({ confirmCancel = true }, enabled = !state.busy && !state.loading, modifier = Modifier.fillMaxWidth()) {
@@ -141,6 +158,8 @@ fun OrderContents(order: CustomerOrder) {
     }
     HorizontalDivider()
     Text("Tạm tính: ${formatPrice(order.subtotalVnd)}")
+    order.couponCode?.let { Text("Mã giảm giá demo: $it") }
+    if(order.discountVnd > 0) Text("Giảm giá: −${formatPrice(order.discountVnd)}")
     Text("Phí giao hàng: ${formatPrice(order.feeVnd)}")
     Text("Tổng COD: ${formatPrice(order.totalVnd)}", fontWeight = FontWeight.Bold)
 }
@@ -153,6 +172,7 @@ fun orderErrorText(error: OrderError): String = when (error) {
     OrderError.INVALID_REQUEST -> "Thông tin đặt hàng chưa hợp lệ. Hãy quay lại bước giao hàng."
     OrderError.NOT_FOUND -> "Không tìm thấy đơn hàng của tài khoản này."
     OrderError.CANNOT_CANCEL -> "Đơn đã được xử lý và không còn có thể hủy."
+    OrderError.QUOTE_CHANGED -> "Báo giá hoặc ưu đãi đã thay đổi. Hãy kiểm tra và xác nhận lại trước khi đặt hàng."
     OrderError.STOCK_OVERFLOW -> "Chưa thể hoàn tồn kho. Vui lòng thử lại sau."
 }
 

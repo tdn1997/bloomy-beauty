@@ -1,0 +1,44 @@
+{
+  "avd": "BloomyCareAPI28",
+  "scenario": "doze",
+  "passed": true,
+  "details": {
+    "before": {
+      "sdk": 28,
+      "package": "com.example.bloomybeauty",
+      "now": 1794023245251,
+      "zone": "Asia/Ho_Chi_Minh",
+      "idle": false,
+      "userId": 31,
+      "routineId": 23,
+      "minute": 649,
+      "days": 127,
+      "lastOccurrence": null,
+      "expectedNext": 1794023340000,
+      "scheduled": [
+        "23:31:1:1794023340000"
+      ],
+      "notified": false
+    },
+    "forceIdle": "Now forced in to deep idle mode",
+    "idleAtDelivery": "IDLE",
+    "waitSeconds": 95,
+    "after": {
+      "sdk": 28,
+      "package": "com.example.bloomybeauty",
+      "now": 1794023342521,
+      "zone": "Asia/Ho_Chi_Minh",
+      "idle": true,
+      "userId": 31,
+      "routineId": 23,
+      "minute": 649,
+      "days": 127,
+      "lastOccurrence": 1794023340000,
+      "expectedNext": 1794109740000,
+      "scheduled": [
+        "23:31:1:1794109740000"
+      ],
+      "notified": true
+    }
+  }
+}

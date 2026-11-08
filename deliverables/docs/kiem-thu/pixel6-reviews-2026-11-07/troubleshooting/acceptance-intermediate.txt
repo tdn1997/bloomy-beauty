@@ -1,0 +1,23 @@
+
+com.example.bloomybeauty.feature.review.ReviewScreenTest:
+Error in deliveredOrderToEditorThenProductReviewsAndDelete(com.example.bloomybeauty.feature.review.ReviewScreenTest):
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 10000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:441)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.example.bloomybeauty.feature.review.ReviewScreenTest.deliveredOrderToEditorThenProductReviewsAndDelete(ReviewScreenTest.kt:64)
+
+com.example.bloomybeauty.data.review.ReviewRepositoryTest:.....
+com.example.bloomybeauty.data.care.CommerceFoundationTest:.
+
+Time: 141.326
+There was 1 failure:
+1) deliveredOrderToEditorThenProductReviewsAndDelete(com.example.bloomybeauty.feature.review.ReviewScreenTest)
+androidx.compose.ui.test.ComposeTimeoutException: Condition still not satisfied after 10000 ms
+	at androidx.compose.ui.test.AndroidComposeUiTestEnvironment$AndroidComposeUiTestImpl.waitUntil(ComposeUiTest.android.kt:441)
+	at androidx.compose.ui.test.junit4.AndroidComposeTestRule.waitUntil(AndroidComposeTestRule.android.kt:306)
+	at com.example.bloomybeauty.feature.review.ReviewScreenTest.deliveredOrderToEditorThenProductReviewsAndDelete(ReviewScreenTest.kt:64)
+
+FAILURES!!!
+Tests run: 7,  Failures: 1
+
+

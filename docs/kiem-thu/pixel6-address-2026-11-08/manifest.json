@@ -1,0 +1,29 @@
+{
+  "recordedAtUtc": "2026-11-08T03:22:30.669562+00:00",
+  "scope": "A2 snapshot before A3; hashes refer to capture-time contents",
+  "avd": "Pixel_6",
+  "serial": "emulator-5554",
+  "androidApi": 36,
+  "package": "com.example.bloomybeauty.demo",
+  "databaseVersion": 9,
+  "firebaseEnabled": false,
+  "acceptance": {
+    "tests": 24,
+    "failures": 0,
+    "skipped": 0,
+    "durationSeconds": 594.823
+  },
+  "sha256": {
+    "app/build/outputs/apk/debug/app-debug.apk": "83733d2b4957a7180ad310c669b02b83308db5196f557c66198d2993206ad046",
+    "app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk": "b110faee7ca4eda32ebb4f51da84d42f96b8212db7fc13edab1d39ca44b88887",
+    "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/02-doi-mac-dinh.png": "2a74dd8e6595eba36e88f58fea36d74f10185b18a3d668aed1e7efffd92ad771",
+    "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/03-chon-tai-checkout.png": "f13cd87607c30833e18d183b83a8ae96cd485df7c284818a9d2c77ad0001eeac",
+    "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/04-don-giu-dia-chi-snapshot.png": "fa6e9bec5b69d13fe73098f11246b8077572811ebd5fdd9f218628c11dcf7f8f",
+    "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/01-dia-chi-dau-tien.png": "279e9598431f525ae0566e6b8e10dd07d25321cce79ac8673aeaa66e81797535",
+    "docs/kiem-thu/pixel6-address-2026-11-08/screenshots/05-luu-tu-ban-nhap.png": "f859edd1da2fddef9161bf98ff36f1a3f7ec81e31db496006388aa538ec31c58",
+    "app/src/main/java/com/example/bloomybeauty/data/address/AddressRepository.kt": "5ab5f68bb850e213c11ec9c35ee3302aed9a41381f252617cc5f16a17b4cb595",
+    "app/src/main/java/com/example/bloomybeauty/feature/address/AddressScreen.kt": "57c3b038f50d195e6c5d94dd4752dc01454385de59402d8d6eff2c425db25487",
+    "app/src/androidTest/java/com/example/bloomybeauty/data/address/AddressRepositoryTest.kt": "e4bab172e907a73ae229c227ebb751ffe502936e0717bdea30def395bd4393fc",
+    "app/src/androidTest/java/com/example/bloomybeauty/feature/address/AddressScreenTest.kt": "5878672c4e0d808b5e8f65af7b61bef8a87a0b4e814bc38e7555e869b155433a"
+  }
+}

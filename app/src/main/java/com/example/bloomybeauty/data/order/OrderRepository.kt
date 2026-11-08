@@ -5,6 +5,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.example.bloomybeauty.data.auth.AuthDatabaseHelper
 import com.example.bloomybeauty.data.cart.*
+import com.example.bloomybeauty.data.coupon.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONArray
@@ -12,10 +13,22 @@ import org.json.JSONObject
 import java.util.UUID
 import com.example.bloomybeauty.events.*
 
-class OrderRepository(private val helper: AuthDatabaseHelper, private val changes: OrderChangePublisher = OrderChangePublisher.None) {
+class OrderRepository(private val helper: AuthDatabaseHelper, private val changes: OrderChangePublisher = OrderChangePublisher.None,
+    private val coupons: LocalCouponRepository = LocalCouponRepository()) {
+    val localCouponsEnabled: Boolean get() = coupons.enabled
+    suspend fun couponRules(userId: Long): List<CouponRule> = withContext(Dispatchers.IO) {
+        transaction {db -> checkSession(db,userId);coupons.list(db)}
+    }
+    suspend fun validateQuote(userId: Long, request: CheckoutRequest): Unit = withContext(Dispatchers.IO) {
+        transaction { db ->
+            checkSession(db,userId)
+            if(request.version != 2 || coupons.quote(db,request.coupon?.rule?.code.orEmpty(),request.subtotalVnd) != request.coupon ||
+                DeliveryPricing.fee(request.subtotalVnd) != request.feeVnd) throw OrderException(OrderError.QUOTE_CHANGED)
+        }
+    }
     private val cart = CartRepository(helper)
 
-    suspend fun prepare(userId: Long): CheckoutRequest = withContext(Dispatchers.IO) {
+    suspend fun prepare(userId: Long, couponCode: String? = null): CheckoutRequest = withContext(Dispatchers.IO) {
         transaction { db ->
             checkSession(db, userId)
             val previous = pending(db, userId)
@@ -24,9 +37,10 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
             val snapshot = cart.read(db, userId)
             cart.checkCart(snapshot)
             ShippingValidation.validate(snapshot.shipping)?.let { throw ShippingException(it) }
+            val quote = coupons.quote(db,couponCode ?: previous?.coupon?.rule?.code.orEmpty(),snapshot.totalVnd)
             val request = CheckoutRequest(UUID.randomUUID().toString(), snapshot.items.map {
                 CheckoutLine(it.product.id, it.quantity, it.product.priceVnd)
-            }, snapshot.shipping)
+            }, snapshot.shipping,quote,quotedFeeVnd = DeliveryPricing.fee(snapshot.totalVnd))
             request.totalVnd
             if (previous?.fingerprint == request.fingerprint) return@transaction previous
             db.delete("checkout_requests", "user_id = ?", arrayOf(userId.toString()))
@@ -49,6 +63,9 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
         var created = false
         val result = transaction { db ->
             checkSession(db, userId)
+            if (request.version !in 1..2 || request.lines.isEmpty() || request.lines.map {it.productId}.distinct().size != request.lines.size ||
+                request.lines.any {it.quantity !in 1..99 || it.unitPriceVnd < 0}) throw OrderException(OrderError.INVALID_REQUEST)
+            if (request.discountVnd !in 0..request.subtotalVnd || request.feeVnd < 0) throw OrderException(OrderError.INVALID_REQUEST)
             // Replay before checking the current cart: it may already have been cleared.
             db.query("orders", arrayOf("user_id", "fingerprint"), "request_id = ?", arrayOf(request.id), null, null, null).use {
                 if (it.moveToFirst()) {
@@ -56,10 +73,9 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
                     return@transaction checkNotNull(findByRequest(db, userId, request.id))
                 }
             }
+            if (request.version != 2) throw OrderException(OrderError.QUOTE_CHANGED)
             val saved = pending(db, userId)
             if (saved?.id != request.id || saved.fingerprint != request.fingerprint) throw OrderException(OrderError.REQUEST_CONFLICT)
-            if (request.lines.isEmpty() || request.lines.map { it.productId }.distinct().size != request.lines.size ||
-                request.lines.any { it.quantity !in 1..99 || it.unitPriceVnd < 0 }) throw OrderException(OrderError.INVALID_REQUEST)
             ShippingValidation.validate(request.shipping)?.let { throw ShippingException(it) }
             val snapshot = cart.read(db, userId)
             cart.checkCart(snapshot)
@@ -68,12 +84,16 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
             if (current != expected || snapshot.shipping != request.shipping) throw OrderException(OrderError.CART_CHANGED)
             val subtotal = snapshot.totalVnd
             val fee = DeliveryPricing.fee(subtotal)
-            val total = Math.addExact(subtotal, fee)
+            val currentCoupon = coupons.quote(db,request.coupon?.rule?.code.orEmpty(),subtotal)
+            if (currentCoupon != request.coupon || fee != request.feeVnd) throw OrderException(OrderError.QUOTE_CHANGED)
+            val discount = currentCoupon?.discountVnd ?: 0
+            val total = Math.addExact(Math.subtractExact(subtotal,discount),fee)
             val orderId = db.insertOrThrow("orders", null, ContentValues().apply {
                 put("user_id", userId); put("request_id", request.id); put("fingerprint", request.fingerprint)
                 put("created_at", System.currentTimeMillis()); put("recipient", request.shipping.recipient)
                 put("phone", request.shipping.phone); put("address", request.shipping.address)
-                put("subtotal_vnd", subtotal); put("fee_vnd", fee); put("total_vnd", total)
+                put("subtotal_vnd", subtotal); put("fee_vnd", fee); put("total_vnd", total); put("discount_vnd",discount)
+                currentCoupon?.let {put("coupon_code",it.rule.code);put("coupon_rule_snapshot",encodeRule(it.rule).toString())}
             })
             snapshot.items.forEach { item ->
                 val p = item.product
@@ -92,7 +112,7 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
             created = true
             checkNotNull(findByRequest(db, userId, request.id))
         }
-        if (created) changes.publish(OrderChange(result.id, userId, OrderChangeKind.CREATED))
+        if (created) changes.publishAfterCommit(OrderChange(result.id, userId, OrderChangeKind.CREATED))
         result
     }
 
@@ -150,7 +170,7 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
             cancelled = true
             current()
         }
-        if (cancelled) changes.publish(OrderChange(result.id, userId, OrderChangeKind.CANCELLED))
+        if (cancelled) changes.publishAfterCommit(OrderChange(result.id, userId, OrderChangeKind.CANCELLED))
         result
     }
 
@@ -166,12 +186,15 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
         }
         return CustomerOrder(id, cursor.text("request_id"), cursor.long("created_at"), cursor.text("status"),
             ShippingDetails(cursor.text("recipient"), cursor.text("phone"), cursor.text("address")),
-            cursor.long("subtotal_vnd"), cursor.long("fee_vnd"), cursor.long("total_vnd"), lines)
+            cursor.long("subtotal_vnd"), cursor.long("fee_vnd"), cursor.long("total_vnd"), lines,
+            cursor.long("discount_vnd"),cursor.optionalText("coupon_code"),cursor.optionalText("coupon_rule_snapshot"))
     }
 
     private fun pending(db: SQLiteDatabase, userId: Long): CheckoutRequest? =
-        db.query("checkout_requests", arrayOf("request_id", "payload"), "user_id = ?", arrayOf(userId.toString()), null, null, null).use {
-            if (it.moveToFirst()) decode(it.text("request_id"), it.text("payload")) else null
+        db.query("checkout_requests", arrayOf("request_id", "payload", "fingerprint"), "user_id = ?", arrayOf(userId.toString()), null, null, null).use {
+            if(it.moveToFirst()) decode(it.text("request_id"),it.text("payload")).also { request ->
+                if(request.fingerprint != it.text("fingerprint")) throw OrderException(OrderError.INVALID_REQUEST)
+            } else null
         }
 
     private fun checkSession(db: SQLiteDatabase, userId: Long) {
@@ -180,19 +203,42 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
         }
     }
 
+    private fun encodeRule(rule: CouponRule) = JSONObject().apply {
+        put("code",rule.code);put("kind",rule.kind.name);put("value",rule.value);put("minimum",rule.minimumSubtotal)
+        put("maximum",rule.maximumDiscount ?: JSONObject.NULL);put("starts",rule.startsAt);put("ends",rule.endsAt)
+        put("active",rule.active);put("revision",rule.revision)
+    }
+    private fun decodeRule(data: JSONObject) = CouponRule(data.getString("code"),CouponKind.valueOf(data.getString("kind")),
+        data.getLong("value"),data.getLong("minimum"),if(data.isNull("maximum")) null else data.getLong("maximum"),
+        data.getLong("starts"),data.getLong("ends"),data.getBoolean("active"),data.getLong("revision"))
     private fun encode(request: CheckoutRequest) = JSONObject().apply {
-        put("recipient", request.shipping.recipient); put("phone", request.shipping.phone); put("address", request.shipping.address)
-        put("lines", JSONArray().apply { request.lines.forEach { line -> put(JSONObject().apply {
-            put("id", line.productId); put("quantity", line.quantity); put("price", line.unitPriceVnd)
-        }) } })
+        put("version",request.version);put("fee",request.feeVnd);put("subtotal",request.subtotalVnd)
+        put("discount",request.discountVnd);put("total",request.totalVnd)
+        put("recipient",request.shipping.recipient);put("phone",request.shipping.phone);put("address",request.shipping.address)
+        put("coupon",request.coupon?.let {quote -> JSONObject().apply {put("rule",encodeRule(quote.rule));put("discount",quote.discountVnd)}} ?: JSONObject.NULL)
+        put("lines",JSONArray().apply {request.lines.forEach {line -> put(JSONObject().apply {
+            put("id",line.productId);put("quantity",line.quantity);put("price",line.unitPriceVnd)
+        })}})
     }.toString()
-
     private fun decode(id: String, payload: String): CheckoutRequest {
-        val data = JSONObject(payload)
-        val lines = data.getJSONArray("lines")
-        return CheckoutRequest(id, (0 until lines.length()).map { index -> lines.getJSONObject(index).let {
-            CheckoutLine(it.getString("id"), it.getInt("quantity"), it.getLong("price"))
-        } }, ShippingDetails(data.getString("recipient"), data.getString("phone"), data.getString("address")))
+        try {
+            val data = JSONObject(payload)
+            val version = data.optInt("version",1)
+            if(version !in 1..2) throw OrderException(OrderError.INVALID_REQUEST)
+            val lines = data.getJSONArray("lines")
+            val coupon = if(version == 1 || data.isNull("coupon")) null else data.getJSONObject("coupon").let {
+                CouponQuote(decodeRule(it.getJSONObject("rule")),it.getLong("discount"))
+            }
+            val request = CheckoutRequest(id,(0 until lines.length()).map {index -> lines.getJSONObject(index).let {
+                CheckoutLine(it.getString("id"),it.getInt("quantity"),it.getLong("price"))
+            }},ShippingDetails(data.getString("recipient"),data.getString("phone"),data.getString("address")),coupon,version,
+                if(version == 1) null else data.getLong("fee"))
+            if(version == 2 && (request.subtotalVnd != data.getLong("subtotal") || request.discountVnd != data.getLong("discount") ||
+                request.totalVnd != data.getLong("total"))) throw OrderException(OrderError.INVALID_REQUEST)
+            return request
+        } catch(e: org.json.JSONException) {throw OrderException(OrderError.INVALID_REQUEST)}
+        catch(e: IllegalArgumentException) {throw OrderException(OrderError.INVALID_REQUEST)}
+        catch(e: ArithmeticException) {throw OrderException(OrderError.INVALID_REQUEST)}
     }
 
     private inline fun <T> transaction(block: (SQLiteDatabase) -> T): T {
@@ -200,6 +246,7 @@ class OrderRepository(private val helper: AuthDatabaseHelper, private val change
         db.beginTransaction()
         try { return block(db).also { db.setTransactionSuccessful() } } finally { db.endTransaction() }
     }
+    private fun Cursor.optionalText(column: String): String? = getColumnIndexOrThrow(column).let {if(isNull(it)) null else getString(it)}
     private fun Cursor.text(column: String) = getString(getColumnIndexOrThrow(column))
     private fun Cursor.long(column: String) = getLong(getColumnIndexOrThrow(column))
     private fun Cursor.int(column: String) = getInt(getColumnIndexOrThrow(column))

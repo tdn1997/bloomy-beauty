@@ -1,0 +1,14 @@
+{
+  "avd": "BloomyCareAPI28",
+  "scenario": "features",
+  "passed": true,
+  "details": {
+    "sdk": 28,
+    "tests": 13,
+    "passed": 12,
+    "skipped": 1,
+    "failures": 0,
+    "skip_reason": "Notification permission denial requires API 33+; assumption skip confirmed in api28-data.json",
+    "runner_output": "api28-features.txt"
+  }
+}

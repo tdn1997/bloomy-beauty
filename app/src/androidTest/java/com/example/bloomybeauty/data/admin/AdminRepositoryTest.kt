@@ -44,7 +44,7 @@ class AdminRepositoryTest {
     private fun stock()=helper.readableDatabase.rawQuery("SELECT stock FROM products WHERE id='cleanser'",null).use{it.moveToFirst();it.getInt(0)}
     @Test fun customerSignupRestoreLoginAndProfilePreserveTrustedRole() = runBlocking {
         assertEquals(UserRole.ADMIN,auth.restoreSession()!!.role)
-        assertEquals(UserRole.ADMIN,ProfileRepository(helper).save(adminId,"Quản trị mới",null).user.role)
+        assertEquals(UserRole.ADMIN,ProfileRepository(helper).save(adminId,"Quản trị mới").user.role)
         auth.login("customer@example.com",password)
         assertEquals(UserRole.CUSTOMER,auth.restoreSession()!!.role)
         expect(AdminError.PERMISSION){admin.load(customerId)}
@@ -134,8 +134,12 @@ class AdminRepositoryTest {
         SQLiteDatabase.openDatabase(context.getDatabasePath(DB).path,null,SQLiteDatabase.OPEN_READWRITE).use {db ->
             // API 28 SQLite does not support DROP COLUMN. Rebuild the two legacy
             // tables while foreign keys are off on this isolated fixture connection.
+            db.execSQL("DROP TABLE user_notifications");db.execSQL("DROP TABLE coupon_rules")
+            db.execSQL("DROP TABLE addresses")
+            db.execSQL("DROP TABLE product_reviews")
             db.execSQL("DROP TABLE care_routines")
             db.execSQL("DROP TABLE order_events")
+            com.example.bloomybeauty.fixtures.LegacyOrders.rebuild(db,false)
             rebuildLegacyTable(db, "users", "role")
             rebuildLegacyTable(db, "products", "revision")
             db.version=4
@@ -152,7 +156,8 @@ class AdminRepositoryTest {
         }
         val appended = if (removed == "role")
             ", role TEXT NOT NULL DEFAULT 'CUSTOMER' CHECK(role IN ('CUSTOMER','ADMIN'))"
-        else ", revision INTEGER NOT NULL DEFAULT 0 CHECK(revision >= 0)"
+        else if (removed == "revision") ", revision INTEGER NOT NULL DEFAULT 0 CHECK(revision >= 0)"
+        else ", delivered_at INTEGER"
         check(sql.contains(appended)) { "Legacy fixture schema changed" }
         val columns = db.rawQuery("PRAGMA table_info($table)", null).use { cursor ->
             buildList { while (cursor.moveToNext()) { val name = cursor.getString(1); if (name != removed) add(name) } }

@@ -1,0 +1,18 @@
+
+com.example.bloomybeauty.export.OrderPdfScreenTest:
+Error in chooserCancellationDoesNotChangeOrderAndExternalReaderOpensContentUri(com.example.bloomybeauty.export.OrderPdfScreenTest):
+java.lang.IllegalStateException: Required value was null.
+	at com.example.bloomybeauty.export.OrderPdfScreenTest.capture(OrderPdfScreenTest.kt:47)
+	at com.example.bloomybeauty.export.OrderPdfScreenTest.access$capture(OrderPdfScreenTest.kt:24)
+	at com.example.bloomybeauty.export.OrderPdfScreenTest$chooserCancellationDoesNotChangeOrderAndExternalReaderOpensContentUri$1.invokeSuspend(OrderPdfScreenTest.kt:67)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:101)
+	at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:263)
+	at kotlinx.coroutines.BlockingCoroutine.joinBlocking(Builders.kt:95)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking(Builders.kt:69)
+	at kotlinx.coroutines.BuildersKt.runBlocking(Unknown Source:1)
+	at kotlinx.coroutines.BuildersKt__BuildersKt.runBlocking$default(Builders.kt:47)
+	at kotlinx.coroutines.BuildersKt.runBlocking$default(Unknown Source:1)
+	at com.example.bloomybeauty.export.OrderPdfScreenTest.chooserCancellationDoesNotChangeOrderAndExternalReaderOpensContentUri(OrderPdfScreenTest.kt:66)
+
+com.example.bloomybeauty.feature.statistics.StatisticsScreenTest:

@@ -67,13 +67,14 @@ class CartFlowTest {
             val profileState by profile.state.collectAsState()
             BloomyBeautyTheme {
                 if (showProfile) ProfileScreen(profileState, { showProfile = false }, profile::edit,
-                    { profile.save { updated -> user = updated; cart.refreshDefaultAddress(updated.name); showProfile = false } }, profile::reload)
+                    { profile.save { updated -> user = updated; cart.updateUserName(updated.name); showProfile = false } }, profile::reload)
                 else if (showOrders) OrdersScreen(ordersState, { showOrders = false }, orders::reload,
                     { id -> orders.cancel(id) { home.reload(); cart.reload() } })
                 else if (showCart) CartScreen(state,
                     { if (!cart.back()) showCart = false }, cart::setQuantity, cart::remove,
                     cart::acceptPrices, cart::continueToShipping, cart::editDraft, cart::saveShipping, cart::reload,
-                    cart::placeOrder, { cart.finishOrder { showCart = false; showOrders = true; orders.reload(); home.reload() } })
+                    cart::placeOrder, { cart.finishOrder { showCart = false; showOrders = true; orders.reload(); home.reload() } },
+                    onCouponChange = cart::editCoupon,onApplyCoupon = cart::applyCoupon,onRemoveCoupon = cart::removeCoupon)
                 else HomeScreen(user, homeState, home::setQuery, home::setCategory, home::setSort,
                     home::toggleFavorite, home::reload, {}, cartCount = state.snapshot.quantity, cartBusy = state.busy,
                     onOpenCart = { showCart = true; cart.open() }, onAddToCart = cart::add,
@@ -157,6 +158,7 @@ class CartFlowTest {
     @Test
     fun placeCodAndViewOrderHistoryAndDetail() {
         openConfirmation()
+        compose.runOnIdle {assertEquals(cart.state.value.toString(),CartStep.REVIEW,cart.state.value.step);assertEquals(222_000L,cart.state.value.request!!.totalVnd)}
         compose.onNodeWithText("Tổng thanh toán COD: 222.000 ₫").performScrollTo().assertIsDisplayed()
         capture("cod-confirmation.png")
         compose.onNodeWithText("Xác nhận đặt hàng COD").performScrollTo().performClick()
@@ -199,37 +201,36 @@ class CartFlowTest {
     }
 
     @Test
-    fun editProfileValidatePhoneAndUseSavedAddressAtCheckout() {
+    fun editProfileNameDoesNotOverwriteEditedShippingDraft() {
         compose.onNodeWithText("Tài khoản").performClick()
         compose.onNodeWithText("Chỉnh sửa hồ sơ").performScrollTo().performClick()
         compose.waitUntil(10_000) { !profile.state.value.loading }
-        compose.onNodeWithText("Họ tên tài khoản").performTextReplacement("Trần Thị Mỹ")
-        compose.onNodeWithContentDescription("Lưu địa chỉ mặc định").performClick()
-        compose.onNodeWithText("Người nhận mặc định").performTextReplacement("Trần Thị Mỹ")
-        compose.onNodeWithText("Số điện thoại mặc định").performTextInput("123")
-        compose.onNodeWithText("Địa chỉ mặc định").performTextInput("99 Nguyễn Văn B, TP Hồ Chí Minh")
+        compose.onNodeWithText("Họ tên tài khoản").performTextReplacement(" ")
         compose.onNodeWithText("Lưu hồ sơ").performScrollTo().performClick()
         compose.waitUntil(10_000) { !profile.state.value.busy }
-        compose.onNodeWithText("Vui lòng nhập số di động Việt Nam hợp lệ.").assertIsDisplayed()
-        compose.onNodeWithText("Số điện thoại mặc định").performScrollTo().performTextReplacement("+84 912 345 678")
+        compose.onNodeWithText("Họ tên cần từ 2 đến 80 ký tự.").assertIsDisplayed()
+        compose.onNodeWithText("Họ tên tài khoản").performTextReplacement("Trần Thị Mỹ")
         compose.onNodeWithText("Lưu hồ sơ").performScrollTo().performClick()
         compose.waitUntil(10_000) { !profile.state.value.busy }
         awaitCart()
-        compose.runOnIdle { assertNull("Profile save failed: ${profile.state.value.error}", profile.state.value.error) }
-        compose.onAllNodesWithText("Tài khoản").filter(hasClickAction()).onFirst().performClick()
-        compose.onNodeWithText("Trần Thị Mỹ").performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText("Trang chủ").performClick()
+        compose.runOnUiThread { cart.add("cleanser") }; awaitCart()
+        compose.onNodeWithContentDescription("Mở giỏ hàng").performClick(); awaitCart()
+        compose.onNodeWithText("Tiếp tục giao hàng").performScrollTo().performClick(); awaitCart()
+        compose.onNodeWithText("Trần Thị Mỹ").assertIsDisplayed()
+        compose.onNodeWithText("Số điện thoại").performTextInput("0912345678")
+        compose.onNodeWithText("Địa chỉ nhận hàng").performTextInput("99 Nguyễn Văn B, TP Hồ Chí Minh")
+        compose.onNodeWithContentDescription("Quay lại").performClick()
+        compose.onNodeWithContentDescription("Quay lại").performClick()
+        compose.onNodeWithText("Tài khoản").performClick()
         compose.onNodeWithText("Chỉnh sửa hồ sơ").performScrollTo().performClick()
         compose.waitUntil(10_000) { !profile.state.value.loading }
-        compose.onNodeWithText("0912345678").performScrollTo().assertIsDisplayed()
-        capture("profile-screen.png")
-        compose.onNodeWithContentDescription("Quay lại").performClick()
+        compose.onNodeWithText("Họ tên tài khoản").performTextReplacement("Người mua mới")
+        compose.onNodeWithText("Lưu hồ sơ").performScrollTo().performClick()
+        compose.waitUntil(10_000) { !profile.state.value.busy }; awaitCart()
         compose.onNodeWithText("Trang chủ").performClick()
-        compose.runOnUiThread { cart.add("cleanser") }
-        awaitCart()
-        compose.onNodeWithContentDescription("Mở giỏ hàng").performClick()
-        awaitCart()
-        compose.onNodeWithText("Tiếp tục giao hàng").performScrollTo().performClick()
-        awaitCart()
+        compose.onNodeWithContentDescription("Mở giỏ hàng").performClick(); awaitCart()
+        compose.onNodeWithText("Tiếp tục giao hàng").performScrollTo().performClick(); awaitCart()
         compose.onNodeWithText("Trần Thị Mỹ").assertIsDisplayed()
         compose.onNodeWithText("0912345678").assertIsDisplayed()
         compose.onNodeWithText("99 Nguyễn Văn B, TP Hồ Chí Minh").assertIsDisplayed()

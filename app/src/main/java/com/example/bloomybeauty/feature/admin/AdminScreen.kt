@@ -75,7 +75,8 @@ fun adminErrorText(error: AdminError): String = when(error) {
 
 @Composable
 fun AdminScreen(state: AdminUiState, onBack: () -> Unit, onReload: () -> Unit,
-                onSave: (Product, Boolean, () -> Unit) -> Unit, onTransition: (Long,String,String) -> Unit) {
+                onSave: (Product, Boolean, () -> Unit) -> Unit, onTransition: (Long,String,String) -> Unit, onOpenStatistics: (() -> Unit)? = null,
+                pdfExporter: com.example.bloomybeauty.export.OrderPdfExporter? = null, userId: Long = 0) {
     var tab by rememberSaveable { mutableStateOf(0) }
     var editId by rememberSaveable { mutableStateOf<String?>(null) }
     var orderId by rememberSaveable { mutableStateOf<Long?>(null) }
@@ -90,6 +91,8 @@ fun AdminScreen(state: AdminUiState, onBack: () -> Unit, onReload: () -> Unit,
             Text("Quản trị",style=MaterialTheme.typography.titleLarge)
             TextButton(onReload,enabled=!state.busy) { Text("Tải lại") }
         }
+        if(onOpenStatistics != null && state.snapshot != null && state.error != AdminError.PERMISSION && editId == null && orderId == null)
+            OutlinedButton(onOpenStatistics,enabled=!state.busy,modifier=Modifier.fillMaxWidth()) {Text("Thống kê bán hàng")}
         if(state.busy) LinearProgressIndicator(Modifier.fillMaxWidth())
         state.error?.let { Text(adminErrorText(it),color=MaterialTheme.colorScheme.error) }
         state.notice?.let { Text(it) }
@@ -103,6 +106,7 @@ fun AdminScreen(state: AdminUiState, onBack: () -> Unit, onReload: () -> Unit,
             Column(Modifier.verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                 Text(order.code, style=MaterialTheme.typography.titleLarge)
                 OrderSummary(order); OrderContents(order)
+                pdfExporter?.let { com.example.bloomybeauty.feature.export.OrderPdfActions(it,userId,order.id) }
                 AdminRules.transitions[order.status].orEmpty().forEach { next ->
                     Button({ target=next },enabled=!state.busy,modifier=Modifier.fillMaxWidth()) { Text(if(next=="CANCELLED") "Hủy đơn hàng" else "Chuyển sang: ${orderStatusLabel(next)}") }
                 }
