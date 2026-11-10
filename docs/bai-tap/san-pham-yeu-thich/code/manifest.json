@@ -1,0 +1,72 @@
+[
+  {
+    "file": "code/01-sqlite-favorites.png",
+    "caption": "Bảng lưu sản phẩm yêu thích",
+    "description": "Khóa chính ghép chống lưu trùng; hai khóa ngoại gắn mục yêu thích với tài khoản và sản phẩm, hỗ trợ ON DELETE CASCADE.",
+    "source": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogSchema.kt",
+    "start_line": 19,
+    "end_line": 25,
+    "source_sha256": "c3425e8581205ddc95c63ec27e6869e0a98418a95efa8abadc22a87f62e94ff9",
+    "sha256": "a2f3b657e120714d2d13acefbfb9cab790dbc5000369fb600a8482d05f46efdb",
+    "dimensions": [
+      1280,
+      368
+    ]
+  },
+  {
+    "file": "code/02-luu-bo-luu.png",
+    "caption": "Lưu và bỏ lưu trong transaction",
+    "description": "Kiểm tra phiên trước khi ghi. Xóa nếu đã lưu; nếu chưa lưu, chỉ thêm sản phẩm còn hoạt động. Transaction bảo đảm thao tác hoàn tất hoặc được rollback.",
+    "source": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogRepository.kt",
+    "start_line": 41,
+    "end_line": 58,
+    "source_sha256": "6e2dfb856ad44f2773f21a05e397b70ae6f413636eac3b981f9781b7a6cbfa7b",
+    "sha256": "666af5abd983fff2eca1278a194535305789a3c0e10cc29716d4a12b10c27e67",
+    "dimensions": [
+      1280,
+      788
+    ]
+  },
+  {
+    "file": "code/03-viewmodel.png",
+    "caption": "Cập nhật trạng thái giao diện",
+    "description": "Chặn nhấn lặp khi đang lưu, chạy coroutine, tải lại snapshot và cập nhật StateFlow. Khi phiên không hợp lệ, xóa dữ liệu riêng khỏi trạng thái màn hình.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeViewModel.kt",
+    "start_line": 59,
+    "end_line": 73,
+    "source_sha256": "30c90e91b779d12546972ed3f17974fe26fae58322ff7f4f9c0e9f1e4f26f438",
+    "sha256": "d40b517fcc0d86af428e80e5dd2eed69130fa1ef433c3b1e537ccc8e9bed35de",
+    "dimensions": [
+      1280,
+      668
+    ]
+  },
+  {
+    "file": "code/04-bo-loc-rieng.png",
+    "caption": "Bộ lọc riêng của Yêu thích",
+    "description": "Lưu bộ lọc theo tài khoản bằng rememberSaveable. Khi vào tab Yêu thích, dùng query, danh mục và sắp xếp riêng thay vì bộ lọc trang chủ.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt",
+    "start_line": 138,
+    "end_line": 147,
+    "source_sha256": "46763442cc9151cdcc37f03e099a551b27e3d3e3a0a7d1f4c2b657cbd9b3104b",
+    "sha256": "13d291e21cd68558e9f137ec03c43e60d6e5722ad48d70e0ec0671d372194733",
+    "dimensions": [
+      1280,
+      608
+    ]
+  },
+  {
+    "file": "code/05-ton-kho-them-gio.png",
+    "caption": "Tồn kho và thêm nhanh vào giỏ",
+    "description": "Thẻ hiển thị Còn hàng/Hết hàng. Chỉ bật thêm giỏ khi sản phẩm đang bán, còn tồn và giỏ không bận; testTag giúp kiểm thử đúng nút của sản phẩm.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt",
+    "start_line": 374,
+    "end_line": 381,
+    "source_sha256": "46763442cc9151cdcc37f03e099a551b27e3d3e3a0a7d1f4c2b657cbd9b3104b",
+    "sha256": "240a2b2000750423d8de2bfa94dbe9b2dc88e4542ad8446905fb10dd7a2d7399",
+    "dimensions": [
+      1280,
+      488
+    ]
+  }
+]

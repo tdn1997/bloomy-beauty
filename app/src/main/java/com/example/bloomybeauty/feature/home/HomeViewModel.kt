@@ -63,7 +63,7 @@ class HomeViewModel(private val repository: CatalogRepository, private val userI
             try {
                 repository.toggleFavorite(userId, productId)
                 val snapshot = repository.load(userId)
-                mutableState.update { it.copy(savingFavorite = false, favoriteIds = snapshot.favoriteIds) }
+                mutableState.update { it.copy(savingFavorite = false, favoriteIds = snapshot.favoriteIds, products = snapshot.products) }
             } catch (exception: com.example.bloomybeauty.data.auth.SessionException) {
                 mutableState.update { it.copy(loading=false,savingFavorite=false,error=true,products=emptyList(),favoriteIds=emptySet()) }
             } catch (exception: SQLiteException) {

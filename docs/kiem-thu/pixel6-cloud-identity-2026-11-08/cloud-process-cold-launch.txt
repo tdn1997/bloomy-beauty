@@ -1,7 +1,0 @@
-Starting: Intent { cmp=com.example.bloomybeauty.cloud/com.example.bloomybeauty.MainActivity }
-Status: ok
-LaunchState: COLD
-Activity: com.example.bloomybeauty.cloud/com.example.bloomybeauty.MainActivity
-TotalTime: 1500
-WaitTime: 1503
-Complete

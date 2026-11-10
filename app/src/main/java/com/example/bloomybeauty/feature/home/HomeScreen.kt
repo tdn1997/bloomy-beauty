@@ -135,7 +135,16 @@ fun HomeScreen(
     }
     var tabName by rememberSaveable(user.id) { mutableStateOf(HomeTab.HOME.name) }
     var selectedProductId by rememberSaveable(user.id) { mutableStateOf<String?>(null) }
+    var favoriteQuery by rememberSaveable(user.id) { mutableStateOf("") }
+    var favoriteCategory by rememberSaveable(user.id) { mutableStateOf<String?>(null) }
+    var favoriteSortName by rememberSaveable(user.id) { mutableStateOf(ProductSort.FEATURED.name) }
     val tab = HomeTab.valueOf(tabName)
+    val query = if (tab == HomeTab.FAVORITES) favoriteQuery else state.query
+    val categoryId = if (tab == HomeTab.FAVORITES) favoriteCategory else state.categoryId
+    val sort = if (tab == HomeTab.FAVORITES) ProductSort.valueOf(favoriteSortName) else state.sort
+    val changeQuery: (String) -> Unit = { if (tab == HomeTab.FAVORITES) favoriteQuery = it else onQueryChange(it) }
+    val changeCategory: (String?) -> Unit = { if (tab == HomeTab.FAVORITES) favoriteCategory = it else onCategoryChange(it) }
+    val changeSort: (ProductSort) -> Unit = { if (tab == HomeTab.FAVORITES) favoriteSortName = it.name else onSortChange(it) }
     val selectedProduct = state.products.firstOrNull { it.id == selectedProductId }
     BackHandler(selectedProductId != null || tab != HomeTab.HOME) {
         if (selectedProductId != null) selectedProductId = null else tabName = HomeTab.HOME.name
@@ -179,10 +188,10 @@ fun HomeScreen(
         },
     ) { padding ->
         if (tab == HomeTab.ACCOUNT) {
-            AccountPage(user, logoutBusy, logoutError, onLogout, onOpenOrders, onEditProfile, onOpenAdmin, Modifier.padding(padding), onOpenCare?.let { open -> { open(null) } }, onOpenAddresses,onOpenInbox)
+            AccountPage(user, logoutBusy, logoutError, onLogout, onOpenOrders, onEditProfile, onOpenAdmin, Modifier.padding(padding), onOpenCare?.let { open -> { open(null) } }, onOpenAddresses,onOpenInbox, { tabName = HomeTab.FAVORITES.name })
         } else {
             val products = ProductSearch.filter(
-                state.products, state.query, state.categoryId, state.sort,
+                state.products, query, categoryId, sort,
                 tab == HomeTab.FAVORITES, state.favoriteIds,
             )
             LazyVerticalGrid(
@@ -196,7 +205,7 @@ fun HomeScreen(
                     StoreHeader(user.name,cartCount,onOpenCart,{tabName=HomeTab.ACCOUNT.name},onOpenInbox,unreadNotifications)
                 }
                 item(span = { GridItemSpan(maxLineSpan) }) {
-                    SearchField(state.query, onQueryChange)
+                    SearchField(query, changeQuery)
                 }
                 if (tab == HomeTab.HOME && state.query.isBlank() && state.categoryId == null) {
                     if (promotions.feed.enabled) {
@@ -213,9 +222,9 @@ fun HomeScreen(
                         Text(stringResource(R.string.shop_by_category), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
                         Spacer(Modifier.height(8.dp))
                         Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                            FilterChip(state.categoryId == null, { onCategoryChange(null) }, { Text(stringResource(R.string.all_categories)) })
+                            FilterChip(categoryId == null, { changeCategory(null) }, { Text(stringResource(R.string.all_categories)) })
                             state.categories.forEach { category ->
-                                FilterChip(state.categoryId == category.id, { onCategoryChange(category.id) }, { Text(category.name) })
+                                FilterChip(categoryId == category.id, { changeCategory(category.id) }, { Text(category.name) })
                             }
                         }
                     }
@@ -235,7 +244,7 @@ fun HomeScreen(
                         }
                         Row(Modifier.horizontalScroll(rememberScrollState()), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             ProductSort.entries.forEach { sort ->
-                                FilterChip(state.sort == sort, { onSortChange(sort) }, { Text(stringResource(sortLabel(sort))) })
+                                FilterChip(sort == (if (tab == HomeTab.FAVORITES) ProductSort.valueOf(favoriteSortName) else state.sort), { changeSort(sort) }, { Text(stringResource(sortLabel(sort))) })
                             }
                         }
                     }
@@ -255,13 +264,21 @@ fun HomeScreen(
                     }
                     if (products.isEmpty() && !state.error) {
                         item(span = { GridItemSpan(maxLineSpan) }) {
-                            EmptyProducts(tab == HomeTab.FAVORITES) { onQueryChange(""); onCategoryChange(null) }
+                            if (tab == HomeTab.FAVORITES && state.favoriteIds.isEmpty()) {
+                                Column(Modifier.fillMaxWidth().padding(vertical = 24.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                                    Icon(Icons.Outlined.FavoriteBorder, null, Modifier.size(40.dp), tint = MaterialTheme.colorScheme.primary)
+                                    Text(stringResource(R.string.empty_favorites), style = MaterialTheme.typography.titleMedium)
+                                    Text("Nhấn tim trên sản phẩm để lưu vào danh sách.")
+                                    TextButton({ onQueryChange(""); onCategoryChange(null); tabName = HomeTab.EXPLORE.name }) { Text("Khám phá sản phẩm") }
+                                }
+                            } else EmptyProducts(false) { changeQuery(""); changeCategory(null) }
                         }
                     }
                     items(products, key = { it.id }) { product ->
                         ProductCard(
                             product, product.id in state.favoriteIds, !state.savingFavorite,
                             { selectedProductId = product.id }, { onToggleFavorite(product.id) },
+                            if (tab == HomeTab.FAVORITES) ({ onAddToCart(product.id) }) else null, cartBusy,
                         )
                     }
                 }
@@ -340,7 +357,7 @@ private fun CollectionBanner(onExplore: () -> Unit) {
 }
 
 @Composable
-private fun ProductCard(product: Product, favorite: Boolean, favoriteEnabled: Boolean, onOpen: () -> Unit, onFavorite: () -> Unit) {
+private fun ProductCard(product: Product, favorite: Boolean, favoriteEnabled: Boolean, onOpen: () -> Unit, onFavorite: () -> Unit, onAdd: (() -> Unit)? = null, cartBusy: Boolean = false) {
     Surface(shape = RoundedCornerShape(20.dp), color = MaterialTheme.colorScheme.surface, tonalElevation = 1.dp) {
         Column(Modifier.clickable(onClick = onOpen)) {
             Box(Modifier.fillMaxWidth().aspectRatio(1f).background(Color.White)) {
@@ -354,6 +371,10 @@ private fun ProductCard(product: Product, favorite: Boolean, favoriteEnabled: Bo
                 Text(product.name, style = MaterialTheme.typography.titleSmall, minLines = 2, maxLines = 2, overflow = TextOverflow.Ellipsis)
                 Text(product.volume, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Text(formatPrice(product.priceVnd), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
+                Text(if (product.stock == 0) "Hết hàng" else "Còn hàng", style = MaterialTheme.typography.labelMedium,
+                    color = if (product.stock == 0) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant)
+                if (onAdd != null) OutlinedButton(onAdd, enabled = product.stock > 0 && product.active && !cartBusy,
+                    modifier = Modifier.fillMaxWidth().testTag("favorite_add_${product.id}")) { Text("Thêm vào giỏ") }
             }
         }
     }
@@ -448,7 +469,7 @@ private fun DetailSection(title: Int, body: String) {
 
 @Composable
 private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout: () -> Unit, onOrders: () -> Unit, onEdit: () -> Unit, onAdmin: () -> Unit, modifier: Modifier, onCare: (() -> Unit)? = null,
-                          onAddresses: (() -> Unit)? = null,onInbox: (() -> Unit)? = null) {
+                          onAddresses: (() -> Unit)? = null,onInbox: (() -> Unit)? = null, onFavorites: (() -> Unit)? = null) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(18.dp)) {
         Spacer(Modifier.height(24.dp))
         Box(Modifier.size(80.dp).background(MaterialTheme.colorScheme.primaryContainer, CircleShape), contentAlignment = Alignment.Center) {
@@ -465,6 +486,7 @@ private fun AccountPage(user: AuthUser, busy: Boolean, error: Boolean, onLogout:
             }
         }
         if (user.role == com.example.bloomybeauty.data.auth.UserRole.ADMIN) OutlinedButton(onAdmin, modifier = Modifier.fillMaxWidth()) { Text("Quản trị cửa hàng") }
+        if (onFavorites != null) OutlinedButton(onFavorites, modifier = Modifier.fillMaxWidth()) { Text("Sản phẩm yêu thích") }
         if(onInbox != null) OutlinedButton(onInbox,modifier=Modifier.fillMaxWidth()) {Text("Thông báo đơn hàng")}
         OutlinedButton(onOrders, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Đơn hàng của tôi") }
         if (onCare != null) OutlinedButton(onCare, modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth()) { Text("Lịch chăm sóc da") }

@@ -98,3 +98,7 @@ python3 scripts/package-submission.py
 ```
 
 Script yêu cầu APK demo và tài liệu đã có trong `deliverables/`; tạo zip mã nguồn, manifest SHA-256 và zip bàn giao. Bỏ cache, `local.properties`, cấu hình admin riêng và thư mục `.local`. Sửa tài liệu rồi chạy lại script để checksum/zip theo đúng bản cuối. `source-manifest.json` ghi commit nền và hash từng file để xác định chính xác snapshot bàn giao; bản đóng gói có thể chứa thay đổi chuẩn bị trước commit.
+
+## Cập nhật APK ngày 09/11/2026
+
+`deliverables/bloomy-beauty-demo.apk` là bản bổ sung Yêu thích đã chạy 26 ca kiểm thử liên quan trên Pixel_6. Mở Tài khoản → Sản phẩm yêu thích, hoặc tab Yêu thích. Xem [hướng dẫn](san-pham-yeu-thich.md) và [bài tập cá nhân có 11 ảnh](bai-tap/san-pham-yeu-thich/README.md). APK release-QA giữ bản mốc 08/11; không dùng bản đó để minh chứng cập nhật ngày 09/11. Bộ 172 ca toàn ứng dụng là kết quả lịch sử ngày 08/11, không phải lượt chạy hôm nay.

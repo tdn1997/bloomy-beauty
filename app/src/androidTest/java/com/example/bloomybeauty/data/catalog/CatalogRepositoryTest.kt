@@ -87,6 +87,30 @@ class CatalogRepositoryTest {
         }
     }
 
+    @Test
+    fun unavailableProductsAreHiddenAndCannotBeNewlySaved() = runBlocking {
+        val auth = AuthRepository(helper)
+        val user = (auth.register("Khách yêu thích", "available@example.com", PASSWORD, PASSWORD) as AuthResult.Success).user
+        val catalog = CatalogRepository(helper)
+        catalog.toggleFavorite(user.id, "cleanser")
+        catalog.toggleFavorite(user.id, "serum")
+        helper.writableDatabase.execSQL("UPDATE products SET stock=0 WHERE id='cleanser'")
+        assertEquals(0, catalog.load(user.id).products.single { it.id == "cleanser" }.stock)
+        assertTrue("cleanser" in catalog.load(user.id).favoriteIds)
+        helper.writableDatabase.execSQL("UPDATE products SET active=0 WHERE id='serum'")
+        assertEquals(setOf("cleanser"), catalog.load(user.id).favoriteIds)
+        catalog.toggleFavorite(user.id, "serum") // Removing an old hidden favorite remains possible.
+        for (id in listOf("serum", "does-not-exist")) {
+            try { catalog.toggleFavorite(user.id, id); org.junit.Assert.fail("Unavailable favorite accepted") }
+            catch (_: android.database.sqlite.SQLiteException) { }
+        }
+        helper.writableDatabase.execSQL("DELETE FROM products WHERE id='cleanser'")
+        assertTrue(catalog.load(user.id).favoriteIds.isEmpty())
+        helper.readableDatabase.rawQuery("SELECT COUNT(*) FROM favorites", null).use {
+            it.moveToFirst(); assertEquals(0, it.getInt(0))
+        }
+    }
+
     private companion object {
         const val TEST_DATABASE = "catalog_repository_test.db"
         const val PASSWORD = "password123"

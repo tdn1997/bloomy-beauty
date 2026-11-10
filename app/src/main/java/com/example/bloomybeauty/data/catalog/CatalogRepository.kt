@@ -32,7 +32,7 @@ class CatalogRepository(private val helper: AuthDatabaseHelper) {
                 }
             }
             val favoriteIds = db.query(
-                "favorites", arrayOf("product_id"), "user_id = ?", arrayOf(userId.toString()), null, null, null,
+                "favorites", arrayOf("product_id"), "user_id = ? AND product_id IN (SELECT id FROM products WHERE active = 1)", arrayOf(userId.toString()), null, null, null,
             ).use { cursor -> buildSet { while (cursor.moveToNext()) add(cursor.text("product_id")) } }
             CatalogSnapshot(categories, products, favoriteIds)
         }
@@ -45,6 +45,8 @@ class CatalogRepository(private val helper: AuthDatabaseHelper) {
             SessionAccess.require(db, userId)
             val removed = db.delete("favorites", "user_id = ? AND product_id = ?", arrayOf(userId.toString(), productId))
             if (removed == 0) {
+                val available = db.rawQuery("SELECT 1 FROM products WHERE id = ? AND active = 1", arrayOf(productId)).use { it.moveToFirst() }
+                if (!available) throw android.database.sqlite.SQLiteException("Sản phẩm không còn được bán")
                 db.insertOrThrow("favorites", null, ContentValues().apply {
                     put("user_id", userId); put("product_id", productId)
                 })

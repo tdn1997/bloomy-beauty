@@ -1,0 +1,198 @@
+[
+  {
+    "file": "code/01-sqlite-favorites.png",
+    "caption": "Bảng lưu sản phẩm yêu thích",
+    "description": "Khóa chính ghép chống lưu trùng; hai khóa ngoại gắn mục yêu thích với tài khoản và sản phẩm, hỗ trợ ON DELETE CASCADE.",
+    "source": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogSchema.kt",
+    "start_line": 19,
+    "end_line": 25,
+    "source_sha256": "c3425e8581205ddc95c63ec27e6869e0a98418a95efa8abadc22a87f62e94ff9",
+    "sha256": "a2f3b657e120714d2d13acefbfb9cab790dbc5000369fb600a8482d05f46efdb",
+    "dimensions": [
+      1280,
+      368
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/02-luu-bo-luu.png",
+    "caption": "Lưu và bỏ lưu trong transaction",
+    "description": "Kiểm tra phiên trước khi ghi. Xóa nếu đã lưu; nếu chưa lưu, chỉ thêm sản phẩm còn hoạt động. Transaction bảo đảm thao tác hoàn tất hoặc được rollback.",
+    "source": "app/src/main/java/com/example/bloomybeauty/data/catalog/CatalogRepository.kt",
+    "start_line": 41,
+    "end_line": 58,
+    "source_sha256": "6e2dfb856ad44f2773f21a05e397b70ae6f413636eac3b981f9781b7a6cbfa7b",
+    "sha256": "666af5abd983fff2eca1278a194535305789a3c0e10cc29716d4a12b10c27e67",
+    "dimensions": [
+      1280,
+      788
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/03-viewmodel.png",
+    "caption": "Cập nhật trạng thái giao diện",
+    "description": "Chặn nhấn lặp khi đang lưu, chạy coroutine, tải lại snapshot và cập nhật StateFlow. Khi phiên không hợp lệ, xóa dữ liệu riêng khỏi trạng thái màn hình.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeViewModel.kt",
+    "start_line": 59,
+    "end_line": 73,
+    "source_sha256": "30c90e91b779d12546972ed3f17974fe26fae58322ff7f4f9c0e9f1e4f26f438",
+    "sha256": "d40b517fcc0d86af428e80e5dd2eed69130fa1ef433c3b1e537ccc8e9bed35de",
+    "dimensions": [
+      1280,
+      668
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/04-bo-loc-rieng.png",
+    "caption": "Bộ lọc riêng của Yêu thích",
+    "description": "Lưu bộ lọc theo tài khoản bằng rememberSaveable. Khi vào tab Yêu thích, dùng query, danh mục và sắp xếp riêng thay vì bộ lọc trang chủ.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt",
+    "start_line": 138,
+    "end_line": 147,
+    "source_sha256": "46763442cc9151cdcc37f03e099a551b27e3d3e3a0a7d1f4c2b657cbd9b3104b",
+    "sha256": "13d291e21cd68558e9f137ec03c43e60d6e5722ad48d70e0ec0671d372194733",
+    "dimensions": [
+      1280,
+      608
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/05-ton-kho-them-gio.png",
+    "caption": "Tồn kho và thêm nhanh vào giỏ",
+    "description": "Thẻ hiển thị Còn hàng/Hết hàng. Chỉ bật thêm giỏ khi sản phẩm đang bán, còn tồn và giỏ không bận; testTag giúp kiểm thử đúng nút của sản phẩm.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt",
+    "start_line": 374,
+    "end_line": 381,
+    "source_sha256": "46763442cc9151cdcc37f03e099a551b27e3d3e3a0a7d1f4c2b657cbd9b3104b",
+    "sha256": "240a2b2000750423d8de2bfa94dbe9b2dc88e4542ad8446905fb10dd7a2d7399",
+    "dimensions": [
+      1280,
+      488
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "01-tai-khoan.png",
+    "caption": "Lối vào từ Tài khoản",
+    "description": "Nút Sản phẩm yêu thích mở danh sách riêng của tài khoản đang đăng nhập.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/01-tai-khoan.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "8c12e6080162387b67f6daf11d08c952f2f5fbccf11fb8949878ebc11c7b6356"
+  },
+  {
+    "file": "09-luu-tu-the-san-pham.png",
+    "caption": "Lưu từ thẻ sản phẩm",
+    "description": "Nhấn tim tại danh mục; tim đổi trạng thái và badge được cập nhật.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/09-luu-tu-the-san-pham.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "a0eb8016a55fef9459fc1dff1cb1c56ab9cc513c4364eb3b2701b02a7d98f825"
+  },
+  {
+    "file": "10-luu-tu-chi-tiet.png",
+    "caption": "Lưu từ chi tiết",
+    "description": "Sau bỏ lưu và lưu lại ở trang chi tiết, tim phản ánh trạng thái SQLite.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/10-luu-tu-chi-tiet.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "93636244dc8a352ff99edf9edfa578b5039f97aa3ddd72e0703a45036d0ada16"
+  },
+  {
+    "file": "11-dong-bo-tab-yeu-thich.png",
+    "caption": "Đồng bộ danh sách",
+    "description": "Quay về tab Yêu thích hiển thị đúng một sản phẩm vừa lưu.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/11-dong-bo-tab-yeu-thich.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "b02114f4edfb827cbae16c5e4ffbc5c7ca23c258112640eb405e8cf6abe02cbd"
+  },
+  {
+    "file": "02-yeu-thich-them-gio.png",
+    "caption": "Thêm nhanh vào giỏ",
+    "description": "Bộ lọc trang chủ không che danh sách; thêm giỏ thành công, vẫn giữ mục yêu thích.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/02-yeu-thich-them-gio.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "3e9b0dbf38d73bcf603fa94c8180f7fb0ac822a4a61739bf8432ac93bd04886e"
+  },
+  {
+    "file": "03-het-hang.png",
+    "caption": "Sản phẩm hết hàng",
+    "description": "Tinh chất vẫn xuất hiện, hiển thị Hết hàng và vô hiệu hóa nút thêm giỏ.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/03-het-hang.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "3e9b0dbf38d73bcf603fa94c8180f7fb0ac822a4a61739bf8432ac93bd04886e"
+  },
+  {
+    "file": "04-chi-tiet-da-luu.png",
+    "caption": "Chi tiết đã lưu",
+    "description": "Mở sản phẩm từ Yêu thích; tim có mô tả bỏ khỏi yêu thích.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/04-chi-tiet-da-luu.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "ea1c848c6a7bd5fc86423b7e87fd6b97757a5c2812dec45153c4b3b09d65ac72"
+  },
+  {
+    "file": "05-chi-tiet-bo-luu.png",
+    "caption": "Bỏ lưu tại chi tiết",
+    "description": "Tim chuyển rỗng sau thao tác, danh sách cập nhật khi quay lại.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/05-chi-tiet-bo-luu.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "220835fa1f348327e63828a0e26eeaa51e655743cd5f7d696a763b895b8ed7c9"
+  },
+  {
+    "file": "06-danh-sach-rong.png",
+    "caption": "Đã bỏ lưu toàn bộ",
+    "description": "Thông báo rỗng hướng dẫn nhấn tim và có nút Khám phá sản phẩm.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/06-danh-sach-rong.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "5427126bb0f7ff98221440797826ad3a615ebcc552a1857c3970fff38571f212"
+  },
+  {
+    "file": "07-bo-loc-khong-khop.png",
+    "caption": "Tìm kiếm không khớp",
+    "description": "Danh sách vẫn có dữ liệu nhưng bộ lọc không khớp; có nút xóa bộ lọc.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/07-bo-loc-khong-khop.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "8b0559a8b383ea3d9cb534b756446a3462f406fecfebeceea9d8dc327af63dd9"
+  },
+  {
+    "file": "08-khoi-phuc-danh-sach.png",
+    "caption": "Xóa bộ lọc",
+    "description": "Hai sản phẩm đã lưu xuất hiện lại, không mất dữ liệu yêu thích.",
+    "source": "docs/kiem-thu/pixel6-favorites-2026-11-09/08-khoi-phuc-danh-sach.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "3c40cce51b404652c2a82c76018ad04f3f542037c89f22ee1743a270b2a13cbc"
+  }
+]

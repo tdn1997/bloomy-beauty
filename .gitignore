@@ -13,3 +13,21 @@ __pycache__/
 .env.*
 !.env.example
 **/google-services.json
+
+# Generated handoff copies, APKs, archives and test reports (keep locally).
+/deliverables/
+*.apk
+*.aab
+*.apks
+**/test-results/
+**/test-reports/
+**/coverage/
+
+# Keep QA documentation/screenshots; exclude raw run output and build evidence.
+/docs/kiem-thu/**
+!/docs/kiem-thu/**/
+!/docs/kiem-thu/**/*.md
+!/docs/kiem-thu/**/*.png
+!/docs/kiem-thu/**/*.jpg
+!/docs/kiem-thu/**/*.jpeg
+!/docs/kiem-thu/**/*.webp

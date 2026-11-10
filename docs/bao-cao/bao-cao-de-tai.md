@@ -104,7 +104,9 @@ Bootstrap admin chỉ áp dụng build debug và chỉ tạo email chưa tồn t
 
 ### 5.2. Danh mục, yêu thích và giỏ
 
-Danh mục gồm 8 sản phẩm thật được tóm tắt thông tin/giá tham khảo, với ảnh lưu trong drawable-nodpi. Tìm kiếm bỏ dấu và không phân biệt hoa/thường; lọc danh mục, sắp xếp giá tăng/giảm; yêu thích theo phiên. Giỏ lưu số lượng và accepted_price_vnd. Sản phẩm hết hàng/ẩn/missing không thêm được.
+Bổ sung ngày 09/11/2026: Yêu thích có lối vào từ Tài khoản, bộ lọc riêng, trạng thái rỗng phân biệt với tìm kiếm không khớp, tồn kho và thêm nhanh giỏ. Chỉ đếm sản phẩm đang bán; hết hàng vẫn xem/bỏ lưu được. [Hướng dẫn](../san-pham-yeu-thich.md) và [bài tập cá nhân với ảnh minh chứng](../bai-tap/san-pham-yeu-thich/README.md).
+
+Danh mục gồm 8 sản phẩm thật được tóm tắt thông tin/giá tham khảo, với ảnh lưu trong drawable-nodpi. Tìm kiếm bỏ dấu và không phân biệt hoa/thường; lọc danh mục, sắp xếp giá tăng/giảm; yêu thích lưu SQLite theo tài khoản. Giỏ lưu số lượng và accepted_price_vnd. Sản phẩm hết hàng/ẩn/missing không thêm được.
 
 Khi giá thay đổi, giỏ hiển thị giá cũ/mới và yêu cầu xác nhận. Tồn giảm cần giảm số lượng; sản phẩm ẩn cần xóa. Giá và tồn được kiểm tra lại trong transaction khi xác nhận đơn, không chỉ dựa vào giao diện.
 

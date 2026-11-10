@@ -89,3 +89,7 @@ Chạy connected tests trên emulator dùng cho kiểm thử vì Gradle cài/g�
 - [Thống kê quản trị](docs/thong-ke-ban-hang.md)
 - [Phiếu đơn hàng PDF](docs/phieu-don-hang-pdf.md)
 - [Trung tâm thông báo](docs/trung-tam-thong-bao.md)
+
+## Cập nhật buổi 09/11/2026
+
+Hoàn thiện Yêu thích: lối vào từ Tài khoản, bộ lọc riêng, thêm nhanh giỏ và trạng thái hết hàng. SQLite schema 11, không cần BE. [Hướng dẫn](docs/san-pham-yeu-thich.md) · [Kế hoạch](docs/ke-hoach-yeu-thich.md) · [Bài tập cá nhân và ảnh](docs/bai-tap/san-pham-yeu-thich/README.md) · [Kiểm thử](docs/kiem-thu/pixel6-favorites-2026-11-09/README.md).

@@ -40,7 +40,8 @@ manifest={'application':'Bloomy Beauty','version':'1.0','schema':schema,'prepare
           'git_base_commit':base_commit,'prepared_from_worktree':True,
           'scope':'Coursework demo: local SQLite; no backend deployment required',
           'note':'Per-file hashes identify this snapshot prepared before commit; git_base_commit is the starting revision, not the hash of the packaging commit.',
-          'acceptance':'docs/kiem-thu/pixel6-commerce-integration-2026-11-08/README.md','files':records}
+          'acceptance':'docs/kiem-thu/pixel6-commerce-integration-2026-11-08/README.md',
+          'latest_scoped_validation':'docs/kiem-thu/pixel6-favorites-2026-11-09/README.md','files':records}
 (DEST/'source-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
 with ZipFile(DEST/'bloomy-beauty-source.zip','w',ZIP_DEFLATED) as z:
     for p in source:z.write(p,p.relative_to(ROOT))
@@ -59,8 +60,9 @@ reports.mkdir()
 for path,label in [('app/build/reports/tests/testDebugUnitTest','jvm'),('app/build/reports/androidTests/connected/debug','android-historical')]:
     src=ROOT/path
     if src.exists():shutil.copytree(src,reports/label)
-# Current A7 instrumentation was run through ADB without uninstalling app data.
-shutil.copytree(ROOT/'docs/kiem-thu/pixel6-commerce-integration-2026-11-08',reports/'android-current')
+# Historical A7 full acceptance and latest scoped favorites regression are separate runs.
+shutil.copytree(ROOT/'docs/kiem-thu/pixel6-commerce-integration-2026-11-08',reports/'android-a7-2026-11-08')
+shutil.copytree(ROOT/'docs/kiem-thu/pixel6-favorites-2026-11-09',reports/'android-current')
 for label in ['debug','release']:
     for ext in ['html','xml']:
         src=ROOT/f'app/build/reports/lint-results-{label}.{ext}'
