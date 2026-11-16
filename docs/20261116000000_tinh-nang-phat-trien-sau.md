@@ -2,7 +2,7 @@
 
 Danh sách ý tưởng đã lưu, chưa triển khai và chưa có lịch cam kết.
 Ưu tiên dưới đây là đề xuất để lựa chọn sau khi hoàn thành
-[Mua lại đơn cũ](ke-hoach-mua-lai-don-cu.md).
+[Mua lại đơn cũ](20261116000000_ke-hoach-mua-lai-don-cu.md).
 Giữ định hướng demo ngoại tuyến một thiết bị; mỗi tính năng cần kế hoạch riêng
 trước khi thực hiện.
 

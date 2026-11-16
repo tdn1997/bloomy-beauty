@@ -4,27 +4,27 @@
 
 **Phạm vi chốt: demo môn học trên một thiết bị, không yêu cầu triển khai backend riêng.** Dùng APK `.demo` để trình diễn đủ sáu tính năng; phần Cloud/Auth Emulator đã thử nghiệm chỉ là tài liệu tham khảo, không phải bước bắt buộc để chạy hoặc nghiệm thu.
 
-- [Kế hoạch và tiến độ](docs/ke-hoach-de-tai.md)
-- [Pixel_6 tạo lại sau nâng cấp macOS](docs/pixel6-moi-2026-11-16.md)
-- [Mua lại đơn cũ](docs/mua-lai-don-cu.md) · [Kế hoạch](docs/ke-hoach-mua-lai-don-cu.md) · [Kiểm thử ngày 16/11/2026](docs/kiem-thu/reorder-2026-11-16/README.md) — hoàn tất; 71 unit và 57 Android đạt trên Pixel_6 API 35.
-- [Danh sách tính năng phát triển sau](docs/tinh-nang-phat-trien-sau.md)
-- [Kế hoạch sáu tính năng mở rộng và đồng bộ Firebase](docs/ke-hoach-mo-rong-ban-hang.md)
-- [Kế hoạch bổ sung Content Provider và Broadcast Receiver](docs/ke-hoach-content-provider-broadcast.md)
-- [Sử dụng lịch chăm sóc, nhắc hẹn và broadcast đơn hàng](docs/lich-cham-soc.md)
-- [Áp dụng mã giảm giá demo](docs/ma-giam-gia-demo.md)
+- [Kế hoạch và tiến độ](docs/20261007000000_ke-hoach-de-tai.md)
+- [Pixel_6 tạo lại sau nâng cấp macOS](docs/20261116000000_pixel6-moi-2026-11-16.md)
+- [Mua lại đơn cũ](docs/20261116000000_mua-lai-don-cu.md) · [Kế hoạch](docs/20261116000000_ke-hoach-mua-lai-don-cu.md) · [Kiểm thử ngày 16/11/2026](docs/kiem-thu/reorder-2026-11-16/README.md) — hoàn tất; 71 unit và 57 Android đạt trên Pixel_6 API 35.
+- [Danh sách tính năng phát triển sau](docs/20261116000000_tinh-nang-phat-trien-sau.md)
+- [Kế hoạch sáu tính năng mở rộng và đồng bộ Firebase](docs/20261107000000_ke-hoach-mo-rong-ban-hang.md)
+- [Kế hoạch bổ sung Content Provider và Broadcast Receiver](docs/20261107000000_ke-hoach-content-provider-broadcast.md)
+- [Sử dụng lịch chăm sóc, nhắc hẹn và broadcast đơn hàng](docs/20261107000000_lich-cham-soc.md)
+- [Áp dụng mã giảm giá demo](docs/20261108000000_ma-giam-gia-demo.md)
 - [Kiểm thử mã giảm giá trên Pixel 6](docs/kiem-thu/pixel6-coupon-2026-11-08/README.md)
-- [Sử dụng sổ địa chỉ và bản nháp giao hàng](docs/so-dia-chi.md)
+- [Sử dụng sổ địa chỉ và bản nháp giao hàng](docs/20261108000000_so-dia-chi.md)
 - [Kiểm thử sổ địa chỉ trên Pixel 6](docs/kiem-thu/pixel6-address-2026-11-08/README.md)
 - [Kiểm thử đánh giá sản phẩm trên Pixel 6](docs/kiem-thu/pixel6-reviews-2026-11-07/README.md)
 - [Kiểm thử lịch chăm sóc trên Pixel 6 và ảnh minh chứng](docs/kiem-thu/pixel6-care-2026-11-07/README.md)
 - [Nghiệm thu trên giả lập nhiều API và deep Doze](docs/kiem-thu/content-broadcast-emulator-2026-11-07/README.md)
-- [Hướng dẫn cài/chạy/build và tài khoản demo](docs/huong-dan-chay.md)
+- [Hướng dẫn cài/chạy/build và tài khoản demo](docs/20261008000000_huong-dan-chay.md)
 - [Báo cáo kỹ thuật](docs/bao-cao/bao-cao-de-tai.md) · [Bản HTML để in](docs/bao-cao/bao-cao-de-tai.html)
 - [Báo cáo tiến độ lần 2 — Nhóm 4 (Word)](docs/bao-cao/tien-do-lan-2/Bao-cao-tien-do-lan-2-Nhom-4.docx)
 - [Sơ đồ SQLite và luồng nghiệp vụ](docs/bao-cao/so-do.md)
 - [Slide ngoại tuyến 10 trang](docs/trinh-dien/slides.html) · [Kịch bản và câu hỏi bảo vệ](docs/trinh-dien/kich-ban.md)
 - [Video demo 4 phút 10 giây, có phụ đề](docs/trinh-dien/bloomy-beauty-demo.mp4) — có trong ZIP bàn giao, không nằm trong ZIP mã nguồn.
-- [Nguồn sản phẩm/ảnh](docs/product-sources.md)
+- [Nguồn sản phẩm/ảnh](docs/20261007000000_product-sources.md)
 
 ## Chạy nhanh bản trình diễn
 
@@ -42,7 +42,7 @@ APK đã đóng gói: `deliverables/bloomy-beauty-demo.apk`; release QA khách/c
 
 ## Firebase tùy chọn
 
-Thử nghiệm tham khảo B0/B1 đã có biến thể **Bloomy Beauty Cloud (test)** (`-PcloudEmulator=true`): Firebase Auth, phiên theo UID và quyền server trên Emulator Suite. [Cách chạy và giới hạn](docs/firebase-auth-emulator.md). [Bằng chứng Pixel_6](docs/kiem-thu/pixel6-cloud-identity-2026-11-08/README.md).
+Thử nghiệm tham khảo B0/B1 đã có biến thể **Bloomy Beauty Cloud (test)** (`-PcloudEmulator=true`): Firebase Auth, phiên theo UID và quyền server trên Emulator Suite. [Cách chạy và giới hạn](docs/20261108000000_firebase-auth-emulator.md). [Bằng chứng Pixel_6](docs/kiem-thu/pixel6-cloud-identity-2026-11-08/README.md).
 
 Firebase is configured for the normal `com.example.bloomybeauty` debug/release builds.
 The checked-in config template is `app/google-services.json.template`; the API key
@@ -59,8 +59,8 @@ For CI, set `FIREBASE_API_KEY` using the CI secret store. Gradle generates
 `app/build/generated/firebase/google-services.json`, then the Google Services plugin
 generates the resources used to initialize Firebase automatically at startup. Firebase
 Analytics, Cloud Messaging, and Firestore are included, with SDK versions managed by the Firebase BoM.
-See [Firestore realtime: flash sale và mã khuyến mãi](docs/firestore-realtime.md) for schema, rules, and setup.
-See [Thông báo đẩy và cách gửi thử](docs/thong-bao-day.md) for setup and tests.
+See [Firestore realtime: flash sale và mã khuyến mãi](docs/20261028000000_firestore-realtime.md) for schema, rules, and setup.
+See [Thông báo đẩy và cách gửi thử](docs/20261028000000_thong-bao-day.md) for setup and tests.
 BoM `34.7.0` is pinned for compatibility with the project's Kotlin `2.0.21` compiler.
 
 Sync Gradle in Android Studio or run `./gradlew :app:assembleDebug` using JDK 17+.
@@ -94,13 +94,13 @@ Chạy connected tests trên emulator dùng cho kiểm thử vì Gradle cài/g�
 
 Đóng gói lại: chuẩn bị APK đúng như hướng dẫn, chạy `python3 scripts/render-docs.py` khi sửa báo cáo/sơ đồ, rồi `python3 scripts/package-submission.py`. Mở báo cáo HTML/slide và In → Lưu PDF nếu cần định dạng PDF của học phần.
 
-- [Thống kê quản trị](docs/thong-ke-ban-hang.md)
-- [Phiếu đơn hàng PDF](docs/phieu-don-hang-pdf.md)
-- [Trung tâm thông báo](docs/trung-tam-thong-bao.md)
+- [Thống kê quản trị](docs/20261108000000_thong-ke-ban-hang.md)
+- [Phiếu đơn hàng PDF](docs/20261108000000_phieu-don-hang-pdf.md)
+- [Trung tâm thông báo](docs/20261108000000_trung-tam-thong-bao.md)
 
 ## Cập nhật buổi 09/11/2026
 
-Hoàn thiện Yêu thích: lối vào từ Tài khoản, bộ lọc riêng, thêm nhanh giỏ và trạng thái hết hàng. SQLite schema 11, không cần BE. [Hướng dẫn](docs/san-pham-yeu-thich.md) · [Kế hoạch](docs/ke-hoach-yeu-thich.md) · [Bài tập cá nhân và ảnh](docs/bai-tap/san-pham-yeu-thich/README.md) · [Kiểm thử](docs/kiem-thu/pixel6-favorites-2026-11-09/README.md).
+Hoàn thiện Yêu thích: lối vào từ Tài khoản, bộ lọc riêng, thêm nhanh giỏ và trạng thái hết hàng. SQLite schema 11, không cần BE. [Hướng dẫn](docs/20261109000000_san-pham-yeu-thich.md) · [Kế hoạch](docs/20261109000000_ke-hoach-yeu-thich.md) · [Bài tập cá nhân và ảnh](docs/bai-tap/san-pham-yeu-thich/README.md) · [Kiểm thử](docs/kiem-thu/pixel6-favorites-2026-11-09/README.md).
 
 ## Cập nhật buổi 16/11/2026
 
@@ -108,6 +108,6 @@ Hoàn thiện Mua lại đơn cũ: xem trước, gộp giỏ theo giá/tồn hi�
 khi dữ liệu thay đổi và xử lý checkout nháp. Không đổi schema SQLite 11.
 Build demo đạt; 71/71 unit test và 57/57 Android test liên quan đạt, lint 0 lỗi.
 Đã tạo lại một Pixel_6 Android 15/API 35 sau nâng cấp macOS.
-[Hướng dẫn](docs/mua-lai-don-cu.md) · [Kết quả và ảnh](docs/kiem-thu/reorder-2026-11-16/README.md).
+[Hướng dẫn](docs/20261116000000_mua-lai-don-cu.md) · [Kết quả và ảnh](docs/kiem-thu/reorder-2026-11-16/README.md).
 APK mới: `deliverables/bloomy-beauty-demo-reorder-2026-11-16.apk`, có checksum
 `.apk.sha256` cạnh bên. Các ZIP bàn giao ngày 08/11 là bộ lưu của đợt trước.

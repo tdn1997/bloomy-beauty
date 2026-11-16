@@ -37,7 +37,7 @@ Ngày lập: 07/11/2026. Cập nhật: F1–F3 đã được triển khai; xem k
 | Bản trình diễn | `.demo` và `.qa` tắt Firebase | Phải kiểm tra tính năng mới trên bản ngoại tuyến |
 | AndroidManifest | Chưa khai báo ContentProvider hoặc BroadcastReceiver của app | Thêm component và khai báo quyền cần thiết |
 
-Nguồn kiểm tra: [README](../README.md), [cấu hình Android](../app/build.gradle.kts), [database helper](../app/src/main/java/com/example/bloomybeauty/data/auth/AuthDatabaseHelper.kt), [kiểm tra phiên](../app/src/main/java/com/example/bloomybeauty/data/auth/SessionAccess.kt), [luồng ứng dụng](../app/src/main/java/com/example/bloomybeauty/feature/app/BloomyApp.kt), [FCM hiện tại](thong-bao-day.md).
+Nguồn kiểm tra: [README](../README.md), [cấu hình Android](../app/build.gradle.kts), [database helper](../app/src/main/java/com/example/bloomybeauty/data/auth/AuthDatabaseHelper.kt), [kiểm tra phiên](../app/src/main/java/com/example/bloomybeauty/data/auth/SessionAccess.kt), [luồng ứng dụng](../app/src/main/java/com/example/bloomybeauty/feature/app/BloomyApp.kt), [FCM hiện tại](20261028000000_thong-bao-day.md).
 
 Các mô tả Firebase và quản trị ở đầu kế hoạch cũ có phần thuộc giai đoạn trước; kế hoạch bổ sung này lấy mã nguồn hiện tại làm mốc.
 
@@ -289,7 +289,7 @@ Lệnh dự kiến khi triển khai:
 ./gradlew :app:connectedDebugAndroidTest
 ```
 
-Lệnh connected chạy trên emulator dành cho kiểm thử theo [hướng dẫn dự án](huong-dan-chay.md). Bản `.demo` và `.qa` cần build và smoke test theo cấu hình hiện có; không dùng chúng để nghiệm thu FCM.
+Lệnh connected chạy trên emulator dành cho kiểm thử theo [hướng dẫn dự án](20261008000000_huong-dan-chay.md). Bản `.demo` và `.qa` cần build và smoke test theo cấu hình hiện có; không dùng chúng để nghiệm thu FCM.
 
 ## 11. Kịch bản demo và điều kiện hoàn thành
 
@@ -323,7 +323,7 @@ Các mục 1–11 ghi lại phạm vi và tiêu chí của kế hoạch ban đ�
 | F3 | Đã phát broadcast sau commit và đăng ký receiver động theo vòng đời giao diện |
 | F4 | Chưa triển khai; giữ ở phạm vi mở rộng |
 
-Hướng dẫn dùng và cấu trúc: [Lịch chăm sóc da và broadcast thay đổi đơn](lich-cham-soc.md). Minh chứng: [thư mục kiểm thử](kiem-thu/content-broadcast-2026-11-07/README.md).
+Hướng dẫn dùng và cấu trúc: [Lịch chăm sóc da và broadcast thay đổi đơn](20261107000000_lich-cham-soc.md). Minh chứng: [thư mục kiểm thử](kiem-thu/content-broadcast-2026-11-07/README.md).
 
 Kiểm tra tự động trên emulator riêng **BloomyCareQA, Android 16/API 36, arm64, trang nhớ 16 KB**, targetSdk 35:
 

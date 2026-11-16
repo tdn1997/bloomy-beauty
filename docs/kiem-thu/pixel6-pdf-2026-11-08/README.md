@@ -11,4 +11,4 @@ Các ca quyền: khách khác không xuất, ADMIN hiện hành được xuất,
 
 Trong phát triển phát hiện Android native PdfDocument không truyền lỗi IOException của stream như dự kiến; đã đổi sang dựng trong bộ nhớ rồi ghi qua Java stream để lỗi IO được báo đúng. Kiểm thử lỗi stream đã đạt sau sửa. Hai lần UI chưa đạt do hộp System UI ANR và do test chỉ chờ chooser trong khi Android mở thẳng reader; giữ các log trung gian, không tính các lượt đó là đạt. Đã đóng lỗi hệ thống và chạy lại trên đúng Pixel_6 với swiftshader; ảnh cuối đã được xem, không còn hộp lỗi hệ thống.
 
-Các PDF/ảnh lưu là bằng chứng của lượt trước mà các ca liên quan đã đạt; acceptance toàn bộ cuối lưu riêng. [Hướng dẫn chia sẻ](../../phieu-don-hang-pdf.md) · [Manifest](../pixel6-commerce-integration-2026-11-08/manifest.json).
+Các PDF/ảnh lưu là bằng chứng của lượt trước mà các ca liên quan đã đạt; acceptance toàn bộ cuối lưu riêng. [Hướng dẫn chia sẻ](../../20261108000000_phieu-don-hang-pdf.md) · [Manifest](../pixel6-commerce-integration-2026-11-08/manifest.json).

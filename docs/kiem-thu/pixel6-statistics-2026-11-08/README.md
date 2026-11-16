@@ -10,4 +10,4 @@ Fixture có 9 đơn, đủ 5 trạng thái, giảm giá và ship riêng, ngày t
 
 Lượt đầu 9/10 đạt, một ca UI hết chờ 10 giây khi giả lập tải cao. Giữ log `statistics-pixel6.txt`; tăng giới hạn chờ UI lên 30 giây mà không đổi đối chiếu dữ liệu. Giả lập sau đó khởi động nguội lại đúng Pixel_6 và dùng renderer swiftshader theo tham số chạy, không sửa cấu hình AVD. Animation tạm tắt được khôi phục, metadata nằm cùng log.
 
-[Hướng dẫn tính số liệu](../../thong-ke-ban-hang.md) · [Manifest mã nguồn/APK và tổng kiểm thử](../pixel6-commerce-integration-2026-11-08/manifest.json).
+[Hướng dẫn tính số liệu](../../20261108000000_thong-ke-ban-hang.md) · [Manifest mã nguồn/APK và tổng kiểm thử](../pixel6-commerce-integration-2026-11-08/manifest.json).

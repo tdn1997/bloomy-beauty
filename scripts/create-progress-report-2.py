@@ -235,8 +235,8 @@ def make():
         "Báo cáo lần 1: docs/bao-cao/tien-do-lan-1/Bao-cao-tien-do-lan-1-Nhom-4.docx.",
         "Pixel_6: docs/kiem-thu/pixel6-care-2026-11-07/README.md, features.json, regression.json, instrumentation.txt và regression.txt.",
         "Các API/Doze đợt trước: docs/kiem-thu/content-broadcast-emulator-2026-11-07/README.md; alarm thật: docs/kiem-thu/content-broadcast-2026-11-07/README.md.",
-        "Báo cáo kỹ thuật: docs/bao-cao/bao-cao-de-tai.md và .html; kế hoạch: docs/ke-hoach-content-provider-broadcast.md.",
-        "Firebase: docs/firestore-realtime.md, docs/thong-bao-day.md, firestore.rules và docs/kiem-thu/firestore-live-2026-10-21/README.md; mã PromotionsRepository/PromotionsViewModel và BloomyMessagingService/PushNotifications.",
+        "Báo cáo kỹ thuật: docs/bao-cao/bao-cao-de-tai.md và .html; kế hoạch: docs/20261107000000_ke-hoach-content-provider-broadcast.md.",
+        "Firebase: docs/20261028000000_firestore-realtime.md, docs/20261028000000_thong-bao-day.md, firestore.rules và docs/kiem-thu/firestore-live-2026-10-21/README.md; mã PromotionsRepository/PromotionsViewModel và BloomyMessagingService/PushNotifications.",
     ]:
         paragraph(d, text)
     d.core_properties.title = "Báo cáo tiến độ lần 2 – Bloomy Beauty – Nhóm 4"

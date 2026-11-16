@@ -4,7 +4,7 @@ Môn Lập trình di động · Bloomy Beauty · Ngày 09/11/2026
 
 Họ và tên: **[Điền họ và tên]** · MSSV: **[Điền MSSV]** · Lớp: **[Điền lớp]**
 
-[Bài nộp Word](25TX810025_NguyenDuyThuan.docx) · [Kế hoạch](../../ke-hoach-yeu-thich.md) · [Kiểm thử](../../kiem-thu/pixel6-favorites-2026-11-09/README.md)
+[Bài nộp Word](25TX810025_NguyenDuyThuan.docx) · [Kế hoạch](../../20261109000000_ke-hoach-yeu-thich.md) · [Kiểm thử](../../kiem-thu/pixel6-favorites-2026-11-09/README.md)
 
 ## 1. Yêu cầu bài tập
 

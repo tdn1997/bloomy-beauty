@@ -14,7 +14,7 @@ DEST.mkdir(exist_ok=True)
 required=['bloomy-beauty-demo.apk','bloomy-beauty-release-qa.apk']
 for name in required:
     if not (DEST/name).is_file():
-        raise SystemExit(f'Missing {name}; build/copy the APK first. See docs/huong-dan-chay.md')
+        raise SystemExit(f'Missing {name}; build/copy the APK first. See docs/20261008000000_huong-dan-chay.md')
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()

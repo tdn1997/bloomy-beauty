@@ -28,4 +28,4 @@ Trong triển khai phát hiện receiver khôi phục lịch cũ tạo DB trốn
 
 APK đã kiểm thử được giữ ở `.local/cloud-auth-emulator.apk` và `.local/cloud-auth-emulator-test.apk`, hash trong manifest.json. APK app đã cài trên Pixel_6; ZIP trong deliverables vẫn là bản local A7, chưa được gọi là bản Cloud hoàn chỉnh. SDK credentials, dữ liệu emulator export và cấu hình local không nằm trong nguồn/QA công khai. Chưa commit.
 
-B2 (giao dịch server), B3 (đồng bộ) và B4 (nghiệm thu live) không thuộc phạm vi demo đã chốt, không phải việc còn thiếu phải triển khai. Kết quả ở đây chỉ chứng minh phần Auth thử nghiệm đã thực hiện. [Hướng dẫn chạy và hợp đồng](../../firebase-auth-emulator.md) · [Kế hoạch](../../ke-hoach-mo-rong-ban-hang.md).
+B2 (giao dịch server), B3 (đồng bộ) và B4 (nghiệm thu live) không thuộc phạm vi demo đã chốt, không phải việc còn thiếu phải triển khai. Kết quả ở đây chỉ chứng minh phần Auth thử nghiệm đã thực hiện. [Hướng dẫn chạy và hợp đồng](../../20261108000000_firebase-auth-emulator.md) · [Kế hoạch](../../20261107000000_ke-hoach-mo-rong-ban-hang.md).

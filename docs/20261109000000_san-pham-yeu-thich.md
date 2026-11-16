@@ -13,4 +13,4 @@ Bảng `favorites` dùng khóa `(user_id, product_id)` và khóa ngoại xóa th
 
 Nền bảng/nút tim/tab đã có trước ngày 09/11; phần hoàn thiện hôm nay là các lối vào, bộ lọc độc lập, trạng thái rỗng/tồn kho, thêm nhanh giỏ, kiểm tra sản phẩm đang bán và kiểm thử bổ sung.
 
-[Kế hoạch](ke-hoach-yeu-thich.md) · [Kiểm thử Pixel_6](kiem-thu/pixel6-favorites-2026-11-09/README.md) · [Bài tập cá nhân](bai-tap/san-pham-yeu-thich/README.md)
+[Kế hoạch](20261109000000_ke-hoach-yeu-thich.md) · [Kiểm thử Pixel_6](kiem-thu/pixel6-favorites-2026-11-09/README.md) · [Bài tập cá nhân](bai-tap/san-pham-yeu-thich/README.md)

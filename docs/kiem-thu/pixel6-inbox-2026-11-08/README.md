@@ -8,4 +8,4 @@ Khi quyền hệ thống bị từ chối: tạo đơn thành công, retry khôn
 
 Ảnh 01–04 đã xem trực tiếp: chưa đọc, đọc tất cả, đích mất và xóa state khi phiên thay đổi; không có hộp lỗi hệ thống. Fixture 35 dòng cố ý dùng audit tổng hợp cho phân trang; không mô tả đây là 35 lần chuyển trạng thái hợp lệ của một đơn thật. Ảnh được chụp ở lượt trước đã đạt các ca UI; log riêng quyền bị từ chối là bằng chứng bổ sung.
 
-Nhắc chăm sóc/alarm vẫn theo luồng cũ, không tự ghi thêm inbox mỗi lần mở lịch. FCM/server inbox thuộc B, chưa được nghiệm thu ở đây. [Hướng dẫn](../../trung-tam-thong-bao.md) · [Manifest](../pixel6-commerce-integration-2026-11-08/manifest.json).
+Nhắc chăm sóc/alarm vẫn theo luồng cũ, không tự ghi thêm inbox mỗi lần mở lịch. FCM/server inbox thuộc B, chưa được nghiệm thu ở đây. [Hướng dẫn](../../20261108000000_trung-tam-thong-bao.md) · [Manifest](../pixel6-commerce-integration-2026-11-08/manifest.json).

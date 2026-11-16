@@ -1,6 +1,6 @@
 package com.example.bloomybeauty.data.catalog
 
-// Curated from official product pages on 2026-10-07. Provenance: docs/product-sources.md.
+// Curated from official product pages on 2026-10-07. Provenance: docs/20261007000000_product-sources.md.
 object CatalogSeed {
     val categories = listOf(
         Category("skin", "Chăm sóc da"), Category("body", "Cơ thể"),

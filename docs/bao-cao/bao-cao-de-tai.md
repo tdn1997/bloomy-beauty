@@ -104,7 +104,7 @@ Bootstrap admin chỉ áp dụng build debug và chỉ tạo email chưa tồn t
 
 ### 5.2. Danh mục, yêu thích và giỏ
 
-Bổ sung ngày 09/11/2026: Yêu thích có lối vào từ Tài khoản, bộ lọc riêng, trạng thái rỗng phân biệt với tìm kiếm không khớp, tồn kho và thêm nhanh giỏ. Chỉ đếm sản phẩm đang bán; hết hàng vẫn xem/bỏ lưu được. [Hướng dẫn](../san-pham-yeu-thich.md) và [bài tập cá nhân với ảnh minh chứng](../bai-tap/san-pham-yeu-thich/README.md).
+Bổ sung ngày 09/11/2026: Yêu thích có lối vào từ Tài khoản, bộ lọc riêng, trạng thái rỗng phân biệt với tìm kiếm không khớp, tồn kho và thêm nhanh giỏ. Chỉ đếm sản phẩm đang bán; hết hàng vẫn xem/bỏ lưu được. [Hướng dẫn](../20261109000000_san-pham-yeu-thich.md) và [bài tập cá nhân với ảnh minh chứng](../bai-tap/san-pham-yeu-thich/README.md).
 
 Danh mục gồm 8 sản phẩm thật được tóm tắt thông tin/giá tham khảo, với ảnh lưu trong drawable-nodpi. Tìm kiếm bỏ dấu và không phân biệt hoa/thường; lọc danh mục, sắp xếp giá tăng/giảm; yêu thích lưu SQLite theo tài khoản. Giỏ lưu số lượng và accepted_price_vnd. Sản phẩm hết hàng/ẩn/missing không thêm được.
 
@@ -154,7 +154,7 @@ Coupon demo có điều kiện/thời hạn và fingerprint v2, chụp giảm gi
 
 Thống kê ADMIN tính tiền hàng DELIVERED sau giảm theo ngày giao giờ Việt Nam, tách phí ship; đếm trạng thái theo ngày tạo và tách đơn thiếu ngày giao. PDF native đọc snapshot, hỗ trợ tiếng Việt/nhiều trang; FileProvider chỉ mở cache phiếu với quyền đọc tạm và kiểm tra lại phiên trước chia sẻ.
 
-Inbox ghi cùng transaction với audit, unique theo user/event; phân trang 30, badge chưa đọc, đọc tất cả và mở lại đúng đơn có kiểm tra chủ. Từ chối quyền notification vẫn giữ inbox. Broadcast/notification sau commit không quyết định kết quả nghiệp vụ. Xem [hướng dẫn thống kê](../thong-ke-ban-hang.md), [PDF](../phieu-don-hang-pdf.md) và [inbox](../trung-tam-thong-bao.md).
+Inbox ghi cùng transaction với audit, unique theo user/event; phân trang 30, badge chưa đọc, đọc tất cả và mở lại đúng đơn có kiểm tra chủ. Từ chối quyền notification vẫn giữ inbox. Broadcast/notification sau commit không quyết định kết quả nghiệp vụ. Xem [hướng dẫn thống kê](../20261108000000_thong-ke-ban-hang.md), [PDF](../20261108000000_phieu-don-hang-pdf.md) và [inbox](../20261108000000_trung-tam-thong-bao.md).
 
 ### 5.8. Thử nghiệm tham khảo: danh tính và quyền Firebase
 
@@ -164,7 +164,7 @@ Cloud Functions xác minh ID token và Auth user, đọc role từ document serv
 
 ![Danh tính Cloud tách khỏi local](so-do/firebase-auth.svg)
 
-Phạm vi này chạy Auth/Firestore/Functions Emulator cùng project demo trên máy tính và Pixel_6; chưa có giao dịch đơn/kho/coupon server, đồng bộ sáu tính năng hoặc triển khai backend live. [Hướng dẫn và hợp đồng](../firebase-auth-emulator.md).
+Phạm vi này chạy Auth/Firestore/Functions Emulator cùng project demo trên máy tính và Pixel_6; chưa có giao dịch đơn/kho/coupon server, đồng bộ sáu tính năng hoặc triển khai backend live. [Hướng dẫn và hợp đồng](../20261108000000_firebase-auth-emulator.md).
 
 ## 6. Giao diện và minh chứng
 
@@ -190,7 +190,7 @@ Hình 5. Activity ngang và chữ Compose 150%; có thể cuộn tới hành đ�
 
 ## 7. Kết quả kiểm thử
 
-Ngày 07/10/2026: 24 JVM + 81 Android = **105 ca đạt**, không bỏ qua, trên Pixel 6/API 36. Build/lint debug và release thành công. Lint debug 45 warning + 1 information; release 23 warning + 1 information; 0 error. Ma trận 24 dòng và các ca đạt/một phần/chưa áp dụng ghi ở [kế hoạch, mục 23.4](../ke-hoach-de-tai.md#234-kết-quả-nghiệm-thu).
+Ngày 07/10/2026: 24 JVM + 81 Android = **105 ca đạt**, không bỏ qua, trên Pixel 6/API 36. Build/lint debug và release thành công. Lint debug 45 warning + 1 information; release 23 warning + 1 information; 0 error. Ma trận 24 dòng và các ca đạt/một phần/chưa áp dụng ghi ở [kế hoạch, mục 23.4](../20261007000000_ke-hoach-de-tai.md#234-kết-quả-nghiệm-thu).
 
 Các nhóm chính: validation/hash/truy vấn tham số; đổi phiên/truy cập chéo; tìm/lọc/yêu thích; giỏ/địa chỉ; giá/tồn đổi; rollback lỗi giữa nhiều dòng; 8 retry đồng thời; fingerprint sai; hủy lặp/race; snapshot/revision/audit; migration; tiếng Việt; điều hướng/tái tạo; cold start/new ViewModel; ngang/chữ lớn.
 
@@ -253,7 +253,7 @@ Phạm vi demo môn học đã hoàn thành ở bản local A0–A7. Không cầ
 - [Android: lưu trữ với SQLite](https://developer.android.com/training/data-storage/sqlite).
 - [Android Auto Backup](https://developer.android.com/identity/data/autobackup).
 - [Android: build bằng dòng lệnh](https://developer.android.com/build/building-cmdline).
-- [Nguồn sản phẩm/ảnh Cocoon theo từng trang](../product-sources.md), thu thập 07/10/2026.
+- [Nguồn sản phẩm/ảnh Cocoon theo từng trang](../20261007000000_product-sources.md), thu thập 07/10/2026.
 - Mã nguồn trong `app/src/main/`, các fixture trong `app/src/androidTest/` và `app/src/test/` của bản bàn giao.
 
 ## Phụ lục A. Phân công thực tế

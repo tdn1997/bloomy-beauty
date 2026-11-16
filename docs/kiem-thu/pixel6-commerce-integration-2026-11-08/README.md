@@ -12,6 +12,6 @@ Hồi quy bao gồm xác thực/phiên, danh mục/giỏ/COD/hủy, quản trị
 
 Các lượt chưa đạt được giữ: `commerce-full-pixel6.txt` có 1 lỗi tìm node tổng COD; kiểm tra riêng có thêm assert state REVIEW và tổng 222.000 đạt 1/1, rồi toàn bộ lượt cuối đạt. Không đổi cách tính giá/ship để làm test qua. Các lần giả lập chậm/System UI ANR ở A4/A5 không tính là nghiệm thu. Khởi động nguội lại chính Pixel_6, chạy `-gpu swiftshader` để ổn định render; không sửa file cấu hình AVD. Animation tạm tắt trong mỗi lượt đã được khôi phục đúng giá trị gốc; xem environment JSON.
 
-[Thống kê](../pixel6-statistics-2026-11-08/README.md) · [PDF](../pixel6-pdf-2026-11-08/README.md) · [Inbox/quyền denied](../pixel6-inbox-2026-11-08/README.md) · [Kế hoạch và mục B chưa hoàn thành](../../ke-hoach-mo-rong-ban-hang.md).
+[Thống kê](../pixel6-statistics-2026-11-08/README.md) · [PDF](../pixel6-pdf-2026-11-08/README.md) · [Inbox/quyền denied](../pixel6-inbox-2026-11-08/README.md) · [Kế hoạch và mục B chưa hoàn thành](../../20261107000000_ke-hoach-mo-rong-ban-hang.md).
 
 Bản thường assembleDebug đạt (`LOCAL_COUPONS_ENABLED=false`, Firebase feed bật); release `.qa` assembleRelease đạt (`LOCAL_COUPONS_ENABLED=true`, Firebase tắt). Bản thường chỉ được build, không cài/không ghi dữ liệu Firebase. Release QA được cài đè và force-stop → cold launch trên Pixel_6, giữ phiên ReleaseQA và hiển thị cửa hàng/badge; xem ảnh/log cold start. Không gọi lượt smoke release này là toàn bộ instrumentation trên release.

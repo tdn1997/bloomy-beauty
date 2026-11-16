@@ -71,7 +71,7 @@ def make():
     d.add_paragraph('Họ và tên: [Điền họ và tên]\nMã số sinh viên: [Điền MSSV]\nLớp: [Điền lớp]')
     markdown=['# Bài tập cá nhân: Sản phẩm yêu thích','', 'Môn Lập trình di động · Bloomy Beauty · Ngày 09/11/2026','',
         'Họ và tên: **[Điền họ và tên]** · MSSV: **[Điền MSSV]** · Lớp: **[Điền lớp]**','',
-        '[Bài nộp Word](25TX810025_NguyenDuyThuan.docx) · [Kế hoạch](../../ke-hoach-yeu-thich.md) · [Kiểm thử](../../kiem-thu/pixel6-favorites-2026-11-09/README.md)','']
+        '[Bài nộp Word](25TX810025_NguyenDuyThuan.docx) · [Kế hoạch](../../20261109000000_ke-hoach-yeu-thich.md) · [Kiểm thử](../../kiem-thu/pixel6-favorites-2026-11-09/README.md)','']
     records=[]
     for title, paragraphs in sections:
         d.add_heading(title,1);markdown += ['## '+title,'']

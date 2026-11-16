@@ -47,7 +47,7 @@ Ban đầu `adb devices` không có thiết bị. Lần đầu liệt kê AVD c�
 khi khởi động thì emulator báo `Unknown AVD name [Pixel_6]`. Kiểm tra sau đó:
 `/Users/thuan/.android/avd` trống; tìm `Pixel_6.ini` không thấy vị trí thay thế.
 Sau khi người dùng xác nhận macOS vừa nâng cấp và yêu cầu tạo lại Pixel 6, đã
-tạo đúng một AVD cùng tên. [Cấu hình và cách mở](../../pixel6-moi-2026-11-16.md).
+tạo đúng một AVD cùng tên. [Cấu hình và cách mở](../../20261116000000_pixel6-moi-2026-11-16.md).
 
 - **API 37 ban đầu:** 37/57 đạt; 20 ca UI lỗi do Espresso cũ gọi API nội bộ
   `InputManager.getInstance` không còn có trên image này. 14/14 ca repository
@@ -120,4 +120,4 @@ và `.apk.sha256` trong thư mục gốc dự án. ZIP bàn giao cũ không đư
 | [07](pixel6-reorder/07-stale-preview.png) | Dữ liệu đổi, yêu cầu xác nhận lại |
 | [08](pixel6-reorder/08-unavailable.png) | Không có mặt hàng có thể thêm |
 
-[Hướng dẫn tính năng](../../mua-lai-don-cu.md) · [Kế hoạch](../../ke-hoach-mua-lai-don-cu.md).
+[Hướng dẫn tính năng](../../20261116000000_mua-lai-don-cu.md) · [Kế hoạch](../../20261116000000_ke-hoach-mua-lai-don-cu.md).

@@ -1,6 +1,6 @@
 # Nghiệm thu A1 — đánh giá sản phẩm trên Pixel 6
 
-Bắt đầu 07/11/2026, chốt 08/11/2026. Phạm vi [A1/E1](../../ke-hoach-mo-rong-ban-hang.md), SQLite schema 8: viết/sửa/xóa đánh giá từ đơn đã giao, điểm trung bình, quyền tài khoản và migration. Chưa đồng bộ đánh giá lên Firebase.
+Bắt đầu 07/11/2026, chốt 08/11/2026. Phạm vi [A1/E1](../../20261107000000_ke-hoach-mo-rong-ban-hang.md), SQLite schema 8: viết/sửa/xóa đánh giá từ đơn đã giao, điểm trung bình, quyền tài khoản và migration. Chưa đồng bộ đánh giá lên Firebase.
 
 ## Kết quả cuối
 

@@ -30,7 +30,7 @@
 <p>Mọi API dữ liệu riêng đối chiếu userId với auth_session trong transaction. Khách B truyền ID A bị từ chối; khi B dùng ID của mình để đọc ID đơn A, kết quả là null. AdminRepository đọc vai trò ADMIN từ database và phiên hiện tại mỗi lần. Thu hồi quyền có hiệu lực ở lần gọi tiếp theo, dù giao diện đã mở.</p>
 <p>Bootstrap admin chỉ áp dụng build debug và chỉ tạo email chưa tồn tại. Không nâng quyền khách hoặc đặt lại mật khẩu tài khoản đã có. Gói <code>.demo</code> dùng cấu hình công khai riêng; bản debug gốc dùng cấu hình admin ngẫu nhiên cục bộ; release không seed admin.</p>
 <h3>5.2. Danh mục, yêu thích và giỏ</h3>
-<p>Bổ sung ngày 09/11/2026: Yêu thích có lối vào từ Tài khoản, bộ lọc riêng, trạng thái rỗng phân biệt với tìm kiếm không khớp, tồn kho và thêm nhanh giỏ. Chỉ đếm sản phẩm đang bán; hết hàng vẫn xem/bỏ lưu được. <a href="../san-pham-yeu-thich.md">Hướng dẫn</a> và <a href="../bai-tap/san-pham-yeu-thich/README.md">bài tập cá nhân với ảnh minh chứng</a>.</p>
+<p>Bổ sung ngày 09/11/2026: Yêu thích có lối vào từ Tài khoản, bộ lọc riêng, trạng thái rỗng phân biệt với tìm kiếm không khớp, tồn kho và thêm nhanh giỏ. Chỉ đếm sản phẩm đang bán; hết hàng vẫn xem/bỏ lưu được. <a href="../20261109000000_san-pham-yeu-thich.md">Hướng dẫn</a> và <a href="../bai-tap/san-pham-yeu-thich/README.md">bài tập cá nhân với ảnh minh chứng</a>.</p>
 <p>Danh mục gồm 8 sản phẩm thật được tóm tắt thông tin/giá tham khảo, với ảnh lưu trong drawable-nodpi. Tìm kiếm bỏ dấu và không phân biệt hoa/thường; lọc danh mục, sắp xếp giá tăng/giảm; yêu thích lưu SQLite theo tài khoản. Giỏ lưu số lượng và accepted_price_vnd. Sản phẩm hết hàng/ẩn/missing không thêm được.</p>
 <p>Khi giá thay đổi, giỏ hiển thị giá cũ/mới và yêu cầu xác nhận. Tồn giảm cần giảm số lượng; sản phẩm ẩn cần xóa. Giá và tồn được kiểm tra lại trong transaction khi xác nhận đơn, không chỉ dựa vào giao diện.</p>
 <h3>5.3. Giao hàng và COD</h3><img class="diagram" alt="Transaction COD" src="so-do/dat-cod.svg">
@@ -51,12 +51,12 @@
 <p>Đánh giá chỉ cho chủ dòng đơn đã giao; revision token chống sửa/xóa bản cũ, điểm và phân trang cập nhật qua repository. Sổ địa chỉ tách khỏi hồ sơ tên tài khoản và checkout draft; chọn địa chỉ tạo bản sao, không sửa lại snapshot đơn khi địa chỉ nguồn thay đổi.</p>
 <p>Coupon demo có điều kiện/thời hạn và fingerprint v2, chụp giảm giá/điều kiện/fee vào yêu cầu và đơn. Checkout kiểm tra lại trong transaction, không tự bỏ mã hết hạn. Replay đơn đã commit trả snapshot gốc kể cả chiến dịch đã mất.</p>
 <p>Thống kê ADMIN tính tiền hàng DELIVERED sau giảm theo ngày giao giờ Việt Nam, tách phí ship; đếm trạng thái theo ngày tạo và tách đơn thiếu ngày giao. PDF native đọc snapshot, hỗ trợ tiếng Việt/nhiều trang; FileProvider chỉ mở cache phiếu với quyền đọc tạm và kiểm tra lại phiên trước chia sẻ.</p>
-<p>Inbox ghi cùng transaction với audit, unique theo user/event; phân trang 30, badge chưa đọc, đọc tất cả và mở lại đúng đơn có kiểm tra chủ. Từ chối quyền notification vẫn giữ inbox. Broadcast/notification sau commit không quyết định kết quả nghiệp vụ. Xem <a href="../thong-ke-ban-hang.md">hướng dẫn thống kê</a>, <a href="../phieu-don-hang-pdf.md">PDF</a> và <a href="../trung-tam-thong-bao.md">inbox</a>.</p>
+<p>Inbox ghi cùng transaction với audit, unique theo user/event; phân trang 30, badge chưa đọc, đọc tất cả và mở lại đúng đơn có kiểm tra chủ. Từ chối quyền notification vẫn giữ inbox. Broadcast/notification sau commit không quyết định kết quả nghiệp vụ. Xem <a href="../20261108000000_thong-ke-ban-hang.md">hướng dẫn thống kê</a>, <a href="../20261108000000_phieu-don-hang-pdf.md">PDF</a> và <a href="../20261108000000_trung-tam-thong-bao.md">inbox</a>.</p>
 <h3>5.8. Thử nghiệm tham khảo: danh tính và quyền Firebase</h3>
 <p>B0/B1 thêm Firebase Auth qua CloudAuthGateway và CloudAccounts. MainActivity chọn nguồn theo build; <code>.cloud</code> dùng UID chuỗi và nonce phiên, còn các bản local tiếp tục dùng SQLite. SDK/API nằm sau repository; ViewModel bỏ response sai UID/nonce, hủy listener và xóa account khi logout/chuyển phiên.</p>
 <p>Cloud Functions xác minh ID token và Auth user, đọc role từ document server trong transaction. UI chỉ hiện account sau phản hồi thành công; role listener chỉ yêu cầu tải lại, không cấp quyền từ cache. Client không ghi profile/role trực tiếp qua Firestore. Đăng ký Firebase là thao tác riêng, không gộp email/hash local; đơn local được giữ nguyên. Care Provider/receivers được tắt ở Cloud để nguồn local không tự khởi tạo khi cài đè hay boot.</p>
 <p><img alt="Danh tính Cloud tách khỏi local" src="so-do/firebase-auth.svg"></p>
-<p>Phạm vi này chạy Auth/Firestore/Functions Emulator cùng project demo trên máy tính và Pixel_6; chưa có giao dịch đơn/kho/coupon server, đồng bộ sáu tính năng hoặc triển khai backend live. <a href="../firebase-auth-emulator.md">Hướng dẫn và hợp đồng</a>.</p>
+<p>Phạm vi này chạy Auth/Firestore/Functions Emulator cùng project demo trên máy tính và Pixel_6; chưa có giao dịch đơn/kho/coupon server, đồng bộ sáu tính năng hoặc triển khai backend live. <a href="../20261108000000_firebase-auth-emulator.md">Hướng dẫn và hợp đồng</a>.</p>
 <h2>6. Giao diện và minh chứng</h2>
 <p><img alt="Trang chủ" src="../screenshots/1-home-screen.png"></p>
 <p>Hình 1. Danh mục, tìm kiếm, nhóm sản phẩm và điều hướng tài khoản.</p>
@@ -69,7 +69,7 @@
 <p><img alt="Ngang và chữ lớn" src="../screenshots/landscape-font150.png"></p>
 <p>Hình 5. Activity ngang và chữ Compose 150%; có thể cuộn tới hành động xác nhận/kết quả.</p>
 <h2>7. Kết quả kiểm thử</h2>
-<p>Ngày 07/10/2026: 24 JVM + 81 Android = <strong>105 ca đạt</strong>, không bỏ qua, trên Pixel 6/API 36. Build/lint debug và release thành công. Lint debug 45 warning + 1 information; release 23 warning + 1 information; 0 error. Ma trận 24 dòng và các ca đạt/một phần/chưa áp dụng ghi ở <a href="../ke-hoach-de-tai.md#234-kết-quả-nghiệm-thu">kế hoạch, mục 23.4</a>.</p>
+<p>Ngày 07/10/2026: 24 JVM + 81 Android = <strong>105 ca đạt</strong>, không bỏ qua, trên Pixel 6/API 36. Build/lint debug và release thành công. Lint debug 45 warning + 1 information; release 23 warning + 1 information; 0 error. Ma trận 24 dòng và các ca đạt/một phần/chưa áp dụng ghi ở <a href="../20261007000000_ke-hoach-de-tai.md#234-kết-quả-nghiệm-thu">kế hoạch, mục 23.4</a>.</p>
 <p>Các nhóm chính: validation/hash/truy vấn tham số; đổi phiên/truy cập chéo; tìm/lọc/yêu thích; giỏ/địa chỉ; giá/tồn đổi; rollback lỗi giữa nhiều dòng; 8 retry đồng thời; fingerprint sai; hủy lặp/race; snapshot/revision/audit; migration; tiếng Việt; điều hướng/tái tạo; cold start/new ViewModel; ngang/chữ lớn.</p>
 <p>Release QA được cài riêng và thao tác ngoài instrumentation: đăng ký → giỏ 1 sản phẩm → force-stop/mở lại giữ phiên/giỏ → lưu giao hàng → force-stop khôi phục review → đặt BB-000001 tổng 222.000 ₫ → force-stop khôi phục thành công → lịch sử 1 đơn/tồn 29. Ca nhiều khách tồn 1 hiện theo phiên lần lượt trên cùng thiết bị; không coi là kiểm thử hai thiết bị đồng thời.</p>
 <p>APK <code>.demo</code> của Phase 13 thêm package/config debug riêng để bàn giao tài khoản công khai; không thay nghiệp vụ. Kết quả diễn tập trực tiếp của APK này được cập nhật trong kế hoạch mục 24. Không gọi 105 ca là connected tests chạy trên APK <code>.demo</code> nếu chúng chạy trên gói debug gốc.</p>
@@ -103,7 +103,7 @@
 <li><a href="https://developer.android.com/training/data-storage/sqlite">Android: lưu trữ với SQLite</a>.</li>
 <li><a href="https://developer.android.com/identity/data/autobackup">Android Auto Backup</a>.</li>
 <li><a href="https://developer.android.com/build/building-cmdline">Android: build bằng dòng lệnh</a>.</li>
-<li><a href="../product-sources.md">Nguồn sản phẩm/ảnh Cocoon theo từng trang</a>, thu thập 07/10/2026.</li>
+<li><a href="../20261007000000_product-sources.md">Nguồn sản phẩm/ảnh Cocoon theo từng trang</a>, thu thập 07/10/2026.</li>
 <li>Mã nguồn trong <code>app/src/main/</code>, các fixture trong <code>app/src/androidTest/</code> và <code>app/src/test/</code> của bản bàn giao.</li>
 </ul>
 <h2>Phụ lục A. Phân công thực tế</h2>

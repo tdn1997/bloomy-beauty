@@ -3,7 +3,7 @@
 Trạng thái ngày 16/11/2026: hoàn tất triển khai và kiểm thử phạm vi demo.
 Build demo đạt; 71/71 unit test, 57/57 Android test liên quan đạt trên Pixel_6
 API 35; lint 0 lỗi. Pixel_6 đã được tạo lại với sự đồng ý của người dùng.
-Xem [hướng dẫn sử dụng](mua-lai-don-cu.md) và
+Xem [hướng dẫn sử dụng](20261116000000_mua-lai-don-cu.md) và
 [kết quả kiểm thử thực tế](kiem-thu/reorder-2026-11-16/README.md).
 Phạm vi: ứng dụng demo bán hàng
 trên một thiết bị, dùng SQLite và luồng checkout hiện có; không cần backend.
@@ -160,4 +160,4 @@ Quay lại màn hình hoặc xoay thiết bị không tự thực thi thao tác 
   Có 8 ảnh minh chứng từ luồng thực thi trên Pixel_6 mới, gồm xem trước, gộp giỏ,
   đặt đơn mới, thiếu tồn/đổi giá và xác nhận lại dữ liệu thay đổi.
 
-Các tính năng khác được lưu tại [Danh sách tính năng phát triển sau](tinh-nang-phat-trien-sau.md).
+Các tính năng khác được lưu tại [Danh sách tính năng phát triển sau](20261116000000_tinh-nang-phat-trien-sau.md).
