@@ -1,5 +1,6 @@
 .local/
 .gradle/
+.kotlin/
 **/build/
 local.properties
 node_modules/

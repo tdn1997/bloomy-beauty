@@ -5,6 +5,7 @@
 **Phạm vi chốt: demo môn học trên một thiết bị, không yêu cầu triển khai backend riêng.** Dùng APK `.demo` để trình diễn đủ sáu tính năng; phần Cloud/Auth Emulator đã thử nghiệm chỉ là tài liệu tham khảo, không phải bước bắt buộc để chạy hoặc nghiệm thu.
 
 - [Kế hoạch và tiến độ](docs/20261007000000_ke-hoach-de-tai.md)
+- [So sánh sản phẩm](docs/20261116000000_so-sanh-san-pham.md) · [Kế hoạch](docs/20261116000000_ke-hoach-so-sanh-san-pham.md) · [Kiểm thử và ảnh](docs/kiem-thu/comparison-2026-11-16/README.md) — 76 unit và 21 Android test liên quan đạt.
 - [Pixel_6 tạo lại sau nâng cấp macOS](docs/20261116000000_pixel6-moi-2026-11-16.md)
 - [Mua lại đơn cũ](docs/20261116000000_mua-lai-don-cu.md) · [Kế hoạch](docs/20261116000000_ke-hoach-mua-lai-don-cu.md) · [Kiểm thử ngày 16/11/2026](docs/kiem-thu/reorder-2026-11-16/README.md) — hoàn tất; 71 unit và 57 Android đạt trên Pixel_6 API 35.
 - [Danh sách tính năng phát triển sau](docs/20261116000000_tinh-nang-phat-trien-sau.md)

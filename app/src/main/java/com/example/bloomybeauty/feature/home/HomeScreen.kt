@@ -70,6 +70,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.listSaver
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -145,17 +146,38 @@ fun HomeScreen(
     val changeQuery: (String) -> Unit = { if (tab == HomeTab.FAVORITES) favoriteQuery = it else onQueryChange(it) }
     val changeCategory: (String?) -> Unit = { if (tab == HomeTab.FAVORITES) favoriteCategory = it else onCategoryChange(it) }
     val changeSort: (ProductSort) -> Unit = { if (tab == HomeTab.FAVORITES) favoriteSortName = it.name else onSortChange(it) }
+    var comparisonIds by rememberSaveable(user.id,
+        stateSaver = listSaver<List<String>, String>(save = { it }, restore = { it.toList() })) { mutableStateOf(emptyList<String>()) }
+    var showComparison by rememberSaveable(user.id) { mutableStateOf(false) }
+    var returnToComparison by rememberSaveable(user.id) { mutableStateOf(false) }
+    val comparisonProducts = ComparisonSelection.reconcile(comparisonIds, state.products).mapNotNull { id -> state.products.firstOrNull { it.id == id } }
+    LaunchedEffect(state.products, state.loading, state.error) {
+        if (!state.loading && !state.error) comparisonIds = ComparisonSelection.reconcile(comparisonIds, state.products)
+    }
+    fun toggleComparison(id: String) { comparisonIds = ComparisonSelection.toggle(comparisonIds, id, state.products) }
+    fun closeDetail() {
+        selectedProductId = null
+        if (returnToComparison) { showComparison = true; returnToComparison = false }
+    }
+    if (showComparison) {
+        ComparisonScreen(comparisonProducts, state.categories.associate { it.id to it.name }, state.loading, state.error,
+            { showComparison = false }, onRetry, { comparisonIds = comparisonIds - it }, { comparisonIds = emptyList() },
+            { selectedProductId = it; showComparison = false; returnToComparison = true }, onAddToCart, cartBusy, snackbar)
+        return
+    }
     val selectedProduct = state.products.firstOrNull { it.id == selectedProductId }
     BackHandler(selectedProductId != null || tab != HomeTab.HOME) {
-        if (selectedProductId != null) selectedProductId = null else tabName = HomeTab.HOME.name
+        if (selectedProductId != null) closeDetail() else tabName = HomeTab.HOME.name
     }
     if (selectedProduct != null) {
         ProductDetail(
             selectedProduct, selectedProduct.id in state.favoriteIds, state.savingFavorite,
-            state.error, { selectedProductId = null }, { onToggleFavorite(selectedProduct.id) },
+            state.error, ::closeDetail, { onToggleFavorite(selectedProduct.id) },
             snackbar, cartCount, cartBusy, onOpenCart, { onAddToCart(selectedProduct.id) },
             onOpenCare?.let { open -> { open(selectedProduct.id) } },
             reviews, user.id,
+            comparisonIds.contains(selectedProduct.id), !state.loading && !state.error && (selectedProduct.id in comparisonIds || comparisonProducts.size < 3),
+            { toggleComparison(selectedProduct.id) }, comparisonProducts.size, { showComparison = true },
         )
         return
     }
@@ -163,26 +185,33 @@ fun HomeScreen(
         containerColor = MaterialTheme.colorScheme.background,
         snackbarHost = { SnackbarHost(snackbar) },
         bottomBar = {
-            NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
-                HomeTab.entries.forEach { item ->
-                    NavigationBarItem(
-                        selected = tab == item,
-                        onClick = { tabName = item.name },
-                        icon = {
-                            val icon = when (item) {
-                                HomeTab.HOME -> Icons.Outlined.Home
-                                HomeTab.EXPLORE -> Icons.Outlined.Search
-                                HomeTab.FAVORITES -> Icons.Outlined.FavoriteBorder
-                                HomeTab.ACCOUNT -> Icons.Outlined.Person
-                            }
-                            BadgedBox(badge = {
-                                if (item == HomeTab.FAVORITES && state.favoriteIds.isNotEmpty()) {
-                                    Badge { Text(state.favoriteIds.size.toString()) }
+            Column {
+                if (comparisonProducts.isNotEmpty()) Row(Modifier.fillMaxWidth().padding(horizontal = 12.dp), horizontalArrangement = Arrangement.SpaceBetween) {
+                    TextButton({ showComparison = true }, enabled = comparisonProducts.size >= 2 && !state.error && !state.loading,
+                        modifier = Modifier.testTag("compare-open")) { Text("So sánh (${comparisonProducts.size}/3)") }
+                    TextButton({ comparisonIds = emptyList() }, Modifier.testTag("compare-clear")) { Text("Xóa lựa chọn") }
+                }
+                NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
+                    HomeTab.entries.forEach { item ->
+                        NavigationBarItem(
+                            selected = tab == item,
+                            onClick = { tabName = item.name },
+                            icon = {
+                                val icon = when (item) {
+                                    HomeTab.HOME -> Icons.Outlined.Home
+                                    HomeTab.EXPLORE -> Icons.Outlined.Search
+                                    HomeTab.FAVORITES -> Icons.Outlined.FavoriteBorder
+                                    HomeTab.ACCOUNT -> Icons.Outlined.Person
                                 }
-                            }) { Icon(icon, contentDescription = null) }
-                        },
-                        label = { Text(stringResource(item.label)) },
-                    )
+                                BadgedBox(badge = {
+                                    if (item == HomeTab.FAVORITES && state.favoriteIds.isNotEmpty()) {
+                                        Badge { Text(state.favoriteIds.size.toString()) }
+                                    }
+                                }) { Icon(icon, contentDescription = null) }
+                            },
+                            label = { Text(stringResource(item.label)) },
+                        )
+                    }
                 }
             }
         },
@@ -279,6 +308,8 @@ fun HomeScreen(
                             product, product.id in state.favoriteIds, !state.savingFavorite,
                             { selectedProductId = product.id }, { onToggleFavorite(product.id) },
                             if (tab == HomeTab.FAVORITES) ({ onAddToCart(product.id) }) else null, cartBusy,
+                            product.id in comparisonIds, !state.error && (product.id in comparisonIds || comparisonProducts.size < 3),
+                            { toggleComparison(product.id) },
                         )
                     }
                 }
@@ -357,7 +388,8 @@ private fun CollectionBanner(onExplore: () -> Unit) {
 }
 
 @Composable
-private fun ProductCard(product: Product, favorite: Boolean, favoriteEnabled: Boolean, onOpen: () -> Unit, onFavorite: () -> Unit, onAdd: (() -> Unit)? = null, cartBusy: Boolean = false) {
+private fun ProductCard(product: Product, favorite: Boolean, favoriteEnabled: Boolean, onOpen: () -> Unit, onFavorite: () -> Unit, onAdd: (() -> Unit)? = null, cartBusy: Boolean = false,
+    compared: Boolean = false, compareEnabled: Boolean = true, onCompare: () -> Unit = {}) {
     Surface(shape = RoundedCornerShape(20.dp), color = MaterialTheme.colorScheme.surface, tonalElevation = 1.dp) {
         Column(Modifier.clickable(onClick = onOpen)) {
             Box(Modifier.fillMaxWidth().aspectRatio(1f).background(Color.White)) {
@@ -373,6 +405,9 @@ private fun ProductCard(product: Product, favorite: Boolean, favoriteEnabled: Bo
                 Text(formatPrice(product.priceVnd), style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
                 Text(if (product.stock == 0) "Hết hàng" else "Còn hàng", style = MaterialTheme.typography.labelMedium,
                     color = if (product.stock == 0) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant)
+                OutlinedButton(onCompare, enabled = compareEnabled, modifier = Modifier.fillMaxWidth().testTag("compare-select-${product.id}")) {
+                    Text(if (compared) "Bỏ so sánh" else "So sánh")
+                }
                 if (onAdd != null) OutlinedButton(onAdd, enabled = product.stock > 0 && product.active && !cartBusy,
                     modifier = Modifier.fillMaxWidth().testTag("favorite_add_${product.id}")) { Text("Thêm vào giỏ") }
             }
@@ -402,7 +437,8 @@ private fun EmptyProducts(favorites: Boolean, onReset: () -> Unit) {
 @Composable
 private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, error: Boolean, onBack: () -> Unit, onFavorite: () -> Unit,
                           snackbar: SnackbarHostState, cartCount: Int, cartBusy: Boolean, onCart: () -> Unit, onAdd: () -> Unit, onCare: (() -> Unit)? = null,
-                          reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null, userId: Long = 0) {
+                          reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null, userId: Long = 0,
+    compared: Boolean = false, compareEnabled: Boolean = true, onCompare: () -> Unit = {}, comparisonCount: Int = 0, onOpenComparison: () -> Unit = {}) {
     val context = LocalContext.current
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) },
@@ -434,6 +470,11 @@ private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, er
             Button(onAdd, enabled = product.active && product.stock > 0 && !cartBusy, modifier = Modifier.fillMaxWidth()) {
                 Text(if (cartBusy) "Đang xử lý…" else "Thêm vào giỏ")
             }
+            OutlinedButton(onCompare, enabled = compareEnabled, modifier = Modifier.fillMaxWidth().testTag("compare-detail-select")) {
+                Text(if (compared) "Bỏ khỏi so sánh" else "Chọn để so sánh")
+            }
+            if (comparisonCount >= 2) TextButton(onOpenComparison) { Text("Xem so sánh ($comparisonCount/3)") }
+            if (comparisonCount == 3 && !compared) Text("Đã chọn tối đa 3 sản phẩm. Bỏ một sản phẩm để chọn thêm.")
             if (error) Text(stringResource(R.string.catalog_error), color = MaterialTheme.colorScheme.error)
             if (onCare != null) OutlinedButton(onCare, modifier = Modifier.fillMaxWidth()) { Text("Tạo lịch chăm sóc với sản phẩm") }
             HorizontalDivider()

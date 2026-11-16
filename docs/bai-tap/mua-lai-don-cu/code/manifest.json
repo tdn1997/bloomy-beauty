@@ -1,0 +1,72 @@
+[
+  {
+    "file": "code/01-quy-tac-gop.png",
+    "caption": "Quy tắc gộp số lượng",
+    "description": "Dùng giá hiện tại, giới hạn theo tồn kho và mức 99 đơn vị. Phân biệt sản phẩm mất/ngừng bán/hết hàng, giỏ vượt tồn và giá chưa được chấp nhận.",
+    "source": "app/src/main/java/com/example/bloomybeauty/data/order/ReorderModels.kt",
+    "start_line": 45,
+    "end_line": 60,
+    "source_sha256": "8c26f97ba54262946b26b124de67eb4a152ad409c793d359fc99ad9edc15d142",
+    "sha256": "037a1cc0594478b851274bc23efd121043a64795a7e5c8e25209051249cafb34",
+    "dimensions": [
+      1280,
+      728
+    ]
+  },
+  {
+    "file": "code/02-transaction.png",
+    "caption": "Xác nhận trong một transaction",
+    "description": "Đọc lại và đối chiếu nguồn preview, gộp các dòng rồi xóa checkout nháp trong cùng transaction. Chỉ đánh dấu preview đã sử dụng sau khi commit thành công; lỗi ghi rollback toàn bộ.",
+    "source": "app/src/main/java/com/example/bloomybeauty/data/order/ReorderRepository.kt",
+    "start_line": 15,
+    "end_line": 41,
+    "source_sha256": "789dd16f9b9ec2abb1ad5a86ad284e816b3c4e98889f67bd72aad4da6a85d6a4",
+    "sha256": "02548254436c335d58b07f58e5b2d94d07a0af1ec13d82e6c50a2cc2cd34ae68",
+    "dimensions": [
+      1280,
+      1148
+    ]
+  },
+  {
+    "file": "code/03-quyen-so-huu.png",
+    "caption": "Kiểm tra phiên và quyền sở hữu",
+    "description": "Kiểm tra phiên hiện hành, tìm đơn theo cả orderId và userId, chỉ cho phép trạng thái DELIVERED/CANCELLED. Kết quả checkout đã commit phải được hoàn tất trước khi mua lại.",
+    "source": "app/src/main/java/com/example/bloomybeauty/data/order/ReorderRepository.kt",
+    "start_line": 43,
+    "end_line": 56,
+    "source_sha256": "789dd16f9b9ec2abb1ad5a86ad284e816b3c4e98889f67bd72aad4da6a85d6a4",
+    "sha256": "6943e2bf3b0c27cd824608d5b81952ef41d3806cf780bd94204587ccc78e7682",
+    "dimensions": [
+      1280,
+      758
+    ]
+  },
+  {
+    "file": "code/04-viewmodel.png",
+    "caption": "Trạng thái xác nhận và dữ liệu thay đổi",
+    "description": "Khóa nhấn lặp trong lúc xử lý. Khi dữ liệu thay đổi, tải preview mới và giữ thông báo yêu cầu xác nhận lại; lỗi lưu trữ không được tự gửi lại thao tác gộp.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/order/ReorderAction.kt",
+    "start_line": 45,
+    "end_line": 66,
+    "source_sha256": "c52e5600f7670f2d4a69c8b8be61e3b7ee2d8f75456eba60be461e5a694ed9c1",
+    "sha256": "c9546c06f2d8f1be153de994b12485f3ed95481c2b67b0c4053c423b60e1dca6",
+    "dimensions": [
+      1280,
+      968
+    ]
+  },
+  {
+    "file": "code/05-checkout.png",
+    "caption": "Đưa giỏ về bước sản phẩm",
+    "description": "Xóa request, coupon và trạng thái review cũ, giữ nháp giao hàng. Nếu refresh còn chạy, đặt cờ để reset và tải lại sau khi refresh kết thúc.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/cart/CartViewModel.kt",
+    "start_line": 57,
+    "end_line": 72,
+    "source_sha256": "d060884c974f0d699b8087363cacb79ff3a3cf5cfcb8d129b760a8e5e71e1238",
+    "sha256": "c2e5091017f0528554528b02e5f86ddb0415a24ddde125c1e17057645664e3f8",
+    "dimensions": [
+      1280,
+      668
+    ]
+  }
+]

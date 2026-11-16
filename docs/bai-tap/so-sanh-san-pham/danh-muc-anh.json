@@ -1,0 +1,137 @@
+[
+  {
+    "file": "01-selection.png",
+    "caption": "Chọn sản phẩm từ danh mục",
+    "description": "Chọn hai hoặc ba sản phẩm. Thanh lựa chọn hiển thị số lượng; chưa đủ hai mục thì nút mở bảng bị khóa. Lựa chọn không phụ thuộc bộ lọc.",
+    "source": "docs/kiem-thu/comparison-2026-11-16/pixel6-comparison/01-selection.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "ec9c3f5ebd8e28f3160330b75784c93da7cdca5950943e9e1e45adf1e5124ca8",
+    "kind": "runtime-screenshot"
+  },
+  {
+    "file": "02-table-two.png",
+    "caption": "Bảng so sánh hai sản phẩm",
+    "description": "Đối chiếu giá, dung tích, tình trạng, mô tả, thành phần và cách dùng theo hàng. Ảnh là giao diện mới nhất với chữ 12–13sp và cụm nút có padding đồng đều.",
+    "source": "docs/kiem-thu/comparison-2026-11-16/pixel6-comparison/02-table-two.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "ebfe98adfb9406c45f33e6ec66055e76b4d698c95052cdbb2d32db6c47d4e7a0",
+    "kind": "runtime-screenshot"
+  },
+  {
+    "file": "03-three-products.png",
+    "caption": "So sánh ba sản phẩm và cuộn ngang",
+    "description": "Khi đủ ba mục, các sản phẩm chưa chọn không thể được thêm vào danh sách. Vuốt ngang để xem cột thứ ba; vẫn có thể bỏ từng mục.",
+    "source": "docs/kiem-thu/comparison-2026-11-16/pixel6-comparison/03-three-products.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "8767e060f5c0898d894610aadcb1c1a15d1f49861052dd0601e98da1968fb2b0",
+    "kind": "runtime-screenshot"
+  },
+  {
+    "file": "04-empty.png",
+    "caption": "Xóa toàn bộ lựa chọn",
+    "description": "Sau Xóa tất cả, bảng hiển thị trạng thái rỗng và nút Chọn sản phẩm để quay lại danh mục.",
+    "source": "docs/kiem-thu/comparison-2026-11-16/pixel6-comparison/04-empty.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "bdf08d957f2898494f3ba4e3fd7a0bc6be88d9c127dc752455d96e028f56c314",
+    "kind": "runtime-screenshot"
+  },
+  {
+    "file": "05-current-price-sold-out.png",
+    "caption": "Giá cập nhật và sản phẩm hết hàng",
+    "description": "Giá được lấy từ catalog hiện tại. Hết hàng vẫn so sánh được, nhưng nút Thêm vào giỏ bị khóa.",
+    "source": "docs/kiem-thu/comparison-2026-11-16/pixel6-comparison/05-current-price-sold-out.png",
+    "dimensions": [
+      1080,
+      2400
+    ],
+    "sha256": "e93488e1f84e7b0c12055961fd983f156005520e70ab8b2abbe8b7e1ee41cb84",
+    "kind": "runtime-screenshot"
+  },
+  {
+    "file": "code/01-quy-tac-chon.png",
+    "caption": "Quy tắc chọn tối đa ba sản phẩm",
+    "description": "Loại ID trùng, không tồn tại hoặc ngừng bán; giữ thứ tự chọn và tối đa ba mục. Cho phép bỏ một mục để chọn sản phẩm khác; thông tin thiếu có nhãn rõ ràng.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/ComparisonScreen.kt",
+    "start_line": 24,
+    "end_line": 37,
+    "source_sha256": "0cbcb7b13bf9afeed946f348083b909d3da35f15396ba64dbe28f25d9b41e877",
+    "sha256": "f92e74d549b4fee4161dc31cbd18dc48a571d7e89fe00170306197bebf36a0a9",
+    "dimensions": [
+      1280,
+      608
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/02-trang-thai-dieu-huong.png",
+    "caption": "Lưu lựa chọn theo tài khoản và điều hướng",
+    "description": "Lưu ID bằng rememberSaveable(user.id) và listSaver, đối chiếu lại với catalog đang có. Mở bảng bằng dữ liệu hiện tại; callback thêm giỏ dùng lại luồng HomeScreen/CartViewModel. Xem chi tiết rồi quay lại đúng bảng.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/HomeScreen.kt",
+    "start_line": 149,
+    "end_line": 167,
+    "source_sha256": "2672e9fa798b459c02651473894a05c801746dfef1d9210d140bd1bd0f64739d",
+    "sha256": "9f8855168ef003d827dcf8869fdd8195e733d0a51cbf543ff454176e75c7955f",
+    "dimensions": [
+      1280,
+      908
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/03-bo-cuc-thich-ung.png",
+    "caption": "Bố cục bảng theo chiều rộng màn hình",
+    "description": "Tính chiều rộng cột từ vùng hiển thị, dành 76dp cho nhãn và tối thiểu 132dp mỗi sản phẩm. Bảng dùng cuộn ngang khi cần; toàn màn hình có cuộn dọc.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/ComparisonScreen.kt",
+    "start_line": 66,
+    "end_line": 70,
+    "source_sha256": "0cbcb7b13bf9afeed946f348083b909d3da35f15396ba64dbe28f25d9b41e877",
+    "sha256": "c6f43003252af63ea188e2f46edb08aa3a4b690a4de79a7a1c49e1d20b6fadd6",
+    "dimensions": [
+      1280,
+      368
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/04-padding-nut.png",
+    "caption": "Padding và hình dạng nút đồng đều",
+    "description": "Các nút chiếm cùng chiều rộng cột, cao tối thiểu 40dp, padding ngang 10dp/dọc 8dp và bo góc 10dp. Khoảng cách cụm nút 8dp; chiều cao được phép tăng khi chữ cần xuống hàng.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/ComparisonScreen.kt",
+    "start_line": 79,
+    "end_line": 90,
+    "source_sha256": "0cbcb7b13bf9afeed946f348083b909d3da35f15396ba64dbe28f25d9b41e877",
+    "sha256": "5dca8c1cd21dbbb958c45d4c4ad7d500d952799c30811523b4cf2208e14bdbbc",
+    "dimensions": [
+      1280,
+      698
+    ],
+    "kind": "source-code"
+  },
+  {
+    "file": "code/05-thuoc-tinh.png",
+    "caption": "Dữ liệu thuộc tính dùng để đối chiếu",
+    "description": "Hiển thị trường có sẵn trong Product và danh mục. Giá là giá từng sản phẩm, dung tích giữ đơn vị gốc. Loại da phù hợp chưa có dữ liệu riêng nên hiện Chưa có thông tin, không tự suy đoán.",
+    "source": "app/src/main/java/com/example/bloomybeauty/feature/home/ComparisonScreen.kt",
+    "start_line": 100,
+    "end_line": 110,
+    "source_sha256": "0cbcb7b13bf9afeed946f348083b909d3da35f15396ba64dbe28f25d9b41e877",
+    "sha256": "796990c305d9b41cd23de3c7e09301dd56071f197578b484ee668cfdc068b40f",
+    "dimensions": [
+      1280,
+      728
+    ],
+    "kind": "source-code"
+  }
+]
