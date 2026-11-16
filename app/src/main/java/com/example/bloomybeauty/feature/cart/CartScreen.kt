@@ -97,6 +97,7 @@ private fun CartItems(state: CartUiState, onQuantity: (String, Int) -> Unit, onR
             Text("${snapshot.quantity} sản phẩm trong giỏ", style = MaterialTheme.typography.titleMedium)
             Text("Tồn kho và giá phục vụ bản demo trên thiết bị.", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
+        state.reorderNotice?.let { message -> item { Text(message, modifier = Modifier.testTag("reorder-result")) } }
         state.error?.let { error -> item {
             CartErrorMessage(error)
             if (error == CartError.STORAGE) TextButton(onRetry, enabled = !state.busy) { Text("Thử lại") }

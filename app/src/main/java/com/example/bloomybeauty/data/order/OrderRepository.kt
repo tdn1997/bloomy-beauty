@@ -16,6 +16,7 @@ import com.example.bloomybeauty.events.*
 class OrderRepository(private val helper: AuthDatabaseHelper, private val changes: OrderChangePublisher = OrderChangePublisher.None,
     private val coupons: LocalCouponRepository = LocalCouponRepository()) {
     val localCouponsEnabled: Boolean get() = coupons.enabled
+    val reorder: ReorderRepository get() = ReorderRepository(helper)
     suspend fun couponRules(userId: Long): List<CouponRule> = withContext(Dispatchers.IO) {
         transaction {db -> checkSession(db,userId);coupons.list(db)}
     }

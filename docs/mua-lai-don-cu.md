@@ -1,0 +1,58 @@
+# Mua lại đơn cũ
+
+Tính năng dùng SQLite trên một thiết bị, hoạt động ngoại tuyến trong bản demo.
+Thêm hàng vào giỏ chưa tạo đơn và chưa trừ tồn kho.
+
+## Cách sử dụng
+
+1. Đăng nhập tài khoản khách → **Tài khoản → Đơn hàng của tôi**.
+2. Mở một đơn **Đã giao** hoặc **Đã hủy**, bấm **Mua lại**.
+3. Xem từng mặt hàng: số lượng đã đặt, số lượng thêm được, lượng đang có trong
+   giỏ, giá hiện tại và thay đổi so với giá trong đơn cũ.
+4. Bấm **Thêm vào giỏ** để xác nhận hoặc **Hủy** để giữ nguyên giỏ.
+5. Sau xác nhận, app mở giỏ hàng và báo kết quả. Kiểm tra sản phẩm, thông tin
+   giao hàng và coupon, rồi đặt đơn mới qua luồng COD hiện có.
+
+## Các trường hợp đặc biệt
+
+| Trường hợp | Cách xử lý |
+|---|---|
+| Đã có sản phẩm trong giỏ | Cộng số lượng; giữ những mặt hàng khác |
+| Thiếu tồn hoặc vượt 99 đơn vị/mặt hàng | Chỉ thêm lượng còn cho phép; thông báo trước khi xác nhận |
+| Hết hàng, ngừng bán hoặc không còn sản phẩm | Bỏ qua và ghi lý do; không thêm được mục nào thì khóa xác nhận |
+| Lượng đã có trong giỏ vượt tồn kho | Giữ nguyên lượng cũ; yêu cầu điều chỉnh trong giỏ |
+| Giá thay đổi so với đơn cũ | Hiển thị giá cũ và giá hiện tại trong bản xem trước |
+| Giá của dòng đang có trong giỏ chưa được chấp nhận | Vào giỏ xác nhận giá mới, rồi mở lại Mua lại |
+| Giỏ, giá, tồn hoặc dữ liệu liên quan đổi sau xem trước | Cập nhật bản xem trước; khách phải xác nhận lại |
+| Đang có kết quả đặt hàng chưa xem xong | Vào giỏ hoàn tất màn kết quả trước khi mua lại |
+| Có bản nháp checkout chưa đặt đơn | Khi thêm hàng thành công, bỏ báo giá/coupon nháp để kiểm tra lại checkout |
+| Lỗi lưu trữ | Kiểm tra giỏ trước khi thử lại; lỗi ghi trong transaction được rollback |
+
+## Dữ liệu được giữ nguyên
+
+- Đơn cũ giữ tên, số lượng, giá, địa chỉ và ưu đãi đã lưu; PDF và đánh giá của
+  đơn cũ không bị thay đổi.
+- Giữ nháp giao hàng hiện tại, không lấy lại địa chỉ từ đơn cũ.
+- Không sao chép mã giảm giá hoặc phí vận chuyển của đơn cũ. Tạm tính mua lại
+  chỉ tính tiền hàng thêm vào giỏ; checkout tính lại phí và ưu đãi.
+- Nút chỉ hiện với đơn đã giao/đã hủy. Repository kiểm tra lại phiên, chủ đơn
+  và trạng thái, kể cả khi thao tác được gọi ngoài màn hình.
+
+## Kỹ thuật
+
+- `ReorderRepository.preview()` đọc dữ liệu và tạo bản xem trước, không ghi giỏ.
+- `confirm()` đọc lại dữ liệu trong một transaction; nếu khớp bản xem trước,
+  gộp toàn bộ các dòng đủ điều kiện và xóa checkout nháp trong cùng transaction.
+- Chống dùng lại bản xem trước đã commit; các bản xem trước khác được kiểm tra
+  lại với giỏ mới. Không tự thêm khi xoay màn hình hoặc khởi động lại app.
+- `CartViewModel.openAfterReorder()` đưa khách về bước sản phẩm, xóa trạng thái
+  xác nhận/coupon cũ và xử lý cả trường hợp refresh vòng đời còn đang chạy.
+- Không thay schema; vẫn dùng SQLite phiên bản 11.
+
+Đã kiểm thử ngày 16/11/2026 trên Pixel_6 Android 15/API 35: 14 ca repository và
+7 ca UI mua lại đạt; tổng lượt hồi quy liên quan 57/57 đạt. Unit test 71/71 đạt,
+lint 0 lỗi. [Kết quả và ảnh](kiem-thu/reorder-2026-11-16/README.md).
+
+APK demo đã cài trên Pixel_6 mới; bản sao tại
+`deliverables/bloomy-beauty-demo-reorder-2026-11-16.apk` ở thư mục gốc dự án.
+[Kế hoạch và các ca nghiệm thu](ke-hoach-mua-lai-don-cu.md).

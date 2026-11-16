@@ -31,6 +31,7 @@ data class CartUiState(
     val couponError: CouponException? = null,
     val quoteInvalid: Boolean = false,
     val reviewNotice: Boolean = false,
+    val reorderNotice: String? = null,
 )
 
 class CartViewModel(private val repository: CartRepository, private val userId: Long, private var userName: String, private val orders: OrderRepository) : ViewModel() {
@@ -39,6 +40,7 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
     private var draftDirty = false
     private var couponDraftLoaded = false
     private var reloadPending = false
+    private var reorderResetPending = false
 
     init { reload() }
 
@@ -48,8 +50,25 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
     }
 
     fun open() {
-        mutableState.update { it.copy(step = CartStep.ITEMS, error = null, notice = false) }
+        mutableState.update { it.copy(step = CartStep.ITEMS, error = null, notice = false, reorderNotice = null) }
         reload()
+    }
+
+    fun openAfterReorder(message: String) {
+        // A lifecycle refresh may still be in flight. Reset again after it finishes.
+        reorderResetPending = true
+        mutableState.update { it.copy(reorderNotice = message) }
+        if (state.value.busy) { reloadPending = true; return }
+        resetAfterReorder()
+        reload()
+    }
+
+    private fun resetAfterReorder() {
+        reorderResetPending = false
+        couponDraftLoaded = true
+        mutableState.update { it.copy(step = CartStep.ITEMS, request = null, placedOrder = null,
+            couponText = "", couponError = null, quoteInvalid = false, reviewNotice = false,
+            error = null, orderError = null, shippingError = null) }
     }
 
     fun reload() {
@@ -173,7 +192,7 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
     private fun mutate(block: suspend () -> Unit) = runAction {
         block()
         val snapshot = repository.load(userId)
-        mutableState.update { it.copy(snapshot = snapshot) }
+        mutableState.update { it.copy(snapshot = snapshot, reorderNotice = null) }
     }
 
     private fun runAction(block: suspend () -> Unit) {
@@ -201,6 +220,7 @@ class CartViewModel(private val repository: CartRepository, private val userId: 
                 mutableState.update { it.copy(error = CartError.TOTAL_OVERFLOW) }
             } finally {
                 mutableState.update { it.copy(busy = false, loading = false) }
+                if (reorderResetPending) { resetAfterReorder(); reloadPending = true }
                 if (reloadPending) { reloadPending = false; reload() }
             }
         }

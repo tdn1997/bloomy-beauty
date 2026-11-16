@@ -196,6 +196,9 @@ class CartFlowTest {
         awaitCart()
         compose.onNodeWithText("Số điện thoại").performTextInput("0912345678")
         compose.onNodeWithText("Địa chỉ nhận hàng").performTextInput("12 Nguyễn Văn A, TP Hồ Chí Minh")
+        // Let the IME close before locating the button: its moving bounds can swallow a tap.
+        androidx.test.espresso.Espresso.closeSoftKeyboard()
+        compose.waitForIdle()
         compose.onNodeWithText("Lưu và kiểm tra thông tin").performScrollTo().performClick()
         awaitCart()
     }

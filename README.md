@@ -1,10 +1,13 @@
 # Bloomy Beauty — Ứng dụng bán mỹ phẩm
 
-Ứng dụng Android Kotlin/Jetpack Compose, SQLite schema 11. Khách đăng ký/đăng nhập, xem/tìm/yêu thích sản phẩm, giỏ/giao hàng/COD, sổ địa chỉ, áp mã mẫu trong bản demo/QA, lịch sử/hủy đơn, đánh giá sau khi giao hàng, lịch chăm sóc da và nhắc hẹn cục bộ; admin quản lý sản phẩm, xử lý trạng thái và xem thống kê. Có phiếu PDF và hộp thông báo đơn hàng theo tài khoản. Tám sản phẩm/ảnh tham khảo Cocoon đóng gói ngoại tuyến. Giá tham khảo ngày 07/10/2026; đơn và tồn là demo trên một thiết bị.
+Ứng dụng Android Kotlin/Jetpack Compose, SQLite schema 11. Khách đăng ký/đăng nhập, xem/tìm/yêu thích sản phẩm, giỏ/giao hàng/COD, sổ địa chỉ, áp mã mẫu trong bản demo/QA, lịch sử/hủy/mua lại đơn, đánh giá sau khi giao hàng, lịch chăm sóc da và nhắc hẹn cục bộ; admin quản lý sản phẩm, xử lý trạng thái và xem thống kê. Có phiếu PDF và hộp thông báo đơn hàng theo tài khoản. Tám sản phẩm/ảnh tham khảo Cocoon đóng gói ngoại tuyến. Giá tham khảo ngày 07/10/2026; đơn và tồn là demo trên một thiết bị.
 
 **Phạm vi chốt: demo môn học trên một thiết bị, không yêu cầu triển khai backend riêng.** Dùng APK `.demo` để trình diễn đủ sáu tính năng; phần Cloud/Auth Emulator đã thử nghiệm chỉ là tài liệu tham khảo, không phải bước bắt buộc để chạy hoặc nghiệm thu.
 
 - [Kế hoạch và tiến độ](docs/ke-hoach-de-tai.md)
+- [Pixel_6 tạo lại sau nâng cấp macOS](docs/pixel6-moi-2026-11-16.md)
+- [Mua lại đơn cũ](docs/mua-lai-don-cu.md) · [Kế hoạch](docs/ke-hoach-mua-lai-don-cu.md) · [Kiểm thử ngày 16/11/2026](docs/kiem-thu/reorder-2026-11-16/README.md) — hoàn tất; 71 unit và 57 Android đạt trên Pixel_6 API 35.
+- [Danh sách tính năng phát triển sau](docs/tinh-nang-phat-trien-sau.md)
 - [Kế hoạch sáu tính năng mở rộng và đồng bộ Firebase](docs/ke-hoach-mo-rong-ban-hang.md)
 - [Kế hoạch bổ sung Content Provider và Broadcast Receiver](docs/ke-hoach-content-provider-broadcast.md)
 - [Sử dụng lịch chăm sóc, nhắc hẹn và broadcast đơn hàng](docs/lich-cham-soc.md)
@@ -61,6 +64,11 @@ See [Thông báo đẩy và cách gửi thử](docs/thong-bao-day.md) for setup 
 BoM `34.7.0` is pinned for compatibility with the project's Kotlin `2.0.21` compiler.
 
 Sync Gradle in Android Studio or run `./gradlew :app:assembleDebug` using JDK 17+.
+Với Gradle 8.11.1 hiện tại, dùng JDK 21 để chạy các lệnh kiểm thử bên dưới;
+JDK 25 đi kèm Android Studio mới chưa chạy được cấu hình này. Nếu
+`~/.gradle/gradle.properties` đặt `org.gradle.java.home`, truyền thêm
+`-Dorg.gradle.java.home=/duong-dan/JDK21/Contents/Home` để chọn đúng JDK cho Gradle,
+ngoài việc đặt `JAVA_HOME`.
 The `-Ppresentation=true` and `-PqaRelease=true` builds skip Google Services config
 processing and run without Firebase: their `.demo` and `.qa` package IDs are not
 registered in the supplied config. Register those Android apps in Firebase and
@@ -93,3 +101,13 @@ Chạy connected tests trên emulator dùng cho kiểm thử vì Gradle cài/g�
 ## Cập nhật buổi 09/11/2026
 
 Hoàn thiện Yêu thích: lối vào từ Tài khoản, bộ lọc riêng, thêm nhanh giỏ và trạng thái hết hàng. SQLite schema 11, không cần BE. [Hướng dẫn](docs/san-pham-yeu-thich.md) · [Kế hoạch](docs/ke-hoach-yeu-thich.md) · [Bài tập cá nhân và ảnh](docs/bai-tap/san-pham-yeu-thich/README.md) · [Kiểm thử](docs/kiem-thu/pixel6-favorites-2026-11-09/README.md).
+
+## Cập nhật buổi 16/11/2026
+
+Hoàn thiện Mua lại đơn cũ: xem trước, gộp giỏ theo giá/tồn hiện tại, xác nhận lại
+khi dữ liệu thay đổi và xử lý checkout nháp. Không đổi schema SQLite 11.
+Build demo đạt; 71/71 unit test và 57/57 Android test liên quan đạt, lint 0 lỗi.
+Đã tạo lại một Pixel_6 Android 15/API 35 sau nâng cấp macOS.
+[Hướng dẫn](docs/mua-lai-don-cu.md) · [Kết quả và ảnh](docs/kiem-thu/reorder-2026-11-16/README.md).
+APK mới: `deliverables/bloomy-beauty-demo-reorder-2026-11-16.apk`, có checksum
+`.apk.sha256` cạnh bên. Các ZIP bàn giao ngày 08/11 là bộ lưu của đợt trước.

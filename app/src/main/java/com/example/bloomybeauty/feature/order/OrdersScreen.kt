@@ -77,7 +77,9 @@ class OrdersViewModel(private val repository: OrderRepository, private val userI
 @Composable
 fun OrdersScreen(state: OrdersUiState, onBack: () -> Unit, onRetry: () -> Unit, onCancel: (Long) -> Unit = {},
     reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null, userId: Long = 0,
-    pdfExporter: com.example.bloomybeauty.export.OrderPdfExporter? = null, initialOrderId: Long? = null) {
+    pdfExporter: com.example.bloomybeauty.export.OrderPdfExporter? = null, initialOrderId: Long? = null,
+    reorder: ReorderViewModel? = null, reorderEnabled: Boolean = true,
+    onReordered: (ReorderPreview) -> Unit = {}, onOpenCart: () -> Unit = {}) {
     var selected by rememberSaveable { mutableStateOf(initialOrderId) }
     var reviewProduct by rememberSaveable { mutableStateOf<String?>(null) }
     var confirmCancel by rememberSaveable { mutableStateOf(false) }
@@ -103,6 +105,9 @@ fun OrdersScreen(state: OrdersUiState, onBack: () -> Unit, onRetry: () -> Unit, 
             Column(Modifier.fillMaxSize().padding(padding).verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
                 OrderSummary(order)
                 OrderContents(order)
+                if (order.status in listOf("DELIVERED", "CANCELLED") && reorder != null) {
+                    ReorderAction(order, reorder, reorderEnabled && !state.busy && !state.loading, onReordered, onOpenCart)
+                }
                 pdfExporter?.let { com.example.bloomybeauty.feature.export.OrderPdfActions(it,userId,order.id) }
                 if (order.status == "DELIVERED" && reviews != null) {
                     Text("Đánh giá sau khi mua", style = MaterialTheme.typography.titleMedium)

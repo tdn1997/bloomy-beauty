@@ -186,8 +186,15 @@ fun BloomyApp(auth: AuthViewModel, repositories: ShopRepositories, careOpenReque
                     onOpenStatistics=statistics?.let { {screenName=ShopScreen.STATISTICS.name} },pdfExporter=repositories.pdfExporter,userId=user.id)
                 ShopScreen.PROFILE -> ProfileScreen(profile.state.collectAsStateWithLifecycle().value,
                     ::goHome,profile::edit,{profile.save {updated -> auth.onProfileUpdated(updated);cart.updateUserName(updated.name);goHome()}},profile::reload, onOpenAddresses = repositories.addresses?.let { {openAddresses(ShopScreen.PROFILE)} })
-                ShopScreen.ORDERS -> OrdersScreen(orders.state.collectAsStateWithLifecycle().value,::goHome,orders::reload,
-                    {id -> orders.cancel(id) {home.reload();cart.reload()} }, reviews = repositories.reviews, userId = user.id,pdfExporter = repositories.pdfExporter,initialOrderId=openedOrderId)
+                ShopScreen.ORDERS -> {
+                    val reorder: com.example.bloomybeauty.feature.order.ReorderViewModel = viewModel(viewModelStoreOwner=auth,
+                        key="reorder-${user.id}",factory=com.example.bloomybeauty.feature.order.ReorderViewModel.Factory(repositories.orders.reorder,user.id))
+                    OrdersScreen(orders.state.collectAsStateWithLifecycle().value,::goHome,orders::reload,
+                    {id -> orders.cancel(id) {home.reload();cart.reload()} }, reviews = repositories.reviews, userId = user.id,pdfExporter = repositories.pdfExporter,initialOrderId=openedOrderId,
+                    reorder=reorder,reorderEnabled=!cartState.busy,
+                    onReordered={result -> cart.openAfterReorder(com.example.bloomybeauty.feature.order.reorderSummary(result));screenName=ShopScreen.CART.name},
+                    onOpenCart={reorder.dismiss();cart.open();screenName=ShopScreen.CART.name})
+                }
                 ShopScreen.CART -> CartScreen(cartState,
                     onBack={if(!cart.back()) goHome()},onQuantityChange=cart::setQuantity,onRemove=cart::remove,
                     onAcceptPrices=cart::acceptPrices,onContinue=cart::continueToShipping,onDraftChange=cart::editDraft,

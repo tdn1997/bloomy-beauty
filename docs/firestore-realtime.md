@@ -96,9 +96,39 @@ Giảm phần trăm phải trong 1–100; các số tiền tối đa 1.000.000.0
    nếu project có thêm chức năng khác. Tài khoản quản trị Console/Admin SDK vẫn
    quản lý dữ liệu bằng IAM.
 
-Rules chưa được triển khai tự động lên project thật. Các thử nghiệm ghi dữ liệu
-và kiểm thử rules chỉ chạy trên project giả lập `demo-bloomy-beauty`.
+Rules đã được triển khai lên project thật `bloomy-beauty` ngày 16/11/2026 bằng
+`firebase deploy --only firestore:rules --project bloomy-beauty`.
+Sau triển khai, kiểm tra trực tiếp không đăng nhập cho cả `flash_sales` và
+`coupon_campaigns`: truy vấn `published == true` thành công (mỗi collection 1
+document), còn `published == false` và truy vấn không lọc đều bị
+`permission-denied`. Bộ kiểm thử emulator có 13/13 ca đạt.
+Các thử nghiệm ghi dữ liệu và kiểm thử rules chỉ chạy trên project giả lập
+`demo-bloomy-beauty`; kiểm tra project thật lần này chỉ đọc.
 Không giữ rules test mode mở toàn bộ database khi dùng dữ liệu thật.
+
+### Khi nhận email “Client access … expiring”
+
+Email này nói về rules đang chạy trên Firebase, không phải file trong Git.
+`firestore.rules` không có ngày hết hạn: khách chỉ đọc được ưu đãi
+`published == true`; người dùng Firebase chỉ đọc được hồ sơ/vai trò của chính
+mình; mọi thao tác ghi từ client đều bị chặn. Chức năng SQLite không bị ảnh hưởng.
+
+Chạy từ thư mục gốc để kiểm thử rồi triển khai **chỉ rules** vào đúng project:
+
+```sh
+npm --prefix firebase-tests test
+firebase-tests/node_modules/.bin/firebase login
+firebase-tests/node_modules/.bin/firebase deploy --only firestore:rules --project bloomy-beauty
+```
+
+Nếu chưa có dependencies, chạy `npm --prefix firebase-tests ci` trước.
+Đặt JDK 21 trong `PATH` khi chạy kiểm thử emulator như hướng dẫn bên dưới.
+Hoặc mở [Firestore Rules](https://console.firebase.google.com/project/bloomy-beauty/firestore/rules),
+dán toàn bộ nội dung `firestore.rules`, rồi bấm **Publish**.
+Không gia hạn ngày của rules Test Mode hoặc mở quyền ghi để xử lý email này.
+Sau triển khai, xác nhận truy vấn `published == true` thành công, còn truy vấn
+không lọc hoặc `published == false` bị `permission-denied`. Firebase phân tích
+rules hằng ngày nên email/cảnh báo có thể cần đến 24 giờ để cập nhật.
 
 Các document `published = true` là dữ liệu công khai, kể cả nếu `startsAt` chưa tới.
 Ẩn mã trên UI trước giờ **không phải bảo mật**: nếu cần giữ bí mật mã trước giờ phát,
@@ -137,8 +167,9 @@ npm --prefix firebase-tests ci
 npm --prefix firebase-tests test
 ```
 
-Rules tests chạy Emulator Suite và không dùng project thật. Có 9 ca cho đọc công
-khai, chặn bản nháp, chặn truy vấn không lọc và chặn ghi từ mọi client.
+Rules tests chạy Emulator Suite và không dùng project thật. Có 13 ca cho đọc công
+khai, chặn bản nháp, chặn truy vấn không lọc, chặn ghi từ mọi client và bảo vệ
+hồ sơ/vai trò theo UID Firebase.
 
 Để kiểm thử listener Android, mở Firestore Emulator trong terminal riêng:
 
