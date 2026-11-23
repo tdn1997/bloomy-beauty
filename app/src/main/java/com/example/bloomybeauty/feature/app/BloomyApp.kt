@@ -35,7 +35,8 @@ class ShopRepositories(val catalog: CatalogRepository, val cart: CartRepository,
                        val addresses: com.example.bloomybeauty.data.address.AddressRepository? = null,
                        val statistics: com.example.bloomybeauty.data.statistics.StatisticsRepository? = null,
                        val pdfExporter: com.example.bloomybeauty.export.OrderPdfExporter? = null,
-                       val inbox: com.example.bloomybeauty.data.notification.NotificationRepository? = null)
+                       val inbox: com.example.bloomybeauty.data.notification.NotificationRepository? = null,
+                       val productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null)
 private enum class ShopScreen { HOME, CART, ORDERS, PROFILE, ADMIN, CARE, ADDRESSES, STATISTICS, INBOX }
 data class InboxOpenRequest(val userId: Long,val notificationId: Long)
 data class CareOpenRequest(val userId: Long, val routineId: Long)
@@ -218,7 +219,8 @@ fun BloomyApp(auth: AuthViewModel, repositories: ShopRepositories, careOpenReque
                     promotions=promotions.state.collectAsStateWithLifecycle().value,
                     onRetryPromotions=promotions::retry, reviews= repositories.reviews,
                     onOpenAddresses = repositories.addresses?.let { {openAddresses(ShopScreen.HOME)} },
-                    onOpenInbox=inbox?.let {{screenName=ShopScreen.INBOX.name;it.reload()}},unreadNotifications=inboxState?.unread ?: 0)
+                    onOpenInbox=inbox?.let {{screenName=ShopScreen.INBOX.name;it.reload()}},unreadNotifications=inboxState?.unread ?: 0,
+                    productImageExporter=repositories.productImageExporter)
                 }
             }
         }

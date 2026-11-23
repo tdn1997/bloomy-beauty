@@ -22,6 +22,10 @@
         </provider>
         <provider android:name=".data.care.CareRoutineProvider" android:enabled="${localCareEnabled}"
             android:authorities="${applicationId}.care" android:exported="false" />
+        <provider android:name=".export.ProductImageFileProvider"
+            android:authorities="${applicationId}.product-images" android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/product_image_paths" />
+        </provider>
         <receiver android:name=".reminders.CareReminderReceiver" android:enabled="${localCareEnabled}" android:exported="false" />
         <receiver android:name=".reminders.CareScheduleRestoreReceiver" android:enabled="${localCareEnabled}" android:exported="false">
             <intent-filter>

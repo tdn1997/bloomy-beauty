@@ -126,6 +126,7 @@ fun HomeScreen(
     reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null,
     onOpenAddresses: (() -> Unit)? = null,
     onOpenInbox: (() -> Unit)? = null, unreadNotifications: Long = 0,
+    productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null,
 ) {
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(cartNotice) {
@@ -178,6 +179,7 @@ fun HomeScreen(
             reviews, user.id,
             comparisonIds.contains(selectedProduct.id), !state.loading && !state.error && (selectedProduct.id in comparisonIds || comparisonProducts.size < 3),
             { toggleComparison(selectedProduct.id) }, comparisonProducts.size, { showComparison = true },
+            productImageExporter,
         )
         return
     }
@@ -438,7 +440,8 @@ private fun EmptyProducts(favorites: Boolean, onReset: () -> Unit) {
 private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, error: Boolean, onBack: () -> Unit, onFavorite: () -> Unit,
                           snackbar: SnackbarHostState, cartCount: Int, cartBusy: Boolean, onCart: () -> Unit, onAdd: () -> Unit, onCare: (() -> Unit)? = null,
                           reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null, userId: Long = 0,
-    compared: Boolean = false, compareEnabled: Boolean = true, onCompare: () -> Unit = {}, comparisonCount: Int = 0, onOpenComparison: () -> Unit = {}) {
+    compared: Boolean = false, compareEnabled: Boolean = true, onCompare: () -> Unit = {}, comparisonCount: Int = 0, onOpenComparison: () -> Unit = {},
+    productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null) {
     val context = LocalContext.current
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) },
@@ -476,6 +479,7 @@ private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, er
             if (comparisonCount >= 2) TextButton(onOpenComparison) { Text("Xem so sánh ($comparisonCount/3)") }
             if (comparisonCount == 3 && !compared) Text("Đã chọn tối đa 3 sản phẩm. Bỏ một sản phẩm để chọn thêm.")
             if (error) Text(stringResource(R.string.catalog_error), color = MaterialTheme.colorScheme.error)
+            productImageExporter?.let { com.example.bloomybeauty.feature.export.ProductShareActions(it, userId, product.id) }
             if (onCare != null) OutlinedButton(onCare, modifier = Modifier.fillMaxWidth()) { Text("Tạo lịch chăm sóc với sản phẩm") }
             HorizontalDivider()
             if (reviews != null) com.example.bloomybeauty.feature.review.ProductReviews(reviews, userId, product.id)

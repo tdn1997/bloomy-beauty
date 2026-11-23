@@ -16,12 +16,16 @@ liên quan đạt, lint 0 lỗi. [Hướng dẫn](20261116000000_so-sanh-san-pha
 [Kế hoạch](20261116000000_ke-hoach-so-sanh-san-pham.md) ·
 [Kiểm thử](kiem-thu/comparison-2026-11-16/README.md).
 
+Chia sẻ sản phẩm: hoàn tất ngày 16/11/2026; tạo thẻ PNG từ dữ liệu local,
+xem trước và mở Android Sharesheet. [Hướng dẫn](20261116000000_chia-se-san-pham.md) ·
+[Kế hoạch](20261116000000_ke-hoach-chia-se-san-pham.md) ·
+[Kiểm thử](kiem-thu/product-share-2026-11-16/README.md).
+
 | Ưu tiên | Tính năng | Phạm vi ban đầu | Độ khó dự kiến |
 |---|---|---|---|
 | 1 | Hồ sơ làn da & gợi ý sản phẩm | Lưu loại da và nhu cầu theo tài khoản; gắn nhãn catalog; gợi ý bằng quy tắc rõ ràng, hiển thị lý do | Vừa |
 | 2 | Nhắc hạn dùng mỹ phẩm | Ghi ngày mở nắp, số tháng dùng sau mở nắp; tính ngày nhắc và gửi thông báo cục bộ | Vừa |
 | 3 | Nhật ký chăm sóc da | Mở rộng lịch chăm sóc hiện có: ghi chú, ảnh theo ngày và đánh dấu hoàn thành từng bước | Vừa |
-| 4 | Chia sẻ sản phẩm | Chia sẻ tên, ảnh và mô tả qua Android Sharesheet từ chi tiết sản phẩm | Dễ |
 
 ## Ghi chú để lập kế hoạch sau
 
@@ -36,15 +40,13 @@ liên quan đạt, lint 0 lỗi. [Hướng dẫn](20261116000000_so-sanh-san-pha
 - **Nhật ký:** dữ liệu riêng từng tài khoản; ảnh lưu trong vùng riêng của app,
   dùng Photo Picker khi chọn ảnh; xác định cách dọn ảnh khi xóa mục hoặc tài khoản.
   Tận dụng lịch/nhắc hiện có, không tạo cơ chế nhắc song song.
-- **Chia sẻ:** kiểm tra chức năng Content Provider/chia sẻ hiện có để tránh làm
-  trùng. Ảnh dùng content URI và cấp quyền đọc tạm thời. Chưa tạo liên kết mở
-  ứng dụng nếu chưa có thiết kế deep link tương ứng.
+- **Chia sẻ đã triển khai:** ảnh PNG qua provider riêng và quyền đọc tạm thời;
+  không cần backend, không tạo deep link. Không thay chức năng chia sẻ phiếu PDF.
 
 ## Thứ tự lựa chọn
 
 - Muốn có điểm nhấn đúng chủ đề mỹ phẩm: chọn **Hồ sơ làn da & gợi ý sản phẩm**.
 - Muốn tận dụng lịch và thông báo hiện có: chọn **Nhắc hạn dùng mỹ phẩm**.
-- Muốn một phần bổ sung nhỏ: có thể đưa **Chia sẻ sản phẩm** lên trước.
 
 Chưa bao gồm đồng bộ nhiều thiết bị, backend giao dịch hoặc thanh toán online.
 Khi bắt đầu một mục, tạo kế hoạch riêng và cập nhật trạng thái tại đây.

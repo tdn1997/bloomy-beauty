@@ -38,6 +38,7 @@ class BloomyBeautyApplication : Application() {
     val notificationRepository by lazy { com.example.bloomybeauty.data.notification.NotificationRepository(databaseHelper) }
     val orderNotifications by lazy { com.example.bloomybeauty.notifications.OrderNotifications(this,databaseHelper) }
     val orderPdfExporter by lazy { com.example.bloomybeauty.export.OrderPdfExporter(this,databaseHelper) }
+    val productImageExporter by lazy { com.example.bloomybeauty.export.ProductImageExporter(this,databaseHelper) }
     val statisticsRepository by lazy { com.example.bloomybeauty.data.statistics.StatisticsRepository(databaseHelper) }
     val addressRepository by lazy { com.example.bloomybeauty.data.address.AddressRepository(databaseHelper) }
     val reviewRepository by lazy { com.example.bloomybeauty.data.review.ReviewRepository(databaseHelper) }
@@ -60,6 +61,8 @@ class BloomyBeautyApplication : Application() {
         catch (exception: Exception) { android.util.Log.e("OrderInbox", "Unable to clear notifications", exception) }
         try { orderPdfExporter.clear() }
         catch (exception: Exception) { android.util.Log.e("OrderPDF", "Unable to clear temporary PDFs", exception) }
+        try { productImageExporter.clear() }
+        catch (exception: Exception) { android.util.Log.e("ProductShare", "Unable to clear temporary product images", exception) }
         try {
             contentResolver.notifyChange(CareRoutineContract.CONTENT_URI, null)
             careReminders.reconcile()
