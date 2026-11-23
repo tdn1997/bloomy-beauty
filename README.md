@@ -124,3 +124,10 @@ Apache Commons Text tính độ tương đồng cosine của các cụm từ tro
 thành phần. Ứng dụng ưu tiên sản phẩm cùng danh mục và tính toàn bộ gợi ý ngay
 trên thiết bị. Tính năng dùng được ngoại tuyến, không yêu cầu API key.
 [Tài liệu Apache Commons Text](https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/similarity/CosineSimilarity.html)
+
+### Gợi ý trong ô tìm kiếm
+
+Gõ tên sản phẩm hoặc nhu cầu như **dưỡng môi** ở Trang chủ hoặc Khám phá để thấy
+sản phẩm còn hàng ngay dưới ô tìm kiếm. Bản demo AI có nút **Gợi ý bằng AI**
+cho các nhu cầu đã nhận diện và tự dùng lại gợi ý tại chỗ nếu Gemini không phản hồi.
+[Kế hoạch và cách bật demo AI](docs/20261123000000_ke-hoach-goi-y-san-pham-ai.md#bật-bản-demo-ai)

@@ -77,6 +77,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
@@ -84,6 +85,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextOverflow
@@ -95,6 +97,7 @@ import com.example.bloomybeauty.data.catalog.ProductRecommendation
 import com.example.bloomybeauty.data.catalog.ProductRecommendations
 import com.example.bloomybeauty.data.catalog.ProductSearch
 import com.example.bloomybeauty.data.catalog.ProductSort
+import com.example.bloomybeauty.data.catalog.SearchAiRanker
 import com.example.bloomybeauty.feature.promotions.PromotionsUiState
 import com.example.bloomybeauty.feature.promotions.PromotionsSection
 
@@ -130,6 +133,7 @@ fun HomeScreen(
     onOpenAddresses: (() -> Unit)? = null,
     onOpenInbox: (() -> Unit)? = null, unreadNotifications: Long = 0,
     productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null,
+    searchAiRanker: SearchAiRanker? = null,
 ) {
     val snackbar = remember { SnackbarHostState() }
     LaunchedEffect(cartNotice) {
@@ -260,6 +264,7 @@ fun HomeScreen(
         if (tab == HomeTab.ACCOUNT) {
             AccountPage(user, logoutBusy, logoutError, onLogout, onOpenOrders, onEditProfile, onOpenAdmin, Modifier.padding(padding), onOpenCare?.let { open -> { open(null) } }, onOpenAddresses,onOpenInbox, { tabName = HomeTab.FAVORITES.name })
         } else {
+            val focusManager = LocalFocusManager.current
             val products = ProductSearch.filter(
                 state.products, query, categoryId, sort,
                 tab == HomeTab.FAVORITES, state.favoriteIds,
@@ -275,7 +280,23 @@ fun HomeScreen(
                     StoreHeader(user.name,cartCount,onOpenCart,{tabName=HomeTab.ACCOUNT.name},onOpenInbox,unreadNotifications)
                 }
                 item(span = { GridItemSpan(maxLineSpan) }) {
-                    SearchField(query, changeQuery)
+                    key(user.id, tab) {
+                        var searchFocused by remember { mutableStateOf(false) }
+                        Column {
+                            SearchField(query, changeQuery, searchFocused) { searchFocused = it }
+                            if (searchFocused && query.trim().length >= 2 && tab != HomeTab.FAVORITES &&
+                                !state.loading && !state.error
+                            ) {
+                                SearchSuggestions(
+                                    query, products, state.products, categoryId, searchAiRanker,
+                                    onOpen = { id ->
+                                        focusManager.clearFocus()
+                                        selectedProductId = id
+                                    },
+                                )
+                            }
+                        }
+                    }
                 }
                 if (tab == HomeTab.HOME && state.query.isBlank() && state.categoryId == null) {
                     if (promotions.feed.enabled) {
@@ -344,7 +365,11 @@ fun HomeScreen(
                                     Text("Nhấn tim trên sản phẩm để lưu vào danh sách.")
                                     TextButton({ onQueryChange(""); onCategoryChange(null); tabName = HomeTab.EXPLORE.name }) { Text("Khám phá sản phẩm") }
                                 }
-                            } else EmptyProducts(false) { changeQuery(""); changeCategory(null) }
+                            } else EmptyProducts(false) {
+                                focusManager.clearFocus()
+                                changeQuery("")
+                                changeCategory(null)
+                            }
                         }
                     }
                     items(products, key = { it.id }) { product ->
@@ -394,15 +419,18 @@ private fun CartButton(count: Int, onCart: () -> Unit) {
 }
 
 @Composable
-private fun SearchField(query: String, onQueryChange: (String) -> Unit) {
-    var value by rememberSaveable(stateSaver = TextFieldValue.Saver) { mutableStateOf(TextFieldValue(query)) }
-    // Reset only for an external action (e.g. clearing filters), never during IME composition.
-    LaunchedEffect(query) {
-        if (value.text != query) value = TextFieldValue(query)
+private fun SearchField(query: String, onQueryChange: (String) -> Unit, focused: Boolean, onFocus: (Boolean) -> Unit) {
+    var value by rememberSaveable(stateSaver = TextFieldValue.Saver) {
+        mutableStateOf(TextFieldValue(query, selection = TextRange(query.length)))
+    }
+    // The field owns its cursor and composition while typing. The model may be a frame behind.
+    LaunchedEffect(query, focused) {
+        if (!focused && value.text != query) value = TextFieldValue(query, selection = TextRange(query.length))
     }
     val focus = LocalFocusManager.current
     OutlinedTextField(
-        value, { value = it; onQueryChange(it.text) }, modifier = Modifier.fillMaxWidth(),
+        value, { value = it; onQueryChange(it.text) },
+        modifier = Modifier.fillMaxWidth().onFocusChanged { onFocus(it.isFocused) },
         placeholder = { Text(stringResource(R.string.search_products_hint)) }, singleLine = true,
         leadingIcon = { Icon(Icons.Outlined.Search, null) },
         trailingIcon = {

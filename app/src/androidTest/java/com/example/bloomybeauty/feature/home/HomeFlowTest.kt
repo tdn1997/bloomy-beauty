@@ -6,6 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.hasText
@@ -18,6 +20,7 @@ import androidx.compose.ui.test.performImeAction
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performTextInput
+import androidx.compose.ui.test.performTextReplacement
 import androidx.lifecycle.ViewModelStore
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.bloomybeauty.data.auth.AuthDatabaseHelper
@@ -25,10 +28,16 @@ import com.example.bloomybeauty.data.auth.AuthRepository
 import com.example.bloomybeauty.data.auth.AuthResult
 import com.example.bloomybeauty.data.auth.AuthUser
 import com.example.bloomybeauty.data.catalog.CatalogRepository
+import com.example.bloomybeauty.data.catalog.SearchAiRanker
+import com.example.bloomybeauty.data.catalog.SearchCandidate
+import com.example.bloomybeauty.data.catalog.SearchGoal
+import com.example.bloomybeauty.data.catalog.SearchReason
 import com.example.bloomybeauty.ui.theme.BloomyBeautyTheme
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.CompletableDeferred
 import org.junit.After
 import org.junit.Assert.assertTrue
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -43,6 +52,7 @@ class HomeFlowTest {
     private lateinit var user: AuthUser
     private val store = ViewModelStore()
     private var loggedOut = false
+    private var searchAiRanker by mutableStateOf<SearchAiRanker?>(null)
 
     @Before
     fun setUp() = runBlocking {
@@ -58,7 +68,8 @@ class HomeFlowTest {
             val state by viewModel.state.collectAsState()
             BloomyBeautyTheme {
                 HomeScreen(user, state, viewModel::setQuery, viewModel::setCategory, viewModel::setSort,
-                    viewModel::toggleFavorite, viewModel::reload, { loggedOut = true })
+                    viewModel::toggleFavorite, viewModel::reload, { loggedOut = true },
+                    searchAiRanker = searchAiRanker)
             }
         }
         compose.waitUntil(10_000) { !viewModel.state.value.loading }
@@ -129,6 +140,51 @@ class HomeFlowTest {
             .assertTextContains("Dựa trên mục yêu thích: Gel bí đao rửa mặt")
         compose.onNodeWithContentDescription("Quay lại").performClick()
         grid.assertIsDisplayed()
+    }
+
+    @Test
+    fun searchShowsOfflineSuggestionsAndOpensProductWhileTyping() {
+        compose.onNodeWithText("Tìm sản phẩm, thương hiệu…").performTextInput("duong moi")
+        compose.onNodeWithTag("search-suggestion-lip_balm").assertIsDisplayed().performClick()
+        compose.onNodeWithText("Chi tiết sản phẩm").assertIsDisplayed()
+        compose.onNodeWithText("Son dưỡng dầu dừa Bến Tre").assertExists()
+    }
+
+    @Test
+    fun aiInSearchRunsOnDemandAndFallsBackWhenProviderFails() {
+        val calls = mutableListOf<SearchGoal>()
+        compose.runOnIdle {
+            searchAiRanker = SearchAiRanker { goal, candidates ->
+                calls.add(goal)
+                check(candidates.all { it.productId in setOf("cleanser", "micellar") })
+                if (calls.size == 1) throw IllegalStateException("quota")
+                listOf(SearchCandidate("micellar", SearchReason.MAKEUP_REMOVER))
+            }
+        }
+        compose.onNodeWithText("Tìm sản phẩm, thương hiệu…").performTextInput("lam sach da mat")
+        compose.onNodeWithTag("search-suggestion-cleanser").assertIsDisplayed()
+        compose.runOnIdle { assertTrue(calls.isEmpty()) }
+        compose.onNodeWithText("Gợi ý bằng AI").performClick()
+        compose.onNodeWithText("AI chưa khả dụng. Đang hiển thị gợi ý ngoại tuyến.").assertIsDisplayed()
+        compose.onNodeWithTag("search-suggestion-cleanser").assertExists()
+        compose.onNodeWithText("Gợi ý bằng AI").performClick()
+        compose.onNodeWithText("Gợi ý từ AI").assertIsDisplayed()
+        compose.onNodeWithTag("search-suggestion-micellar").assertTextContains("Nước tẩy trang")
+        compose.onNodeWithTag("search-suggestion-cleanser").assertDoesNotExist()
+        compose.runOnIdle { assertEquals(List(2) { SearchGoal.FACE_CLEANSING }, calls) }
+    }
+
+    @Test
+    fun changingQueryDiscardsAnInFlightAiResponse() {
+        val response = CompletableDeferred<List<SearchCandidate>>()
+        compose.runOnIdle { searchAiRanker = SearchAiRanker { _, _ -> response.await() } }
+        compose.onNodeWithText("Tìm sản phẩm, thương hiệu…").performTextInput("lam sach da mat")
+        compose.onNodeWithText("Gợi ý bằng AI").performClick()
+        compose.onNodeWithText("lam sach da mat").performTextReplacement("duong moi")
+        response.complete(listOf(SearchCandidate("micellar", SearchReason.MAKEUP_REMOVER)))
+        compose.onNodeWithTag("search-suggestion-lip_balm").assertIsDisplayed()
+        compose.onNodeWithTag("search-suggestion-micellar").assertDoesNotExist()
+        compose.onNodeWithText("Gợi ý từ AI").assertDoesNotExist()
     }
 
     private fun capture(name: String) {

@@ -49,7 +49,8 @@ class MainActivity : ComponentActivity() {
             inboxOpenRequest=com.example.bloomybeauty.feature.app.InboxOpenRequest(savedInstanceState.getLong("pending_inbox_owner"),savedInstanceState.getLong("pending_inbox_id"))
         } else readInboxIntent(intent)
         val repositories = ShopRepositories(app.catalogRepository, app.cartRepository, app.orderRepository,
-            app.profileRepository, app.adminRepository, app.promotionsRepository, app.careRepository, app.reviewRepository, app.addressRepository, app.statisticsRepository, app.orderPdfExporter, app.notificationRepository, app.productImageExporter)
+            app.profileRepository, app.adminRepository, app.promotionsRepository, app.careRepository, app.reviewRepository, app.addressRepository, app.statisticsRepository, app.orderPdfExporter, app.notificationRepository, app.productImageExporter,
+            searchAiRanker = app.searchAiRanker)
         setContent { BloomyBeautyTheme { BloomyApp(authViewModel,repositories,careOpenRequest,onCareOpenHandled={
             careOpenRequest=null
             intent.removeExtra(CareReminderNotifications.ROUTINE_ID);intent.removeExtra(CareReminderNotifications.OWNER_ID)

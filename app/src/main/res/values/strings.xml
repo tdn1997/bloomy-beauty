@@ -41,6 +41,15 @@
     <string name="favorite_products">Sản phẩm yêu thích</string>
     <string name="product_count">%1$d sản phẩm</string>
     <string name="search_products_hint">Tìm sản phẩm, thương hiệu…</string>
+    <string name="search_ask_ai">Gợi ý bằng AI</string>
+    <string name="search_ai_data_notice">Gửi mục tiêu mua sắm và mã sản phẩm tới Google.</string>
+    <string name="search_ai_fallback">AI chưa khả dụng. Đang hiển thị gợi ý ngoại tuyến.</string>
+    <string name="search_ai_results">Gợi ý từ AI</string>
+    <string name="search_reason_face_wash">Sản phẩm rửa mặt</string>
+    <string name="search_reason_makeup_remover">Nước tẩy trang</string>
+    <string name="search_reason_lip_balm">Son dưỡng môi</string>
+    <string name="search_reason_lip_exfoliant">Làm sạch da chết môi</string>
+    <string name="search_reason_shampoo">Dầu gội</string>
     <string name="clear_search">Xóa tìm kiếm</string>
     <string name="collection_eyebrow">CHĂM SÓC DA · COCOON</string>
     <string name="collection_title">Dịu dàng với làn da của bạn</string>

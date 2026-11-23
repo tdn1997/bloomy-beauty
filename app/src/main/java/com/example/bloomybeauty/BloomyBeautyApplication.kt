@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.bloomybeauty.data.auth.AuthDatabaseHelper
 import com.example.bloomybeauty.data.auth.AuthRepository
 import com.example.bloomybeauty.data.catalog.CatalogRepository
+import com.example.bloomybeauty.data.catalog.onlineSearchRanker
 import com.example.bloomybeauty.data.cart.CartRepository
 import com.example.bloomybeauty.data.order.OrderRepository
 import com.example.bloomybeauty.data.profile.ProfileRepository
@@ -80,6 +81,7 @@ class BloomyBeautyApplication : Application() {
     val adminRepository by lazy { com.example.bloomybeauty.data.admin.AdminRepository(databaseHelper, orderChanges) }
     val authRepository: AuthRepository by lazy { AuthRepository(databaseHelper, onSessionChanged = ::onSessionChanged) }
     val catalogRepository: CatalogRepository by lazy { CatalogRepository(databaseHelper) }
+    val searchAiRanker by lazy { onlineSearchRanker() }
     val cartRepository: CartRepository by lazy { CartRepository(databaseHelper) }
     val orderRepository: OrderRepository by lazy { OrderRepository(databaseHelper, orderChanges) }
     val profileRepository: ProfileRepository by lazy { ProfileRepository(databaseHelper) }

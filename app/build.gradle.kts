@@ -38,9 +38,21 @@ val presentationBuild = providers.gradleProperty("presentation").orNull == "true
 val cloudEmulatorBuild = providers.gradleProperty("cloudEmulator").orNull == "true"
 require(!cloudEmulatorBuild || (!presentationBuild && providers.gradleProperty("qaRelease").orNull != "true")) {"Cloud emulator is a separate build source."}
 val qaReleaseBuild = providers.gradleProperty("qaRelease").orNull == "true"
-// The supplied Firebase config only registers the normal application ID.
-// Keep the isolated presentation and QA builds offline.
-if (!presentationBuild && !qaReleaseBuild && !cloudEmulatorBuild) {
+val aiRecommendationsBuild = providers.gradleProperty("aiRecommendations").orNull == "true"
+require(!aiRecommendationsBuild || (!presentationBuild && !qaReleaseBuild && !cloudEmulatorBuild)) {
+    "The AI demo is a separate debug build."
+}
+val standardFirebaseBuild = !presentationBuild && !qaReleaseBuild && !cloudEmulatorBuild && !aiRecommendationsBuild
+if (aiRecommendationsBuild) {
+    apply(plugin = "com.google.gms.google-services")
+    val aiConfig = providers.gradleProperty("aiFirebaseConfig").map { rootProject.file(it) }
+        .orElse(rootProject.file(".local/ai-google-services.json"))
+    androidComponents.onVariants { variant ->
+        tasks.named<GoogleServicesTask>("process${variant.name.replaceFirstChar { it.uppercaseChar() }}GoogleServices") {
+            googleServicesJsonFiles.set(aiConfig.map { listOf(it) })
+        }
+    }
+} else if (standardFirebaseBuild) {
     apply(plugin = "com.google.gms.google-services")
     val localApiKey = providers.fileContents(rootProject.layout.projectDirectory.file(".env.local"))
         .asText.map { text ->
@@ -75,7 +87,7 @@ android {
         buildConfigField("boolean", "CLOUD_EMULATOR", "$cloudEmulatorBuild")
         manifestPlaceholders["localCareEnabled"] = (!cloudEmulatorBuild).toString()
         buildConfigField("boolean", "LOCAL_COUPONS_ENABLED", "false")
-        buildConfigField("boolean", "FIREBASE_ENABLED", "${!presentationBuild && !qaReleaseBuild && !cloudEmulatorBuild}")
+        buildConfigField("boolean", "FIREBASE_ENABLED", "$standardFirebaseBuild")
         minSdk = 28
         targetSdk = 35
         versionCode = 1
@@ -87,6 +99,11 @@ android {
 
     buildTypes {
         debug {
+            if (aiRecommendationsBuild) {
+                applicationIdSuffix = ".ai"
+                versionNameSuffix = "-ai"
+                resValue("string", "app_name", "Bloomy Beauty AI (demo)")
+            }
             if (cloudEmulatorBuild) {
                 applicationIdSuffix=".cloud";versionNameSuffix="-cloud-emulator"
                 resValue("string","app_name","Bloomy Beauty Cloud (test)")
@@ -121,6 +138,11 @@ android {
             )
         }
     }
+    sourceSets {
+        getByName("debug").java.srcDir(if (aiRecommendationsBuild) "src/ai/java" else "src/noAi/java")
+        if (aiRecommendationsBuild) getByName("debug").manifest.srcFile("src/ai/AndroidManifest.xml")
+        getByName("release").java.srcDir("src/noAi/java")
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -142,6 +164,10 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.firestore)
+    if (aiRecommendationsBuild) {
+        debugImplementation("com.google.firebase:firebase-ai")
+        debugImplementation("com.google.firebase:firebase-appcheck-debug")
+    }
     // Google Play services pulls Fragment 1.1; Activity Result requires 1.3+.
     implementation(libs.androidx.fragment)
 
@@ -166,5 +192,7 @@ dependencies {
 }
 
 androidComponents {
-    beforeVariants(selector().withBuildType("release")) { if(cloudEmulatorBuild) it.enable=false }
+    beforeVariants(selector().withBuildType("release")) {
+        if (cloudEmulatorBuild || aiRecommendationsBuild) it.enable = false
+    }
 }

@@ -36,7 +36,8 @@ class ShopRepositories(val catalog: CatalogRepository, val cart: CartRepository,
                        val statistics: com.example.bloomybeauty.data.statistics.StatisticsRepository? = null,
                        val pdfExporter: com.example.bloomybeauty.export.OrderPdfExporter? = null,
                        val inbox: com.example.bloomybeauty.data.notification.NotificationRepository? = null,
-                       val productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null)
+                       val productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null,
+                       val searchAiRanker: com.example.bloomybeauty.data.catalog.SearchAiRanker? = null)
 private enum class ShopScreen { HOME, CART, ORDERS, PROFILE, ADMIN, CARE, ADDRESSES, STATISTICS, INBOX }
 data class InboxOpenRequest(val userId: Long,val notificationId: Long)
 data class CareOpenRequest(val userId: Long, val routineId: Long)
@@ -220,7 +221,7 @@ fun BloomyApp(auth: AuthViewModel, repositories: ShopRepositories, careOpenReque
                     onRetryPromotions=promotions::retry, reviews= repositories.reviews,
                     onOpenAddresses = repositories.addresses?.let { {openAddresses(ShopScreen.HOME)} },
                     onOpenInbox=inbox?.let {{screenName=ShopScreen.INBOX.name;it.reload()}},unreadNotifications=inboxState?.unread ?: 0,
-                    productImageExporter=repositories.productImageExporter)
+                    productImageExporter=repositories.productImageExporter, searchAiRanker = repositories.searchAiRanker)
                 }
             }
         }
