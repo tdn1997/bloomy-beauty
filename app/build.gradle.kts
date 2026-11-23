@@ -135,6 +135,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.commons.text)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)

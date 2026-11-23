@@ -113,3 +113,14 @@ Build demo đạt; 71/71 unit test và 57/57 Android test liên quan đạt, lin
 [Hướng dẫn](docs/20261116000000_mua-lai-don-cu.md) · [Kết quả và ảnh](docs/kiem-thu/reorder-2026-11-16/README.md).
 APK mới: `deliverables/bloomy-beauty-demo-reorder-2026-11-16.apk`, có checksum
 `.apk.sha256` cạnh bên. Các ZIP bàn giao ngày 08/11 là bộ lưu của đợt trước.
+
+## Gợi ý sản phẩm
+
+Chọn **Gợi ý cho bạn** ở Trang chủ để khám phá sản phẩm còn hàng dựa trên danh sách
+Yêu thích của tài khoản. Khi chưa có gợi ý cá nhân hóa, ứng dụng hiển thị sản phẩm
+còn hàng theo thứ tự danh mục. Mục **Sản phẩm tương tự** nằm cuối trang chi tiết.
+
+Apache Commons Text tính độ tương đồng cosine của các cụm từ trong tên, mô tả và
+thành phần. Ứng dụng ưu tiên sản phẩm cùng danh mục và tính toàn bộ gợi ý ngay
+trên thiết bị. Tính năng dùng được ngoại tuyến, không yêu cầu API key.
+[Tài liệu Apache Commons Text](https://commons.apache.org/proper/commons-text/apidocs/org/apache/commons/text/similarity/CosineSimilarity.html)

@@ -68,6 +68,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.listSaver
@@ -90,6 +91,8 @@ import androidx.compose.ui.unit.dp
 import com.example.bloomybeauty.R
 import com.example.bloomybeauty.data.auth.AuthUser
 import com.example.bloomybeauty.data.catalog.Product
+import com.example.bloomybeauty.data.catalog.ProductRecommendation
+import com.example.bloomybeauty.data.catalog.ProductRecommendations
 import com.example.bloomybeauty.data.catalog.ProductSearch
 import com.example.bloomybeauty.data.catalog.ProductSort
 import com.example.bloomybeauty.feature.promotions.PromotionsUiState
@@ -137,6 +140,9 @@ fun HomeScreen(
     }
     var tabName by rememberSaveable(user.id) { mutableStateOf(HomeTab.HOME.name) }
     var selectedProductId by rememberSaveable(user.id) { mutableStateOf<String?>(null) }
+    var showRecommendations by rememberSaveable(user.id) { mutableStateOf(false) }
+    var detailHistory by rememberSaveable(user.id,
+        stateSaver = listSaver<List<String>, String>(save = { it }, restore = { it.toList() })) { mutableStateOf(emptyList<String>()) }
     var favoriteQuery by rememberSaveable(user.id) { mutableStateOf("") }
     var favoriteCategory by rememberSaveable(user.id) { mutableStateOf<String?>(null) }
     var favoriteSortName by rememberSaveable(user.id) { mutableStateOf(ProductSort.FEATURED.name) }
@@ -157,30 +163,63 @@ fun HomeScreen(
     }
     fun toggleComparison(id: String) { comparisonIds = ComparisonSelection.toggle(comparisonIds, id, state.products) }
     fun closeDetail() {
+        val previousId = detailHistory.lastOrNull { id -> state.products.any { it.id == id && it.active } }
+        if (previousId != null) {
+            selectedProductId = previousId
+            detailHistory = detailHistory.take(detailHistory.lastIndexOf(previousId))
+            return
+        }
+        detailHistory = emptyList()
         selectedProductId = null
         if (returnToComparison) { showComparison = true; returnToComparison = false }
     }
     if (showComparison) {
         ComparisonScreen(comparisonProducts, state.categories.associate { it.id to it.name }, state.loading, state.error,
             { showComparison = false }, onRetry, { comparisonIds = comparisonIds - it }, { comparisonIds = emptyList() },
-            { selectedProductId = it; showComparison = false; returnToComparison = true }, onAddToCart, cartBusy, snackbar)
+            { id ->
+                detailHistory = emptyList()
+                selectedProductId = id
+                showComparison = false
+                returnToComparison = true
+            }, onAddToCart, cartBusy, snackbar)
         return
     }
     val selectedProduct = state.products.firstOrNull { it.id == selectedProductId }
-    BackHandler(selectedProductId != null || tab != HomeTab.HOME) {
-        if (selectedProductId != null) closeDetail() else tabName = HomeTab.HOME.name
+    LaunchedEffect(selectedProductId, selectedProduct, state.loading, state.error) {
+        if (selectedProductId != null && selectedProduct == null && !state.loading && !state.error) closeDetail()
+    }
+    BackHandler(selectedProductId != null || showRecommendations || tab != HomeTab.HOME) {
+        when {
+            selectedProductId != null -> closeDetail()
+            showRecommendations -> showRecommendations = false
+            else -> tabName = HomeTab.HOME.name
+        }
     }
     if (selectedProduct != null) {
-        ProductDetail(
-            selectedProduct, selectedProduct.id in state.favoriteIds, state.savingFavorite,
-            state.error, ::closeDetail, { onToggleFavorite(selectedProduct.id) },
-            snackbar, cartCount, cartBusy, onOpenCart, { onAddToCart(selectedProduct.id) },
-            onOpenCare?.let { open -> { open(selectedProduct.id) } },
-            reviews, user.id,
-            comparisonIds.contains(selectedProduct.id), !state.loading && !state.error && (selectedProduct.id in comparisonIds || comparisonProducts.size < 3),
-            { toggleComparison(selectedProduct.id) }, comparisonProducts.size, { showComparison = true },
-            productImageExporter,
-        )
+        val related = if (!state.loading && !state.error) {
+            remember(state.products, selectedProduct) { ProductRecommendations.forDetail(state.products, selectedProduct) }
+        } else emptyList()
+        key(selectedProduct.id) {
+            ProductDetail(
+                selectedProduct, selectedProduct.id in state.favoriteIds, state.savingFavorite,
+                state.error, ::closeDetail, { onToggleFavorite(selectedProduct.id) },
+                snackbar, cartCount, cartBusy, onOpenCart, { onAddToCart(selectedProduct.id) },
+                onOpenCare?.let { open -> { open(selectedProduct.id) } },
+                reviews, user.id,
+                comparisonIds.contains(selectedProduct.id), !state.loading && !state.error && (selectedProduct.id in comparisonIds || comparisonProducts.size < 3),
+                { toggleComparison(selectedProduct.id) }, comparisonProducts.size, { showComparison = true },
+                productImageExporter,
+                related = related,
+                onOpenRelated = { id ->
+                    detailHistory = detailHistory + selectedProduct.id
+                    selectedProductId = id
+                },
+            )
+        }
+        return
+    }
+    if (showRecommendations) {
+        RecommendationsScreen(state, { showRecommendations = false }, onRetry) { selectedProductId = it }
         return
     }
     Scaffold(
@@ -245,7 +284,10 @@ fun HomeScreen(
                         }
                     }
                     item(span = { GridItemSpan(maxLineSpan) }) {
-                        CollectionBanner { onCategoryChange("skin"); tabName = HomeTab.EXPLORE.name }
+                        CollectionBanner(
+                            onExplore = { onCategoryChange("skin"); tabName = HomeTab.EXPLORE.name },
+                            onRecommendations = { showRecommendations = true },
+                        )
                     }
                 }
                 item(span = { GridItemSpan(maxLineSpan) }) {
@@ -374,7 +416,7 @@ private fun SearchField(query: String, onQueryChange: (String) -> Unit) {
 }
 
 @Composable
-private fun CollectionBanner(onExplore: () -> Unit) {
+private fun CollectionBanner(onExplore: () -> Unit, onRecommendations: () -> Unit) {
     Surface(shape = RoundedCornerShape(24.dp), color = Color(0xFFF2EADF)) {
         Row(Modifier.fillMaxWidth().padding(18.dp), verticalAlignment = Alignment.CenterVertically) {
             Column(Modifier.weight(1.2f), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -382,6 +424,7 @@ private fun CollectionBanner(onExplore: () -> Unit) {
                 Text(stringResource(R.string.collection_title), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.SemiBold, color = Color(0xFF342D25))
                 Text(stringResource(R.string.collection_description), style = MaterialTheme.typography.bodySmall, color = Color(0xFF6A5945))
                 Button(onExplore, shape = RoundedCornerShape(12.dp)) { Text(stringResource(R.string.collection_action)) }
+                TextButton(onRecommendations) { Text(stringResource(R.string.recommendations_for_you)) }
             }
             Spacer(Modifier.width(8.dp))
             Image(painterResource(R.drawable.product_cleanser), null, Modifier.weight(1f).aspectRatio(0.8f).clip(RoundedCornerShape(18.dp)))
@@ -441,7 +484,10 @@ private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, er
                           snackbar: SnackbarHostState, cartCount: Int, cartBusy: Boolean, onCart: () -> Unit, onAdd: () -> Unit, onCare: (() -> Unit)? = null,
                           reviews: com.example.bloomybeauty.data.review.ReviewRepository? = null, userId: Long = 0,
     compared: Boolean = false, compareEnabled: Boolean = true, onCompare: () -> Unit = {}, comparisonCount: Int = 0, onOpenComparison: () -> Unit = {},
-    productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null) {
+    productImageExporter: com.example.bloomybeauty.export.ProductImageExporter? = null,
+    related: List<ProductRecommendation>,
+    onOpenRelated: (String) -> Unit,
+) {
     val context = LocalContext.current
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) },
@@ -500,6 +546,11 @@ private fun ProductDetail(product: Product, favorite: Boolean, busy: Boolean, er
                 },
                 modifier = Modifier.fillMaxWidth(),
             ) { Text(stringResource(R.string.official_product_page)) }
+            if (related.isNotEmpty()) {
+                HorizontalDivider()
+                Text(stringResource(R.string.recommendations_similar), style = MaterialTheme.typography.titleLarge)
+                RecommendationList(related, onOpenRelated)
+            }
         }
     }
 }

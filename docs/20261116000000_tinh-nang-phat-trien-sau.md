@@ -21,9 +21,12 @@ xem trước và mở Android Sharesheet. [Hướng dẫn](20261116000000_chia-s
 [Kế hoạch](20261116000000_ke-hoach-chia-se-san-pham.md) ·
 [Kiểm thử](kiem-thu/product-share-2026-11-16/README.md).
 
+Gợi ý sản phẩm đã có từ danh sách Yêu thích và trang chi tiết.
+[Cách sử dụng](../README.md#gợi-ý-sản-phẩm).
+
 | Ưu tiên | Tính năng | Phạm vi ban đầu | Độ khó dự kiến |
 |---|---|---|---|
-| 1 | Hồ sơ làn da & gợi ý sản phẩm | Lưu loại da và nhu cầu theo tài khoản; gắn nhãn catalog; gợi ý bằng quy tắc rõ ràng, hiển thị lý do | Vừa |
+| 1 | Hồ sơ làn da | Lưu loại da và nhu cầu theo tài khoản; bổ sung nhãn catalog để dùng hồ sơ khi gợi ý sản phẩm | Vừa |
 | 2 | Nhắc hạn dùng mỹ phẩm | Ghi ngày mở nắp, số tháng dùng sau mở nắp; tính ngày nhắc và gửi thông báo cục bộ | Vừa |
 | 3 | Nhật ký chăm sóc da | Mở rộng lịch chăm sóc hiện có: ghi chú, ảnh theo ngày và đánh dấu hoàn thành từng bước | Vừa |
 
@@ -45,7 +48,7 @@ xem trước và mở Android Sharesheet. [Hướng dẫn](20261116000000_chia-s
 
 ## Thứ tự lựa chọn
 
-- Muốn có điểm nhấn đúng chủ đề mỹ phẩm: chọn **Hồ sơ làn da & gợi ý sản phẩm**.
+- Muốn mở rộng gợi ý theo nhu cầu chăm sóc da: chọn **Hồ sơ làn da**.
 - Muốn tận dụng lịch và thông báo hiện có: chọn **Nhắc hạn dùng mỹ phẩm**.
 
 Chưa bao gồm đồng bộ nhiều thiết bị, backend giao dịch hoặc thanh toán online.

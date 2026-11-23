@@ -58,6 +58,13 @@
     <string name="add_favorite">Thêm %1$s vào yêu thích</string>
     <string name="remove_favorite">Bỏ %1$s khỏi yêu thích</string>
     <string name="product_detail_title">Chi tiết sản phẩm</string>
+    <string name="recommendations_for_you">Gợi ý cho bạn</string>
+    <string name="recommendations_similar">Sản phẩm tương tự</string>
+    <string name="recommendations_favorite_hint">Lưu sản phẩm yêu thích để nhận gợi ý phù hợp hơn.</string>
+    <string name="recommendations_empty">Hiện chưa có sản phẩm mới để gợi ý.</string>
+    <string name="recommendation_favorite">Dựa trên mục yêu thích: %1$s</string>
+    <string name="recommendation_same_category">Cùng danh mục</string>
+    <string name="recommendation_similar_content">Thông tin sản phẩm tương tự</string>
     <string name="back_action">Quay lại</string>
     <string name="product_description">Về sản phẩm</string>
     <string name="product_ingredients">Thành phần nổi bật</string>

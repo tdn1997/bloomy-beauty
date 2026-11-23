@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -101,6 +102,33 @@ class HomeFlowTest {
         compose.waitUntil(5_000) { viewModel.state.value.query.isEmpty() }
         compose.onNodeWithTag("product_grid").performScrollToNode(hasText("8 sản phẩm"))
         compose.onNodeWithText("8 sản phẩm").assertIsDisplayed()
+    }
+
+    @Test
+    fun recommendationsUpdateAfterSavingFavoriteAndRelatedDetailsReturnToTheirSource() {
+        val grid = compose.onNodeWithTag("product_grid")
+        grid.performScrollToNode(hasText("Gợi ý cho bạn"))
+        compose.onNodeWithText("Gợi ý cho bạn").performClick()
+        compose.onNodeWithText("Lưu sản phẩm yêu thích để nhận gợi ý phù hợp hơn.").assertIsDisplayed()
+        compose.onNodeWithTag("recommendation-cleanser").performClick()
+        compose.onNodeWithContentDescription("Thêm Gel bí đao rửa mặt vào yêu thích").performClick()
+        compose.waitUntil(10_000) {
+            "cleanser" in viewModel.state.value.favoriteIds && !viewModel.state.value.savingFavorite
+        }
+
+        compose.onNodeWithText("Sản phẩm tương tự").performScrollTo().assertIsDisplayed()
+        compose.onNodeWithTag("recommendation-micellar").performScrollTo().performClick()
+        compose.onNodeWithContentDescription("Thêm Nước tẩy trang bí đao vào yêu thích").assertIsDisplayed()
+        compose.onNodeWithContentDescription("Quay lại").performClick()
+        compose.onNodeWithContentDescription("Bỏ Gel bí đao rửa mặt khỏi yêu thích").assertIsDisplayed()
+        compose.onNodeWithContentDescription("Quay lại").performClick()
+
+        compose.onNodeWithText("Gợi ý cho bạn").assertIsDisplayed()
+        compose.onNodeWithTag("recommendation-cleanser").assertDoesNotExist()
+        compose.onNodeWithTag("recommendation-micellar")
+            .assertTextContains("Dựa trên mục yêu thích: Gel bí đao rửa mặt")
+        compose.onNodeWithContentDescription("Quay lại").performClick()
+        grid.assertIsDisplayed()
     }
 
     private fun capture(name: String) {
